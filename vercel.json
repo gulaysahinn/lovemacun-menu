@@ -1,0 +1,17 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "redirects": [
+    { "source": "/menu", "destination": "/", "permanent": true },
+    { "source": "/menu/", "destination": "/", "permanent": true },
+    { "source": "/hakkimizda", "destination": "/hikayemiz", "permanent": true },
+    { "source": "/hakkimizda/", "destination": "/hikayemiz", "permanent": true },
+    { "source": "/rezervasyon", "destination": "/iletisim", "permanent": true },
+    { "source": "/rezervasyon/", "destination": "/iletisim", "permanent": true },
+    { "source": "/galeri", "destination": "/hikayemiz", "permanent": true },
+    { "source": "/galeri/", "destination": "/hikayemiz", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

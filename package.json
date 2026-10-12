@@ -1,0 +1,27 @@
+{
+  "name": "lovemacun-menu",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "predev": "node scripts/gen-images.mjs",
+    "dev": "vite",
+    "prebuild": "node scripts/gen-images.mjs",
+    "build": "vite build",
+    "preview": "vite preview",
+    "optimize:images": "node scripts/optimize-images.mjs"
+  },
+  "dependencies": {
+    "framer-motion": "^14.0.0",
+    "lucide-react": "^1.55.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.18.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "puppeteer-core": "^24.43.1",
+    "sharp": "^0.35.5",
+    "vite": "^5.4.0"
+  }
+}

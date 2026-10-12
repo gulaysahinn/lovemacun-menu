@@ -1,0 +1,9 @@
+/menu/         /          301
+/menu          /          301
+/hakkimizda/   /hikayemiz 301
+/hakkimizda    /hikayemiz 301
+/rezervasyon/  /iletisim  301
+/rezervasyon   /iletisim  301
+/galeri/       /hikayemiz 301
+/galeri        /hikayemiz 301
+/*             /index.html 200

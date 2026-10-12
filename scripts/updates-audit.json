@@ -1,0 +1,78 @@
+{
+  "hero": {
+    "videoSrc": "/hero.mp4",
+    "videoPoster": "/img/lahmacun-hero.webp",
+    "slidesCount": 3
+  },
+  "featured": [
+    {
+      "title": "Kebaplı Lahmacun",
+      "action": "Detay",
+      "mixBlendMode": "multiply",
+      "filter": "brightness(1.2) contrast(1.1)",
+      "imgSrc": "/img/lahmacun/lovemacunn-restaurant-kebapli-lahmacun-400x400.webp"
+    },
+    {
+      "title": "Kıymalı Kaşarlı Pide",
+      "action": "Detay",
+      "mixBlendMode": "multiply",
+      "filter": "brightness(1.2) contrast(1.1)",
+      "imgSrc": "/img/pide/lovemacunn-restaurant-kiymali-kasarli-400x400.webp"
+    },
+    {
+      "title": "İskender Kebap",
+      "action": "Detay",
+      "mixBlendMode": "multiply",
+      "filter": "brightness(1.2) contrast(1.1)",
+      "imgSrc": "/img/et/lovemacunn-restaurant-iskender-400x400.webp"
+    },
+    {
+      "title": "Künefe",
+      "action": "Detay",
+      "mixBlendMode": "multiply",
+      "filter": "brightness(1.2) contrast(1.1)",
+      "imgSrc": "/img/tatlilar/lovemacunn-restaurant-kunefe-400x400.webp"
+    }
+  ],
+  "gallery": {
+    "count": 11,
+    "sources": [
+      "/img/lahmacun/lovemacunn-restaurant-kebapli-lahmacun-400x400.webp",
+      "/img/pide/lovemacunn-restaurant-kiymali-kasarli-400x400.webp",
+      "/img/et/lovemacunn-restaurant-iskender-400x400.webp",
+      "/img/tatlilar/lovemacunn-restaurant-kunefe-400x400.webp",
+      "/img/baliklar/lovemacunn-restaurant-levrek-400x400.webp",
+      "/img/pizza/lovemacunn-restaurant-karisik-pizza-400x400.webp",
+      "/img/et/lovemacunn-restaurant-adana-kebap-400x400.webp",
+      "/img/pide/lovemacunn-restaurant-kusbasi-kasar-400x400.webp",
+      "/img/tatlilar/lovemacunn-restaurant-baklava-400x400.webp",
+      "/img/baliklar/lovemacunn-restaurant-kalamar-400x400.webp",
+      "/img/makarnalar/lovemacunn-restaurant-fettucine-400x400.webp"
+    ],
+    "allLoaded": false,
+    "brokenCount": 7
+  },
+  "menuCards": {
+    "totalCards": 6,
+    "hasSiparisText": false,
+    "firstCardTitle": "Kebaplı Lahmacun",
+    "firstCardDesc": "Kömür ateşinde pişmiş Adana veya Urfa kebabı sarılarak servis edilir.",
+    "firstCardButtonText": "Detay"
+  },
+  "bottomSheet": {
+    "title": "Kebaplı Lahmacun",
+    "desc": "Kömür ateşinde pişmiş Adana veya Urfa kebabı sarılarak servis edilir.",
+    "price": "595 ₺",
+    "actionBtn": "Kapat",
+    "hasSiparis": false,
+    "hasLargeImage": true,
+    "imgSrc": "/img/lahmacun/lovemacunn-restaurant-kebapli-lahmacun-400x400.webp"
+  },
+  "desktopGrid": {
+    "gridColumns": 2,
+    "totalCards": 8,
+    "lastCardCenterX": 933,
+    "gridCenterX": 640,
+    "lastCardCentered": false
+  }
+}

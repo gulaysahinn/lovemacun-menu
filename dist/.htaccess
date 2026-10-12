@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Eski WordPress Sayfaları İçin 301 Yönlendirmeleri (Google SEO koruması)
+  RewriteRule ^menu/?$ / [R=301,L,NE]
+  RewriteRule ^hakkimizda/?$ /hikayemiz [R=301,L,NE]
+  RewriteRule ^rezervasyon/?$ /iletisim [R=301,L,NE]
+  RewriteRule ^galeri/?$ /hikayemiz [R=301,L,NE]
+
+  # SPA Rewrite: Gerçek dosya veya dizin yoksa index.html'e yönlendir
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
