@@ -3770,7 +3770,7 @@ footer {
   transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease !important;
   cursor: pointer !important;
   height: 100% !important;
-  min-height: 270px !important;
+  min-height: auto !important;
   box-sizing: border-box !important;
 }
 
@@ -4204,21 +4204,32 @@ footer {
 }
 
 @media (max-width: 768px) {
+  /* Kartları mobilde bir tık daha kompakt yap (gereksiz boşlukları al) */
+  .menu-card {
+    min-height: auto !important;
+    border-radius: 14px !important;
+  }
+
+  /* Görsel: Kartın tam genişliğini (100%) kaplasın, 4:3 oranında cover ile dolsun */
   .menu-card .card-media {
-    width: 104px !important;
-    height: 104px !important;
-    min-width: 104px !important;
-    min-height: 104px !important;
-    aspect-ratio: 1 / 1 !important;
-    border-radius: 12px !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 4 / 3 !important;
+    border-radius: 13px 13px 0 0 !important;
     flex-shrink: 0 !important;
     padding: 0 !important;
     margin: 0 !important;
     overflow: hidden !important;
     display: block !important;
+    background: #170d08 !important;
   }
+
   .menu-card .card-media img,
-  .menu-card .card-media .card-img {
+  .menu-card .card-media .card-img,
+  .menu-card .card-media-img {
     width: 100% !important;
     height: 100% !important;
     min-width: 100% !important;
@@ -4230,6 +4241,53 @@ footer {
     margin: 0 !important;
     max-width: none !important;
     max-height: none !important;
+    border-radius: 0 !important;
+  }
+
+  /* Mobilde kalp butonunu kompakt boyuta ayarla */
+  .menu-card .card-heart-btn {
+    top: 5px !important;
+    right: 5px !important;
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    min-height: 34px !important;
+  }
+
+  .menu-card .card-heart-btn svg {
+    width: 15px !important;
+    height: 15px !important;
+  }
+
+  /* Kart içeriğini mobilde daha derli toplu ve kompakt yap (bir tık küçült) */
+  .menu-card .card-body {
+    padding: 8px 9px 9px !important;
+    gap: 4px !important;
+  }
+
+  .menu-card .card-content-top {
+    gap: 2px !important;
+  }
+
+  .menu-card .card-title {
+    font-size: 0.88rem !important;
+    line-height: 1.22 !important;
+  }
+
+  .menu-card .card-desc {
+    font-size: 0.74rem !important;
+    line-height: 1.28 !important;
+    color: #bfaea0 !important;
+    -webkit-line-clamp: 2 !important;
+  }
+
+  .menu-card .card-footer {
+    padding-top: 5px !important;
+    margin-top: 3px !important;
+  }
+
+  .menu-card .card-price-amount {
+    font-size: 1.02rem !important;
   }
 }
 
