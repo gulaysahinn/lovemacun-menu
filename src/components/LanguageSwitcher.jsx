@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { ChevronDown, X } from 'lucide-react'
+import { asset } from '../utils/asset.js'
 
 export const LANGUAGES = [
   { code: 'tr', name: 'Türkçe', short: 'TR', flag: '/flags/tr.png' },
@@ -148,7 +149,7 @@ export function LanguageSwitcher({ align = 'right', dropUp = false, compact = fa
         aria-label={`Dil seçimi: Şu anki dil ${activeLang.name}`}
       >
         <img
-          src={activeLang.flag}
+          src={asset(activeLang.flag)}
           alt={activeLang.short}
           className="lang-flag-icon"
           width="20"
@@ -180,7 +181,7 @@ export function LanguageSwitcher({ align = 'right', dropUp = false, compact = fa
                 onClick={() => setLanguage(lang.code)}
               >
                 <img
-                  src={lang.flag}
+                  src={asset(lang.flag)}
                   alt=""
                   className="lang-option-flag"
                   width="22"
@@ -226,7 +227,7 @@ export function LanguageSwitcher({ align = 'right', dropUp = false, compact = fa
                     onClick={() => setLanguage(lang.code)}
                   >
                     <img
-                      src={lang.flag}
+                      src={asset(lang.flag)}
                       alt=""
                       className="lang-sheet-flag"
                       width="24"

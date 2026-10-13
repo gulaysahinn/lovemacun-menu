@@ -3,6 +3,7 @@ import { Calendar, User, ArrowRight, Clock } from 'lucide-react'
 import { PageMeta } from '../components/PageMeta.jsx'
 import { BLOG_POSTS } from '../data/blog.js'
 import { CONFIG } from '../config.js'
+import { asset } from '../utils/asset.js'
 
 function InstagramIcon({ size = 16 }) {
   return (
@@ -43,9 +44,9 @@ export function BlogListPage() {
             <Link to={`/${post.slug}`} className="blog-card-media-link" tabIndex={-1}>
               <div className="blog-card-media">
                 <picture>
-                  <source srcSet="/blog/WhatsApp-Image-2026-06-08-at-16.16.22.webp" type="image/webp" />
+                  <source srcSet={asset('/blog/WhatsApp-Image-2026-06-08-at-16.16.22.webp')} type="image/webp" />
                   <img
-                    src={post.image}
+                    src={asset(post.image)}
                     alt={post.title}
                     className="blog-card-img"
                     width="1200"

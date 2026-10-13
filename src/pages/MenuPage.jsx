@@ -31,24 +31,27 @@ const slug = (s) =>
         .replace(/^-+|-+$/g, '')
     : ''
 
+import { asset } from '../utils/asset.js'
+
 const getImg = (name, manualImg) => {
   if (manualImg) {
-    const lg = manualImg.replace(/-sm\.webp$/, '.webp')
-    const cut = manualImg.replace(/\/img\//, '/img-cut/').replace(/-sm\.webp$/, '.webp')
-    const cutSm = manualImg.replace(/\/img\//, '/img-cut/').replace(/\.webp$/, '-sm.webp')
-    return { sm: manualImg, lg, cut: cut || lg, cutSm: cutSm || manualImg }
+    const sm = asset(manualImg)
+    const lg = asset(manualImg.replace(/-sm\.webp$/, '.webp'))
+    const cut = asset(manualImg.replace(/\/img\//, '/img-cut/').replace(/-sm\.webp$/, '.webp'))
+    const cutSm = asset(manualImg.replace(/\/img\//, '/img-cut/').replace(/\.webp$/, '-sm.webp'))
+    return { sm, lg, cut: cut || lg, cutSm: cutSm || sm }
   }
   const entry = images[slug(name)]
   if (!entry) return null
   if (typeof entry === 'string') {
-    const lg = entry.replace(/-sm\.webp$/, '.webp')
-    return { sm: entry, lg, cut: lg, cutSm: entry }
+    const lg = asset(entry.replace(/-sm\.webp$/, '.webp'))
+    return { sm: asset(entry), lg, cut: lg, cutSm: asset(entry) }
   }
   return {
-    sm: entry.sm,
-    lg: entry.lg,
-    cut: entry.cut || entry.lg || entry.sm,
-    cutSm: entry.cutSm || entry.cut || entry.sm,
+    sm: asset(entry.sm),
+    lg: asset(entry.lg),
+    cut: asset(entry.cut || entry.lg || entry.sm),
+    cutSm: asset(entry.cutSm || entry.cut || entry.sm),
   }
 }
 

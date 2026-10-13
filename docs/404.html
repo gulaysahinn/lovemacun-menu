@@ -1,56 +1,98 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>404 - Sayfa Bulunamadı | Taş Fırın Lovemacun</title>
-  <style>
-    body {
-      background: #0f0805;
-      color: #faf5ee;
-      font-family: system-ui, -apple-system, sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      margin: 0;
-      padding: 24px;
-      box-sizing: border-box;
-      text-align: center;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#14100d" />
+    <title>Taş Fırın Lovemacun | Büyükada Menü</title>
+    <meta name="description" content="Büyükada Taş Fırın Lovemacun: taş fırında çıtır lahmacun ve pide, kömür ateşinde kebaplar ve zengin ada lezzetleri." />
+    <link rel="canonical" href="https://tasfirinlovemacun.com/" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="./favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Lovemacun" />
+
+    <!-- Open Graph & Sosyal Paylaşım -->
+    <meta property="og:type" content="restaurant" />
+    <meta property="og:title" content="Taş Fırın Lovemacun | Büyükada Menü" />
+    <meta property="og:description" content="Büyükada'da taş fırın lezzetleri: çıtır lahmacun, el açması pide ve kömür ateşinde kebaplar." />
+    <meta property="og:image" content="/hero/hero-desktop.webp" />
+    <meta property="og:url" content="https://tasfirinlovemacun.com/" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Taş Fırın Lovemacun | Büyükada Menü" />
+    <meta name="twitter:description" content="Büyükada Taş Fırın Lovemacun menüsü." />
+    <meta name="twitter:image" content="/hero/hero-desktop.webp" />
+
+    <!-- Restoran Yapılandırılmış Verisi (JSON-LD Schema) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Taş Fırın Lovemacun",
+      "image": "https://tasfirinlovemacun.com/hero/hero-desktop.webp",
+      "@id": "https://tasfirinlovemacun.com",
+      "url": "https://tasfirinlovemacun.com",
+      "telephone": "+902163821505",
+      "priceRange": "₺₺",
+      "servesCuisine": ["Turkish", "Lahmacun", "Pide", "Kebap"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Nizam, Düz Sk. no: 1",
+        "addressLocality": "Adalar",
+        "addressRegion": "İstanbul",
+        "postalCode": "34970",
+        "addressCountry": "TR"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "08:30",
+          "closes": "23:00"
+        }
+      ],
+      "hasMenu": "https://tasfirinlovemacun.com/#menu",
+      "sameAs": [
+        "https://www.instagram.com/tasfirinlovemacunn/"
+      ]
     }
-    .card {
-      max-width: 480px;
-      background: #180d08;
-      border: 1px solid rgba(255, 120, 40, 0.2);
-      border-radius: 20px;
-      padding: 40px 24px;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.6);
-    }
-    .emoji { font-size: 54px; margin-bottom: 12px; display: inline-block; }
-    h1 { font-size: 26px; color: #ff6b00; margin: 12px 0 8px; }
-    p { color: #d0c2b5; font-size: 15px; line-height: 1.6; margin-bottom: 24px; }
-    a {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: linear-gradient(135deg, #ff6b00, #ff8800);
-      color: #fff;
-      text-decoration: none;
-      padding: 12px 28px;
-      border-radius: 99px;
-      font-weight: 600;
-      font-size: 15px;
-      transition: opacity 0.2s;
-    }
-    a:hover { opacity: 0.9; }
-  </style>
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="preload" as="image" href="./hero/hero-mobile.webp" media="(max-width: 768px)" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="./hero/hero-desktop.webp" media="(min-width: 769px)" type="image/webp" fetchpriority="high" />
+  <style>#skel{background:#0a0604;min-height:100vh}#skel *{background:linear-gradient(90deg,#1a120d 25%,#2b1b12 50%,#1a120d 75%);background-size:200% 100%;animation:sk 1.3s infinite;border-radius:16px}.sk-h{height:55vh;border-radius:0!important}.sk-t{display:flex;gap:8px;padding:14px}.sk-t i{height:40px;width:90px;border-radius:99px;flex:none}.sk-g{display:grid;gap:12px;padding:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}.sk-g b{height:260px}@keyframes sk{to{background-position:-200% 0}}</style>  <script type="module" crossorigin src="./assets/index-O7yQFMMW.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-dLiqpthP.css">
 </head>
-<body>
-  <div class="card">
-    <div class="emoji">🍕</div>
-    <h1>Aradığınız Lezzet Bulunamadı</h1>
-    <p>Ulaşmaya çalıştığınız sayfa mevcut değil veya taşınmış olabilir. Menümüze göz atabilirsiniz.</p>
-    <a href="/">Taş Fırın Lovemacun Menüye Dön</a>
-  </div>
-</body>
+  <body>
+    <div id="root"><div id="skel"><div class="sk-h"></div><div class="sk-t"><i></i><i></i><i></i><i></i><i></i></div><div class="sk-g"><b></b><b></b><b></b></div></div></div>
+    <!-- Google Translate Script & Element (İsteğe bağlı/On-demand yüklenir) -->
+    <div id="google_translate_element" style="display: none;" aria-hidden="true"></div>
+    <script type="text/javascript">
+      window.googleTranslateElementInit = function() {
+        if (window.google && window.google.translate) {
+          new window.google.translate.TranslateElement({
+            pageLanguage: 'tr',
+            includedLanguages: 'ar,zh-CN,nl,en,fr,de,fa,ru,es,tr',
+            autoDisplay: false
+          }, 'google_translate_element');
+        }
+      };
+    </script>
+  </body>
 </html>

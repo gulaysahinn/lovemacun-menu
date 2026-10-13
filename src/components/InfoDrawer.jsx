@@ -12,6 +12,7 @@ import {
   UtensilsCrossed
 } from 'lucide-react'
 import { CONFIG } from '../config.js'
+import { asset } from '../utils/asset.js'
 
 function InstagramIcon({ size = 16 }) {
   return (
@@ -76,7 +77,7 @@ export function InfoDrawer({ isOpen, onClose }) {
             <div className="info-drawer-header">
               <div className="info-drawer-brand">
                 <img
-                  src="/logo-badge.png"
+                  src={asset('/logo-badge.png')}
                   alt="Taş Fırın Lovemacun"
                   className="info-drawer-logo"
                   width="44"

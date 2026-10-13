@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { asset } from '../utils/asset.js'
 
 export function HeroVideo({
   baseName = 'lahmacun',
@@ -98,14 +99,15 @@ export function HeroVideo({
   }, [shouldLoadVideo])
 
   const suffix = isMobile ? '540p' : '720p'
-  const webmSrc = `/video/${baseName}-${suffix}.webm`
-  const mp4Src = `/video/${baseName}-${suffix}.mp4`
+  const resolvedPoster = asset(poster || `/video/${baseName}-poster.webp`)
+  const webmSrc = asset(`/video/${baseName}-${suffix}.webm`)
+  const mp4Src = asset(`/video/${baseName}-${suffix}.mp4`)
 
   return (
     <div ref={containerRef} className={`hero-video-container ${className}`}>
       {/* Poster image: always visible initially, smooth transition once video plays */}
       <img
-        src={poster}
+        src={resolvedPoster}
         alt={alt}
         className={`hero-video-poster ${videoReady ? 'fade-out' : ''}`}
         fetchpriority="high"
@@ -122,7 +124,7 @@ export function HeroVideo({
           loop
           playsInline
           preload="metadata"
-          poster={poster}
+          poster={resolvedPoster}
           onPlaying={() => setVideoReady(true)}
           onError={() => setVideoReady(false)}
         >

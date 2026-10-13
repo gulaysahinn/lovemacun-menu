@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom'
 import { CONFIG } from '../config.js'
 import { LanguageSwitcher } from './LanguageSwitcher.jsx'
 
+import { asset } from '../utils/asset.js'
+
 export function Footer() {
   return (
     <footer className="site-footer">
@@ -9,7 +11,7 @@ export function Footer() {
       <div className="container footer-inner">
         {/* 1. Marka */}
         <div className="footer-col footer-brand">
-          <img src="/logo-badge.png" alt="Taş Fırın Lovemacun" className="footer-logo" width="72" height="72" />
+          <img src={asset('/logo-badge.png')} alt="Taş Fırın Lovemacun" className="footer-logo" width="72" height="72" />
           <h2 className="footer-title notranslate" translate="no">{CONFIG.name}</h2>
           <p className="footer-slogan">Aşkla yoğrulan hamur, eşsiz lezzet.</p>
         </div>

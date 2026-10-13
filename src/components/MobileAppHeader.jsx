@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Search, Menu } from 'lucide-react'
 import { CONFIG } from '../config.js'
+import { asset } from '../utils/asset.js'
 
 export function MobileAppHeader({ onOpenSearch, onOpenHamburger, isHamburgerOpen }) {
   return (
@@ -9,7 +10,7 @@ export function MobileAppHeader({ onOpenSearch, onOpenHamburger, isHamburgerOpen
         {/* Sol: Logo + Marka Adı (320px'te taşmayı önlemek için ellipsis) */}
         <Link to="/" className="mobile-app-brand notranslate" translate="no">
           <img
-            src="/logo-badge.png"
+            src={asset('/logo-badge.png')}
             alt="Taş Fırın Lovemacun"
             className="mobile-app-logo"
             width="34"

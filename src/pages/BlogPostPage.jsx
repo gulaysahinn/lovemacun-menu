@@ -20,6 +20,7 @@ import { PageMeta } from '../components/PageMeta.jsx'
 import { CONFIG } from '../config.js'
 import { BLOG_POSTS } from '../data/blog.js'
 import images from '../images.json'
+import { asset } from '../utils/asset.js'
 
 function InstagramIcon({ size = 16 }) {
   return (
@@ -37,25 +38,25 @@ const FEATURED_MENU_ITEMS = [
     name: 'Soğanlı Lahmacun',
     price: 255,
     catId: 'lahmacun',
-    img: images['soganli-lahmacun']?.sm || images['soganli-lahmacun']?.lg
+    img: asset(images['soganli-lahmacun']?.sm || images['soganli-lahmacun']?.lg)
   },
   {
     name: 'Kaşarlı Lahmacun',
     price: 310,
     catId: 'lahmacun',
-    img: images['kasarli-lahmacun']?.sm || images['kasarli-lahmacun']?.lg
+    img: asset(images['kasarli-lahmacun']?.sm || images['kasarli-lahmacun']?.lg)
   },
   {
     name: 'Kıymalı Pide',
     price: 540,
     catId: 'pide',
-    img: images['kiymali-pide']?.sm || images['kiymali-pide']?.lg
+    img: asset(images['kiymali-pide']?.sm || images['kiymali-pide']?.lg)
   },
   {
     name: 'Kaşarlı Pide',
     price: 495,
     catId: 'pide',
-    img: images['kasarli-pide']?.sm || images['kasarli-pide']?.lg
+    img: asset(images['kasarli-pide']?.sm || images['kasarli-pide']?.lg)
   }
 ]
 
@@ -63,7 +64,7 @@ export function BlogPostPage() {
   const post = BLOG_POSTS[0]
   const [copied, setCopied] = useState(false)
   const [galleryImages, setGalleryImages] = useState(null)
-  const [coverSrc, setCoverSrc] = useState('/blog/WhatsApp-Image-2026-06-08-at-16.16.22.webp')
+  const [coverSrc, setCoverSrc] = useState(asset('/blog/WhatsApp-Image-2026-06-08-at-16.16.22.webp'))
   const progressBarRef = useRef(null)
 
   // Kelime sayısı ve okuma süresi hesabı (dakikada ~200 kelime)
@@ -75,30 +76,30 @@ export function BlogPostPage() {
   useEffect(() => {
     // cover.webp kontrolü
     const testCover = new Image()
-    testCover.src = '/blog/cover.webp'
-    testCover.onload = () => setCoverSrc('/blog/cover.webp')
+    const targetCover = asset('/blog/cover.webp')
+    testCover.src = targetCover
+    testCover.onload = () => setCoverSrc(targetCover)
 
     // gallery kontrolü (1, 2, 3 tamamsa render edilir)
     const g1 = new Image()
     const g2 = new Image()
     const g3 = new Image()
+    const src1 = asset('/blog/gallery-1.webp')
+    const src2 = asset('/blog/gallery-2.webp')
+    const src3 = asset('/blog/gallery-3.webp')
     let loadedCount = 0
     const onImgLoad = () => {
       loadedCount++
       if (loadedCount === 3) {
-        setGalleryImages([
-          '/blog/gallery-1.webp',
-          '/blog/gallery-2.webp',
-          '/blog/gallery-3.webp'
-        ])
+        setGalleryImages([src1, src2, src3])
       }
     }
     g1.onload = onImgLoad
     g2.onload = onImgLoad
     g3.onload = onImgLoad
-    g1.src = '/blog/gallery-1.webp'
-    g2.src = '/blog/gallery-2.webp'
-    g3.src = '/blog/gallery-3.webp'
+    g1.src = src1
+    g2.src = src2
+    g3.src = src3
   }, [])
 
   // Header altında 3px turuncu okuma ilerleme çubuğu

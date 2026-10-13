@@ -5,6 +5,8 @@ import { Search, MapPin, Menu, X, UtensilsCrossed, Sparkles, ChevronRight, Phone
 import { CONFIG } from '../config.js'
 import { LanguageSwitcher } from './LanguageSwitcher.jsx'
 
+import { asset } from '../utils/asset.js'
+
 export function TopBar({ onOpenSearch, onOpenHamburger, isHamburgerOpen }) {
   const location = useLocation()
   const pathname = location.pathname
@@ -36,7 +38,7 @@ export function TopBar({ onOpenSearch, onOpenHamburger, isHamburgerOpen }) {
       <header className={`top-bar ${navScrolled ? 'scrolled' : ''}`}>
         <div className="container top-bar-inner">
           <Link to="/" className="top-bar-brand notranslate" translate="no">
-            <img src="/logo-badge.png" alt="Taş Fırın Lovemacun Logosu" className="brand-logo" width="46" height="46" />
+            <img src={asset('/logo-badge.png')} alt="Taş Fırın Lovemacun Logosu" className="brand-logo" width="46" height="46" />
             <span className="brand-name">{CONFIG.name}</span>
           </Link>
 

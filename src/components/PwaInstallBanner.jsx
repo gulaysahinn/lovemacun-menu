@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { PlusSquare, Share, X, Download } from 'lucide-react'
+import { asset } from '../utils/asset.js'
 
 const DISMISS_KEY = 'lovemacun_pwa_dismissed'
 
@@ -82,7 +83,7 @@ export function PwaInstallBanner() {
 
         <div className="pwa-banner-left">
           <img
-            src="/icons/icon-192x192.png"
+            src={asset('/icons/icon-192x192.png')}
             alt="Taş Fırın Lovemacun Logosu"
             className="pwa-banner-logo"
             width="42"

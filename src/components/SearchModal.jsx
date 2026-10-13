@@ -44,19 +44,22 @@ const slug = (s) =>
         .replace(/^-+|-+$/g, '')
     : ''
 
+import { asset } from '../utils/asset.js'
+
 const getImg = (name, manualImg) => {
   if (manualImg) {
-    const lg = manualImg.replace(/-sm\.webp$/, '.webp')
-    const cut = manualImg.replace(/\/img\//, '/img-cut/').replace(/-sm\.webp$/, '.webp')
-    return { sm: manualImg, lg, cut: cut || lg }
+    const sm = asset(manualImg)
+    const lg = asset(manualImg.replace(/-sm\.webp$/, '.webp'))
+    const cut = asset(manualImg.replace(/\/img\//, '/img-cut/').replace(/-sm\.webp$/, '.webp'))
+    return { sm, lg, cut: cut || lg }
   }
   const entry = images[slug(name)]
   if (!entry) return null
   if (typeof entry === 'string') {
-    const lg = entry.replace(/-sm\.webp$/, '.webp')
-    return { sm: entry, lg, cut: lg }
+    const lg = asset(entry.replace(/-sm\.webp$/, '.webp'))
+    return { sm: asset(entry), lg, cut: lg }
   }
-  return { sm: entry.sm, lg: entry.lg, cut: entry.cut || entry.lg }
+  return { sm: asset(entry.sm), lg: asset(entry.lg), cut: asset(entry.cut || entry.lg) }
 }
 
 const allProducts = CATS.flatMap((c) =>

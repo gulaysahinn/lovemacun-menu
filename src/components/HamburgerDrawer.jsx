@@ -16,6 +16,7 @@ import {
 } from 'lucide-react'
 import { CONFIG } from '../config.js'
 import { LANGUAGES, getInitialLang, applyLanguage, loadGoogleTranslateScript } from './LanguageSwitcher.jsx'
+import { asset } from '../utils/asset.js'
 
 function InstagramIcon({ size = 16 }) {
   return (
@@ -125,7 +126,7 @@ export function HamburgerDrawer({ isOpen, onClose, onOpenSearch }) {
             <div className="hbg-drawer-head">
               <Link to="/" className="hbg-drawer-brand notranslate" translate="no" onClick={onClose}>
                 <img
-                  src="/logo-badge.png"
+                  src={asset('/logo-badge.png')}
                   alt="Taş Fırın Lovemacun Logosu"
                   className="hbg-drawer-logo"
                   width="38"

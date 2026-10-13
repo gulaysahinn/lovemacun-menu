@@ -16,6 +16,7 @@ import { PageMeta } from '../components/PageMeta.jsx'
 import { HeroVideo } from '../components/HeroVideo.jsx'
 import { CATS, INFO } from '../menu.js'
 import { CONFIG } from '../config.js'
+import { asset } from '../utils/asset.js'
 
 const validCats = CATS.filter((c) => c.items && c.items.length > 0)
 const totalDishes = validCats.reduce((n, c) => n + c.items.length, 0)
@@ -76,9 +77,9 @@ export function StoryPage() {
     targetTilt.current = { x: 0, y: 0 }
   }
 
-  const platePide = '/img-cut/pide/lovemacunn-restaurant-kiymali-kasarli-400x400.webp'
-  const plateIskender = '/img-cut/et/lovemacunn-restaurant-iskender-400x400.webp'
-  const plateKunefe = '/img-cut/tatlilar/lovemacunn-restaurant-kunefe-400x400.webp'
+  const platePide = asset('/img-cut/pide/lovemacunn-restaurant-kiymali-kasarli-400x400.webp')
+  const plateIskender = asset('/img-cut/et/lovemacunn-restaurant-iskender-400x400.webp')
+  const plateKunefe = asset('/img-cut/tatlilar/lovemacunn-restaurant-kunefe-400x400.webp')
 
   return (
     <div className="story-page">
@@ -92,7 +93,7 @@ export function StoryPage() {
       <section className="story-hero-section">
         <HeroVideo
           baseName="iskender"
-          poster="/video/iskender-poster.webp"
+          poster={asset('/video/iskender-poster.webp')}
           alt="Taş Fırın İskender ve Kömür Ateşi"
         />
         <div className="hero-video-shade" aria-hidden="true" />
@@ -190,7 +191,7 @@ export function StoryPage() {
         <div className="story-photo-showcase">
           <div className="story-photo-frame">
             <img
-              src="/about/lovemacun-story-banner.jpg"
+              src={asset('/about/lovemacun-story-banner.jpg')}
               alt="Taş Fırın Lovemacun Büyükada Restoranı ve Ustalarımız"
               className="story-banner-img"
               loading="lazy"

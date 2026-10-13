@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { asset } from './utils/asset.js'
 
 // public/ingredients/ altındaki tüm görselleri dinamik tara
 const INGREDIENTS_GLOB = import.meta.glob('/public/ingredients/*.{webp,png,jpg,svg}', { eager: true })
@@ -155,7 +156,7 @@ export default function HeroFoodAnimation({ mouseOffset, scrollOffset }) {
 
           {/* Büyük cutout taş fırın lahmacun */}
           <img
-            src="/img-cut/lahmacun/lovemacunn-restaurant-kebapli-lahmacun-400x400.webp"
+            src={asset('/img-cut/lahmacun/lovemacunn-restaurant-kebapli-lahmacun-400x400.webp')}
             alt="Taş Fırın Lahmacun"
             width="380"
             height="380"
@@ -197,7 +198,7 @@ export default function HeroFoodAnimation({ mouseOffset, scrollOffset }) {
                 {/* 5-9 sn arası desenkronize yukarı-aşağı süzülme ve hafif rotasyon döngüsü */}
                 <div className="hero-ingredient-float">
                   <img
-                    src={item.file}
+                    src={asset(item.file)}
                     alt={item.name}
                     width={item.size}
                     height={item.size}
