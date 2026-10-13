@@ -1,1 +1,30 @@
-node_modules
+# Dependencies
+node_modules/
+
+# Production build
+dist/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Lighthouse & Audit reports (prevents secret scanner false alarms from captured network requests)
+lighthouse*.json
+lh-*.json
+*-report*.json
+*-report.html
+scripts/*-report*.json
+scripts/audit-results.json
+scripts/updates-audit.json
+scripts/lighthouse-report.json
+
+# OS files
+.DS_Store
+Thumbs.db
