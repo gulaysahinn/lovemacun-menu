@@ -1,15 +1,16 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Search, MapPin, Menu, X, UtensilsCrossed, Sparkles, ChevronRight, Phone, Clock, BookOpen } from 'lucide-react'
+import { Search, MapPin, Menu, X, UtensilsCrossed, Calendar } from 'lucide-react'
 import { CONFIG } from '../config.js'
 import { LanguageSwitcher } from './LanguageSwitcher.jsx'
-
 import { asset } from '../utils/asset.js'
+import { useLang, t } from '../utils/i18n.js'
 
 export function TopBar({ onOpenSearch, onOpenHamburger, isHamburgerOpen }) {
   const location = useLocation()
   const pathname = location.pathname
   const [navScrolled, setNavScrolled] = useState(false)
+  const lang = useLang()
 
   // Scroll detection for header style
   useEffect(() => {
@@ -31,6 +32,7 @@ export function TopBar({ onOpenSearch, onOpenHamburger, isHamburgerOpen }) {
   const isStory = pathname === '/hikayemiz' || pathname === '/hakkimizda'
   const isContact = pathname === '/iletisim'
   const isBlog = pathname.startsWith('/blog') || pathname.includes('buyukadada-ezber-bozan')
+  const isReservation = pathname === '/rezervasyon'
 
   return (
     <>
@@ -43,34 +45,34 @@ export function TopBar({ onOpenSearch, onOpenHamburger, isHamburgerOpen }) {
 
           {/* Desktop Navigation Links (≥ 1280px) */}
           <nav className="top-bar-links desktop-only" aria-label="Ana Gezinti">
-            <Link to="/" className={isMenu ? 'active' : ''}>Menü</Link>
+            <Link to="/" className={`notranslate ${isMenu ? 'active' : ''}`} translate="no">{t('menu', lang)}</Link>
             <span className="top-bar-sep">·</span>
-            <Link to="/hikayemiz" className={isStory ? 'active' : ''}>Hikayemiz</Link>
+            <Link to="/hikayemiz" className={`notranslate ${isStory ? 'active' : ''}`} translate="no">{t('story', lang)}</Link>
             <span className="top-bar-sep">·</span>
-            <Link to="/blog" className={isBlog ? 'active' : ''}>Blog</Link>
+            <Link to="/blog" className={`notranslate ${isBlog ? 'active' : ''}`} translate="no">{t('blog', lang)}</Link>
             <span className="top-bar-sep">·</span>
-            <Link to="/iletisim" className={isContact ? 'active' : ''}>İletişim</Link>
+            <Link to="/iletisim" className={`notranslate ${isContact ? 'active' : ''}`} translate="no">{t('contact', lang)}</Link>
           </nav>
 
           {/* Desktop Quick Info & Action Buttons (≥ 1280px) */}
           <div className="top-bar-actions desktop-only">
-            <span className="top-bar-hours">Her gün {CONFIG.hours}</span>
+            <span className="top-bar-hours notranslate" translate="no">{t('hoursEveryday', lang)}</span>
             <button
               type="button"
-              className="btn btn-top-search"
+              className="btn btn-top-search notranslate"
               onClick={onOpenSearch}
-              aria-label="Menüde ara"
+              aria-label={t('search', lang)}
+              translate="no"
             >
-              <Search size={15} /> Ara
+              <Search size={15} /> {t('search', lang)}
             </button>
-            <a
-              className="btn btn-top-route"
-              href={CONFIG.mapsDirectionsUrl}
-              target="_blank"
-              rel="noreferrer"
+            <Link
+              to="/rezervasyon"
+              className={`btn btn-top-reservation notranslate ${isReservation ? 'active' : ''}`}
+              translate="no"
             >
-              <MapPin size={15} /> Yol Tarifi
-            </a>
+              <Calendar size={15} /> {t('reservation', lang)}
+            </Link>
             <LanguageSwitcher align="right" />
           </div>
 

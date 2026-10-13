@@ -19,6 +19,9 @@ export const CONFIG = {
     label: 'İkincil Hat',
   },
 
+  // WhatsApp Rezervasyon Numarası (Kullanıcı sonradan ekleyecek; boşken buton gizlenir, arama butonları gösterilir)
+  whatsappNumber: '',
+
   // Çalışma Saatleri
   hours: '08:30 – 23:00',
   hoursDetail: 'Haftanın her günü 08:30 – 23:00 arası açık',

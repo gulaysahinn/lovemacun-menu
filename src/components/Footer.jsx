@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom'
 import { CONFIG } from '../config.js'
 import { LanguageSwitcher } from './LanguageSwitcher.jsx'
-
 import { asset } from '../utils/asset.js'
+import { useLang, t } from '../utils/i18n.js'
 
 export function Footer() {
+  const lang = useLang()
   return (
     <footer className="site-footer">
       <div className="footer-glow-line" aria-hidden="true" />
@@ -18,12 +19,13 @@ export function Footer() {
 
         {/* 2. Keşfet */}
         <div className="footer-col footer-nav">
-          <h4 className="footer-heading">Keşfet</h4>
+          <h4 className="footer-heading notranslate" translate="no">{lang === 'en' ? 'Explore' : 'Keşfet'}</h4>
           <div className="footer-links-list">
-            <Link to="/">Menü</Link>
-            <Link to="/hikayemiz">Hikayemiz</Link>
-            <Link to="/iletisim">İletişim & Konum</Link>
-            <Link to="/blog">Blog</Link>
+            <Link to="/" className="notranslate" translate="no">{t('menu', lang)}</Link>
+            <Link to="/hikayemiz" className="notranslate" translate="no">{t('story', lang)}</Link>
+            <Link to="/blog" className="notranslate" translate="no">{t('blog', lang)}</Link>
+            <Link to="/rezervasyon" className="notranslate" translate="no">{t('reservation', lang)}</Link>
+            <Link to="/iletisim" className="notranslate" translate="no">{t('contact', lang)}</Link>
             <div style={{ marginTop: '12px' }}>
               <LanguageSwitcher align="left" dropUp={true} />
             </div>

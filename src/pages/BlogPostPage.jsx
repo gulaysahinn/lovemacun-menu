@@ -32,33 +32,48 @@ function InstagramIcon({ size = 16 }) {
   )
 }
 
-// 4 Öne Çıkan Menü Ürünü (2 Lahmacun, 2 Pide)
-const FEATURED_MENU_ITEMS = [
-  {
-    name: 'Soğanlı Lahmacun',
-    price: 255,
-    catId: 'lahmacun',
-    img: asset(images['soganli-lahmacun']?.sm || images['soganli-lahmacun']?.lg)
-  },
-  {
-    name: 'Kaşarlı Lahmacun',
-    price: 310,
-    catId: 'lahmacun',
-    img: asset(images['kasarli-lahmacun']?.sm || images['kasarli-lahmacun']?.lg)
-  },
-  {
-    name: 'Kıymalı Pide',
-    price: 540,
-    catId: 'pide',
-    img: asset(images['kiymali-pide']?.sm || images['kiymali-pide']?.lg)
-  },
-  {
-    name: 'Kaşarlı Pide',
-    price: 495,
-    catId: 'pide',
-    img: asset(images['kasarli-pide']?.sm || images['kasarli-pide']?.lg)
+import { CATS, FEATURED } from '../menu.js'
+
+const slug = (s) =>
+  s
+    ? s
+        .replace(/İ/g, 'i')
+        .replace(/I/g, 'i')
+        .replace(/ı/g, 'i')
+        .replace(/ğ/g, 'g')
+        .replace(/Ğ/g, 'g')
+        .replace(/ü/g, 'u')
+        .replace(/Ü/g, 'u')
+        .replace(/ş/g, 's')
+        .replace(/Ş/g, 's')
+        .replace(/ö/g, 'o')
+        .replace(/Ö/g, 'o')
+        .replace(/ç/g, 'c')
+        .replace(/Ç/g, 'c')
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '')
+    : ''
+
+// Menü Verisinden Okunan Öne Çıkan Ürünler (Tek kaynak: menu.js)
+const FEATURED_MENU_ITEMS = FEATURED.map((featuredName) => {
+  for (const cat of CATS) {
+    for (const item of cat.items) {
+      const itemName = Array.isArray(item) ? item[0] : item.name
+      if (itemName === featuredName) {
+        const price = Array.isArray(item) ? item[1] : item.price
+        const imgEntry = images[slug(featuredName)]
+        const img = asset(
+          typeof imgEntry === 'string'
+            ? imgEntry
+            : imgEntry?.sm || imgEntry?.lg || '/img/lahmacun-hero.webp'
+        )
+        return { name: featuredName, price, catId: cat.id, img }
+      }
+    }
   }
-]
+  return null
+}).filter(Boolean)
 
 export function BlogPostPage() {
   const post = BLOG_POSTS[0]

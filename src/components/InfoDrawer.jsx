@@ -1,19 +1,21 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { createPortal } from 'react-dom'
 import { Link } from 'react-router-dom'
 import {
   X,
-  Sparkles,
-  BookOpen,
   Phone,
   MapPin,
   Clock,
-  ChevronRight,
-  UtensilsCrossed
+  Calendar,
+  Copy,
+  Check,
+  BookOpen
 } from 'lucide-react'
 import { CONFIG } from '../config.js'
 import { asset } from '../utils/asset.js'
+import { useLang, t } from '../utils/i18n.js'
 
-function InstagramIcon({ size = 16 }) {
+function InstagramIcon({ size = 20 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
@@ -23,19 +25,57 @@ function InstagramIcon({ size = 16 }) {
   )
 }
 
+function getIstanbulStatus(lang = 'tr') {
+  try {
+    const now = new Date()
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'Europe/Istanbul',
+      hour: 'numeric',
+      minute: 'numeric',
+      hourCycle: 'h23'
+    }).formatToParts(now)
+
+    const hour = parseInt(parts.find(p => p.type === 'hour')?.value || '0', 10)
+    const minute = parseInt(parts.find(p => p.type === 'minute')?.value || '0', 10)
+    const currentMins = hour * 60 + minute
+
+    // 08:30 - 23:00 (510 - 1380 mins)
+    const isOpen = currentMins >= 510 && currentMins < 1380
+
+    if (isOpen) {
+      return {
+        isOpen: true,
+        text: lang === 'en' ? 'Open now · until 23:00' : 'Şu an açık · 23:00\'e kadar',
+      }
+    } else {
+      return {
+        isOpen: false,
+        text: lang === 'en' ? 'Closed now · opens at 08:30' : 'Şu an kapalı · 08:30\'da açılır',
+      }
+    }
+  } catch {
+    return {
+      isOpen: true,
+      text: lang === 'en' ? 'Every day 08:30–23:00' : 'Her gün 08:30–23:00',
+    }
+  }
+}
+
 export function InfoDrawer({ isOpen, onClose }) {
   const [isClosing, setIsClosing] = useState(false)
+  const [copied, setCopied] = useState(false)
+  const lang = useLang()
+  const status = getIstanbulStatus(lang)
 
   // Body scroll lock
   useEffect(() => {
     setIsClosing(false)
     if (isOpen) {
+      const originalOverflow = document.body.style.overflow
       document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = ''
-    }
-    return () => {
-      document.body.style.overflow = ''
+      return () => {
+        document.body.style.overflow = originalOverflow
+      }
     }
   }, [isOpen])
 
@@ -45,10 +85,10 @@ export function InfoDrawer({ isOpen, onClose }) {
     setTimeout(() => {
       onClose()
       setIsClosing(false)
-    }, 200)
+    }, 220)
   }
 
-  // ESC key
+  // ESC key and Android back button simulation
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape' && isOpen) handleClose()
@@ -57,144 +97,208 @@ export function InfoDrawer({ isOpen, onClose }) {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [isOpen])
 
-  if (!isOpen && !isClosing) return null
+  // Android back button popstate
+  useEffect(() => {
+    if (!isOpen) return
+    window.history.pushState({ infoDrawerOpen: true }, '')
+    const handlePopState = () => {
+      onClose()
+    }
+    window.addEventListener('popstate', handlePopState)
+    return () => {
+      window.removeEventListener('popstate', handlePopState)
+    }
+  }, [isOpen])
 
-  return (
-    <div className={`info-drawer-root ${isClosing ? 'is-closing' : 'is-open'}`} role="dialog" aria-modal="true" aria-label="Restoran Bilgileri ve Bağlantılar">
-      {/* Backdrop */}
-      <div
-        className="info-drawer-backdrop"
-        onClick={handleClose}
-      />
+  const handleCopyAddress = (e) => {
+    e.stopPropagation()
+    try {
+      navigator.clipboard.writeText(CONFIG.address)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch {}
+  }
 
-      {/* Panel */}
-      <div className="info-drawer-sheet">
-        {/* Tutamaç */}
-        <div className="sheet-drag-handle-wrap" onClick={handleClose}>
-          <div className="sheet-drag-handle" />
+  if (typeof document === 'undefined' || (!isOpen && !isClosing)) return null
+
+  return createPortal(
+    <div
+      className={`info-bs-root notranslate ${isClosing ? 'is-closing' : 'is-open'}`}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Restoran Bilgileri"
+      translate="no"
+    >
+      {/* Backdrop (Karanlık zemin) */}
+      <div className="info-bs-backdrop" onClick={handleClose} />
+
+      {/* Alttan Açılan Bottom Sheet Kartı */}
+      <div className="info-bs-sheet">
+        {/* Sürükleme Tutacağı */}
+        <div className="info-bs-drag-bar" onClick={handleClose}>
+          <div className="info-bs-drag-handle" />
         </div>
 
-            {/* Başlık */}
-            <div className="info-drawer-header">
-              <div className="info-drawer-brand">
-                <img
-                  src={asset('/logo-badge.png')}
-                  alt="Taş Fırın Lovemacun"
-                  className="info-drawer-logo"
-                  width="44"
-                  height="44"
-                />
-                <div>
-                  <h2 className="info-drawer-title notranslate" translate="no">{CONFIG.name}</h2>
-                  <span className="info-drawer-tagline">Büyükada · Taş Fırın Ustalığı</span>
-                </div>
+        {/* 1. Üst Kısım: Logo, Marka Adı ve 44x44 Kapat (X) Butonu */}
+        <div className="info-bs-head">
+          <div className="info-bs-brand">
+            <img
+              src={asset('/logo-badge.png')}
+              alt="Taş Fırın Lovemacun Logosu"
+              className="info-bs-logo"
+              width="40"
+              height="40"
+            />
+            <div className="info-bs-brand-text">
+              <h2 className="info-bs-name">{CONFIG.name}</h2>
+              <span className="info-bs-sub">Büyükada · Taş Fırın Ustalığı</span>
+            </div>
+          </div>
+          <button
+            type="button"
+            className="info-bs-close-btn"
+            onClick={handleClose}
+            aria-label="Kapat"
+          >
+            <X size={20} />
+          </button>
+        </div>
+
+        <div className="info-bs-scroll-body">
+          {/* 2. Açık/Kapalı Durumu Çipi (Europe/Istanbul Saati) */}
+          <div className="info-bs-status-wrap">
+            <div className={`info-bs-status-chip ${status.isOpen ? 'status-open' : 'status-closed'}`}>
+              <span className="status-dot" aria-hidden="true" />
+              <span className="status-text">{status.text}</span>
+            </div>
+          </div>
+
+          {/* 3. 2x2 Hızlı İşlem Düğmeleri (En az 64px yükseklik) */}
+          <div className="info-bs-quick-grid">
+            {/* a) Ara */}
+            <a
+              href={`tel:${CONFIG.phonePrimary.tel}`}
+              className="info-bs-tile tile-call"
+              aria-label={`${t('callNow', lang)}: ${CONFIG.phonePrimary.display}`}
+            >
+              <div className="tile-icon-box">
+                <Phone size={22} />
               </div>
+              <span className="tile-title">{t('callNow', lang)}</span>
+            </a>
+
+            {/* b) Yol Tarifi */}
+            <a
+              href={CONFIG.mapsDirectionsUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="info-bs-tile tile-route"
+              aria-label={t('directions', lang)}
+            >
+              <div className="tile-icon-box">
+                <MapPin size={22} />
+              </div>
+              <span className="tile-title">{t('directions', lang)}</span>
+            </a>
+
+            {/* c) Rezervasyon */}
+            <Link
+              to="/rezervasyon"
+              onClick={handleClose}
+              className="info-bs-tile tile-res"
+              aria-label={t('reservation', lang)}
+            >
+              <div className="tile-icon-box">
+                <Calendar size={22} />
+              </div>
+              <span className="tile-title">{t('reservation', lang)}</span>
+            </Link>
+
+            {/* d) Instagram */}
+            <a
+              href={CONFIG.instagram}
+              target="_blank"
+              rel="noreferrer"
+              className="info-bs-tile tile-insta"
+              aria-label="Instagram"
+            >
+              <div className="tile-icon-box">
+                <InstagramIcon size={22} />
+              </div>
+              <span className="tile-title">Instagram</span>
+            </a>
+          </div>
+
+          {/* 4. Bilgi Kartları */}
+          <div className="info-bs-details">
+            {/* a) Çalışma Saatleri */}
+            <div className="info-bs-card">
+              <div className="card-ico-col">
+                <Clock size={18} className="card-ico" />
+              </div>
+              <div className="card-content-col">
+                <span className="card-label">{t('hours', lang)}</span>
+                <span className="card-val">{t('hoursEveryday', lang)}</span>
+              </div>
+            </div>
+
+            {/* b) Adres (Haritada açılır + Kopyala butonu) */}
+            <div className="info-bs-card card-address-row">
+              <div className="card-ico-col">
+                <MapPin size={18} className="card-ico" />
+              </div>
+              <a
+                href={CONFIG.mapsDirectionsUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="card-content-col card-link-val"
+                title={lang === 'en' ? 'Open in Google Maps' : 'Google Haritalar\'da Aç'}
+              >
+                <span className="card-label">{t('address', lang)}</span>
+                <span className="card-val">{CONFIG.address}</span>
+              </a>
               <button
                 type="button"
-                className="info-drawer-close-btn"
-                onClick={onClose}
-                aria-label="Kapat"
+                className={`card-copy-btn ${copied ? 'copied' : ''}`}
+                onClick={handleCopyAddress}
+                aria-label={t('copyAddress', lang)}
+                title={t('copyAddress', lang)}
               >
-                <X size={18} />
+                {copied ? <Check size={16} /> : <Copy size={16} />}
+                <span className="copy-tooltip">{copied ? t('copied', lang) : t('copyAddress', lang)}</span>
               </button>
             </div>
 
-            {/* Bilgi ve Bağlantı Öğeleri */}
-            <div className="info-drawer-content">
-              {/* Çalışma Saatleri & Konum Özeti */}
-              <div className="info-quick-cards">
-                <div className="info-quick-item">
-                  <Clock size={16} className="info-item-ico" />
-                  <div>
-                    <strong>Çalışma Saatleri</strong>
-                    <span>Her gün {CONFIG.hours}</span>
-                  </div>
-                </div>
-                <div className="info-quick-item">
-                  <MapPin size={16} className="info-item-ico" />
-                  <div>
-                    <strong>Adres</strong>
-                    <span>{CONFIG.address}</span>
-                  </div>
-                </div>
+            {/* c) Telefon (İki numara ayrı ayrı tıklanabilir) */}
+            <div className="info-bs-card">
+              <div className="card-ico-col">
+                <Phone size={18} className="card-ico" />
               </div>
-
-              {/* Hızlı Sayfa Bağlantıları */}
-              <div className="info-links-group">
-                <span className="info-group-title">KEŞFEDİN</span>
-
-                <Link
-                  to="/hikayemiz"
-                  className="info-nav-link"
-                  onClick={onClose}
-                >
-                  <div className="info-link-left">
-                    <span className="info-link-icon-box">
-                      <Sparkles size={17} />
-                    </span>
-                    <div>
-                      <strong>Hikayemiz & Taş Fırın Aşkı</strong>
-                      <small>Nesiller boyu aktarılan tarifler</small>
-                    </div>
-                  </div>
-                  <ChevronRight size={17} className="info-chevron" />
-                </Link>
-
-                <Link
-                  to="/blog"
-                  className="info-nav-link"
-                  onClick={onClose}
-                >
-                  <div className="info-link-left">
-                    <span className="info-link-icon-box">
-                      <BookOpen size={17} />
-                    </span>
-                    <div>
-                      <strong>Blog & Ada Notları</strong>
-                      <small>Ada lezzetleri & hikayeler</small>
-                    </div>
-                  </div>
-                  <ChevronRight size={17} className="info-chevron" />
-                </Link>
-
-                <Link
-                  to="/iletisim"
-                  className="info-nav-link"
-                  onClick={onClose}
-                >
-                  <div className="info-link-left">
-                    <span className="info-link-icon-box">
-                      <MapPin size={17} />
-                    </span>
-                    <div>
-                      <strong>Konum & Yol Tarifi</strong>
-                      <small>Google Harita ve iletişim</small>
-                    </div>
-                  </div>
-                  <ChevronRight size={17} className="info-chevron" />
-                </Link>
-              </div>
-
-              {/* İletişim & Sosyal Medya Butonları */}
-              <div className="info-action-buttons">
-                <a
-                  href={`tel:${CONFIG.phonePrimary.tel}`}
-                  className="btn btn-info-call notranslate"
-                  translate="no"
-                >
-                  <Phone size={16} /> Hemen Ara ({CONFIG.phonePrimary.display})
-                </a>
-                <a
-                  href={CONFIG.instagram}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn btn-info-insta"
-                >
-                  <InstagramIcon size={16} /> Instagram’da Takip Et
-                </a>
+              <div className="card-content-col">
+                <span className="card-label">{t('phone', lang)}</span>
+                <div className="card-phones-row">
+                  <a href={`tel:${CONFIG.phonePrimary.tel}`} className="card-tel-link">
+                    {CONFIG.phonePrimary.display}
+                  </a>
+                  <span className="card-tel-sep">·</span>
+                  <a href={`tel:${CONFIG.phoneSecondary.tel}`} className="card-tel-link">
+                    {CONFIG.phoneSecondary.display}
+                  </a>
+                </div>
               </div>
             </div>
           </div>
+
+          {/* 5. En Altta Küçük Satır: Blog Bağlantısı ("Ada Notları") */}
+          <div className="info-bs-footer-row">
+            <Link to="/blog" onClick={handleClose} className="info-bs-blog-link">
+              <BookOpen size={14} />
+              <span>{t('islandNotes', lang)} →</span>
+            </Link>
+          </div>
         </div>
+      </div>
+    </div>,
+    document.body
   )
 }

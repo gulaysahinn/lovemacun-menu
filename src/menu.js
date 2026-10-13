@@ -124,9 +124,9 @@ export const HERO = [
   '/img/pide/lovemacunn-restaurant-kiymali-kasarli-400x400.webp',
   '/img/et/lovemacunn-restaurant-iskender-400x400.webp',
 ]
-export const FEATURED = ['Kebaplı Lahmacun', 'Kıymalı Kaşarlı Pide', 'İskender Kebap', 'Fettuccine Alfredo', 'Künefe']
+export const FEATURED = ['Kebaplı Lahmacun', 'Kuşbaşılı Kaşarlı Pide', 'İskender Kebap', 'Künefe']
 
-// ETİKETLER: ürün adları listesi.
+// ETİKETLER: ürün adları listesi (Şefin Seçimi ve Öne Çıkanlar tek kaynaktan beslenir)
 export const TAGS = {
   sef: FEATURED,
   aci: ['Adana Kebap', 'Adana Dürüm', 'Penne Arrabbiata', 'Pepperoni Pizza', 'Acı Ezme', 'Soğanlı Lahmacun'],

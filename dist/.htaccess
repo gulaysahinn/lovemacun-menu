@@ -5,7 +5,7 @@
   # Eski WordPress Sayfaları İçin 301 Yönlendirmeleri (Google SEO koruması)
   RewriteRule ^menu/?$ / [R=301,L,NE]
   RewriteRule ^hakkimizda/?$ /hikayemiz [R=301,L,NE]
-  RewriteRule ^rezervasyon/?$ /iletisim [R=301,L,NE]
+  RewriteRule ^rezervasyon/$ /rezervasyon [R=301,L,NE]
   RewriteRule ^galeri/?$ /hikayemiz [R=301,L,NE]
   RewriteRule ^blog/?$ /blog [R=301,L,NE]
   RewriteRule ^category/tasfirinlovemacun/?$ /blog [R=301,L,NE]

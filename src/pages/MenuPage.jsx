@@ -291,6 +291,7 @@ export function MenuPage({ onSelectProduct, onOpenSearch }) {
             "addressCountry": "TR"
           },
           "hasMenu": "https://tasfirinlovemacun.com/",
+          "acceptsReservations": "True",
           "sameAs": [CONFIG.instagram]
         }}
       />
@@ -338,7 +339,7 @@ export function MenuPage({ onSelectProduct, onOpenSearch }) {
           <div className="feat-strip-head">
             <span className="feat-strip-kicker desktop-only">✦ MUTLAKA DENEYİN</span>
             <h2 className="feat-strip-title-sm">
-              <span className="feat-strip-sparkle">✦</span>
+              <span className="feat-strip-sparkle mobile-only" aria-hidden="true">✦ </span>
               <span className="feat-strip-title-text">Öne Çıkanlar</span>
             </h2>
           </div>

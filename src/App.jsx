@@ -17,6 +17,7 @@ const StoryPage = lazy(() => import('./pages/StoryPage.jsx').then((m) => ({ defa
 const ContactPage = lazy(() => import('./pages/ContactPage.jsx').then((m) => ({ default: m.ContactPage })))
 const BlogListPage = lazy(() => import('./pages/BlogListPage.jsx').then((m) => ({ default: m.BlogListPage })))
 const BlogPostPage = lazy(() => import('./pages/BlogPostPage.jsx').then((m) => ({ default: m.BlogPostPage })))
+const ReservationPage = lazy(() => import('./pages/ReservationPage.jsx').then((m) => ({ default: m.ReservationPage })))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx').then((m) => ({ default: m.NotFoundPage })))
 
 function AppContent() {
@@ -148,6 +149,7 @@ function AppContent() {
             <Route path="/hakkimizda" element={<StoryPage />} />
             <Route path="/iletisim" element={<ContactPage />} />
             <Route path="/blog" element={<BlogListPage />} />
+            <Route path="/rezervasyon" element={<ReservationPage />} />
             <Route path="/buyukadada-ezber-bozan-bir-lezzet-tasfirinlovemacun" element={<BlogPostPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>

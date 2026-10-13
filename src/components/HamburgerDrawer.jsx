@@ -11,11 +11,13 @@ import {
   ChevronRight,
   Phone,
   Clock,
-  Check
+  Check,
+  Calendar
 } from 'lucide-react'
 import { CONFIG } from '../config.js'
 import { LANGUAGES, getInitialLang, applyLanguage, loadGoogleTranslateScript } from './LanguageSwitcher.jsx'
 import { asset } from '../utils/asset.js'
+import { useLang, t } from '../utils/i18n.js'
 
 function InstagramIcon({ size = 16 }) {
   return (
@@ -32,6 +34,7 @@ export function HamburgerDrawer({ isOpen, onClose, onOpenSearch }) {
   const pathname = location.pathname
   const closeBtnRef = useRef(null)
   const currentLang = getInitialLang()
+  const lang = useLang()
   const [isClosing, setIsClosing] = useState(false)
 
   // Body scroll lock
@@ -71,33 +74,41 @@ export function HamburgerDrawer({ isOpen, onClose, onOpenSearch }) {
   const isStory = pathname === '/hikayemiz' || pathname === '/hakkimizda'
   const isContact = pathname === '/iletisim'
   const isBlog = pathname.startsWith('/blog') || pathname.includes('buyukadada-ezber-bozan')
+  const isReservation = pathname === '/rezervasyon'
 
   const NAV_LINKS = [
     {
       to: '/',
-      label: 'Menü',
-      sub: 'Taş fırın lahmacun, pide ve kebaplar',
+      label: t('menu', lang),
+      sub: lang === 'en' ? 'Stone oven lahmacun, pide & kebabs' : 'Taş fırın lahmacun, pide ve kebaplar',
       icon: UtensilsCrossed,
       active: isMenu
     },
     {
       to: '/hikayemiz',
-      label: 'Hikayemiz',
-      sub: "Büyükada'da taş fırın ustalığı",
+      label: t('story', lang),
+      sub: lang === 'en' ? 'Stone oven mastery in Buyukada' : "Büyükada'da taş fırın ustalığı",
       icon: Sparkles,
       active: isStory
     },
     {
       to: '/blog',
-      label: 'Blog',
-      sub: 'Ada lezzetleri & hikayeler',
+      label: t('blog', lang),
+      sub: lang === 'en' ? 'Island flavors & stories' : 'Ada lezzetleri & hikayeler',
       icon: BookOpen,
       active: isBlog
     },
     {
+      to: '/rezervasyon',
+      label: t('reservation', lang),
+      sub: lang === 'en' ? 'Table reservation & call us' : 'Masa rezervasyonu ve telefon hattı',
+      icon: Calendar,
+      active: isReservation
+    },
+    {
       to: '/iletisim',
-      label: 'İletişim & Konum',
-      sub: 'Nizam Mahallesi, harita ve adres',
+      label: t('contact', lang),
+      sub: lang === 'en' ? 'Nizam, map & address' : 'Nizam Mahallesi, harita ve adres',
       icon: MapPin,
       active: isContact
     }
@@ -155,7 +166,8 @@ export function HamburgerDrawer({ isOpen, onClose, onOpenSearch }) {
                     <Link
                       key={item.to}
                       to={item.to}
-                      className={`hbg-nav-item ${item.active ? 'active' : ''}`}
+                      className={`hbg-nav-item notranslate ${item.active ? 'active' : ''}`}
+                      translate="no"
                       onClick={onClose}
                     >
                       <div className="hbg-nav-item-left">

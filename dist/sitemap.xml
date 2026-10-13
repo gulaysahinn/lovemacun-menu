@@ -16,6 +16,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://tasfirinlovemacun.com/rezervasyon</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://tasfirinlovemacun.com/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
