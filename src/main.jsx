@@ -32,28 +32,40 @@ if (typeof Node === 'function' && Node.prototype) {
 
 createRoot(document.getElementById('root')).render(<App />)
 
-// Service Worker Registration for PWA & Offline Support
-if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost')) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker
-      .register('/sw.js')
-      .then((reg) => {
-        // Silently check for updates
-        reg.onupdatefound = () => {
-          const installingWorker = reg.installing
-          if (installingWorker) {
-            installingWorker.onstatechange = () => {
-              if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                // New update available, reload quietly when idle
-                console.log('Yeni Taş Fırın Lovemacun menü sürümü hazır.')
+// Service Worker Registration for PWA & Offline Support (Production Only)
+if ('serviceWorker' in navigator) {
+  if (import.meta.env.DEV || window.location.hostname === 'localhost') {
+    // Dev ortamında bayat JS/CSS önbelleğini ve çakışmaları önlemek için SW kaydını kaldır
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (const registration of registrations) {
+        registration.unregister()
+      }
+    })
+    if (window.caches) {
+      caches.keys().then((keys) => {
+        keys.forEach((key) => caches.delete(key))
+      })
+    }
+  } else if (window.location.protocol === 'https:') {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker
+        .register('/sw.js')
+        .then((reg) => {
+          reg.onupdatefound = () => {
+            const installingWorker = reg.installing
+            if (installingWorker) {
+              installingWorker.onstatechange = () => {
+                if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                  console.log('Yeni Taş Fırın Lovemacun menü sürümü hazır.')
+                }
               }
             }
           }
-        }
-      })
-      .catch((err) => {
-        console.warn('Service worker registration failed:', err)
-      })
-  })
+        })
+        .catch((err) => {
+          console.warn('Service worker registration failed:', err)
+        })
+    })
+  }
 }
 

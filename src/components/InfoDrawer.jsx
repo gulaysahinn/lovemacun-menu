@@ -1,6 +1,5 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
 import {
   X,
   Sparkles,
@@ -25,8 +24,11 @@ function InstagramIcon({ size = 16 }) {
 }
 
 export function InfoDrawer({ isOpen, onClose }) {
+  const [isClosing, setIsClosing] = useState(false)
+
   // Body scroll lock
   useEffect(() => {
+    setIsClosing(false)
     if (isOpen) {
       document.body.style.overflow = 'hidden'
     } else {
@@ -37,41 +39,40 @@ export function InfoDrawer({ isOpen, onClose }) {
     }
   }, [isOpen])
 
+  const handleClose = () => {
+    if (isClosing) return
+    setIsClosing(true)
+    setTimeout(() => {
+      onClose()
+      setIsClosing(false)
+    }, 200)
+  }
+
   // ESC key
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape' && isOpen) onClose()
+      if (e.key === 'Escape' && isOpen) handleClose()
     }
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [isOpen, onClose])
+  }, [isOpen])
+
+  if (!isOpen && !isClosing) return null
 
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <div className="info-drawer-root" role="dialog" aria-modal="true" aria-label="Restoran Bilgileri ve Bağlantılar">
-          {/* Backdrop */}
-          <motion.div
-            className="info-drawer-backdrop"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            onClick={onClose}
-          />
+    <div className={`info-drawer-root ${isClosing ? 'is-closing' : 'is-open'}`} role="dialog" aria-modal="true" aria-label="Restoran Bilgileri ve Bağlantılar">
+      {/* Backdrop */}
+      <div
+        className="info-drawer-backdrop"
+        onClick={handleClose}
+      />
 
-          {/* Panel */}
-          <motion.div
-            className="info-drawer-sheet"
-            initial={{ y: '100%' }}
-            animate={{ y: 0 }}
-            exit={{ y: '100%' }}
-            transition={{ type: 'spring', damping: 28, stiffness: 320 }}
-          >
-            {/* Tutamaç */}
-            <div className="sheet-drag-handle-wrap" onClick={onClose}>
-              <div className="sheet-drag-handle" />
-            </div>
+      {/* Panel */}
+      <div className="info-drawer-sheet">
+        {/* Tutamaç */}
+        <div className="sheet-drag-handle-wrap" onClick={handleClose}>
+          <div className="sheet-drag-handle" />
+        </div>
 
             {/* Başlık */}
             <div className="info-drawer-header">
@@ -193,9 +194,7 @@ export function InfoDrawer({ isOpen, onClose }) {
                 </a>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
-      )}
-    </AnimatePresence>
   )
 }

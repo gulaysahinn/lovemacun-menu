@@ -1,6 +1,6 @@
-const CACHE_NAME = 'lovemacun-shell-v2'
-const DATA_CACHE_NAME = 'lovemacun-data-v2'
-const IMAGE_CACHE_NAME = 'lovemacun-images-v2'
+const CACHE_NAME = 'lovemacun-shell-v3'
+const DATA_CACHE_NAME = 'lovemacun-data-v3'
+const IMAGE_CACHE_NAME = 'lovemacun-images-v3'
 
 // Uygulama kabuğu varlıkları
 const APP_SHELL = [

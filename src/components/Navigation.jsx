@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
 import { Search, MapPin, Menu, X, UtensilsCrossed, Sparkles, ChevronRight, Phone, Clock, BookOpen } from 'lucide-react'
 import { CONFIG } from '../config.js'
 import { LanguageSwitcher } from './LanguageSwitcher.jsx'

@@ -1,7 +1,6 @@
-import { useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { Link, useLocation } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
 import {
   X,
   UtensilsCrossed,
@@ -33,9 +32,11 @@ export function HamburgerDrawer({ isOpen, onClose, onOpenSearch }) {
   const pathname = location.pathname
   const closeBtnRef = useRef(null)
   const currentLang = getInitialLang()
+  const [isClosing, setIsClosing] = useState(false)
 
   // Body scroll lock
   useEffect(() => {
+    setIsClosing(false)
     if (isOpen) {
       const originalOverflow = document.body.style.overflow
       document.body.style.overflow = 'hidden'
@@ -46,16 +47,25 @@ export function HamburgerDrawer({ isOpen, onClose, onOpenSearch }) {
     }
   }, [isOpen])
 
+  const handleClose = () => {
+    if (isClosing) return
+    setIsClosing(true)
+    setTimeout(() => {
+      onClose()
+      setIsClosing(false)
+    }, 200)
+  }
+
   // ESC key handler
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape' && isOpen) {
-        onClose()
+        handleClose()
       }
     }
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [isOpen, onClose])
+  }, [isOpen])
 
   const isMenu = pathname === '/'
   const isStory = pathname === '/hikayemiz' || pathname === '/hakkimizda'
@@ -93,35 +103,23 @@ export function HamburgerDrawer({ isOpen, onClose, onOpenSearch }) {
     }
   ]
 
-  if (typeof document === 'undefined') return null
+  if (typeof document === 'undefined' || (!isOpen && !isClosing)) return null
 
   return createPortal(
-    <AnimatePresence>
-      {isOpen && (
-        <div
-          className="hbg-drawer-root"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Navigasyon Menüsü"
-        >
-          {/* Karartılmış Arka Plan (Backdrop) */}
-          <motion.div
-            className="hbg-drawer-backdrop"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            onClick={onClose}
-          />
+    <div
+      className={`hbg-drawer-root ${isClosing ? 'is-closing' : 'is-open'}`}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Navigasyon Menüsü"
+    >
+      {/* Karartılmış Arka Plan (Backdrop) */}
+      <div
+        className="hbg-drawer-backdrop"
+        onClick={handleClose}
+      />
 
-          {/* Sağdan Kayan Koyu Çekmece */}
-          <motion.div
-            className="hbg-drawer-panel"
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          >
+      {/* Sağdan Kayan Koyu Çekmece */}
+      <div className="hbg-drawer-panel">
             {/* 1. Üst Kısım: Logo ve Kapat (X) Butonu */}
             <div className="hbg-drawer-head">
               <Link to="/" className="hbg-drawer-brand notranslate" translate="no" onClick={onClose}>
@@ -278,10 +276,8 @@ export function HamburgerDrawer({ isOpen, onClose, onOpenSearch }) {
                 <span>Her gün {CONFIG.hours}</span>
               </div>
             </div>
-          </motion.div>
-        </div>
-      )}
-    </AnimatePresence>,
+          </div>
+        </div>,
     document.body
   )
 }
