@@ -46,26 +46,27 @@ export function applyLanguage(langCode) {
     localStorage.setItem('lovemacun_lang', langCode)
 
     const hostname = window.location.hostname
-    if (langCode === 'tr') {
-      document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
-      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${hostname};`
-      document.cookie = 'googtrans=/tr/tr; path=/;'
-      document.cookie = `googtrans=/tr/tr; path=/; domain=${hostname};`
-    } else {
+    const clearPaths = ['/', window.location.pathname]
+    clearPaths.forEach((p) => {
+      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${p};`
+      if (hostname) {
+        document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${p}; domain=${hostname};`
+        document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${p}; domain=.${hostname};`
+      }
+    })
+
+    if (langCode && langCode !== 'tr') {
       document.cookie = `googtrans=/tr/${langCode}; path=/;`
-      document.cookie = `googtrans=/tr/${langCode}; path=/; domain=${hostname};`
+      if (hostname && hostname !== 'localhost') {
+        document.cookie = `googtrans=/tr/${langCode}; path=/; domain=${hostname};`
+      }
     }
   } catch (e) {
     console.warn('Language cookie could not be set', e)
   }
 
-  const combo = document.querySelector('.goog-te-combo')
-  if (combo) {
-    combo.value = langCode
-    combo.dispatchEvent(new Event('change'))
-  } else {
-    window.location.reload()
-  }
+  // React ile Google Translate'in bellek içi DOM çatışmasını önlemek için temiz yenileme
+  window.location.reload()
 }
 
 export function LanguageSwitcher({ align = 'right', dropUp = false, compact = false }) {
@@ -123,7 +124,6 @@ export function LanguageSwitcher({ align = 'right', dropUp = false, compact = fa
       setIsOpen(false)
       return
     }
-    setCurrentLang(langCode)
     setIsOpen(false)
     applyLanguage(langCode)
   }

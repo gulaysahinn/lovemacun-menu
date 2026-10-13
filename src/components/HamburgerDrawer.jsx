@@ -197,7 +197,7 @@ export function HamburgerDrawer({ isOpen, onClose, onOpenSearch }) {
                         onTouchStart={loadGoogleTranslateScript}
                         aria-label={lang.name}
                       >
-                        <img src={lang.flag} alt="" className="hbg-lang-flag" width="20" height="15" />
+                        <img src={asset(lang.flag)} alt="" className="hbg-lang-flag" width="20" height="15" />
                         <span className="hbg-lang-code">{lang.short}</span>
                         {isSelected && <Check size={13} className="hbg-lang-check" />}
                       </button>

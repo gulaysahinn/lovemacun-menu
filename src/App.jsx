@@ -209,6 +209,42 @@ function AppContent() {
   )
 }
 
+class SafeErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { hasError: false }
+  }
+
+  static getDerivedStateFromError() {
+    return { hasError: true }
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.warn('SafeErrorBoundary caught error:', error, errorInfo)
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '32px 16px', textAlign: 'center', color: '#f5f5f5' }}>
+          <h2 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '8px' }}>Görünüm Güncellendi</h2>
+          <p style={{ color: '#aaa', fontSize: '14px', maxWidth: '320px', marginBottom: '16px' }}>
+            Sayfayı yenileyerek güncel menüyü görüntüleyebilirsiniz.
+          </p>
+          <button
+            type="button"
+            onClick={() => window.location.reload()}
+            style={{ padding: '10px 20px', background: '#d97706', color: '#fff', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 600 }}
+          >
+            Yenile
+          </button>
+        </div>
+      )
+    }
+    return this.props.children
+  }
+}
+
 const getBasename = () => {
   if (typeof window !== 'undefined' && window.location.pathname.startsWith('/lovemacun-menu')) {
     return '/lovemacun-menu'
@@ -218,8 +254,10 @@ const getBasename = () => {
 
 export default function App() {
   return (
-    <BrowserRouter basename={getBasename()}>
-      <AppContent />
-    </BrowserRouter>
+    <SafeErrorBoundary>
+      <BrowserRouter basename={getBasename()}>
+        <AppContent />
+      </BrowserRouter>
+    </SafeErrorBoundary>
   )
 }
