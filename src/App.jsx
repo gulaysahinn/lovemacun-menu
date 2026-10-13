@@ -208,9 +208,16 @@ function AppContent() {
   )
 }
 
+const getBasename = () => {
+  if (typeof window !== 'undefined' && window.location.pathname.startsWith('/lovemacun-menu')) {
+    return '/lovemacun-menu'
+  }
+  return ''
+}
+
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={getBasename()}>
       <AppContent />
     </BrowserRouter>
   )
