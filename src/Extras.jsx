@@ -3,6 +3,7 @@ import { useEffect, useState, useRef } from 'react'
 export const TAG_META = {
   sef: { label: 'Şefin Seçimi', icon: '★' },
   aci: { label: 'Acılı', icon: '🌶' },
+  vejetaryen: { label: 'Vejetaryen', icon: '🌱' },
   vegan: { label: 'Vegan', icon: 'V' },
   glutensiz: { label: 'Glutensiz', icon: 'GF' },
 }

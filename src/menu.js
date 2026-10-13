@@ -124,13 +124,43 @@ export const HERO = [
   '/img/pide/lovemacunn-restaurant-kiymali-kasarli-400x400.webp',
   '/img/et/lovemacunn-restaurant-iskender-400x400.webp',
 ]
-export const FEATURED = ['Kıymalı Kaşarlı Pide', 'İskender Kebap', 'Fettuccine Alfredo', 'Künefe']
+export const FEATURED = ['Kebaplı Lahmacun', 'Kıymalı Kaşarlı Pide', 'İskender Kebap', 'Fettuccine Alfredo', 'Künefe']
 
-// ETİKETLER: ürün adları listesi. Alerjen (vegan/glutensiz) bilgisini mutfakla doğrulayıp ürün adlarını ekle.
-// Boş etiket filtre çubuğunda görünmez.
+// ETİKETLER: ürün adları listesi.
 export const TAGS = {
   sef: FEATURED,
-  aci: ['Adana Kebap', 'Adana Dürüm', 'Penne Arrabbiata', 'Pepperoni Pizza', 'Acı Ezme'],
+  aci: ['Adana Kebap', 'Adana Dürüm', 'Penne Arrabbiata', 'Pepperoni Pizza', 'Acı Ezme', 'Soğanlı Lahmacun'],
+  vejetaryen: [
+    'Vejetaryen Pide',
+    'Kaşarlı Pide',
+    'Margarita Pizza',
+    'Vejetaryen Pizza',
+    'Napoliten Spaghetti',
+    'Peynirli Spaghetti',
+    'Penne Arrabbiata',
+    'Kremalı Mantarlı Penne',
+    'Fettuccine Alfredo',
+    'Mantarlı Fettuccine',
+    'Menemen',
+    'Kaşarlı Omlet',
+    'Sigara Böreği',
+    'Falafel',
+    'Fırında Mantar',
+    'Patates Kızartması',
+    'Humus',
+    'Acı Ezme',
+    'Çiğ Köfte',
+    'Haydari',
+    'Cacık',
+    'Çoban Salatası',
+    'Mevsim Salatası',
+    'Tebbule Salatası',
+    'Fettuş Salatası',
+    'Patlıcan Salatası',
+    'Havuç Salatası',
+    'Söğüş Tabağı',
+    'Karışık Turşu'
+  ],
   vegan: [],
   glutensiz: [],
 }

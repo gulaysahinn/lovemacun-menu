@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useMemo } from 'react'
 import { Search, Sparkles } from 'lucide-react'
 import { PageMeta } from '../components/PageMeta.jsx'
 import { CATS, FEATURED, TAGS } from '../menu.js'
@@ -92,9 +92,11 @@ const allItems = CATS.flatMap((c) =>
   })
 )
 
-const featuredList = FEATURED.map((n) => allItems.find((a) => a.name === n)).filter(Boolean)
-
 export function MenuPage({ onSelectProduct, onOpenSearch }) {
+  const featuredList = useMemo(
+    () => FEATURED.map((n) => allItems.find((a) => a.name === n)).filter(Boolean),
+    []
+  )
   const [activeCat, setActiveCat] = useState(() => NON_EMPTY_CATS[0]?.id || 'lahmacun')
   const [tagSel, setTagSel] = useState([])
   const tabsContainerRef = useRef(null)
@@ -332,7 +334,7 @@ export function MenuPage({ onSelectProduct, onOpenSearch }) {
 
       {/* Menü Ürünleri Listesi (Mobilde 2 Kolonlu Grid, Tablet/Desktop 3 Kolon, Geniş 4 Kolon) */}
       <main className="menu-products-main container">
-        {/* Tag Filtreleri (Şefin Seçimi, Acılı, vb.) */}
+        {/* Tag Filtreleri (Şefin Seçimi, Acılı, Vejetaryen vb.) */}
         <div className="tag-filter-bar" role="toolbar" aria-label="Filtreler">
           {Object.entries(TAGS).map(([tagKey, list]) => {
             if (!list || list.length === 0) return null
@@ -340,6 +342,7 @@ export function MenuPage({ onSelectProduct, onOpenSearch }) {
             const labels = {
               sef: '★ Şefin Seçimi',
               aci: '🌶 Acılı',
+              vejetaryen: '🌱 Vejetaryen',
               vegan: 'V Vegan',
               glutensiz: 'GF Glutensiz',
             }
@@ -347,7 +350,7 @@ export function MenuPage({ onSelectProduct, onOpenSearch }) {
               <button
                 key={tagKey}
                 type="button"
-                className={`tag-chip ${isSelected ? 'active' : ''}`}
+                className={`tag-chip tag-chip-${tagKey} ${isSelected ? 'active' : ''}`}
                 onClick={() => {
                   setTagSel((prev) =>
                     isSelected ? prev.filter((k) => k !== tagKey) : [...prev, tagKey]
