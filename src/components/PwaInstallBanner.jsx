@@ -90,13 +90,13 @@ export function PwaInstallBanner() {
             height="42"
           />
           <div className="pwa-banner-text">
-            <strong>Taş Fırın Lovemacun</strong>
+            <strong className="pwa-banner-title" style={{ display: 'block', marginBottom: '2px' }}>Taş Fırın Lovemacun</strong>
             {isIos ? (
-              <span>
+              <span className="pwa-banner-desc" style={{ display: 'block' }}>
                 Safari’de <Share size={12} style={{ display: 'inline', verticalAlign: 'middle' }} /> Paylaş → <strong>Ana Ekrana Ekle</strong>
               </span>
             ) : (
-              <span>Hızlı menü erişimi için ana ekranınıza ekleyin</span>
+              <span className="pwa-banner-desc" style={{ display: 'block' }}>Hızlı menü erişimi için ana ekranınıza ekleyin</span>
             )}
           </div>
         </div>

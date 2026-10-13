@@ -7758,30 +7758,76 @@ input, textarea, select {
 
 /* 2. Mobil Menü İlk Ekranı (375x640 ve 360x700 viewport'lar için optimize) */
 @media (max-width: 767px) {
-  /* İnce Banner Hero: mobilde 100px */
+  /* Mobil Menü Hero Video: Ferah, lezzetli ve dengeli yükseklik (~220px), hafif aşağıda ferah konumlandırma */
   .menu-hero-video-section {
-    height: 100px !important;
-    min-height: 100px !important;
-    max-height: 100px !important;
-    padding: 4px 14px !important;
+    height: 220px !important;
+    min-height: 200px !important;
+    max-height: 240px !important;
+    padding: 20px 16px 16px !important;
+    margin-top: 6px !important;
+    margin-bottom: 12px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    box-sizing: border-box !important;
   }
 
-  .hero-video-kicker,
-  .hero-video-sub,
-  .hero-video-actions,
-  .masa-badge {
-    display: none !important;
+  .menu-hero-video-section .hero-video-poster,
+  .menu-hero-video-section .hero-video-element {
+    object-position: center 45% !important;
+  }
+
+  .menu-hero-video-section .hero-video-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-top: 6px !important;
+    padding: 0 8px !important;
+  }
+
+  .hero-video-kicker {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    font-size: 0.68rem !important;
+    letter-spacing: 0.16em !important;
+    color: #f5a623 !important;
+    font-weight: 700 !important;
+    margin-bottom: 5px !important;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9) !important;
   }
 
   .hero-video-h1 {
-    font-size: 1.05rem !important;
-    line-height: 1.2 !important;
+    font-family: Fraunces, Georgia, serif !important;
+    font-size: 1.45rem !important;
+    line-height: 1.22 !important;
+    margin: 0 0 6px !important;
+    text-align: center !important;
+    color: #faf5ee !important;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95), 0 0 20px rgba(0, 0, 0, 0.7) !important;
+  }
+
+  .hero-video-h1 em {
+    color: #f5a623 !important;
+    font-style: italic !important;
+  }
+
+  .hero-video-sub {
+    display: block !important;
+    font-size: 0.8rem !important;
+    line-height: 1.35 !important;
+    color: #e5d5c5 !important;
+    max-width: 300px !important;
     margin: 0 !important;
     text-align: center !important;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7) !important;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.95) !important;
+    opacity: 0.95 !important;
+  }
+
+  .hero-video-actions,
+  .masa-badge {
+    display: none !important;
   }
 
   /* Kompakt Öne Çıkanlar Şeridi: kartın tamamı (görsel 16:10, ad, fiyat) görünür, kategori çubuğundan en az 8px yukarıda biter */
