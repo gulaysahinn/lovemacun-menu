@@ -165,24 +165,28 @@ export function InfoDrawer({ isOpen, onClose }) {
         </div>
 
         <div className="info-bs-scroll-body">
-          {/* 2. Açık/Kapalı Durumu Çipi (Europe/Istanbul Saati) */}
-          <div className="info-bs-status-wrap">
+          {/* 2. Açık/Kapalı Durumu ve Kompakt Tek Satır Çalışma Saati */}
+          <div className="info-bs-status-block">
             <div className={`info-bs-status-chip ${status.isOpen ? 'status-open' : 'status-closed'}`}>
               <span className="status-dot" aria-hidden="true" />
               <span className="status-text">{status.text}</span>
             </div>
+            <div className="info-bs-hours-line">
+              <Clock size={13} className="info-bs-hours-ico" />
+              <span>{t('hoursEveryday', lang)} (08:30 – 23:00)</span>
+            </div>
           </div>
 
-          {/* 3. 2x2 Hızlı İşlem Düğmeleri (En az 64px yükseklik) */}
+          {/* 3. 2x2 Hızlı İşlem Düğmeleri (Tek palet: koyu zemin, ince turuncu border; Rezervasyon dolgulu turuncu) */}
           <div className="info-bs-quick-grid">
             {/* a) Ara */}
             <a
               href={`tel:${CONFIG.phonePrimary.tel}`}
-              className="info-bs-tile tile-call"
+              className="info-bs-tile tile-unified"
               aria-label={`${t('callNow', lang)}: ${CONFIG.phonePrimary.display}`}
             >
               <div className="tile-icon-box">
-                <Phone size={22} />
+                <Phone size={20} />
               </div>
               <span className="tile-title">{t('callNow', lang)}</span>
             </a>
@@ -192,24 +196,24 @@ export function InfoDrawer({ isOpen, onClose }) {
               href={CONFIG.mapsDirectionsUrl}
               target="_blank"
               rel="noreferrer"
-              className="info-bs-tile tile-route"
+              className="info-bs-tile tile-unified"
               aria-label={t('directions', lang)}
             >
               <div className="tile-icon-box">
-                <MapPin size={22} />
+                <MapPin size={20} />
               </div>
               <span className="tile-title">{t('directions', lang)}</span>
             </a>
 
-            {/* c) Rezervasyon */}
+            {/* c) Rezervasyon (Birincil / Dolgulu Turuncu) */}
             <Link
               to="/rezervasyon"
               onClick={handleClose}
-              className="info-bs-tile tile-res"
+              className="info-bs-tile tile-primary-res"
               aria-label={t('reservation', lang)}
             >
               <div className="tile-icon-box">
-                <Calendar size={22} />
+                <Calendar size={20} />
               </div>
               <span className="tile-title">{t('reservation', lang)}</span>
             </Link>
@@ -219,80 +223,63 @@ export function InfoDrawer({ isOpen, onClose }) {
               href={CONFIG.instagram}
               target="_blank"
               rel="noreferrer"
-              className="info-bs-tile tile-insta"
+              className="info-bs-tile tile-unified"
               aria-label="Instagram"
             >
               <div className="tile-icon-box">
-                <InstagramIcon size={22} />
+                <InstagramIcon size={20} />
               </div>
               <span className="tile-title">Instagram</span>
             </a>
           </div>
 
-          {/* 4. Bilgi Kartları */}
-          <div className="info-bs-details">
-            {/* a) Çalışma Saatleri */}
-            <div className="info-bs-card">
-              <div className="card-ico-col">
-                <Clock size={18} className="card-ico" />
-              </div>
-              <div className="card-content-col">
-                <span className="card-label">{t('hours', lang)}</span>
-                <span className="card-val">{t('hoursEveryday', lang)}</span>
-              </div>
-            </div>
-
-            {/* b) Adres (Haritada açılır + Kopyala butonu) */}
-            <div className="info-bs-card card-address-row">
-              <div className="card-ico-col">
-                <MapPin size={18} className="card-ico" />
-              </div>
-              <a
-                href={CONFIG.mapsDirectionsUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="card-content-col card-link-val"
-                title={lang === 'en' ? 'Open in Google Maps' : 'Google Haritalar\'da Aç'}
-              >
-                <span className="card-label">{t('address', lang)}</span>
-                <span className="card-val">{CONFIG.address}</span>
-              </a>
-              <button
-                type="button"
-                className={`card-copy-btn ${copied ? 'copied' : ''}`}
-                onClick={handleCopyAddress}
-                aria-label={t('copyAddress', lang)}
-                title={t('copyAddress', lang)}
-              >
-                {copied ? <Check size={16} /> : <Copy size={16} />}
-                <span className="copy-tooltip">{copied ? t('copied', lang) : t('copyAddress', lang)}</span>
-              </button>
-            </div>
-
-            {/* c) Telefon (İki numara ayrı ayrı tıklanabilir) */}
-            <div className="info-bs-card">
-              <div className="card-ico-col">
-                <Phone size={18} className="card-ico" />
-              </div>
-              <div className="card-content-col">
-                <span className="card-label">{t('phone', lang)}</span>
-                <div className="card-phones-row">
-                  <a href={`tel:${CONFIG.phonePrimary.tel}`} className="card-tel-link">
-                    {CONFIG.phonePrimary.display}
-                  </a>
-                  <span className="card-tel-sep">·</span>
-                  <a href={`tel:${CONFIG.phoneSecondary.tel}`} className="card-tel-link">
-                    {CONFIG.phoneSecondary.display}
-                  </a>
-                </div>
-              </div>
-            </div>
+          {/* 4. Telefon Numaraları: İki Yan Yana Düğme (Her biri 44px+) */}
+          <div className="info-bs-phones-grid">
+            <a
+              href={`tel:${CONFIG.phonePrimary.tel}`}
+              className="info-bs-phone-btn"
+              aria-label={`Ara: ${CONFIG.phonePrimary.display}`}
+            >
+              <Phone size={15} />
+              <span className="phone-btn-num">{CONFIG.phonePrimary.display}</span>
+            </a>
+            <a
+              href={`tel:${CONFIG.phoneSecondary.tel}`}
+              className="info-bs-phone-btn"
+              aria-label={`Ara: ${CONFIG.phoneSecondary.display}`}
+            >
+              <Phone size={15} />
+              <span className="phone-btn-num">{CONFIG.phoneSecondary.display}</span>
+            </a>
           </div>
 
-          {/* 5. En Altta Küçük Satır: Blog Bağlantısı ("Ada Notları") */}
+          {/* 5. Adres Kartı: Tek Satır + Kopyala İkonu */}
+          <div className="info-bs-address-row">
+            <MapPin size={16} className="addr-row-ico" />
+            <a
+              href={CONFIG.mapsDirectionsUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="addr-row-link"
+              title={lang === 'en' ? 'Open in Google Maps' : 'Google Haritalar\'da Aç'}
+            >
+              <span className="addr-row-text">{CONFIG.address}</span>
+            </a>
+            <button
+              type="button"
+              className={`addr-row-copy-btn ${copied ? 'copied' : ''}`}
+              onClick={handleCopyAddress}
+              aria-label={t('copyAddress', lang)}
+              title={t('copyAddress', lang)}
+            >
+              {copied ? <Check size={16} /> : <Copy size={16} />}
+            </button>
+          </div>
+
+          {/* 6. En Altta Küçük Satır: Blog Bağlantısı */}
           <div className="info-bs-footer-row">
             <Link to="/blog" onClick={handleClose} className="info-bs-blog-link">
-              <BookOpen size={14} />
+              <BookOpen size={13} />
               <span>{t('islandNotes', lang)} →</span>
             </Link>
           </div>

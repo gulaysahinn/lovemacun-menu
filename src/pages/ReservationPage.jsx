@@ -60,7 +60,7 @@ export function ReservationPage() {
           <div className="reservation-main-card">
             <div className="res-card-badge">
               <Calendar size={18} className="res-badge-icon" />
-              <span>{lang === 'en' ? 'Phone Reservation' : 'Telefonla Hızlı Rezervasyon'}</span>
+              <span>{lang === 'en' ? 'Phone Reservation' : 'Telefonla Rezervasyon'}</span>
             </div>
 
             <h2 className="res-card-h2">
@@ -70,8 +70,8 @@ export function ReservationPage() {
             </h2>
             <p className="res-card-desc">
               {lang === 'en'
-                ? 'Same-day or future reservations are quickly confirmed by phone. For group bookings, please inform us in advance.'
-                : 'Aynı gün veya ileri tarihli rezervasyon talepleriniz telefon üzerinden anında teyit edilir. Kalabalık gruplar için önceden aramanızı rica ederiz.'}
+                ? 'Table requests are handled directly by phone call. For group bookings and special events, please inform us in advance.'
+                : 'Masa rezervasyonu taleplerinizi doğrudan restoran telefon numaralarımızdan iletebilirsiniz. Kalabalık gruplar ve özel günler için önceden aramanızı rica ederiz.'}
             </p>
 
             {/* Arama Butonları (52px yükseklik, iki hat ayrı ayrı) */}
@@ -84,7 +84,7 @@ export function ReservationPage() {
               >
                 <Phone size={18} />
                 <div className="btn-call-text">
-                  <span className="btn-call-label">{lang === 'en' ? 'Primary Line' : 'Ana Hat (Hemen Ara)'}</span>
+                  <span className="btn-call-label">{lang === 'en' ? 'Primary Line' : 'Ana Hat'}</span>
                   <strong className="btn-call-number">{CONFIG.phonePrimary.display}</strong>
                 </div>
               </a>
@@ -121,8 +121,8 @@ export function ReservationPage() {
               <Info size={16} className="notice-icon" />
               <p>
                 {lang === 'en'
-                  ? 'Reservations are finalized upon restaurant verbal confirmation. On busy summer weekends, early booking is recommended.'
-                  : 'Rezervasyon talebiniz restoran yetkilimizle görüşüldüğünde kesinleşir. Özellikle yaz ve hafta sonu yoğunluklarında önceden aramanızı öneririz.'}
+                  ? 'Reservations are confirmed via direct phone call with our restaurant staff. Early booking is recommended for weekends and summer season.'
+                  : 'Rezervasyon talebiniz doğrudan restoran yetkilimizle telefon görüşmesi sağlandığında oluşturulur. Özellikle yaz sezonu ve hafta sonu yoğunluklarında önceden aramanızı öneririz.'}
               </p>
             </div>
           </div>

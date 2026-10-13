@@ -9,6 +9,7 @@ import {
   MapPin,
   Search,
   ChevronRight,
+  ChevronDown,
   Phone,
   Clock,
   Check,
@@ -29,6 +30,19 @@ function InstagramIcon({ size = 16 }) {
   )
 }
 
+const FLAG_EMOJIS = {
+  tr: '🇹🇷',
+  en: '🇬🇧',
+  ar: '🇸🇦',
+  ru: '🇷🇺',
+  de: '🇩🇪',
+  fr: '🇫🇷',
+  fa: '🇮🇷',
+  es: '🇪🇸',
+  'zh-CN': '🇨🇳',
+  nl: '🇳🇱',
+}
+
 export function HamburgerDrawer({ isOpen, onClose, onOpenSearch }) {
   const location = useLocation()
   const pathname = location.pathname
@@ -36,10 +50,12 @@ export function HamburgerDrawer({ isOpen, onClose, onOpenSearch }) {
   const currentLang = getInitialLang()
   const lang = useLang()
   const [isClosing, setIsClosing] = useState(false)
+  const [isLangOpen, setIsLangOpen] = useState(false)
 
   // Body scroll lock
   useEffect(() => {
     setIsClosing(false)
+    setIsLangOpen(false)
     if (isOpen) {
       const originalOverflow = document.body.style.overflow
       document.body.style.overflow = 'hidden'
@@ -80,39 +96,41 @@ export function HamburgerDrawer({ isOpen, onClose, onOpenSearch }) {
     {
       to: '/',
       label: t('menu', lang),
-      sub: lang === 'en' ? 'Stone oven lahmacun, pide & kebabs' : 'Taş fırın lahmacun, pide ve kebaplar',
+      sub: t('subMenu', lang),
       icon: UtensilsCrossed,
       active: isMenu
     },
     {
       to: '/hikayemiz',
       label: t('story', lang),
-      sub: lang === 'en' ? 'Stone oven mastery in Buyukada' : "Büyükada'da taş fırın ustalığı",
+      sub: t('subStory', lang),
       icon: Sparkles,
       active: isStory
     },
     {
       to: '/blog',
       label: t('blog', lang),
-      sub: lang === 'en' ? 'Island flavors & stories' : 'Ada lezzetleri & hikayeler',
+      sub: t('subBlog', lang),
       icon: BookOpen,
       active: isBlog
     },
     {
       to: '/rezervasyon',
       label: t('reservation', lang),
-      sub: lang === 'en' ? 'Table reservation & call us' : 'Masa rezervasyonu ve telefon hattı',
+      sub: t('subReservation', lang),
       icon: Calendar,
       active: isReservation
     },
     {
       to: '/iletisim',
       label: t('contact', lang),
-      sub: lang === 'en' ? 'Nizam, map & address' : 'Nizam Mahallesi, harita ve adres',
+      sub: t('subContact', lang),
       icon: MapPin,
       active: isContact
     }
   ]
+
+  const activeLangObj = LANGUAGES.find(l => l.code === currentLang) || LANGUAGES[0]
 
   if (typeof document === 'undefined' || (!isOpen && !isClosing)) return null
 
@@ -131,165 +149,182 @@ export function HamburgerDrawer({ isOpen, onClose, onOpenSearch }) {
 
       {/* Sağdan Kayan Koyu Çekmece */}
       <div className="hbg-drawer-panel">
-            {/* 1. Üst Kısım: Logo ve Kapat (X) Butonu */}
-            <div className="hbg-drawer-head">
-              <Link to="/" className="hbg-drawer-brand notranslate" translate="no" onClick={onClose}>
-                <img
-                  src={asset('/logo-badge.png')}
-                  alt="Taş Fırın Lovemacun Logosu"
-                  className="hbg-drawer-logo"
-                  width="38"
-                  height="38"
-                />
-                <div className="hbg-drawer-brand-text">
-                  <span className="hbg-drawer-name">{CONFIG.name}</span>
-                  <span className="hbg-drawer-tagline">BÜYÜKADA · TAŞ FIRIN</span>
-                </div>
-              </Link>
-              <button
-                type="button"
-                ref={closeBtnRef}
-                className="hbg-drawer-close-btn"
-                onClick={onClose}
-                aria-label="Menüyü Kapat"
-              >
-                <X size={22} />
-              </button>
+        {/* 1. Üst Kısım: Logo ve Kapat (X) Butonu */}
+        <div className="hbg-drawer-head">
+          <Link to="/" className="hbg-drawer-brand notranslate" translate="no" onClick={onClose}>
+            <img
+              src={asset('/logo-badge.png')}
+              alt="Taş Fırın Lovemacun Logosu"
+              className="hbg-drawer-logo"
+              width="38"
+              height="38"
+            />
+            <div className="hbg-drawer-brand-text">
+              <span className="hbg-drawer-name">{CONFIG.name}</span>
+              <span className="hbg-drawer-tagline">BÜYÜKADA · TAŞ FIRIN</span>
             </div>
+          </Link>
+          <button
+            type="button"
+            ref={closeBtnRef}
+            className="hbg-drawer-close-btn"
+            onClick={onClose}
+            aria-label="Menüyü Kapat"
+          >
+            <X size={22} />
+          </button>
+        </div>
 
-            <div className="hbg-drawer-body">
-              {/* 2. Büyük 52px Dokunma Alanlı Bağlantılar */}
-              <nav className="hbg-drawer-nav" aria-label="Mobil Ana Menü">
-                {NAV_LINKS.map((item) => {
-                  const Icon = item.icon
+        {/* Kaydırılabilir İçerik Alanı */}
+        <div className="hbg-drawer-body">
+          {/* 2. Menü Bağlantıları (Aktif satır rozet yerine sadece turuncu vurgu) */}
+          <nav className="hbg-drawer-nav" aria-label="Mobil Ana Menü">
+            {NAV_LINKS.map((item) => {
+              const Icon = item.icon
+              return (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  className={`hbg-nav-item notranslate ${item.active ? 'active' : ''}`}
+                  translate="no"
+                  onClick={onClose}
+                >
+                  <div className="hbg-nav-item-left">
+                    <span className="hbg-nav-icon-wrap">
+                      <Icon size={20} />
+                    </span>
+                    <div className="hbg-nav-text">
+                      <span className="hbg-nav-label">{item.label}</span>
+                      <span className="hbg-nav-sub">{item.sub}</span>
+                    </div>
+                  </div>
+                  <div className="hbg-nav-item-right">
+                    <ChevronRight size={18} className="hbg-nav-arrow" />
+                  </div>
+                </Link>
+              )
+            })}
+          </nav>
+
+          {/* 3. Kompakt Tek Satır Dil Seçici */}
+          <div className="hbg-section hbg-lang-compact-section notranslate" translate="no">
+            <button
+              type="button"
+              className="hbg-lang-row-btn"
+              onClick={() => setIsLangOpen(!isLangOpen)}
+              onMouseEnter={loadGoogleTranslateScript}
+              onTouchStart={loadGoogleTranslateScript}
+              aria-expanded={isLangOpen}
+            >
+              <div className="hbg-lang-row-left">
+                <span className="hbg-lang-globe-icon">🌐</span>
+                <span className="hbg-lang-row-label">
+                  Dil / Language · {activeLangObj.short} {FLAG_EMOJIS[activeLangObj.code] || '🇹🇷'}
+                </span>
+              </div>
+              <ChevronDown size={17} className={`hbg-lang-chevron ${isLangOpen ? 'open' : ''}`} />
+            </button>
+
+            {isLangOpen && (
+              <div className="hbg-lang-dropdown-list">
+                {LANGUAGES.map((l) => {
+                  const isSelected = l.code === currentLang
                   return (
-                    <Link
-                      key={item.to}
-                      to={item.to}
-                      className={`hbg-nav-item notranslate ${item.active ? 'active' : ''}`}
-                      translate="no"
-                      onClick={onClose}
+                    <button
+                      key={l.code}
+                      type="button"
+                      className={`hbg-lang-drop-item ${isSelected ? 'selected' : ''}`}
+                      onClick={() => {
+                        setIsLangOpen(false)
+                        onClose()
+                        applyLanguage(l.code)
+                      }}
+                      aria-label={l.name}
                     >
-                      <div className="hbg-nav-item-left">
-                        <span className="hbg-nav-icon-wrap">
-                          <Icon size={20} />
-                        </span>
-                        <div className="hbg-nav-text">
-                          <span className="hbg-nav-label">{item.label}</span>
-                          <span className="hbg-nav-sub">{item.sub}</span>
-                        </div>
-                      </div>
-                      <div className="hbg-nav-item-right">
-                        {item.active && <span className="hbg-nav-active-pill">Aktif</span>}
-                        <ChevronRight size={18} className="hbg-nav-arrow" />
-                      </div>
-                    </Link>
+                      <img src={asset(l.flag)} alt="" className="hbg-lang-drop-flag" width="20" height="15" />
+                      <span className="hbg-lang-drop-name">{l.name} ({l.short})</span>
+                      {isSelected && <Check size={14} className="hbg-lang-check" />}
+                    </button>
                   )
                 })}
-              </nav>
-
-              {/* 3. Dil Seçici Satırı (Bayraklı seçenekler) */}
-              <div className="hbg-section hbg-lang-section notranslate" translate="no">
-                <span className="hbg-section-title">Dil / Language</span>
-                <div className="hbg-lang-grid">
-                  {LANGUAGES.map((lang) => {
-                    const isSelected = lang.code === currentLang
-                    return (
-                      <button
-                        key={lang.code}
-                        type="button"
-                        className={`hbg-lang-pill ${isSelected ? 'selected' : ''}`}
-                        onClick={() => {
-                          onClose()
-                          applyLanguage(lang.code)
-                        }}
-                        onMouseEnter={loadGoogleTranslateScript}
-                        onTouchStart={loadGoogleTranslateScript}
-                        aria-label={lang.name}
-                      >
-                        <img src={asset(lang.flag)} alt="" className="hbg-lang-flag" width="20" height="15" />
-                        <span className="hbg-lang-code">{lang.short}</span>
-                        {isSelected && <Check size={13} className="hbg-lang-check" />}
-                      </button>
-                    )
-                  })}
-                </div>
               </div>
+            )}
+          </div>
 
-              {/* 4. "Ara" ve "Yol Tarifi" Butonları */}
-              <div className="hbg-section hbg-action-btns">
-                <button
-                  type="button"
-                  className="btn btn-hbg-search"
-                  onClick={() => {
-                    onClose()
-                    onOpenSearch?.()
-                  }}
-                  aria-label="Menüde Ara"
-                >
-                  <Search size={17} /> Menüde Ara
-                </button>
-                <a
-                  href={CONFIG.mapsDirectionsUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn btn-hbg-route"
-                  onClick={onClose}
-                  aria-label="Haritada Yol Tarifi Al"
-                >
-                  <MapPin size={17} /> Yol Tarifi Al
-                </a>
-              </div>
-
-              {/* 5. Telefon Numaraları ve Instagram */}
-              <div className="hbg-section hbg-contacts">
-                <span className="hbg-section-title">Sipariş & İletişim</span>
-                <div className="hbg-contact-links">
-                  <a
-                    href={`tel:${CONFIG.phonePrimary.tel}`}
-                    className="hbg-contact-row notranslate"
-                    translate="no"
-                  >
-                    <span className="hbg-contact-icon">
-                      <Phone size={16} />
-                    </span>
-                    <span className="hbg-contact-label">{CONFIG.phonePrimary.display}</span>
-                    <span className="hbg-contact-badge">Hemen Ara</span>
-                  </a>
-                  <a
-                    href={`tel:${CONFIG.phoneSecondary.tel}`}
-                    className="hbg-contact-row notranslate"
-                    translate="no"
-                  >
-                    <span className="hbg-contact-icon">
-                      <Phone size={16} />
-                    </span>
-                    <span className="hbg-contact-label">{CONFIG.phoneSecondary.display}</span>
-                    <span className="hbg-contact-badge">Sabit Hat</span>
-                  </a>
-                  <a
-                    href={CONFIG.instagram}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hbg-contact-row hbg-insta-row"
-                  >
-                    <span className="hbg-contact-icon">
-                      <InstagramIcon size={16} />
-                    </span>
-                    <span className="hbg-contact-label">@tasfirinlovemacun</span>
-                    <span className="hbg-contact-badge">Instagram</span>
-                  </a>
-                </div>
-              </div>
-
-              {/* 6. En Altta Çalışma Saati */}
-              <div className="hbg-drawer-footer">
-                <Clock size={15} className="hbg-footer-icon" />
-                <span>Her gün {CONFIG.hours}</span>
-              </div>
+          {/* 4. Telefon Numaraları ve Instagram */}
+          <div className="hbg-section hbg-contacts">
+            <span className="hbg-section-title">Sipariş & İletişim</span>
+            <div className="hbg-contact-links">
+              <a
+                href={`tel:${CONFIG.phonePrimary.tel}`}
+                className="hbg-contact-row notranslate"
+                translate="no"
+              >
+                <span className="hbg-contact-icon">
+                  <Phone size={15} />
+                </span>
+                <span className="hbg-contact-label">{CONFIG.phonePrimary.display}</span>
+                <span className="hbg-contact-badge">Hemen Ara</span>
+              </a>
+              <a
+                href={`tel:${CONFIG.phoneSecondary.tel}`}
+                className="hbg-contact-row notranslate"
+                translate="no"
+              >
+                <span className="hbg-contact-icon">
+                  <Phone size={15} />
+                </span>
+                <span className="hbg-contact-label">{CONFIG.phoneSecondary.display}</span>
+                <span className="hbg-contact-badge">Sabit Hat</span>
+              </a>
+              <a
+                href={CONFIG.instagram}
+                target="_blank"
+                rel="noreferrer"
+                className="hbg-contact-row hbg-insta-row"
+              >
+                <span className="hbg-contact-icon">
+                  <InstagramIcon size={15} />
+                </span>
+                <span className="hbg-contact-label">@tasfirinlovemacunn</span>
+                <span className="hbg-contact-badge">Instagram</span>
+              </a>
             </div>
           </div>
-        </div>,
+
+          {/* 5. En Altta Çalışma Saati */}
+          <div className="hbg-drawer-footer">
+            <Clock size={14} className="hbg-footer-icon" />
+            <span>Her gün {CONFIG.hours}</span>
+          </div>
+        </div>
+
+        {/* 6. Çekmecenin Altına Yapışık (Sticky) Aksiyon Çubuğu */}
+        <div className="hbg-drawer-sticky-bar">
+          <button
+            type="button"
+            className="btn btn-hbg-search"
+            onClick={() => {
+              onClose()
+              onOpenSearch?.()
+            }}
+            aria-label="Menüde Ara"
+          >
+            <Search size={16} /> Menüde Ara
+          </button>
+          <a
+            href={CONFIG.mapsDirectionsUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-hbg-route"
+            onClick={onClose}
+            aria-label="Haritada Yol Tarifi Al"
+          >
+            <MapPin size={16} /> Yol Tarifi Al
+          </a>
+        </div>
+      </div>
+    </div>,
     document.body
   )
 }

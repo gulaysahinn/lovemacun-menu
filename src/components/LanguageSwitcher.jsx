@@ -57,7 +57,8 @@ export function applyLanguage(langCode) {
 
     if (langCode && langCode !== 'tr') {
       document.cookie = `googtrans=/tr/${langCode}; path=/;`
-      if (hostname && hostname !== 'localhost') {
+      const isCustomDomain = Boolean(hostname && hostname.includes('.') && !/^[\d.]+$/.test(hostname))
+      if (isCustomDomain) {
         document.cookie = `googtrans=/tr/${langCode}; path=/; domain=${hostname};`
       }
     }

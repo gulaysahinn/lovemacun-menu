@@ -23,6 +23,11 @@ export const DICTIONARY = {
     islandNotes: 'Ada Notları',
     featuredTitle: 'Öne Çıkanlar',
     featuredKicker: '✦ MUTLAKA DENEYİN',
+    subMenu: 'Lahmacun, pide, kebap',
+    subStory: 'Taş fırın ustalığı',
+    subBlog: 'Ada notları',
+    subReservation: 'Masa için bizi arayın',
+    subContact: 'Harita ve adres',
   },
   en: {
     menu: 'Menu',
@@ -45,6 +50,11 @@ export const DICTIONARY = {
     islandNotes: 'Island Notes',
     featuredTitle: 'Featured Items',
     featuredKicker: '✦ MUST TRY',
+    subMenu: 'Lahmacun, pide, kebabs',
+    subStory: 'Stone oven mastery',
+    subBlog: 'Island notes',
+    subReservation: 'Call us for a table',
+    subContact: 'Map & address',
   },
 }
 
