@@ -111,55 +111,16 @@ export function MenuPage({ onSelectProduct, onOpenSearch }) {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  // Ensure category tabs always start from the first category
+  const isClickScrollingRef = useRef(false)
+  const clickScrollTimeoutRef = useRef(null)
+  const activeCatRef = useRef(activeCat)
+
   useEffect(() => {
-    if (tabsContainerRef.current) {
-      tabsContainerRef.current.scrollLeft = 0
-    }
-  }, [])
+    activeCatRef.current = activeCat
+  }, [activeCat])
 
-  // Mobil cihazlarda dikey kaydırmaya göre aktif kategoriyi güncelleyen Scroll-Spy
-  useEffect(() => {
-    if (!isMobile) return
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = entry.target.id
-            if (id && id !== activeCat) {
-              setActiveCat(id)
-              const btn = tabRefs.current[id]
-              const container = tabsContainerRef.current
-              if (btn && container) {
-                const btnLeft = btn.offsetLeft
-                const btnWidth = btn.offsetWidth
-                const containerWidth = container.offsetWidth
-                container.scrollTo({
-                  left: btnLeft - containerWidth / 2 + btnWidth / 2,
-                  behavior: 'smooth',
-                })
-              }
-            }
-          }
-        })
-      },
-      {
-        rootMargin: '-105px 0px -65% 0px',
-        threshold: 0,
-      }
-    )
-
-    NON_EMPTY_CATS.forEach((c) => {
-      const el = document.getElementById(c.id)
-      if (el) observer.observe(el)
-    })
-
-    return () => observer.disconnect()
-  }, [isMobile, activeCat])
-
-  const handleSelectCat = (catId) => {
-    setActiveCat(catId)
+  // Center active category chip smoothly in the horizontal tabs bar
+  const scrollToTab = (catId) => {
     const btn = tabRefs.current[catId]
     const container = tabsContainerRef.current
     if (btn && container) {
@@ -167,18 +128,131 @@ export function MenuPage({ onSelectProduct, onOpenSearch }) {
       const btnWidth = btn.offsetWidth
       const containerWidth = container.offsetWidth
       container.scrollTo({
-        left: btnLeft - (containerWidth / 2) + (btnWidth / 2),
+        left: btnLeft - containerWidth / 2 + btnWidth / 2,
         behavior: 'smooth',
       })
     }
+  }
+
+  // Ensure category tabs always start from the first category on mount
+  useEffect(() => {
+    if (tabsContainerRef.current) {
+      tabsContainerRef.current.scrollLeft = 0
+    }
+  }, [])
+
+  // User manual touch or wheel gesture interrupts programmatic smooth-scroll lock
+  useEffect(() => {
+    const unlock = () => {
+      isClickScrollingRef.current = false
+      if (clickScrollTimeoutRef.current) {
+        clearTimeout(clickScrollTimeoutRef.current)
+      }
+    }
+    window.addEventListener('scrollend', unlock, { passive: true })
+    window.addEventListener('touchstart', unlock, { passive: true })
+    window.addEventListener('wheel', unlock, { passive: true })
+    return () => {
+      window.removeEventListener('scrollend', unlock)
+      window.removeEventListener('touchstart', unlock)
+      window.removeEventListener('wheel', unlock)
+    }
+  }, [])
+
+  // Mobil cihazlarda dikey kaydırmaya göre aktif kategoriyi titreşimsiz güncelleyen Scroll-Spy
+  useEffect(() => {
+    if (!isMobile) return
+
+    let ticking = false
+
+    const updateActiveCategoryOnScroll = () => {
+      if (isClickScrollingRef.current) {
+        ticking = false
+        return
+      }
+
+      // 1. Sayfa en altındaysa son kategoriyi aktif yap
+      const scrollHeight = document.documentElement.scrollHeight
+      const scrollTop = window.scrollY
+      const clientHeight = window.innerHeight
+      if (scrollTop + clientHeight >= scrollHeight - 50) {
+        const lastCat = NON_EMPTY_CATS[NON_EMPTY_CATS.length - 1]
+        if (lastCat && lastCat.id !== activeCatRef.current) {
+          setActiveCat(lastCat.id)
+          activeCatRef.current = lastCat.id
+          scrollToTab(lastCat.id)
+        }
+        ticking = false
+        return
+      }
+
+      // 2. Sticky header (56px) + sticky kategori çubuğu (~50px) = ~106px.
+      // Tetikleyici algılama çizgisi 130px olarak belirlenir.
+      const triggerY = 130
+      let matchedCatId = null
+
+      for (const c of NON_EMPTY_CATS) {
+        const el = document.getElementById(c.id)
+        if (!el) continue
+        const rect = el.getBoundingClientRect()
+        // Üstü tetikleyicinin üstünde ve altı tetikleyicinin altındaysa tam bu kategori okunuyor
+        if (rect.top <= triggerY && rect.bottom > triggerY) {
+          matchedCatId = c.id
+          break
+        }
+      }
+
+      // 3. İlk kategorinin üstündeyse (hero video veya öne çıkanlar), ilk kategori aktif kalır
+      if (!matchedCatId && NON_EMPTY_CATS.length > 0) {
+        const firstEl = document.getElementById(NON_EMPTY_CATS[0].id)
+        if (firstEl && firstEl.getBoundingClientRect().top > triggerY) {
+          matchedCatId = NON_EMPTY_CATS[0].id
+        }
+      }
+
+      if (matchedCatId && matchedCatId !== activeCatRef.current) {
+        setActiveCat(matchedCatId)
+        activeCatRef.current = matchedCatId
+        scrollToTab(matchedCatId)
+      }
+
+      ticking = false
+    }
+
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateActiveCategoryOnScroll)
+        ticking = true
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [isMobile])
+
+  const handleSelectCat = (catId) => {
+    if (clickScrollTimeoutRef.current) {
+      clearTimeout(clickScrollTimeoutRef.current)
+    }
+    // Tıklamayla kaydırma süresince scroll-spy'ı kilitleyerek yanıp sönmeyi ve çakışmayı engelle
+    isClickScrollingRef.current = true
+
+    setActiveCat(catId)
+    activeCatRef.current = catId
+    scrollToTab(catId)
 
     if (isMobile) {
       const targetEl = document.getElementById(catId)
       if (targetEl) {
-        const topOffset = targetEl.getBoundingClientRect().top + window.scrollY - 105
+        // Sticky başlık ve kategori çubuğunun altında 116px boşluk bırak
+        const topOffset = targetEl.getBoundingClientRect().top + window.scrollY - 116
         window.scrollTo({ top: Math.max(0, topOffset), behavior: 'smooth' })
       }
     }
+
+    clickScrollTimeoutRef.current = setTimeout(() => {
+      isClickScrollingRef.current = false
+    }, 850)
   }
 
   const passTag = (name) => tagSel.every((t) => (TAGS[t] || []).includes(name))
