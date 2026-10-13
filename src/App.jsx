@@ -188,6 +188,7 @@ function AppContent() {
       />
 
       <BottomSheet
+        key={selected ? selected.name : 'empty'}
         item={selected}
         onClose={() => setSelected(null)}
       />

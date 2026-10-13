@@ -943,6 +943,7 @@ footer h2 {
 }
 .sheet-overlay.closing {
   opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 .bottom-sheet {

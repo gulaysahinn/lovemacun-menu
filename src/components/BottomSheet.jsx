@@ -13,8 +13,10 @@ export function BottomSheet({ item, onClose }) {
   const currentDragYRef = useRef(0)
   const contentRef = useRef(null)
 
-  // Body scroll lock while sheet is open
+  // Body scroll lock while sheet is open & reset closing state
   useEffect(() => {
+    setIsClosing(false)
+    setDragY(0)
     if (item) {
       document.body.style.overflow = 'hidden'
     } else {
@@ -30,8 +32,22 @@ export function BottomSheet({ item, onClose }) {
     setIsClosing(true)
     setTimeout(() => {
       onClose()
+      setIsClosing(false)
+      setDragY(0)
     }, 220)
   }
+
+  // ESC tuşu ile kapatma desteği
+  useEffect(() => {
+    if (!item) return
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        handleClose()
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [item, isClosing])
 
   const onStart = (clientY, target) => {
     if (target && (target.closest('button') || target.closest('a'))) return
