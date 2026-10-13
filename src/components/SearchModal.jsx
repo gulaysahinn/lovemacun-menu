@@ -1,10 +1,28 @@
 import { useState, useRef, useEffect } from 'react'
-import { Search, X, Heart } from 'lucide-react'
+import { createPortal } from 'react-dom'
+import { Search, X } from 'lucide-react'
 import { CATS } from '../menu.js'
 import images from '../images.json'
 
 const fmt = (n) => n.toLocaleString('tr-TR') + ' ₺'
-const lower = (s) => s.toLocaleLowerCase('tr')
+
+// Türkçe karakter ve aksan normalizasyonu (kasarli -> kaşarlı, iskender -> İskender)
+function normalizeText(str) {
+  if (!str) return ''
+  return str
+    .toLocaleLowerCase('tr')
+    .replace(/ğ/g, 'g')
+    .replace(/ü/g, 'u')
+    .replace(/ş/g, 's')
+    .replace(/ı/g, 'i')
+    .replace(/i̇/g, 'i')
+    .replace(/ö/g, 'o')
+    .replace(/ç/g, 'c')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .trim()
+}
+
 const slug = (s) =>
   s
     ? s
@@ -56,146 +74,242 @@ const allProducts = CATS.flatMap((c) =>
       emoji: c.emoji,
       img: getImg(name, manualImg),
       catName: c.name,
+      catId: c.id,
       g,
+      // Hızlı arama için önceden normalize edilmiş metinler
+      normName: normalizeText(name),
+      normDesc: normalizeText(desc),
+      normCat: normalizeText(c.name)
     }
   })
 )
 
-export function SearchModal({ isOpen, onClose, onSelectProduct, L }) {
+// Gerçek menü ürünlerine dayalı popüler aramalar (her çip sonuç döndürür)
+const POPULAR_SEARCHES = ['Lahmacun', 'Kaşarlı Pide', 'İskender', 'Künefe', 'Ayran']
+
+export function SearchModal({ isOpen, onClose, onSelectProduct }) {
   const [query, setQuery] = useState('')
+  const [panelHeight, setPanelHeight] = useState('100dvh')
   const inputRef = useRef(null)
 
+  // 1. Android Geri Tuşu (popstate) & ESC desteği
+  useEffect(() => {
+    if (!isOpen) return
+
+    window.history.pushState({ searchOpen: true }, '')
+    const handlePopState = () => {
+      onClose()
+    }
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        onClose()
+      }
+    }
+
+    window.addEventListener('popstate', handlePopState)
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState)
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [isOpen, onClose])
+
+  // 2. Arka plan kaydırma kilidi ve otomatik odaklama
   useEffect(() => {
     if (isOpen) {
-      setTimeout(() => inputRef.current?.focus(), 100)
+      const originalOverflow = document.body.style.overflow
+      document.body.style.overflow = 'hidden'
+      const timer = setTimeout(() => {
+        inputRef.current?.focus()
+      }, 50)
+      return () => {
+        document.body.style.overflow = originalOverflow
+        clearTimeout(timer)
+      }
     } else {
       setQuery('')
+    }
+  }, [isOpen])
+
+  // 3. Mobil klavye açıkken visualViewport takibi
+  useEffect(() => {
+    if (!isOpen) return
+    const updateHeight = () => {
+      if (window.visualViewport) {
+        setPanelHeight(`${window.visualViewport.height}px`)
+      } else {
+        setPanelHeight('100dvh')
+      }
+    }
+    updateHeight()
+    window.visualViewport?.addEventListener('resize', updateHeight)
+    window.visualViewport?.addEventListener('scroll', updateHeight)
+    return () => {
+      window.visualViewport?.removeEventListener('resize', updateHeight)
+      window.visualViewport?.removeEventListener('scroll', updateHeight)
     }
   }, [isOpen])
 
   if (!isOpen) return null
 
   const trimmed = query.trim()
-  const lowerQuery = lower(trimmed)
+  const normQuery = normalizeText(trimmed)
+
+  // Filtreleme: İsim, açıklama veya kategori adında Türkçe/aksan duyarsız arama
   const results = trimmed
     ? allProducts.filter(
         (p) =>
-          lower(p.name).includes(lowerQuery) ||
-          (p.desc && lower(p.desc).includes(lowerQuery)) ||
-          lower(p.catName).includes(lowerQuery)
+          p.normName.includes(normQuery) ||
+          p.normDesc.includes(normQuery) ||
+          p.normCat.includes(normQuery)
       )
     : []
 
-  return (
-    <div className="search-modal-overlay" onClick={onClose}>
-      <div className="search-modal-dialog" onClick={(e) => e.stopPropagation()}>
-        <div className="search-modal-header">
-          <div className="search-modal-input-wrap">
-            <Search size={18} className="search-modal-ico" />
+  const handleCancel = () => {
+    onClose()
+  }
+
+  const handleSelect = (item) => {
+    onClose()
+    onSelectProduct?.(item)
+  }
+
+  // React Portal ile doğrudan body'ye eklenir (Z-index hiyerarşisi garantilenir)
+  return createPortal(
+    <div
+      className="search-portal-root"
+      style={{ height: panelHeight }}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Menüde Arama"
+    >
+      <div className="search-portal-inner">
+        {/* Üst Arama Çubuğu */}
+        <div className="search-portal-header">
+          <div className="search-portal-input-wrap">
+            <Search size={18} className="search-portal-ico" aria-hidden="true" />
             <input
               ref={inputRef}
               type="search"
-              placeholder="Lezzet ara… (lahmacun, kaşarlı pide, kebap)"
+              inputMode="search"
+              enterKeyHint="search"
+              placeholder="Lezzet ara… (lahmacun, kaşarlı pide)"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               aria-label="Menüde lezzet ara"
+              className="search-portal-input"
+              autoComplete="off"
+              autoCorrect="off"
+              spellCheck="false"
             />
             {query && (
               <button
                 type="button"
-                className="search-modal-clear"
-                onClick={() => setQuery('')}
-                aria-label="Aramayı temizle"
+                className="btn-search-clear"
+                onClick={() => {
+                  setQuery('')
+                  inputRef.current?.focus()
+                }}
+                aria-label="Aramayı Temizle"
               >
-                ✕
+                <X size={16} />
               </button>
             )}
           </div>
+
           <button
             type="button"
-            className="search-modal-close"
-            onClick={onClose}
-            aria-label="Kapat"
+            className="btn-search-cancel"
+            onClick={handleCancel}
+            aria-label="Aramayı İptal Et"
           >
-            ✕
+            Vazgeç
           </button>
         </div>
 
-        <div className="search-modal-results">
-          {trimmed && results.length === 0 && (
-            <div className="search-no-results">
-              <p>"{query}" ile eşleşen lezzet bulunamadı.</p>
-              <small>Farklı bir arama terimi deneyebilirsiniz.</small>
-            </div>
-          )}
-
+        {/* Gövde: Popüler Aramalar veya Sonuç Listesi */}
+        <div className="search-portal-body">
+          {/* Giriş boşken Popüler Aramalar Çipleri */}
           {!trimmed && (
-            <div className="search-quick-tags">
-              <span className="search-quick-lbl">Popüler Aramalar:</span>
-              <div className="search-quick-btns">
-                {['Lahmacun', 'Kaşarlı Pide', 'İskender', 'Künefe', 'Ayran'].map((tag) => (
+            <div className="search-chips-section">
+              <span className="search-chips-label">Popüler aramalar</span>
+              <div className="search-chips-grid">
+                {POPULAR_SEARCHES.map((chipText) => (
                   <button
-                    key={tag}
+                    key={chipText}
                     type="button"
-                    className="search-quick-btn"
-                    onClick={() => setQuery(tag)}
+                    className="search-chip-btn notranslate"
+                    translate="no"
+                    onClick={() => {
+                      setQuery(chipText)
+                      inputRef.current?.focus()
+                    }}
                   >
-                    {tag}
+                    {chipText}
                   </button>
                 ))}
               </div>
             </div>
           )}
 
+          {/* Yazıldığında Sonuç Bulunamadı Mesajı */}
+          {trimmed && results.length === 0 && (
+            <div className="search-empty-state">
+              <span className="search-empty-icon" aria-hidden="true">🍽️</span>
+              <p className="search-empty-title">"{query}" ile eşleşen lezzet bulunamadı.</p>
+              <span className="search-empty-sub">Farklı bir arama terimi deneyebilirsiniz.</span>
+            </div>
+          )}
+
+          {/* Yazıldığında Sonuç Listesi (56px görsel, ad, kategori, fiyat) */}
           {results.length > 0 && (
-            <div className="search-results-list">
+            <div className="search-results-list" role="list">
               {results.map((item) => {
-                const isFav = L ? Boolean(L.list[item.name]) : false
                 const thumb = item.img?.cut || item.img?.sm || item.img?.lg
                 return (
-                  <div
+                  <button
                     key={item.name}
-                    className="search-result-item"
-                    onClick={() => {
-                      onClose()
-                      onSelectProduct(item)
-                    }}
+                    type="button"
+                    className="search-result-row notranslate"
+                    translate="no"
+                    onClick={() => handleSelect(item)}
+                    role="listitem"
                   >
-                    <div className="search-result-media">
+                    <div className="search-result-thumb-wrap">
                       {thumb ? (
-                        <img src={thumb} alt={item.name} loading="lazy" />
+                        <img
+                          src={thumb}
+                          alt={item.name}
+                          className="search-result-thumb-img"
+                          loading="lazy"
+                        />
                       ) : (
-                        <span className="search-result-monogram">TF</span>
+                        <div className="search-result-thumb-placeholder">
+                          <span>TF</span>
+                        </div>
                       )}
                     </div>
-                    <div className="search-result-info">
+
+                    <div className="search-result-meta">
                       <span className="search-result-cat">{item.catName}</span>
                       <strong className="search-result-name">{item.name}</strong>
-                      {item.desc && <p className="search-result-desc">{item.desc}</p>}
-                    </div>
-                    <div className="search-result-action">
-                      <span className="search-result-price">{fmt(item.price)}</span>
-                      {L && (
-                        <button
-                          type="button"
-                          className={`search-result-heart ${isFav ? 'on' : ''}`}
-                          onClick={(e) => {
-                            e.stopPropagation()
-                            L.toggle(item.name, item.price)
-                          }}
-                          aria-label={isFav ? 'Listeden çıkar' : 'Listeye ekle'}
-                        >
-                          <Heart size={16} fill={isFav ? 'currentColor' : 'none'} />
-                        </button>
+                      {item.desc && (
+                        <span className="search-result-desc">{item.desc}</span>
                       )}
                     </div>
-                  </div>
+
+                    <div className="search-result-price-wrap">
+                      <span className="search-result-price">{fmt(item.price)}</span>
+                    </div>
+                  </button>
                 )
               })}
             </div>
           )}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }

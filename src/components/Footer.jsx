@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import { CONFIG } from '../config.js'
+import { LanguageSwitcher } from './LanguageSwitcher.jsx'
 
-export function Footer({ onOpenList }) {
+export function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-glow-line" aria-hidden="true" />
@@ -9,7 +10,7 @@ export function Footer({ onOpenList }) {
         {/* 1. Marka */}
         <div className="footer-col footer-brand">
           <img src="/logo-badge.png" alt="Taş Fırın Lovemacun" className="footer-logo" width="72" height="72" />
-          <h2 className="footer-title">{CONFIG.name}</h2>
+          <h2 className="footer-title notranslate" translate="no">{CONFIG.name}</h2>
           <p className="footer-slogan">Aşkla yoğrulan hamur, eşsiz lezzet.</p>
         </div>
 
@@ -20,18 +21,17 @@ export function Footer({ onOpenList }) {
             <Link to="/">Menü</Link>
             <Link to="/hikayemiz">Hikayemiz</Link>
             <Link to="/iletisim">İletişim & Konum</Link>
-            {onOpenList && (
-              <button type="button" className="footer-link-btn" onClick={onOpenList}>
-                Listem
-              </button>
-            )}
+            <Link to="/blog">Blog</Link>
+            <div style={{ marginTop: '12px' }}>
+              <LanguageSwitcher align="left" dropUp={true} />
+            </div>
           </div>
         </div>
 
         {/* 3. İletişim */}
         <div className="footer-col footer-contact">
           <h4 className="footer-heading">İletişim</h4>
-          <p className="footer-phone">
+          <p className="footer-phone notranslate" translate="no">
             <a href={'tel:' + CONFIG.phonePrimary.tel}>{CONFIG.phonePrimary.display}</a>
             <span className="footer-phone-sub" style={{ color: '#ad9b8b', marginLeft: '6px' }}>
               / <a href={'tel:' + CONFIG.phoneSecondary.tel}>{CONFIG.phoneSecondary.display}</a>
@@ -57,7 +57,7 @@ export function Footer({ onOpenList }) {
 
       <div className="container footer-bottom">
         <p className="footer-copyright">
-          © {new Date().getFullYear()} {CONFIG.name} · Tüm hakları saklıdır.
+          © {new Date().getFullYear()} <span className="notranslate" translate="no">{CONFIG.name}</span> · Tüm hakları saklıdır.
         </p>
       </div>
     </footer>

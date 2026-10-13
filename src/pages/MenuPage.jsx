@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { Heart, Search, Sparkles } from 'lucide-react'
+import { Search, Sparkles } from 'lucide-react'
 import { PageMeta } from '../components/PageMeta.jsx'
 import { CATS, FEATURED, TAGS } from '../menu.js'
 import { CONFIG } from '../config.js'
@@ -91,12 +91,20 @@ const allItems = CATS.flatMap((c) =>
 
 const featuredList = FEATURED.map((n) => allItems.find((a) => a.name === n)).filter(Boolean)
 
-export function MenuPage({ L, onSelectProduct, onOpenSearch }) {
+export function MenuPage({ onSelectProduct, onOpenSearch }) {
   const [activeCat, setActiveCat] = useState(() => NON_EMPTY_CATS[0]?.id || 'lahmacun')
   const [tagSel, setTagSel] = useState([])
   const tabsContainerRef = useRef(null)
   const tabRefs = useRef({})
   const masa = typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('masa') : null
+
+  const [isMobile, setIsMobile] = useState(() => (typeof window !== 'undefined' ? window.innerWidth <= 767 : false))
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 767)
+    window.addEventListener('resize', handleResize, { passive: true })
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   // Ensure category tabs always start from the first category
   useEffect(() => {
@@ -104,6 +112,46 @@ export function MenuPage({ L, onSelectProduct, onOpenSearch }) {
       tabsContainerRef.current.scrollLeft = 0
     }
   }, [])
+
+  // Mobil cihazlarda dikey kaydırmaya göre aktif kategoriyi güncelleyen Scroll-Spy
+  useEffect(() => {
+    if (!isMobile) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id
+            if (id && id !== activeCat) {
+              setActiveCat(id)
+              const btn = tabRefs.current[id]
+              const container = tabsContainerRef.current
+              if (btn && container) {
+                const btnLeft = btn.offsetLeft
+                const btnWidth = btn.offsetWidth
+                const containerWidth = container.offsetWidth
+                container.scrollTo({
+                  left: btnLeft - containerWidth / 2 + btnWidth / 2,
+                  behavior: 'smooth',
+                })
+              }
+            }
+          }
+        })
+      },
+      {
+        rootMargin: '-105px 0px -65% 0px',
+        threshold: 0,
+      }
+    )
+
+    NON_EMPTY_CATS.forEach((c) => {
+      const el = document.getElementById(c.id)
+      if (el) observer.observe(el)
+    })
+
+    return () => observer.disconnect()
+  }, [isMobile, activeCat])
 
   const handleSelectCat = (catId) => {
     setActiveCat(catId)
@@ -118,13 +166,26 @@ export function MenuPage({ L, onSelectProduct, onOpenSearch }) {
         behavior: 'smooth',
       })
     }
+
+    if (isMobile) {
+      const targetEl = document.getElementById(catId)
+      if (targetEl) {
+        const topOffset = targetEl.getBoundingClientRect().top + window.scrollY - 105
+        window.scrollTo({ top: Math.max(0, topOffset), behavior: 'smooth' })
+      }
+    }
   }
 
   const passTag = (name) => tagSel.every((t) => (TAGS[t] || []).includes(name))
 
   const currentCat = NON_EMPTY_CATS.find((c) => c.id === activeCat) || NON_EMPTY_CATS[0]
-  const displayedItems = (currentCat?.items || [])
-    .filter((i) => passTag(Array.isArray(i) ? i[0] : i.name))
+  const currentCatIdx = NON_EMPTY_CATS.findIndex((c) => c.id === currentCat.id)
+  const nextCat = currentCatIdx >= 0 && currentCatIdx < NON_EMPTY_CATS.length - 1
+    ? NON_EMPTY_CATS[currentCatIdx + 1]
+    : NON_EMPTY_CATS[0]
+
+  // Mobilde tüm kategorileri sırayla gösterip scroll-spy çalıştırır; masaüstünde seçili kategoriyi korur
+  const renderedCategories = isMobile ? NON_EMPTY_CATS : (currentCat ? [currentCat] : [])
 
   return (
     <div className="menu-page">
@@ -160,7 +221,7 @@ export function MenuPage({ L, onSelectProduct, onOpenSearch }) {
         <HeroVideo
           baseName="lahmacun"
           poster="/video/lahmacun-poster.webp"
-          alt="Taş Fırın Lahmacun Odun Ateşi"
+          alt="Taş Fırın Lahmacun"
         />
         <div className="hero-video-shade" aria-hidden="true" />
         <div className="hero-embers" aria-hidden="true"><i /><i /><i /><i /><i /><i /></div>
@@ -173,7 +234,7 @@ export function MenuPage({ L, onSelectProduct, onOpenSearch }) {
             <em>çıtır lezzet.</em>
           </h1>
           <p className="hero-video-sub">
-            Geleneksel taş fırında odun ateşiyle pişen çıtır lahmacun ve pideler, kömür ateşinde kebaplar.
+            Geleneksel taş fırında pişen çıtır lahmacun ve pideler, kömür ateşinde kebaplar.
           </p>
           <div className="hero-video-actions">
             <button
@@ -194,14 +255,16 @@ export function MenuPage({ L, onSelectProduct, onOpenSearch }) {
 
       {/* Kompakt Öne Çıkan Lezzetler Şeridi (en fazla ~180-200px) */}
       {featuredList.length > 0 && (
-        <section className="feat-strip-section container">
+        <section id="one-cikanlar" className="feat-strip-section container">
           <div className="feat-strip-head">
-            <span className="feat-strip-kicker">✦ MUTLAKA DENEYİN</span>
-            <h2 className="feat-strip-title-sm">Öne Çıkanlar</h2>
+            <span className="feat-strip-kicker desktop-only">✦ MUTLAKA DENEYİN</span>
+            <h2 className="feat-strip-title-sm">
+              <span className="feat-strip-sparkle">✦</span>
+              <span className="feat-strip-title-text">Öne Çıkanlar</span>
+            </h2>
           </div>
           <div className="feat-strip-scroll">
             {featuredList.map((item) => {
-              const isFav = Boolean(L.list[item.name])
               return (
                 <div
                   key={item.name}
@@ -215,21 +278,9 @@ export function MenuPage({ L, onSelectProduct, onOpenSearch }) {
                       className="feat-strip-img"
                       loading="lazy"
                     />
-                    <button
-                      type="button"
-                      className={`feat-strip-heart ${isFav ? 'on' : ''}`}
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        L.toggle(item.name, item.price)
-                      }}
-                      aria-label={isFav ? `${item.name} listeden çıkar` : `${item.name} ekle`}
-                    >
-                      <Heart size={14} fill={isFav ? 'currentColor' : 'none'} />
-                    </button>
                   </div>
                   <div className="feat-strip-info">
-                    <span className="feat-strip-name">{item.name}</span>
-                    <span className="feat-strip-price">{fmt(item.price)}</span>
+                    <span className="feat-strip-name notranslate" translate="no">{item.name}</span>
                   </div>
                 </div>
               )
@@ -242,6 +293,7 @@ export function MenuPage({ L, onSelectProduct, onOpenSearch }) {
       <section id="kategoriler" className="menu-bar-section">
         <div className="bar" role="navigation" aria-label="Menü Kategorileri">
           <div className="bar-fade bar-fade-left" aria-hidden="true" />
+          <div className="bar-fade bar-fade-right" aria-hidden="true" />
           <div className="tabs-wrapper container">
             <div className="tabs" ref={tabsContainerRef}>
               {NON_EMPTY_CATS.map((c) => {
@@ -305,92 +357,102 @@ export function MenuPage({ L, onSelectProduct, onOpenSearch }) {
           })}
         </div>
 
-        {currentCat && (
-          <section key={currentCat.id} id={currentCat.id} className="cat">
-            <div className="cat-pill-head">
-              <span className="cat-pill-badge">
-                {currentCat.name} · {displayedItems.length} ürün
-              </span>
-            </div>
+        {renderedCategories.map((catItem) => {
+          const items = (catItem?.items || []).filter((i) => passTag(Array.isArray(i) ? i[0] : i.name))
+          if (items.length === 0 && isMobile) return null
 
-            <SignatureLoop catId={currentCat.id} fallbackCutout={CAT_CUTOUTS[currentCat.id]} />
+          return (
+            <section key={catItem.id} id={catItem.id} className="cat">
+              <div className="cat-pill-head">
+                <span className="cat-pill-badge">
+                  {catItem.name} · {items.length} ürün
+                </span>
+              </div>
 
-            <div className="grid">
-              {displayedItems.map((rawItem, idx) => {
-                const isArr = Array.isArray(rawItem)
-                const name = isArr ? rawItem[0] : rawItem.name
-                const price = isArr ? rawItem[1] : rawItem.price
-                const desc = isArr ? rawItem[2] : rawItem.desc
-                const manualImg = isArr ? rawItem[3] : rawItem.manualImg
-                const g = isArr ? rawItem[4] : rawItem.g
-                const img = getImg(name, manualImg)
-                const isFav = Boolean(L.list[name])
-                const imgSrc = img?.lg || img?.sm || img?.cut || img?.cutSm
+              <SignatureLoop catId={catItem.id} fallbackCutout={CAT_CUTOUTS[catItem.id]} />
 
-                return (
-                  <article
-                    key={name}
-                    className="menu-card"
-                    style={{ transitionDelay: `${(idx % 6) * 35}ms` }}
-                    onClick={() => onSelectProduct({ name, price, desc, img, catName: currentCat.name, g })}
-                  >
-                    {/* Görsel: Üstte 4/3 oran, cover, tam dolu */}
-                    <div className="card-media">
-                      <TagBadges name={name} tags={TAGS} compact />
+              <div className="grid">
+                {items.map((rawItem, idx) => {
+                  const isArr = Array.isArray(rawItem)
+                  const name = isArr ? rawItem[0] : rawItem.name
+                  const price = isArr ? rawItem[1] : rawItem.price
+                  const desc = isArr ? rawItem[2] : rawItem.desc
+                  const manualImg = isArr ? rawItem[3] : rawItem.manualImg
+                  const g = isArr ? rawItem[4] : rawItem.g
+                  const img = getImg(name, manualImg)
+                  const imgSrc = img?.lg || img?.sm || img?.cut || img?.cutSm
 
-                      {/* Kalp Butonu: 44x44 dokunma alanı */}
-                      <button
-                        type="button"
-                        className={`card-heart-btn ${isFav ? 'on' : ''}`}
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          L.toggle(name, price)
-                        }}
-                        aria-label={isFav ? `${name} listeden çıkar` : `${name} listeme ekle`}
-                      >
-                        <Heart size={18} fill={isFav ? 'currentColor' : 'none'} />
-                      </button>
+                  return (
+                    <article
+                      key={name}
+                      className="menu-card"
+                      style={{ transitionDelay: `${(idx % 6) * 35}ms` }}
+                      onClick={() => onSelectProduct({ name, price, desc, img, catName: catItem.name, g })}
+                    >
+                      {/* Görsel: Üstte 4/3 oran, cover, tam dolu */}
+                      <div className="card-media">
+                        <TagBadges name={name} tags={TAGS} compact />
 
-                      {imgSrc ? (
-                        <img
-                          src={imgSrc}
-                          alt={name}
-                          loading="lazy"
-                          decoding="async"
-                          className="card-media-img"
-                        />
-                      ) : (
-                        <div className="card-no-img" aria-label="Fotoğraf hazırlanıyor">
-                          <div className="placeholder-monogram">TF</div>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Kart Gövdesi: Başlık, Açıklama, Fiyat */}
-                    <div className="card-body">
-                      <div className="card-content-top">
-                        <h2 className="card-title">
-                          {name}
-                          {g ? <span className="card-gram"> ({g} g)</span> : null}
-                        </h2>
-
-                        {desc ? (
-                          <p className="card-desc">{desc}</p>
+                        {imgSrc ? (
+                          <img
+                            src={imgSrc}
+                            alt={name}
+                            loading="lazy"
+                            decoding="async"
+                            className="card-media-img"
+                          />
                         ) : (
-                          <div className="card-desc card-desc-empty" aria-hidden="true" />
+                          <div className="card-no-img" aria-label="Fotoğraf hazırlanıyor">
+                            <div className="placeholder-monogram">TF</div>
+                          </div>
                         )}
                       </div>
 
-                      <div className="card-footer">
-                        <span className="card-price-amount">{fmt(price)}</span>
+                      {/* Kart Gövdesi: Başlık, Açıklama, Fiyat */}
+                      <div className="card-body">
+                        <div className="card-content-top">
+                          <h2 className="card-title notranslate" translate="no">
+                            {name}
+                            {g ? <span className="card-gram"> ({g} g)</span> : null}
+                          </h2>
+
+                          {desc ? (
+                            <p className="card-desc">{desc}</p>
+                          ) : (
+                            <div className="card-desc card-desc-empty" aria-hidden="true" />
+                          )}
+                        </div>
+
+                        <div className="card-footer">
+                          <span className="card-price-amount notranslate" translate="no">{fmt(price)}</span>
+                        </div>
                       </div>
-                    </div>
-                  </article>
-                )
-              })}
-            </div>
-          </section>
-        )}
+                    </article>
+                  )
+                })}
+              </div>
+
+              {/* Sonraki Kategori Butonu (Masaüstünde tek kategori modunda) */}
+              {!isMobile && nextCat && nextCat.id !== catItem.id && (
+                <div className="next-category-wrap">
+                  <button
+                    type="button"
+                    className="btn btn-next-category"
+                    onClick={() => {
+                      handleSelectCat(nextCat.id)
+                      const el = document.getElementById('kategoriler')
+                      if (el) {
+                        el.scrollIntoView({ behavior: 'smooth' })
+                      }
+                    }}
+                  >
+                    Sonraki kategori: {nextCat.name} →
+                  </button>
+                </div>
+              )}
+            </section>
+          )
+        })}
       </main>
     </div>
   )

@@ -1,0 +1,146 @@
+{
+  "contact": {
+    "w1280": {
+      "subBottom": 239.234375,
+      "mapTop": 287.234375,
+      "actualGap": 48,
+      "mapWidth": 502,
+      "mapHeight": 380,
+      "btnWidth": 502,
+      "btnAlignDiff": 0
+    },
+    "shot_1280": "scripts/verification-contact-1280.png",
+    "w375": {
+      "subBottom": 203.421875,
+      "mapTop": 251.421875,
+      "actualGap": 48,
+      "mapWidth": 343,
+      "mapHeight": 380,
+      "btnWidth": 343,
+      "btnAlignDiff": 0
+    },
+    "shot_375": "scripts/verification-contact-375.png"
+  },
+  "story": {
+    "w1280": {
+      "statTexts": [
+        "110+",
+        "14",
+        "08:30–23:00"
+      ],
+      "valFontSizes": [
+        "13px",
+        "13px",
+        "13px",
+        "13px"
+      ],
+      "tradMetrics": [
+        {
+          "title": "İncecik ve Çıtır",
+          "paddingTop": "24px",
+          "paddingBottom": "24px",
+          "paddingLeft": "24px",
+          "paddingRight": "24px",
+          "height": 243
+        },
+        {
+          "title": "En Doğal Malzemeler",
+          "paddingTop": "24px",
+          "paddingBottom": "24px",
+          "paddingLeft": "24px",
+          "paddingRight": "24px",
+          "height": 243
+        }
+      ],
+      "captionBelowPhoto": true
+    },
+    "shot_1280": "scripts/verification-story-1280.png",
+    "w375": {
+      "statTexts": [
+        "110+",
+        "14",
+        "08:30–23:00"
+      ],
+      "valFontSizes": [
+        "13px",
+        "13px",
+        "13px",
+        "13px"
+      ],
+      "tradMetrics": [
+        {
+          "title": "İncecik ve Çıtır",
+          "paddingTop": "24px",
+          "paddingBottom": "24px",
+          "paddingLeft": "24px",
+          "paddingRight": "24px",
+          "height": 219
+        },
+        {
+          "title": "En Doğal Malzemeler",
+          "paddingTop": "24px",
+          "paddingBottom": "24px",
+          "paddingLeft": "24px",
+          "paddingRight": "24px",
+          "height": 291
+        }
+      ],
+      "captionBelowPhoto": true
+    },
+    "shot_375": "scripts/verification-story-375.png"
+  },
+  "home": {
+    "desktop": {
+      "featHeadX": 122,
+      "featScrollX": 122,
+      "menuGridX": 122,
+      "featCardCount": 4,
+      "featCardWidth": 244,
+      "menuCardWidth": 244,
+      "featGridCols": "244px 244px 244px 244px",
+      "nextCatBtnText": "Sonraki kategori: Pide →",
+      "btnToFooterGap": 52
+    },
+    "shot_1280": "scripts/verification-home-1280.png",
+    "mobile": {
+      "featOverflowX": "auto",
+      "featNames": [
+        {
+          "text": "Kıymalı Kaşarlı Pide",
+          "lineClamp": "2",
+          "height": 38
+        },
+        {
+          "text": "İskender Kebap",
+          "lineClamp": "2",
+          "height": 38
+        },
+        {
+          "text": "Fettuccine Alfredo",
+          "lineClamp": "2",
+          "height": 38
+        },
+        {
+          "text": "Künefe",
+          "lineClamp": "2",
+          "height": 38
+        }
+      ],
+      "tabsPaddingRight": "76px",
+      "searchBtnWidth": 38,
+      "nextCatBtnText": "Sonraki kategori: Pide →",
+      "btnToFooterGap": 52
+    },
+    "shot_375_hero": "scripts/verification-home-375-fold1.png",
+    "shot_375_menu": "scripts/verification-home-375-menu.png",
+    "nextCatClickTest": {
+      "testClickNext": {
+        "beforeText": "Sonraki kategori: Pide →"
+      },
+      "afterClick": {
+        "activeCatName": "🥖Pide9",
+        "nextBtnTextAfter": "Sonraki kategori: Et & Kebap →"
+      }
+    }
+  }
+}

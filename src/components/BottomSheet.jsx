@@ -1,11 +1,10 @@
 import { useState, useRef, useEffect } from 'react'
-import { Heart } from 'lucide-react'
 import { TagBadges } from '../Extras.jsx'
 import { TAGS } from '../menu.js'
 
 const fmt = (n) => n.toLocaleString('tr-TR') + ' ₺'
 
-export function BottomSheet({ item, onClose, L }) {
+export function BottomSheet({ item, onClose }) {
   const [dragY, setDragY] = useState(0)
   const [isDragging, setIsDragging] = useState(false)
   const [isClosing, setIsClosing] = useState(false)
@@ -13,6 +12,18 @@ export function BottomSheet({ item, onClose, L }) {
   const isDraggingRef = useRef(false)
   const currentDragYRef = useRef(0)
   const contentRef = useRef(null)
+
+  // Body scroll lock while sheet is open
+  useEffect(() => {
+    if (item) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [item])
 
   const handleClose = () => {
     if (isClosing) return
@@ -82,7 +93,6 @@ export function BottomSheet({ item, onClose, L }) {
   }, [])
 
   if (!item) return null
-  const isFav = L ? Boolean(L.list[item.name]) : false
 
   return (
     <div
@@ -109,8 +119,8 @@ export function BottomSheet({ item, onClose, L }) {
         aria-modal="true"
         aria-label={item.name}
       >
-        {/* Sürükleme Tutamağı */}
-        <div className="sheet-drag-area" title="Aşağı kaydırarak kapatabilirsiniz">
+        {/* Sürükleme Tutamağı (Fotoğraf üzerinde süzülen) */}
+        <div className="sheet-drag-handle-floating" title="Aşağı kaydırarak kapatabilirsiniz">
           <span className="sheet-drag-pill" />
         </div>
 
@@ -125,56 +135,69 @@ export function BottomSheet({ item, onClose, L }) {
 
         <div className="sheet-scroll" ref={contentRef}>
           {/* Fotoğraf */}
-          <div className={`sheet-img-wrap ${item.img?.cut?.includes('/img-cut/') ? 'has-cut' : ''}`}>
-            {item.img ? (
-              <img
-                src={item.img.cut || item.img.lg}
-                alt={item.name}
-                width="900"
-                height="900"
-                loading="eager"
-                className={item.img.cut?.includes('/img-cut/') ? 'img-cutout' : ''}
-              />
-            ) : (
-              <div className="sheet-no-img" aria-label="Fotoğraf hazırlanıyor">
-                <div className="placeholder-monogram">TF</div>
-                <span className="placeholder-text">Fotoğraf hazırlanıyor</span>
+          {(() => {
+            const photoSrc = item.img?.lg || item.img?.sm || item.img?.cut || (typeof item.img === 'string' ? item.img : null)
+            return (
+              <div className="sheet-img-wrap">
+                {photoSrc ? (
+                  <>
+                    <img
+                      src={photoSrc}
+                      alt={item.name}
+                      width="900"
+                      height="900"
+                      loading="eager"
+                      className="sheet-img"
+                    />
+                    <div className="sheet-img-gradient" />
+                  </>
+                ) : (
+                  <div className="sheet-no-img" aria-label="Fotoğraf hazırlanıyor">
+                    <div className="placeholder-monogram">TF</div>
+                    <span className="placeholder-text">Fotoğraf hazırlanıyor</span>
+                  </div>
+                )}
               </div>
-            )}
-          </div>
+            )
+          })()}
 
           {/* Detay Bilgileri */}
           <div className="sheet-body">
             <div className="sheet-meta">
               <span className="sheet-kicker">{item.catName || 'Taş Fırın Menü'}</span>
+              {item.g ? <span className="sheet-gram-badge">{item.g} g</span> : null}
             </div>
 
-            <h2 className="sheet-title">
+            <h2 className="sheet-title notranslate" translate="no">
               {item.name}
-              {item.g ? <span className="card-gram"> ({item.g} g)</span> : null}
             </h2>
-            <TagBadges name={item.name} tags={TAGS} />
+
+            <div className="sheet-tags-wrap">
+              <TagBadges name={item.name} tags={TAGS} />
+            </div>
+
             {item.desc && <p className="sheet-desc">{item.desc}</p>}
+
+            <div className="sheet-highlights">
+              <div className="sheet-highlight-item">
+                <span className="sheet-highlight-dot">🔥</span>
+                <span>Geleneksel taş fırında pişen çıtır lezzet</span>
+              </div>
+              <div className="sheet-highlight-item">
+                <span className="sheet-highlight-dot">🌿</span>
+                <span>Taze günlük hamur ve usta dokunuşu</span>
+              </div>
+            </div>
 
             <div className="sheet-foot">
               <div className="sheet-price-block">
                 <span className="sheet-price-label">Fiyat</span>
-                <span className="sheet-price">{fmt(item.price)}</span>
+                <span className="sheet-price notranslate" translate="no">{fmt(item.price)}</span>
               </div>
               <div className="sheet-foot-actions">
-                {L && (
-                  <button
-                    type="button"
-                    className={`btn sheet-action-btn ${isFav ? 'on' : ''}`}
-                    onClick={() => L.toggle(item.name, item.price)}
-                  >
-                    <Heart size={18} fill={isFav ? 'currentColor' : 'none'} />
-                    <span>{isFav ? 'Listede' : 'Listeme Ekle'}</span>
-                  </button>
-                )}
                 <button
                   type="button"
-                  className="btn ghost sheet-close-btn-foot"
+                  className="sheet-close-btn-foot"
                   onClick={handleClose}
                 >
                   Kapat

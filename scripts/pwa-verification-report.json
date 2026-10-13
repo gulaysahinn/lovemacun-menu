@@ -1,0 +1,114 @@
+{
+  "measurements": {
+    "mobile": {
+      "header": {
+        "width": 375,
+        "height": 56,
+        "top": 0
+      },
+      "tabBar": {
+        "width": 375,
+        "height": 56,
+        "bottom": 812
+      },
+      "tabItems": [
+        {
+          "width": 73,
+          "height": 52
+        },
+        {
+          "width": 73,
+          "height": 52
+        },
+        {
+          "width": 73,
+          "height": 52
+        },
+        {
+          "width": 73,
+          "height": 52
+        },
+        {
+          "width": 73,
+          "height": 52
+        }
+      ],
+      "hero": {
+        "width": 351,
+        "height": 220,
+        "vhPct": 27
+      },
+      "featStrip": {
+        "top": 276,
+        "height": 289,
+        "visibleInFold": true
+      },
+      "catBar": {
+        "top": 565,
+        "height": 80,
+        "visibleInFold": true
+      },
+      "desktopHeaderVisible": false
+    },
+    "desktop": {
+      "desktopHeaderVisible": true,
+      "topBarVisible": true,
+      "mobileHeaderHidden": true,
+      "mobileTabBarHidden": true,
+      "footerVisible": true
+    }
+  },
+  "pwa": {
+    "manifestValid": true,
+    "name": "Taş Fırın Lovemacun",
+    "short_name": "Lovemacun",
+    "display": "standalone",
+    "start_url": "/?src=pwa",
+    "theme_color": "#14100d",
+    "iconsCount": 4,
+    "swExists": true
+  },
+  "screens": [
+    {
+      "id": "pwa-01-menu-first-screen-375",
+      "path": "C:\\Users\\gulay\\.gemini\\antigravity-ide\\brain\\9c4e802a-6572-41e5-8c68-9a228c962856\\pwa-01-menu-first-screen-375.png"
+    },
+    {
+      "id": "pwa-02-bottom-sheet-375",
+      "path": "C:\\Users\\gulay\\.gemini\\antigravity-ide\\brain\\9c4e802a-6572-41e5-8c68-9a228c962856\\pwa-02-bottom-sheet-375.png"
+    },
+    {
+      "id": "pwa-03-listem-drawer-375",
+      "path": "C:\\Users\\gulay\\.gemini\\antigravity-ide\\brain\\9c4e802a-6572-41e5-8c68-9a228c962856\\pwa-03-listem-drawer-375.png"
+    },
+    {
+      "id": "pwa-04-bilgi-drawer-375",
+      "path": "C:\\Users\\gulay\\.gemini\\antigravity-ide\\brain\\9c4e802a-6572-41e5-8c68-9a228c962856\\pwa-04-bilgi-drawer-375.png"
+    },
+    {
+      "id": "pwa-05-blog-list-375",
+      "path": "C:\\Users\\gulay\\.gemini\\antigravity-ide\\brain\\9c4e802a-6572-41e5-8c68-9a228c962856\\pwa-05-blog-list-375.png"
+    },
+    {
+      "id": "pwa-06-blog-post-375",
+      "path": "C:\\Users\\gulay\\.gemini\\antigravity-ide\\brain\\9c4e802a-6572-41e5-8c68-9a228c962856\\pwa-06-blog-post-375.png"
+    },
+    {
+      "id": "pwa-07-desktop-home-1280",
+      "path": "C:\\Users\\gulay\\.gemini\\antigravity-ide\\brain\\9c4e802a-6572-41e5-8c68-9a228c962856\\pwa-07-desktop-home-1280.png"
+    },
+    {
+      "id": "pwa-08-desktop-blog-1280",
+      "path": "C:\\Users\\gulay\\.gemini\\antigravity-ide\\brain\\9c4e802a-6572-41e5-8c68-9a228c962856\\pwa-08-desktop-blog-1280.png"
+    },
+    {
+      "id": "pwa-09-desktop-post-1280",
+      "path": "C:\\Users\\gulay\\.gemini\\antigravity-ide\\brain\\9c4e802a-6572-41e5-8c68-9a228c962856\\pwa-09-desktop-post-1280.png"
+    }
+  ],
+  "blogMeta": {
+    "title": "Büyükada'da Ezber Bozan Bir Lezzet: Taşfırınlovemacun | Taş Fırın Lovemacun",
+    "canonical": "https://tasfirinlovemacun.com/buyukadada-ezber-bozan-bir-lezzet-tasfirinlovemacun",
+    "jsonLdValid": true
+  }
+}

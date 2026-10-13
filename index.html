@@ -10,8 +10,11 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png" />
-    <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Lovemacun" />
 
     <!-- Open Graph & Sosyal Paylaşım -->
     <meta property="og:type" content="restaurant" />
@@ -76,6 +79,19 @@
   <style>#skel{background:#0a0604;min-height:100vh}#skel *{background:linear-gradient(90deg,#1a120d 25%,#2b1b12 50%,#1a120d 75%);background-size:200% 100%;animation:sk 1.3s infinite;border-radius:16px}.sk-h{height:55vh;border-radius:0!important}.sk-t{display:flex;gap:8px;padding:14px}.sk-t i{height:40px;width:90px;border-radius:99px;flex:none}.sk-g{display:grid;gap:12px;padding:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}.sk-g b{height:260px}@keyframes sk{to{background-position:-200% 0}}</style></head>
   <body>
     <div id="root"><div id="skel"><div class="sk-h"></div><div class="sk-t"><i></i><i></i><i></i><i></i><i></i></div><div class="sk-g"><b></b><b></b><b></b></div></div></div>
+    <!-- Google Translate Script & Element (İsteğe bağlı/On-demand yüklenir) -->
+    <div id="google_translate_element" style="display: none;" aria-hidden="true"></div>
+    <script type="text/javascript">
+      window.googleTranslateElementInit = function() {
+        if (window.google && window.google.translate) {
+          new window.google.translate.TranslateElement({
+            pageLanguage: 'tr',
+            includedLanguages: 'ar,zh-CN,nl,en,fr,de,fa,ru,es,tr',
+            autoDisplay: false
+          }, 'google_translate_element');
+        }
+      };
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

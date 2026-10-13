@@ -7,6 +7,9 @@
   RewriteRule ^hakkimizda/?$ /hikayemiz [R=301,L,NE]
   RewriteRule ^rezervasyon/?$ /iletisim [R=301,L,NE]
   RewriteRule ^galeri/?$ /hikayemiz [R=301,L,NE]
+  RewriteRule ^blog/?$ /blog [R=301,L,NE]
+  RewriteRule ^category/tasfirinlovemacun/?$ /blog [R=301,L,NE]
+  RewriteRule ^author/tasfirin/?$ /blog [R=301,L,NE]
 
   # SPA Rewrite: Gerçek dosya veya dizin yoksa index.html'e yönlendir
   RewriteCond %{REQUEST_FILENAME} !-f

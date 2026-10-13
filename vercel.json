@@ -1,6 +1,4 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
   "redirects": [
     { "source": "/menu", "destination": "/", "permanent": true },
     { "source": "/menu/", "destination": "/", "permanent": true },
@@ -9,7 +7,12 @@
     { "source": "/rezervasyon", "destination": "/iletisim", "permanent": true },
     { "source": "/rezervasyon/", "destination": "/iletisim", "permanent": true },
     { "source": "/galeri", "destination": "/hikayemiz", "permanent": true },
-    { "source": "/galeri/", "destination": "/hikayemiz", "permanent": true }
+    { "source": "/galeri/", "destination": "/hikayemiz", "permanent": true },
+    { "source": "/blog/", "destination": "/blog", "permanent": true },
+    { "source": "/category/tasfirinlovemacun", "destination": "/blog", "permanent": true },
+    { "source": "/category/tasfirinlovemacun/", "destination": "/blog", "permanent": true },
+    { "source": "/author/tasfirin", "destination": "/blog", "permanent": true },
+    { "source": "/author/tasfirin/", "destination": "/blog", "permanent": true }
   ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }

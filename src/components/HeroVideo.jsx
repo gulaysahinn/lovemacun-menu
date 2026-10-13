@@ -108,7 +108,7 @@ export function HeroVideo({
         src={poster}
         alt={alt}
         className={`hero-video-poster ${videoReady ? 'fade-out' : ''}`}
-        fetchPriority="high"
+        fetchpriority="high"
         loading="eager"
       />
 

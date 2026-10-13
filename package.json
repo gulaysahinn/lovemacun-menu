@@ -4,9 +4,9 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "predev": "node scripts/gen-images.mjs",
+    "predev": "node scripts/gen-images.mjs && node scripts/process-blog-assets.mjs",
     "dev": "vite",
-    "prebuild": "node scripts/gen-images.mjs",
+    "prebuild": "node scripts/gen-images.mjs && node scripts/process-blog-assets.mjs",
     "build": "vite build",
     "preview": "vite preview",
     "optimize:images": "node scripts/optimize-images.mjs"
@@ -21,6 +21,7 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.1",
     "puppeteer-core": "^24.43.1",
+    "qrcode": "^1.5.4",
     "sharp": "^0.35.5",
     "vite": "^5.4.0"
   }

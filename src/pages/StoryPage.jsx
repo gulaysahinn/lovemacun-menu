@@ -1,5 +1,17 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import {
+  Flame,
+  Sparkles,
+  MapPin,
+  UtensilsCrossed,
+  ShieldCheck,
+  Award,
+  Users,
+  Compass,
+  Clock,
+  ArrowRight
+} from 'lucide-react'
 import { PageMeta } from '../components/PageMeta.jsx'
 import { HeroVideo } from '../components/HeroVideo.jsx'
 import { CATS, INFO } from '../menu.js'
@@ -9,58 +21,12 @@ const validCats = CATS.filter((c) => c.items && c.items.length > 0)
 const totalDishes = validCats.reduce((n, c) => n + c.items.length, 0)
 const catCount = validCats.length
 
-const PILLARS = [
-  ['01', 'Taş Fırında', 'Lahmacun ve pideler taş fırında odun ateşinde çıtır çıtır pişer.'],
-  ['02', 'Kömür Ateşinde', 'Adana, şiş ve pirzolalar közün üzerinde lezzetle mühürlenir.'],
-  ['03', 'El Emeği & Taze', 'Usta ellerde açılan hamur ve Büyükada\'da günlük taze malzemeler.'],
+const VALUES_LIST = [
+  { icon: '🌿', title: 'Taze Malzeme', desc: 'Günlük yeşillikler ve taze malzemeler' },
+  { icon: '🔥', title: 'Taş Fırın Lezzeti', desc: 'Geleneksel taş fırında nar gibi kızaran hamur' },
+  { icon: '⭐', title: 'Kaliteli Hizmet', desc: 'Güler yüzlü ada esnafı samimiyeti' },
+  { icon: '🏡', title: 'Sıcak Ortam', desc: 'Kendinizi rahat hissedeceğiniz samimi sofra' },
 ]
-
-function useCounter(targetNumber, isVisible, duration = 800) {
-  const [count, setCount] = useState(targetNumber)
-  const animatedRef = useRef(false)
-
-  useEffect(() => {
-    const prefersReducedMotion =
-      typeof window !== 'undefined' &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
-    if (prefersReducedMotion) {
-      setCount(targetNumber)
-      return
-    }
-
-    if (!isVisible || targetNumber === 0 || animatedRef.current) {
-      return
-    }
-    animatedRef.current = true
-    setCount(0)
-
-    let startTime = null
-    let animId = null
-
-    const step = (timestamp) => {
-      if (!startTime) startTime = timestamp
-      const elapsed = timestamp - startTime
-      const progress = Math.min(1, elapsed / duration)
-      const easeOut = 1 - Math.pow(1 - progress, 3)
-      setCount(Math.round(easeOut * targetNumber))
-
-      if (progress < 1) {
-        animId = requestAnimationFrame(step)
-      } else {
-        setCount(targetNumber)
-      }
-    }
-
-    animId = requestAnimationFrame(step)
-    return () => {
-      if (animId) cancelAnimationFrame(animId)
-      setCount(targetNumber)
-    }
-  }, [isVisible, targetNumber, duration])
-
-  return count
-}
 
 export function StoryPage() {
   const visualRef = useRef(null)
@@ -68,28 +34,7 @@ export function StoryPage() {
   const currentTilt = useRef({ x: 0, y: 0 })
   const animFrameId = useRef(null)
 
-  const statsRef = useRef(null)
-  const [statsVisible, setStatsVisible] = useState(false)
-
-  const countTotal = useCounter(totalDishes, statsVisible, 800)
-  const countCats = useCounter(catCount, statsVisible, 800)
-
-  useEffect(() => {
-    if (!statsRef.current) return
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setStatsVisible(true)
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.2 }
-    )
-    observer.observe(statsRef.current)
-    return () => observer.disconnect()
-  }, [])
-
-  // Desktop mouse tilt
+  // Desktop mouse tilt for floating plates
   useEffect(() => {
     const isDesktop = window.matchMedia('(hover: hover) and (min-width: 820px)').matches
     if (!isDesktop) return
@@ -138,12 +83,12 @@ export function StoryPage() {
   return (
     <div className="story-page">
       <PageMeta
-        title="Hikayemiz | Taş Fırın Lovemacun Büyükada"
-        description="Büyükada'da aşkla yoğrulan hamur ve odun ateşi: Taş Fırın Lovemacun'un lezzet hikayesi ve ustalığı."
+        title="Hakkımızda & Hikayemiz | Taş Fırın Lovemacun Büyükada"
+        description="Büyükada'nın kalbinde, taş fırın ustalığı ve nesiller boyu aktarılan tarifler: Taş Fırın Lovemacun'un hikayesi ve geleneksel lezzet aşkı."
         canonical="https://tasfirinlovemacun.com/hikayemiz"
       />
 
-      {/* Hero Video Section (İskender videosu arka plan, ~50vh) */}
+      {/* Hero Video Section (İskender videosu arka plan, ~54vh) */}
       <section className="story-hero-section">
         <HeroVideo
           baseName="iskender"
@@ -158,23 +103,23 @@ export function StoryPage() {
           <span className="kicker">BÜYÜKADA · TAŞ FIRIN USTALIĞI</span>
           <h1 className="story-hero-h1">Aşkla yoğrulan hamur,<br /><em>çıtır lezzet.</em></h1>
           <p className="story-hero-sub">
-            Geleneksel taş fırında odun ateşiyle pişen çıtır lahmacun ve pideler, kömür ateşinde pişen nefis kebaplar.
+            Büyükada’nın kalbinde, taş fırın ustalığı ve nesiller boyu aktarılan tariflerle hazırlanan lezzet durağı.
           </p>
           <div className="story-hero-actions">
             <Link to="/" className="btn btn-story-menu-top">
               Menüyü Keşfet
             </Link>
-            <Link to="/iletisim" className="btn ghost">
-              Bizi Ziyaret Edin
-            </Link>
+            <a href={CONFIG.mapsDirectionsUrl} target="_blank" rel="noreferrer" className="btn ghost">
+              <MapPin size={15} /> Bizi Ziyaret Edin
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Narrative & Visual Plates Section */}
+      {/* 1) BİZ KİMİZ? GİRİŞ BÖLÜMÜ */}
       <section className="about container">
         <div className="about-grid">
-          {/* Görsel Alani (Pide, İskender, Künefe) */}
+          {/* Görsel Alanı (Pide, İskender, Künefe 3D Tilt) */}
           <div
             className="about-visual"
             ref={visualRef}
@@ -210,7 +155,7 @@ export function StoryPage() {
                   <span className="about-badge-icon">🔥</span>
                   <div className="about-badge-text">
                     <strong>Taş Fırın</strong>
-                    <small>Odun Ateşi</small>
+                    <small>Usta Dokunuşu</small>
                   </div>
                 </div>
 
@@ -225,60 +170,168 @@ export function StoryPage() {
             </div>
           </div>
 
-          {/* Metin Alanı */}
-          <div className="about-content" style={{ transitionDelay: '80ms' }}>
-            <span className="kicker">HİKAYEMİZ</span>
+          {/* Biz Kimiz Metin Alanı */}
+          <div className="about-content">
+            <span className="kicker">BİZ KİMİZ?</span>
             <h2 className="about-title">
-              Büyükada'nın <span className="txt-gradient">taş fırını</span>
+              Büyükada'nın Kalbinde <br />
+              <span className="txt-gradient">Taş Fırın Ustalığı</span>
             </h2>
-            <p className="about-desc">
-              Aşkla yoğrulan hamur taş fırında çıtır çıtır pişer, kömür ateşinin kokusu kebaba karışır. Büyükada'da fırın lezzetleri ve kömür ateşinde kebap tek sofrada buluşuyor.
+            <p className="about-lead">
+              Büyükada’nın kalbinde, taş fırın lezzetleri tutkunları için çok özel bir durak var: <strong>Taş Fırın Lovemacun</strong>.
             </p>
-            <p className="about-subdesc" style={{ color: '#c4b3a3', lineHeight: 1.6, fontSize: '0.96rem', marginTop: '0.75rem' }}>
-              Her sabah günün ilk ışıklarıyla yakılan fırınımızda odun ateşi közlenir, ustalarımızın hünerli ellerinde açılan incecik hamurlar sıcak fırın taşıyla buluşur.
+            <p className="about-desc">
+              Biz, geleneksel Türk mutfağının en sevilen lezzetlerini, adanın o kendine has büyüleyici ve samimi atmosferiyle harmanlayan bir taş fırın mutfağıyız. Çıktığımız bu lezzet yolculuğunda amacımız; misafirlerimize nesiller boyu aktarılan tariflerle taze, özenli ve keyifli bir lezzet deneyimi sunmak.
             </p>
           </div>
         </div>
 
-        {/* İstatistik Kutuları (Mobilde tek satırda 3 küçük kart, ikon yok, rakam üstte, etiket altta) */}
-        <div className="about-stats" ref={statsRef}>
+        {/* 2) GERÇEK FOTOĞRAF VİTRİNİ & RESTORAN POSTERİ */}
+        <div className="story-photo-showcase">
+          <div className="story-photo-frame">
+            <img
+              src="/about/lovemacun-story-banner.jpg"
+              alt="Taş Fırın Lovemacun Büyükada Restoranı ve Ustalarımız"
+              className="story-banner-img"
+              loading="lazy"
+            />
+          </div>
+          {/* Fotoğrafın altındaki başlık alanı görsel dışına alındı (üst üste binmeyi önler) */}
+          <div className="story-photo-caption-card">
+            <span className="caption-tag">BÜYÜKADA · NİZAM MAHALLESİ</span>
+            <h3 className="caption-title">Taş Fırında Gerçek Lezzet · 2 Dk Mesafede</h3>
+            <p className="caption-sub">Aşkımızı kattık, lezzet oldu!</p>
+          </div>
+
+          {/* Poster Altı Değer Rozetleri */}
+          <div className="story-values-grid">
+            {VALUES_LIST.map((val, idx) => (
+              <div key={idx} className="story-val-card">
+                <span className="story-val-ico">{val.icon}</span>
+                <div className="story-val-info">
+                  <strong>{val.title}</strong>
+                  <span>{val.desc}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 3) GELENEKSEL REÇETE & TAŞ FIRIN AŞKI */}
+        <div className="story-tradition-section">
+          <div className="tradition-head">
+            <span className="kicker">👨‍🍳 USTALIK & TUTKU</span>
+            <h2 className="tradition-title">
+              Geleneksel Reçete, <span className="txt-gradient">Taş Fırın Aşkı</span>
+            </h2>
+            <p className="tradition-intro">
+              Bizi biz yapan, ismimize de ilham veren geleneksel taş fırına ve işimize duyduğumuz sevgidir. Her sabah taş fırınımızı özenle hazırlıyor, hamurumuzu taze malzemeler ve nesiller boyu aktarılan tariflerle yoğuruyoruz.
+            </p>
+          </div>
+
+          <div className="tradition-cards-grid">
+            <div className="tradition-card">
+              <div className="tradition-card-ico">
+                <Flame size={24} />
+              </div>
+              <h3 className="tradition-card-title">İncecik ve Çıtır</h3>
+              <p className="tradition-card-desc">
+                Nesillerden gelen özel tarifimizle açılan incecik hamurlarımız, fırından tam kıvamında, çıtır çıtır çıkıyor.
+              </p>
+            </div>
+
+            <div className="tradition-card">
+              <div className="tradition-card-ico">
+                <Sparkles size={24} />
+              </div>
+              <h3 className="tradition-card-title">Özenle Seçilen Malzemeler</h3>
+              <p className="tradition-card-desc">
+                Lahmacun ve pidelerimizde kullandığımız etlerden sebzelere, baharatlardan yeşilliklere kadar her malzemeyi özenle ve taze olarak seçiyoruz.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* 4) MİSYONUMUZ & VİZYONUMUZ */}
+        <div className="story-mission-section">
+          <div className="mission-card">
+            <div className="mission-badge">
+              <Award size={20} />
+              <span>MİSYONUMUZ</span>
+            </div>
+            <h3 className="mission-title">Hakiki Taş Fırın Lezzeti</h3>
+            <p className="mission-text">
+              Büyükada’nın yerlilerine ve adayı ziyarete gelen misafirlerimize, samimi bir esnaf anlayışı ve güler yüzle, özenle hazırlanan taş fırın lezzetlerini sunmaktır.
+            </p>
+          </div>
+
+          <div className="mission-card vision-card">
+            <div className="mission-badge">
+              <Compass size={20} />
+              <span>VİZYONUMUZ</span>
+            </div>
+            <h3 className="mission-title">Ada Kültürünün Bir Parçası</h3>
+            <p className="mission-text">
+              Ada kültürünün bir parçası haline gelerek, Büyükada denince akla gelen lezzet duraklarından biri olmak ve taş fırın sevgisini paylaşmaktır.
+            </p>
+          </div>
+        </div>
+
+        {/* 5) İSTATİSTİK KARTLARI (Doğrudan veriden son değer, animasyonsuz) */}
+        <div className="about-stats">
           <div className="about-stat-card">
             <div className="stat-meta">
-              <b>{countTotal}+</b>
+              <b>{totalDishes}+</b>
               <span>çeşit lezzet</span>
             </div>
           </div>
 
           <div className="about-stat-card">
             <div className="stat-meta">
-              <b>{countCats}</b>
+              <b>{catCount}</b>
               <span>kategori</span>
             </div>
           </div>
 
           <div className="about-stat-card">
-            <div className={`stat-meta stat-fade ${statsVisible ? 'visible' : ''}`}>
+            <div className="stat-meta">
               <b>{INFO.hours.replace(' – ', '–')}</b>
               <span>her gün açık</span>
             </div>
           </div>
         </div>
 
-        {/* 01-02-03 Değerleri */}
-        <div className="pillars">
-          {PILLARS.map(([n, t, d], i) => (
-            <div key={n} className="pillar-simple" style={{ transitionDelay: i * 80 + 'ms' }}>
-              <span className="pillar-badge">{n}</span>
-              <span className="pillar-text"><strong>{t}:</strong> {d}</span>
-            </div>
-          ))}
-        </div>
+        {/* 6) SİZİ DE SOFRAMIZA BEKLERİZ (KAPANIŞ VE DAVET) */}
+        <div className="story-invite-card">
+          <div className="invite-glow" aria-hidden="true" />
+          <div className="invite-content">
+            <span className="invite-kicker">🍕 SİZİ DE SOFRAMIZA BEKLERİZ!</span>
+            <h2 className="invite-title">
+              Dostlukla ve Sevgiyle Paylaşılan Bir Sofra
+            </h2>
+            <p className="invite-text">
+              İster adada keyifli bir bisiklet turunun ardından mola vermiş olun, ister ada havasıyla acıkmış bir gezgin… 
+              Taş Fırın Lovemacun’a adım attığınızda, samimi bir ortam ve dumanı tüten, çıtır lezzetler sizi bekliyor.
+            </p>
+            <p className="invite-quote">
+              “Biz, lahmacunu ve taş fırın lezzetlerini; dostlukla, sevgiyle paylaşılan bir sofra olarak görüyoruz.”
+            </p>
+            <span className="invite-signature">— Taş Fırın Lovemacun</span>
 
-        {/* Sayfa Altı Menü Butonu */}
-        <div className="story-bottom-cta">
-          <Link to="/" className="btn btn-story-menu-bottom">
-            Menüyü Gör & Sipariş Ver
-          </Link>
+            <div className="invite-actions">
+              <Link to="/" className="btn btn-story-menu-bottom">
+                <UtensilsCrossed size={16} /> Menüyü Keşfet & Sipariş Ver
+              </Link>
+              <a
+                href={CONFIG.mapsDirectionsUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-invite-route"
+              >
+                <MapPin size={16} /> Yol Tarifi Al (2 Dk Mesafede)
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </div>

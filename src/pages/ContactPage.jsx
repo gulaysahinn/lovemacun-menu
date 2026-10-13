@@ -34,27 +34,16 @@ export function ContactPage() {
                 referrerPolicy="no-referrer-when-downgrade"
                 src={CONFIG.mapsEmbedUrl}
               />
-              {/* Mobil Haritayı Aç Butonu */}
-              <div className="map-mobile-overlay mobile-only">
-                <a
-                  className="btn btn-map-open"
-                  href={CONFIG.mapsDirectionsUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <MapPin size={16} /> Google Haritalar'da Aç <ExternalLink size={14} />
-                </a>
-              </div>
             </div>
-            {/* Masaüstü Harita Altı Yol Tarifi Butonu */}
-            <div className="map-bottom-action desktop-only">
+            {/* Haritanın tam genişliğinde tek sıra Yol Tarifi butonu */}
+            <div className="map-bottom-action">
               <a
-                className="btn btn-map-desktop"
+                className="btn btn-map-fullwidth"
                 href={CONFIG.mapsDirectionsUrl}
                 target="_blank"
                 rel="noreferrer"
               >
-                <MapPin size={15} /> Google Haritalar'da Aç ve Yol Tarifi Al <ExternalLink size={14} />
+                <MapPin size={16} /> Google Haritalar'da Aç ve Yol Tarifi Al <ExternalLink size={14} />
               </a>
             </div>
           </div>
@@ -79,7 +68,7 @@ export function ContactPage() {
               <span className="vcard-label">
                 <Phone size={16} className="vcard-ico" /> Telefon Numaraları
               </span>
-              <p>
+              <p className="notranslate" translate="no">
                 <a href={'tel:' + CONFIG.phonePrimary.tel} className="contact-tel-link">
                   {CONFIG.phonePrimary.display}
                 </a>
@@ -92,14 +81,11 @@ export function ContactPage() {
             </div>
 
             <div className="vbtns">
-              <a className="btn btn-visit-primary" href={CONFIG.mapsDirectionsUrl} target="_blank" rel="noreferrer">
-                Yol Tarifi Al
-              </a>
-              <a className="btn btn-visit-outline" href={'tel:' + CONFIG.phonePrimary.tel}>
-                Ara ({CONFIG.phonePrimary.display})
+              <a className="btn btn-visit-primary" href={'tel:' + CONFIG.phonePrimary.tel}>
+                <Phone size={16} /> Hemen Ara ({CONFIG.phonePrimary.display})
               </a>
               <a className="btn btn-visit-outline" href={CONFIG.instagram} target="_blank" rel="noreferrer">
-                Instagram
+                Instagram'da Takip Et
               </a>
             </div>
           </div>
