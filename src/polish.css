@@ -1319,10 +1319,18 @@ main [id],
 /* ==========================================================================
    1) MENÜ DÜZENİ VE IZGARA (DESKTOP 3 SÜTUN MAX 1100PX, TABLET 2 SÜTUN, MOBİL 2'Lİ / 1'Lİ)
    ========================================================================== */
-main {
+main.app-main-content {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.menu-products-main {
   padding-left: 12px !important;
   padding-right: 12px !important;
-  padding-bottom: 7rem !important;
+  padding-bottom: 64px !important;
   max-width: 1140px !important;
   margin: 0 auto !important;
   box-sizing: border-box !important;
@@ -4671,6 +4679,7 @@ footer {
   object-position: center !important;
   display: block !important;
   transition: opacity 0.6s ease !important;
+  pointer-events: none !important;
 }
 
 /* İskender videosunun üstteki tereyağı dökme alanını kırpmamak için tepe odağı */
@@ -4794,8 +4803,9 @@ footer {
    ÖNE ÇIKANLAR ŞERİDİ (BAŞLIK, ETİKET, KARTLAR VE BOŞLUK DÜZENİ)
    ========================================================================== */
 .feat-strip-section {
-  padding-top: 18px !important;
-  padding-bottom: 10px !important;
+  /* hero ile öne çıkanlar arasi 32px, kategori çubuğu ile arasi 24px */
+  padding-top: 32px !important;
+  padding-bottom: 24px !important;
 }
 
 .feat-strip-head {
@@ -6724,13 +6734,13 @@ html, body {
 }
 
 .menu-products-main {
-  padding-bottom: 24px !important;
+  padding-bottom: 64px !important;
 }
 
-/* Footer margin üstten 28px, buton ile footer arasındaki net mesafe: 24px + 28px = 52px */
+/* Menü listesi footer üstünden 64px boşluk */
 footer,
 .site-footer {
-  margin-top: 28px !important;
+  margin-top: 0 !important;
 }
 
 /* 404 Sayfa Stilleri */
@@ -6802,7 +6812,6 @@ footer,
 /* 1. Global Dokunmatik ve Ekran Kuralları */
 html, body {
   min-height: 100dvh;
-  overscroll-behavior-y: none;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -9989,7 +9998,14 @@ input, textarea, select {
    ========================================================================== */
 .reservation-page {
   min-height: 80vh;
-  padding: 32px 0 80px;
+  /* header yüksekliği (masaüstü ~64px) + 40px görsel boşluk = 104px */
+  padding: calc(64px + 40px) 0 64px;
+}
+@media (max-width: 767px) {
+  .reservation-page {
+    /* mobil header 56px + 40px = 96px */
+    padding: calc(56px + 40px) 0 64px;
+  }
 }
 .reservation-section {
   max-width: 1040px !important;
@@ -10181,9 +10197,23 @@ input, textarea, select {
   transition: all 0.2s ease !important;
 }
 .btn-side-route {
-  background: rgba(59, 130, 246, 0.12) !important;
-  border: 1px solid rgba(59, 130, 246, 0.3) !important;
-  color: #60a5fa !important;
+  background: rgba(245, 124, 0, 0.12) !important;
+  border: 1px solid rgba(245, 124, 0, 0.35) !important;
+  color: #fb923c !important;
+}
+.btn-side-route:hover {
+  background: rgba(245, 124, 0, 0.22) !important;
+  border-color: rgba(245, 124, 0, 0.55) !important;
+  color: #ff9800 !important;
+}
+.btn-side-route-orange {
+  background: rgba(245, 124, 0, 0.12) !important;
+  border: 1px solid rgba(245, 124, 0, 0.35) !important;
+  color: #fb923c !important;
+}
+.btn-side-route-orange:hover {
+  background: rgba(245, 124, 0, 0.22) !important;
+  color: #ff9800 !important;
 }
 .btn-side-menu {
   background: rgba(245, 124, 0, 0.12) !important;
@@ -10564,18 +10594,20 @@ input, textarea, select {
   color: #ff9800 !important;
 }
 /* ==========================================================================
-   HERO & KATEGORİ ÇUBUĞU TAM GENİŞLİK (100vw, SIFIR YAN BOŞLUK, OVERFLOW-X CLIP)
+   HERO & KATEGORİ ÇUBUĞU TAM GENİŞLİK
+   Hero artık App.jsx'te main.app-main-content'in DIŞINDA, app-shell-root'un
+   doğrudan çocuğu olarak render edildiği için herhangi bir overflow-x:clip
+   veya max-width kapsayıcısının içinde DEĞİLDİR.
+   Yatay taşma yalnızca html/body seviyesinde engellenir.
    ========================================================================== */
-html, body, .app-shell-root, .app-main-content, .menu-page {
+html, body {
   overflow-x: clip !important;
 }
 
+/* hero-video-section artık tam genişlikte, kapsayıcısından bağımsız */
 .menu-hero-video-section {
   position: relative !important;
-  width: 100vw !important;
-  margin-inline: calc(50% - 50vw) !important;
-  left: 0 !important;
-  right: 0 !important;
+  width: 100% !important;
   box-sizing: border-box !important;
   overflow: hidden !important;
   display: flex !important;
@@ -10623,11 +10655,9 @@ html, body, .app-shell-root, .app-main-content, .menu-page {
   box-sizing: border-box !important;
 }
 
+/* KATEGORİ ÇUBUĞU tam genişlik */
 .menu-bar-section {
-  width: 100vw !important;
-  margin-inline: calc(50% - 50vw) !important;
-  left: 0 !important;
-  right: 0 !important;
+  width: 100% !important;
   box-sizing: border-box !important;
 }
 
@@ -10685,3 +10715,88 @@ html, body, .app-shell-root, .app-main-content, .menu-page {
     display: none !important;
   }
 }
+
+/* ==========================================================================
+   TÜKENDİ & YENİ ROZETLERİ VE İSKELET YÜKLEYİCİ STİLLERİ
+   ========================================================================== */
+.card-badge-soldout {
+  position: absolute !important;
+  top: 10px !important;
+  right: 10px !important;
+  background: rgba(18, 10, 6, 0.92) !important;
+  color: #f87171 !important;
+  border: 1px solid rgba(239, 68, 68, 0.5) !important;
+  padding: 3px 8px !important;
+  border-radius: 6px !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
+  text-transform: uppercase !important;
+  z-index: 4 !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+.card-badge-new {
+  position: absolute !important;
+  top: 10px !important;
+  right: 10px !important;
+  background: linear-gradient(135deg, #ff6b00, #f5a623) !important;
+  color: #ffffff !important;
+  padding: 3px 8px !important;
+  border-radius: 6px !important;
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  z-index: 4 !important;
+  box-shadow: 0 2px 8px rgba(255, 107, 0, 0.45) !important;
+}
+
+.menu-card.is-sold-out {
+  opacity: 0.65 !important;
+  filter: grayscale(0.2) !important;
+}
+
+.menu-card.is-sold-out:hover {
+  opacity: 0.88 !important;
+}
+
+.sheet-soldout-alert {
+  background: rgba(239, 68, 68, 0.12) !important;
+  border: 1px solid rgba(239, 68, 68, 0.35) !important;
+  color: #f87171 !important;
+  padding: 8px 12px !important;
+  border-radius: 8px !important;
+  font-size: 0.86rem !important;
+  font-weight: 600 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  margin-top: 6px !important;
+  margin-bottom: 8px !important;
+}
+
+/* İskelet Yükleyici (Skeleton Cards) */
+.skeleton-card {
+  background: #170d08 !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  aspect-ratio: 4/5 !important;
+  position: relative !important;
+}
+
+.skeleton-card::after {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent) !important;
+  animation: skeleton-shimmer 1.5s infinite !important;
+}
+
+@keyframes skeleton-shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+

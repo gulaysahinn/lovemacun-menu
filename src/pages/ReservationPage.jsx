@@ -5,8 +5,6 @@ import {
   Clock,
   MapPin,
   UtensilsCrossed,
-  CheckCircle2,
-  Info
 } from 'lucide-react'
 import { PageMeta } from '../components/PageMeta.jsx'
 import { CONFIG } from '../config.js'
@@ -49,8 +47,8 @@ export function ReservationPage() {
           </h1>
           <p className="reservation-sub">
             {lang === 'en'
-              ? 'For table reservations and special events, please call our restaurant directly. Your table will be prepared with care.'
-              : 'Masa rezervasyonu taleplerinizi doğrudan restoran telefon numaralarımızdan iletebilirsiniz. Masanız usta ellerce özenle hazırlansın.'}
+              ? 'Call us for a table. We recommend calling ahead for summer season and weekends.'
+              : 'Masa için bizi arayın. Yaz sezonu ve hafta sonları önceden aramanızı öneririz.'}
           </p>
         </div>
 
@@ -70,8 +68,8 @@ export function ReservationPage() {
             </h2>
             <p className="res-card-desc">
               {lang === 'en'
-                ? 'Table requests are handled directly by phone call. For group bookings and special events, please inform us in advance.'
-                : 'Masa rezervasyonu taleplerinizi doğrudan restoran telefon numaralarımızdan iletebilirsiniz. Kalabalık gruplar ve özel günler için önceden aramanızı rica ederiz.'}
+                ? 'For group bookings and special occasions, just call us in advance.'
+                : 'Kalabalık gruplar ve özel günler için önceden aramanız yeterli.'}
             </p>
 
             {/* Arama Butonları (52px yükseklik, iki hat ayrı ayrı) */}
@@ -102,29 +100,6 @@ export function ReservationPage() {
                 </div>
               </a>
             </div>
-
-            {/* WhatsApp Butonu (Numara config'te tanımlı olduğunda otomatik gösterilir) */}
-            {CONFIG.whatsappNumber ? (
-              <a
-                href={`https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent('Merhaba, masa rezervasyonu yaptırmak istiyorum.')}`}
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn-res-whatsapp notranslate"
-                translate="no"
-              >
-                <span>WhatsApp ile Mesaj Gönder</span>
-              </a>
-            ) : null}
-
-            {/* Bilgilendirme Notu */}
-            <div className="res-info-notice">
-              <Info size={16} className="notice-icon" />
-              <p>
-                {lang === 'en'
-                  ? 'Reservations are confirmed via direct phone call with our restaurant staff. Early booking is recommended for weekends and summer season.'
-                  : 'Rezervasyon talebiniz doğrudan restoran yetkilimizle telefon görüşmesi sağlandığında oluşturulur. Özellikle yaz sezonu ve hafta sonu yoğunluklarında önceden aramanızı öneririz.'}
-              </p>
-            </div>
           </div>
 
           {/* 2. Kolon: Restoran Bilgi & Saat Kartı */}
@@ -136,9 +111,6 @@ export function ReservationPage() {
                 <h3 className="side-card-title">{t('hours', lang)}</h3>
               </div>
               <p className="side-card-val notranslate" translate="no">{t('hoursEveryday', lang)}</p>
-              <span className="side-card-sub">
-                {lang === 'en' ? 'Kitchen is open until 23:00 daily.' : 'Haftanın her günü taş fırınımız sıcak ve tazedir.'}
-              </span>
             </div>
 
             {/* Adres ve Yol Tarifi */}
@@ -148,17 +120,17 @@ export function ReservationPage() {
                 <h3 className="side-card-title">{t('address', lang)}</h3>
               </div>
               <p className="side-card-val notranslate" translate="no">{CONFIG.address}</p>
-              <div className="side-card-actions">
-                <a
-                  href={CONFIG.mapsDirectionsUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn btn-side-route notranslate"
-                  translate="no"
-                >
-                  <MapPin size={15} /> {t('directions', lang)}
-                </a>
-              </div>
+                <div className="side-card-actions">
+                  <a
+                    href={CONFIG.mapsDirectionsUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn btn-side-route btn-side-route-orange notranslate"
+                    translate="no"
+                  >
+                    <MapPin size={15} /> {t('directions', lang)}
+                  </a>
+                </div>
             </div>
 
             {/* Menüyü Gör CTA */}

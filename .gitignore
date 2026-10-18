@@ -28,3 +28,10 @@ scripts/lighthouse-report.json
 # OS files
 .DS_Store
 Thumbs.db
+
+# Kurulum anahtarı ve yayın paketleri (Asla git'e girmemeli)
+KURULUM-ANAHTARI*.txt
+*.zip
+tasfirin-data/
+release/
+

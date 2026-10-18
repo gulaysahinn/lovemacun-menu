@@ -1,6 +1,6 @@
-const CACHE_NAME = 'lovemacun-shell-v3'
-const DATA_CACHE_NAME = 'lovemacun-data-v3'
-const IMAGE_CACHE_NAME = 'lovemacun-images-v3'
+const CACHE_NAME = 'lovemacun-shell-v4'
+const DATA_CACHE_NAME = 'lovemacun-data-v4'
+const IMAGE_CACHE_NAME = 'lovemacun-images-v4'
 
 // Uygulama kabuğu varlıkları
 const APP_SHELL = [
@@ -59,6 +59,16 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const req = event.request
   const url = new URL(req.url)
+
+  // 0. YÖNETİM VE API İSTEKLERİNİ ASLA ÖNBELLEĞE ALMA (Doğrudan sunucuya bırak)
+  if (
+    url.pathname.startsWith('/yonetim') ||
+    url.pathname.startsWith('/api') ||
+    url.pathname.startsWith('/backups') ||
+    url.pathname.startsWith('/logs')
+  ) {
+    return
+  }
 
   // 1. VİDEOLARI ASLA ÖNBELLEĞE ALMA (Büyük boyut ve Range istekleri)
   if (

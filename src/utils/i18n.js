@@ -28,6 +28,10 @@ export const DICTIONARY = {
     subBlog: 'Ada notları',
     subReservation: 'Masa için bizi arayın',
     subContact: 'Harita ve adres',
+    soldOut: 'Tükendi',
+    newBadge: 'Yeni',
+    currentlyUnavailable: 'Şu an mevcut değil',
+    offlineStalePrices: 'Çevrimdışısınız, fiyatlar güncel olmayabilir',
   },
   en: {
     menu: 'Menu',
@@ -55,6 +59,10 @@ export const DICTIONARY = {
     subBlog: 'Island notes',
     subReservation: 'Call us for a table',
     subContact: 'Map & address',
+    soldOut: 'Sold Out',
+    newBadge: 'New',
+    currentlyUnavailable: 'Currently unavailable',
+    offlineStalePrices: 'You are offline, prices may not be up to date',
   },
 }
 

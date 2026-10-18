@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import {
   Flame,
@@ -14,13 +14,9 @@ import {
 } from 'lucide-react'
 import { PageMeta } from '../components/PageMeta.jsx'
 import { HeroVideo } from '../components/HeroVideo.jsx'
-import { CATS, INFO } from '../menu.js'
+import { INFO, useMenuData } from '../menu.js'
 import { CONFIG } from '../config.js'
 import { asset } from '../utils/asset.js'
-
-const validCats = CATS.filter((c) => c.items && c.items.length > 0)
-const totalDishes = validCats.reduce((n, c) => n + c.items.length, 0)
-const catCount = validCats.length
 
 const VALUES_LIST = [
   { icon: '🌿', title: 'Taze Malzeme', desc: 'Günlük yeşillikler ve taze malzemeler' },
@@ -30,6 +26,20 @@ const VALUES_LIST = [
 ]
 
 export function StoryPage() {
+  const { cats } = useMenuData()
+  const validCats = useMemo(() => {
+    return (cats || []).map((c) => ({
+      ...c,
+      items: (c.items || []).filter((i) => (Array.isArray(i) ? true : !i.hidden)),
+    })).filter((c) => c.items && c.items.length > 0)
+  }, [cats])
+
+  const totalDishes = useMemo(() => {
+    return validCats.reduce((n, c) => n + c.items.length, 0)
+  }, [validCats])
+
+  const catCount = validCats.length
+
   const visualRef = useRef(null)
   const targetTilt = useRef({ x: 0, y: 0 })
   const currentTilt = useRef({ x: 0, y: 0 })

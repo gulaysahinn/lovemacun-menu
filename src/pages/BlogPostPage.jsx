@@ -32,7 +32,7 @@ function InstagramIcon({ size = 16 }) {
   )
 }
 
-import { CATS, FEATURED } from '../menu.js'
+import { useMenuData } from '../menu.js'
 
 const slug = (s) =>
   s
@@ -55,29 +55,31 @@ const slug = (s) =>
         .replace(/^-+|-+$/g, '')
     : ''
 
-// Menü Verisinden Okunan Öne Çıkan Ürünler (Tek kaynak: menu.js)
-const FEATURED_MENU_ITEMS = FEATURED.map((featuredName) => {
-  for (const cat of CATS) {
-    for (const item of cat.items) {
-      const itemName = Array.isArray(item) ? item[0] : item.name
-      if (itemName === featuredName) {
-        const price = Array.isArray(item) ? item[1] : item.price
-        const imgEntry = images[slug(featuredName)]
-        const img = asset(
-          typeof imgEntry === 'string'
-            ? imgEntry
-            : imgEntry?.sm || imgEntry?.lg || '/img/lahmacun-hero.webp'
-        )
-        return { name: featuredName, price, catId: cat.id, img }
-      }
-    }
-  }
-  return null
-}).filter(Boolean)
-
 export function BlogPostPage() {
+  const { cats, featured } = useMenuData()
   const post = BLOG_POSTS[0]
   const [copied, setCopied] = useState(false)
+
+  const featuredMenuItems = useMemo(() => {
+    return (featured || []).map((featuredName) => {
+      for (const cat of cats || []) {
+        for (const item of cat.items || []) {
+          const itemName = Array.isArray(item) ? item[0] : item.name
+          if (itemName === featuredName) {
+            const price = Array.isArray(item) ? item[1] : item.price
+            const imgEntry = images[slug(featuredName)]
+            const img = asset(
+              typeof imgEntry === 'string'
+                ? imgEntry
+                : imgEntry?.sm || imgEntry?.lg || '/img/lahmacun-hero.webp'
+            )
+            return { name: featuredName, price, catId: cat.id, img }
+          }
+        }
+      }
+      return null
+    }).filter(Boolean)
+  }, [cats, featured])
   const [galleryImages, setGalleryImages] = useState(null)
   const [coverSrc, setCoverSrc] = useState(asset('/blog/WhatsApp-Image-2026-06-08-at-16.16.22.webp'))
   const progressBarRef = useRef(null)
@@ -366,7 +368,7 @@ export function BlogPostPage() {
               <h3 className="post-menu-strip-title">Menüden öne çıkanlar</h3>
             </div>
             <div className="post-menu-strip-scroll">
-              {FEATURED_MENU_ITEMS.map((item) => (
+              {featuredMenuItems.map((item) => (
                 <Link
                   key={item.name}
                   to={`/#${item.catId}`}

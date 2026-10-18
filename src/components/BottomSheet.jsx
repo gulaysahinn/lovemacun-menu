@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { TagBadges } from '../Extras.jsx'
 import { TAGS } from '../menu.js'
+import { useLang, t } from '../utils/i18n.js'
 
 const fmt = (n) => n.toLocaleString('tr-TR') + ' ₺'
 
@@ -12,6 +13,7 @@ export function BottomSheet({ item, onClose }) {
   const isDraggingRef = useRef(false)
   const currentDragYRef = useRef(0)
   const contentRef = useRef(null)
+  const lang = useLang()
 
   // Body scroll lock while sheet is open & reset closing state
   useEffect(() => {
@@ -187,6 +189,12 @@ export function BottomSheet({ item, onClose }) {
             <h2 className="sheet-title notranslate" translate="no">
               {item.name}
             </h2>
+
+            {item.soldOut && (
+              <div className="sheet-soldout-alert">
+                <span>⚠️ {t('currentlyUnavailable', lang)}</span>
+              </div>
+            )}
 
             <div className="sheet-tags-wrap">
               <TagBadges name={item.name} tags={TAGS} />

@@ -1,0 +1,1583 @@
+{
+    "version": 1792258816000,
+    "categories": [
+        {
+            "id": "lahmacun",
+            "name": "Lahmacun",
+            "emoji": "🫓"
+        },
+        {
+            "id": "pide",
+            "name": "Pide",
+            "emoji": "🥖"
+        },
+        {
+            "id": "et",
+            "name": "Et & Kebap",
+            "emoji": "🍢"
+        },
+        {
+            "id": "tavuk",
+            "name": "Tavuk",
+            "emoji": "🍗"
+        },
+        {
+            "id": "makarna",
+            "name": "Makarna",
+            "emoji": "🍝"
+        },
+        {
+            "id": "pizza",
+            "name": "Pizza",
+            "emoji": "🍕"
+        },
+        {
+            "id": "sokak",
+            "name": "Sokak Lezzetleri",
+            "emoji": "🌯"
+        },
+        {
+            "id": "balik",
+            "name": "Balık",
+            "emoji": "🐟"
+        },
+        {
+            "id": "kahvalti",
+            "name": "Kahvaltı",
+            "emoji": "🍳"
+        },
+        {
+            "id": "arasicak",
+            "name": "Arasıcaklar",
+            "emoji": "🍟"
+        },
+        {
+            "id": "meze",
+            "name": "Meze",
+            "emoji": "🫒"
+        },
+        {
+            "id": "salata",
+            "name": "Salata",
+            "emoji": "🥗"
+        },
+        {
+            "id": "tatli",
+            "name": "Tatlı",
+            "emoji": "🍮"
+        },
+        {
+            "id": "icecek",
+            "name": "İçecek",
+            "emoji": "🥤"
+        }
+    ],
+    "items": [
+        {
+            "id": "lahmacun-kebapli-lahmacun",
+            "category": "lahmacun",
+            "name": "Kebaplı Lahmacun",
+            "price": 605,
+            "description": "Kömür ateşinde pişmiş Adana veya Urfa kebabı sarılarak servis edilir.",
+            "image": "/img/lahmacun/lovemacunn-restaurant-kebapli-lahmacun-400x400-sm.webp",
+            "tags": [
+                "sef"
+            ],
+            "featuredOrder": 1,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "lahmacun-donerli-lahmacun",
+            "category": "lahmacun",
+            "name": "Dönerli Lahmacun",
+            "price": 515,
+            "description": "Çıtır lahmacunun içinde yaprak et döner.",
+            "image": "/img/lahmacun/lovemacunn-restaurant-donerli-lahmacun-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "lahmacun-yumurtali-lahmacun",
+            "category": "lahmacun",
+            "name": "Yumurtalı Lahmacun",
+            "price": 275,
+            "description": "Fırına girmeden önce üzerine taze yumurta kırılır.",
+            "image": "/img/lahmacun/lovemacunn-restaurant-yumurtali-lahmacun-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "lahmacun-soganli-lahmacun",
+            "category": "lahmacun",
+            "name": "Soğanlı Lahmacun",
+            "price": 255,
+            "description": "Şanlıurfa usulü; bol soğan ve isot.",
+            "image": "/img/lahmacun/lovemacunn-restaurant-soganli-lahmacun-400x400-sm.webp",
+            "tags": [
+                "aci"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "lahmacun-sarimsakli-lahmacun",
+            "category": "lahmacun",
+            "name": "Sarımsaklı Lahmacun",
+            "price": 265,
+            "description": "Gaziantep usulü; bol taze sarımsak ve özel baharat.",
+            "image": "/img/lahmacun/lovemacunn-restaurant-sarimsakli-lahmacun-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "lahmacun-kasarli-lahmacun",
+            "category": "lahmacun",
+            "name": "Kaşarlı Lahmacun",
+            "price": 310,
+            "description": "Kıymalı harcın üzerine fırından çıkmadan bol kaşar.",
+            "image": "/img/lahmacun/lovemacunn-restaurant-kasarli-lahmacun-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "pide-kiymali-pide",
+            "category": "pide",
+            "name": "Kıymalı Pide",
+            "price": 540,
+            "description": "Karadeniz usulü; domatesli, biberli, soğanlı kıyma.",
+            "image": "/img/pide/lovemacunn-restaurant-kiymali-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "pide-kiymali-kasarli-pide",
+            "category": "pide",
+            "name": "Kıymalı Kaşarlı Pide",
+            "price": 550,
+            "description": "Kıymalı harcın üzerine bolca kaşar.",
+            "image": "/img/pide/lovemacunn-restaurant-kiymali-kasarli-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "pide-kavurmali-kasarli-pide",
+            "category": "pide",
+            "name": "Kavurmalı Kaşarlı Pide",
+            "price": 595,
+            "description": "Lokum kıvamında dana kavurma ve erimiş kaşar.",
+            "image": "/img/pide/lovemacunn-restaurant-kavurmali-kasarli-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "pide-kasarli-sucuklu-pide",
+            "category": "pide",
+            "name": "Kaşarlı Sucuklu Pide",
+            "price": 520,
+            "description": "Uzayan kaşar tabanında baharatlı sucuk dilimleri.",
+            "image": "/img/pide/lovemacunn-restaurant-kasar-sucuk-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "pide-kusbasili-kasarli-pide",
+            "category": "pide",
+            "name": "Kuşbaşılı Kaşarlı Pide",
+            "price": 565,
+            "description": "Domatesli biberli dana kuşbaşı ve bol kaşar.",
+            "image": "/img/pide/lovemacunn-restaurant-kusbasi-kasar-400x400-sm.webp",
+            "tags": [
+                "sef"
+            ],
+            "featuredOrder": 2,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "pide-tavuklu-pide",
+            "category": "pide",
+            "name": "Tavuklu Pide",
+            "price": 540,
+            "description": "Kapya biberle sote edilmiş sulu tavuk göğsü.",
+            "image": "/img/pide/lovemacunn-restaurant-tavuklu-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "pide-karisik-pide",
+            "category": "pide",
+            "name": "Karışık Pide",
+            "price": 560,
+            "description": "Tek pidede üç lezzet.",
+            "image": "/img/pide/lovemacunn-restaurant-karisik-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "pide-vejetaryen-pide",
+            "category": "pide",
+            "name": "Vejetaryen Pide",
+            "price": 515,
+            "description": "Biber, mantar, kabak, mısır ve yeşilliklerle.",
+            "image": "/img/pide/lovemacunn-restaurant-vejeteryan-1-400x400-sm.webp",
+            "tags": [
+                "vejetaryen"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "pide-kasarli-pide",
+            "category": "pide",
+            "name": "Kaşarlı Pide",
+            "price": 495,
+            "description": "Bol uzayan taze kaşar peynirli fırın pidesi.",
+            "image": "/img/pide/lovemacunn-restaurant-kasarli-pide-400x400-sm.webp",
+            "tags": [
+                "vejetaryen"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "et-adana-kebap",
+            "category": "et",
+            "name": "Adana Kebap",
+            "price": 650,
+            "description": "Kömür ateşinde zırh kıymasıyla pişen acılı kebap.",
+            "image": "/img/et/lovemacunn-restaurant-adana-kebap-400x400-sm.webp",
+            "tags": [
+                "aci"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "et-kuzu-sis",
+            "category": "et",
+            "name": "Kuzu Şiş",
+            "price": 795,
+            "description": "Marine edilmiş kuzu küpleri, lokum kıvamında.",
+            "image": "/img/et/lovemacunn-restaurant-kuzu-sis-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "et-kuzu-pirzola",
+            "category": "et",
+            "name": "Kuzu Pirzola",
+            "price": 1150,
+            "description": "Izgarada mühürlenmiş kemikli kuzu pirzola.",
+            "image": "/img/et/lovemacunn-restaurant-kuzu-pirzola-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "et-iskender-kebap",
+            "category": "et",
+            "name": "İskender Kebap",
+            "price": 620,
+            "description": "Pide yatağında yaprak et döner, sıcak tereyağı ve yoğurt.",
+            "image": "/img/et/lovemacunn-restaurant-iskender-400x400-sm.webp",
+            "tags": [
+                "sef"
+            ],
+            "featuredOrder": 3,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "et-firin-beyti",
+            "category": "et",
+            "name": "Fırın Beyti",
+            "price": 785,
+            "description": "Lavaş ekmeğine sarılı nefis zırh kıyması, domates sosu ve yoğurt ile.",
+            "image": "/img/et/lovemacunn-restaurant-beyti-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "et-patlicanli-kebap",
+            "category": "et",
+            "name": "Patlıcanlı Kebap",
+            "price": 790,
+            "description": "Özel baharatlı kebap köftesi ve patlıcan dilimi.",
+            "image": "/img/et/lovemacunn-restaurant-patlicanli-kebap-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "et-izgara-kofte",
+            "category": "et",
+            "name": "Izgara Köfte",
+            "price": 655,
+            "description": "Usta ellerde yoğrulmuş, içi sulu ızgara köfte.",
+            "image": "/img/et/lovemacunn-restaurant-kofte-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "et-et-doner-porsiyon",
+            "category": "et",
+            "name": "Et Döner (Porsiyon)",
+            "price": 585,
+            "description": "%100 dana yaprak döner; pilav ve patates ile.",
+            "image": "/img/et/lovemacunn-restaurant-doner-porsiyon-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "et-et-guvec",
+            "category": "et",
+            "name": "Et Güveç",
+            "price": 720,
+            "description": "Toprak kapta ağır ateşte pişmiş dana.",
+            "image": "/img/tavuk/lovemacunn-restaurant-et-guvec-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "et-karisik-et",
+            "category": "et",
+            "name": "Karışık Et",
+            "price": 3850,
+            "description": "Kebap ustalarının seçimi ziyafet tabağı.",
+            "image": "/img/et/lovemacunn-restaurant-7-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "tavuk-tavuk-sis",
+            "category": "tavuk",
+            "name": "Tavuk Şiş",
+            "price": 495,
+            "description": "",
+            "image": "/img/tavuk/lovemacunn-restaurant-tavuk-sis-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "tavuk-tavuk-pirzola",
+            "category": "tavuk",
+            "name": "Tavuk Pirzola",
+            "price": 535,
+            "description": "",
+            "image": "/img/tavuk/lovemacunn-restaurant-tavuk-pirzola-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "tavuk-tavuk-kanat",
+            "category": "tavuk",
+            "name": "Tavuk Kanat",
+            "price": 525,
+            "description": "",
+            "image": "/img/tavuk/lovemacunn-restaurant-tavuk-kanat-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "tavuk-tavuk-doner",
+            "category": "tavuk",
+            "name": "Tavuk Döner",
+            "price": 485,
+            "description": "",
+            "image": "/img/tavuk/lovemacunn-restaurant-tavuk-doner-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "tavuk-tavuk-sinitzel",
+            "category": "tavuk",
+            "name": "Tavuk Şinitzel",
+            "price": 465,
+            "description": "",
+            "image": "/img/tavuk/lovemacunn-restaurant-sinitzel-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "tavuk-kori-soslu-tavuk",
+            "category": "tavuk",
+            "name": "Köri Soslu Tavuk",
+            "price": 535,
+            "description": "",
+            "image": "/img/tavuk/lovemacunn-restaurant-kori-soslu-tavuk-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "tavuk-tavuk-guvec",
+            "category": "tavuk",
+            "name": "Tavuk Güveç",
+            "price": 595,
+            "description": "",
+            "image": "/img/tavuk/lovemacunn-restaurant-tavuk-guvec-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "tavuk-karisik-tavuk-tabagi",
+            "category": "tavuk",
+            "name": "Karışık Tavuk Tabağı",
+            "price": 3100,
+            "description": "",
+            "image": "/img/tavuk/lovemacunn-restaurant-tavuk-karisik-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "makarna-napoliten-spaghetti",
+            "category": "makarna",
+            "name": "Napoliten Spaghetti",
+            "price": 445,
+            "description": "Klasik domates ve fesleğen sosuyla",
+            "image": "/img/makarnalar/lovemacunn-restaurant-spagetti-400x400-sm.webp",
+            "tags": [
+                "vejetaryen"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "makarna-bolognese-spaghetti",
+            "category": "makarna",
+            "name": "Bolognese Spaghetti",
+            "price": 545,
+            "description": "Ağır ateşte pişmiş geleneksel kıymalı sos",
+            "image": "/img/makarnalar/lovemacunn-restaurant-bolognez-spagetti-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "makarna-sosisli-spaghetti",
+            "category": "makarna",
+            "name": "Sosisli Spaghetti",
+            "price": 480,
+            "description": "Özel domates sosu ve sosis dilimleriyle",
+            "image": "/img/makarnalar/lovemacunn-restaurant-sosisli-spagetti-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "makarna-peynirli-spaghetti",
+            "category": "makarna",
+            "name": "Peynirli Spaghetti",
+            "price": 545,
+            "description": "Eritme peynir ve taze otlar ile",
+            "image": "/img/makarnalar/lovemacunn-restaurant-peynirli-spagetti-400x400-sm.webp",
+            "tags": [
+                "vejetaryen"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "makarna-penne-arrabbiata",
+            "category": "makarna",
+            "name": "Penne Arrabbiata",
+            "price": 445,
+            "description": "Acılı sarımsaklı domates sosu lezzeti",
+            "image": "/img/makarnalar/lovemacunn-restaurant-penne-arabita-400x400-sm.webp",
+            "tags": [
+                "aci",
+                "vejetaryen"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "makarna-kremali-mantarli-penne",
+            "category": "makarna",
+            "name": "Kremalı Mantarlı Penne",
+            "price": 575,
+            "description": "Taze mantar ve zengin krema sosuyla",
+            "image": "/img/makarnalar/lovemacunn-restaurant-penne-kremali-mantarli-400x400-sm.webp",
+            "tags": [
+                "vejetaryen"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "makarna-fettuccine-alfredo",
+            "category": "makarna",
+            "name": "Fettuccine Alfredo",
+            "price": 545,
+            "description": "Özel krema sosu ve taze parmesan ile",
+            "image": "/img/makarnalar/lovemacunn-restaurant-fettucine-400x400-sm.webp",
+            "tags": [
+                "vejetaryen"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "makarna-mantarli-fettuccine",
+            "category": "makarna",
+            "name": "Mantarlı Fettuccine",
+            "price": 555,
+            "description": "Kavrulmuş mantar ve lezzetli krema sosu",
+            "image": "/img/makarnalar/lovemacunn-restaurant-mantarli-fettucine-1-400x400-sm.webp",
+            "tags": [
+                "vejetaryen"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "makarna-kayseri-mantisi",
+            "category": "makarna",
+            "name": "Kayseri Mantısı",
+            "price": 515,
+            "description": "Sarımsaklı yoğurt ve kızgın tereyağ sosu",
+            "image": "/img/makarnalar/lovemacunn-restaurant-manti-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "pizza-margarita-pizza",
+            "category": "pizza",
+            "name": "Margarita Pizza",
+            "price": 495,
+            "description": "",
+            "image": "/img/pizza/lovemacunn-restaurant-margarita-400x400-sm.webp",
+            "tags": [
+                "vejetaryen"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "pizza-pepperoni-pizza",
+            "category": "pizza",
+            "name": "Pepperoni Pizza",
+            "price": 525,
+            "description": "",
+            "image": "/img/pizza/lovemacunn-restaurant-pepperoni-400x400-sm.webp",
+            "tags": [
+                "aci"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "pizza-karisik-pizza",
+            "category": "pizza",
+            "name": "Karışık Pizza",
+            "price": 545,
+            "description": "",
+            "image": "/img/pizza/lovemacunn-restaurant-karisik-pizza-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "pizza-vejetaryen-pizza",
+            "category": "pizza",
+            "name": "Vejetaryen Pizza",
+            "price": 525,
+            "description": "",
+            "image": "/img/pizza/lovemacunn-restaurant-vejeteryan-400x400-sm.webp",
+            "tags": [
+                "vejetaryen"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "pizza-tavuklu-pizza",
+            "category": "pizza",
+            "name": "Tavuklu Pizza",
+            "price": 545,
+            "description": "",
+            "image": "/img/pizza/lovemacunn-restaurant-tavuklu-pizza-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "pizza-ton-balikli-pizza",
+            "category": "pizza",
+            "name": "Ton Balıklı Pizza",
+            "price": 585,
+            "description": "",
+            "image": "/img/pizza/lovemacunn-restaurant-ton-balikli-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "pizza-pastirmali-pizza",
+            "category": "pizza",
+            "name": "Pastırmalı Pizza",
+            "price": 610,
+            "description": "",
+            "image": "/img/pizza/lovemacunn-restaurant-pastirmali-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "pizza-karidesli-pizza",
+            "category": "pizza",
+            "name": "Karidesli Pizza",
+            "price": 610,
+            "description": "",
+            "image": "/img/pizza/lovemacunn-restaurant-karidesli-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "pizza-et-donerli-pizza",
+            "category": "pizza",
+            "name": "Et Dönerli Pizza",
+            "price": 615,
+            "description": "",
+            "image": "/img/pizza/lovemacunn-restaurant-et-doner-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "sokak-tavuk-durum",
+            "category": "sokak",
+            "name": "Tavuk Dürüm",
+            "price": 345,
+            "description": "",
+            "image": "/img/sokaklezzetleri/lovemacunn-restaurant-tavuk-durum-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "sokak-et-doner-durum",
+            "category": "sokak",
+            "name": "Et Döner Dürüm",
+            "price": 450,
+            "description": "",
+            "image": "/img/sokaklezzetleri/lovemacunn-restaurant-et-doner-1-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "sokak-adana-durum",
+            "category": "sokak",
+            "name": "Adana Dürüm",
+            "price": 595,
+            "description": "",
+            "image": "/img/sokaklezzetleri/lovemacunn-restaurant-adana-durum-400x400-sm.webp",
+            "tags": [
+                "aci"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "sokak-balik-durum",
+            "category": "sokak",
+            "name": "Balık Dürüm",
+            "price": 390,
+            "description": "",
+            "image": "/img/sokaklezzetleri/lovemacunn-restaurant-balik-durum-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "sokak-kofte-ekmek",
+            "category": "sokak",
+            "name": "Köfte Ekmek",
+            "price": 405,
+            "description": "",
+            "image": "/img/sokaklezzetleri/lovemacunn-restaurant-kofte-ekmek-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "sokak-tavuk-burger-menu",
+            "category": "sokak",
+            "name": "Tavuk Burger Menü",
+            "price": 465,
+            "description": "",
+            "image": "/img/sokaklezzetleri/lovemacunn-restaurant-tavuk-burger-menu-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "sokak-et-burger-menu",
+            "category": "sokak",
+            "name": "Et Burger Menü",
+            "price": 485,
+            "description": "",
+            "image": "/img/sokaklezzetleri/lovemacunn-restaurant-et-burger-menu-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "balik-izgara-levrek",
+            "category": "balik",
+            "name": "Izgara Levrek",
+            "price": 655,
+            "description": "",
+            "image": "/img/baliklar/lovemacunn-restaurant-levrek-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "balik-izgara-cupura",
+            "category": "balik",
+            "name": "Izgara Çupura",
+            "price": 645,
+            "description": "",
+            "image": "/img/baliklar/lovemacunn-restaurant-cupra-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "balik-izgara-somon",
+            "category": "balik",
+            "name": "Izgara Somon",
+            "price": 685,
+            "description": "",
+            "image": "/img/baliklar/lovemacunn-restaurant-somon-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "balik-izgara-uskumru",
+            "category": "balik",
+            "name": "Izgara Uskumru",
+            "price": 545,
+            "description": "",
+            "image": "/img/baliklar/lovemacunn-restaurant-uskumru-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "balik-tava-hamsi",
+            "category": "balik",
+            "name": "Tava Hamsi",
+            "price": 585,
+            "description": "",
+            "image": "/img/baliklar/lovemacunn-restaurant-hamsi-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "balik-citir-kalamar",
+            "category": "balik",
+            "name": "Çıtır Kalamar",
+            "price": 695,
+            "description": "",
+            "image": "/img/baliklar/lovemacunn-restaurant-kalamar-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "balik-karides-guvec",
+            "category": "balik",
+            "name": "Karides Güveç",
+            "price": 685,
+            "description": "",
+            "image": "/img/baliklar/lovemacunn-restaurant-karides-guvec-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "balik-balik-ekmek",
+            "category": "balik",
+            "name": "Balık Ekmek",
+            "price": 355,
+            "description": "",
+            "image": "/img/baliklar/lovemacunn-restaurant-balik-ekmek-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "kahvalti-serpme-kahvalti-2-kisilik",
+            "category": "kahvalti",
+            "name": "Serpme Kahvaltı (2 Kişilik)",
+            "price": 850,
+            "description": "Zengin peynir çeşitleri, zeytinler, reçeller, bal-kaymak, sahanda yumurta, börek ve sınırsız çay.",
+            "image": "/img/kahvalti/lovemacunn-restaurant-serpme-kahvalti-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "kahvalti-kahvalti-tabagi",
+            "category": "kahvalti",
+            "name": "Kahvaltı Tabağı",
+            "price": 380,
+            "description": "Beyaz peynir, kaşar, zeytin, domates, salatalık, bal, tereyağı, haşlanmış yumurta ve taze ekmek.",
+            "image": "/img/kahvalti/lovemacunn-restaurant-kahvalti-tabagi-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "kahvalti-menemen",
+            "category": "kahvalti",
+            "name": "Menemen",
+            "price": 245,
+            "description": "Köy yumurtası, taze domates ve biber ile bakır sahanda.",
+            "image": "/img/kahvalti/lovemacunn-restaurant-menemen-400x400-sm.webp",
+            "tags": [
+                "vejetaryen"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "kahvalti-sucuklu-yumurta",
+            "category": "kahvalti",
+            "name": "Sucuklu Yumurta",
+            "price": 275,
+            "description": "Kayseri sucuğu ve tereyağında köy yumurtası.",
+            "image": "/img/kahvalti/lovemacunn-restaurant-sucuklu-yumurta-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "kahvalti-kasarli-omlet",
+            "category": "kahvalti",
+            "name": "Kaşarlı Omlet",
+            "price": 235,
+            "description": "Taze çırpılmış yumurta ve bol kaşar peyniri.",
+            "image": "/img/kahvalti/lovemacunn-restaurant-omlet-400x400-sm.webp",
+            "tags": [
+                "vejetaryen"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "kahvalti-sigara-boregi",
+            "category": "kahvalti",
+            "name": "Sigara Böreği",
+            "price": 210,
+            "description": "Çıtır yufka sarımı sıcak peynirli börek.",
+            "image": "/img/kahvalti/lovemacunn-restaurant-sigara-boregi-400x400-sm.webp",
+            "tags": [
+                "vejetaryen"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "kahvalti-sosis-tabagi",
+            "category": "kahvalti",
+            "name": "Sosis Tabağı",
+            "price": 240,
+            "description": "Özel sos ve patates eşliğinde ızgara sosis dilimleri.",
+            "image": "/img/kahvalti/lovemacunn-restaurant-sosis-tabagi-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "arasicak-combo-tabak",
+            "category": "arasicak",
+            "name": "Combo Tabak",
+            "price": 545,
+            "description": "",
+            "image": "/img/ara-sicaklar/lovemacunn-restaurant-combo-tabagi-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "arasicak-icli-kofte",
+            "category": "arasicak",
+            "name": "İçli Köfte",
+            "price": 475,
+            "description": "",
+            "image": "/img/ara-sicaklar/lovemacunn-restaurant-icli-kofte-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "arasicak-falafel",
+            "category": "arasicak",
+            "name": "Falafel",
+            "price": 375,
+            "description": "",
+            "image": "/img/ara-sicaklar/lovemacunn-restaurant-falafel-400x400-sm.webp",
+            "tags": [
+                "vejetaryen"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "arasicak-firinda-mantar",
+            "category": "arasicak",
+            "name": "Fırında Mantar",
+            "price": 405,
+            "description": "",
+            "image": "/img/ara-sicaklar/lovemacunn-restaurant-firinda-mantar-400x400-sm.webp",
+            "tags": [
+                "vejetaryen"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "arasicak-patates-kizartmasi",
+            "category": "arasicak",
+            "name": "Patates Kızartması",
+            "price": 350,
+            "description": "",
+            "image": "/img/ara-sicaklar/lovemacunn-restaurant-patates-400x400-sm.webp",
+            "tags": [
+                "vejetaryen"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "arasicak-kuru-fasulye",
+            "category": "arasicak",
+            "name": "Kuru Fasulye",
+            "price": 350,
+            "description": "",
+            "image": "/img/ara-sicaklar/lovemacunn-restaurant-kuru-fasulye-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "arasicak-pirinc-pilavi",
+            "category": "arasicak",
+            "name": "Pirinç Pilavı",
+            "price": 280,
+            "description": "",
+            "image": "/img/ara-sicaklar/lovemacunn-restaurant-pirinc-pilavi-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "arasicak-gunun-corbasi",
+            "category": "arasicak",
+            "name": "Günün Çorbası",
+            "price": 220,
+            "description": "Geleneksel usulde hazırlanan taze sıcak çorba.",
+            "image": "/img/ara-sicaklar/lovemacunn-restaurant-gunun-corbasi-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "meze-ordovr-tabagi",
+            "category": "meze",
+            "name": "Ordövr Tabağı",
+            "price": 625,
+            "description": "",
+            "image": "/img/meze/lovemacunn-restaurant-ordovr-tabagi-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "meze-yaprak-sarma",
+            "category": "meze",
+            "name": "Yaprak Sarma",
+            "price": 310,
+            "description": "",
+            "image": "/img/meze/lovemacunn-restaurant-yaprak-sarma-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "meze-humus",
+            "category": "meze",
+            "name": "Humus",
+            "price": 310,
+            "description": "",
+            "image": "/img/meze/lovemacunn-restaurant-humus-400x400-sm.webp",
+            "tags": [
+                "vejetaryen"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "meze-aci-ezme",
+            "category": "meze",
+            "name": "Acı Ezme",
+            "price": 305,
+            "description": "",
+            "image": "/img/meze/lovemacunn-restaurant-aci-ezme-400x400-sm.webp",
+            "tags": [
+                "aci",
+                "vejetaryen"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "meze-cig-kofte",
+            "category": "meze",
+            "name": "Çiğ Köfte",
+            "price": 395,
+            "description": "",
+            "image": "/img/meze/lovemacunn-restaurant-cigkofte-400x400-sm.webp",
+            "tags": [
+                "vejetaryen"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "meze-haydari",
+            "category": "meze",
+            "name": "Haydari",
+            "price": 285,
+            "description": "Süzme yoğurt, taze nane ve sarımsak.",
+            "image": "/img/meze/lovemacunn-restaurant-haydari-400x400-sm.webp",
+            "tags": [
+                "vejetaryen"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "meze-cacik",
+            "category": "meze",
+            "name": "Cacık",
+            "price": 245,
+            "description": "Salatalık, sarımsaklı yoğurt ve sızma zeytinyağı.",
+            "image": "/img/meze/lovemacunn-restaurant-cacik-400x400-sm.webp",
+            "tags": [
+                "vejetaryen"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "salata-coban-salatasi",
+            "category": "salata",
+            "name": "Çoban Salatası",
+            "price": 295,
+            "description": "",
+            "image": "/img/salata/lovemacunn-restaurant-coban-salata-400x400-sm.webp",
+            "tags": [
+                "vejetaryen"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "salata-mevsim-salatasi",
+            "category": "salata",
+            "name": "Mevsim Salatası",
+            "price": 295,
+            "description": "",
+            "image": "/img/salata/lovemacunn-restaurant-mevsim-salata-400x400-sm.webp",
+            "tags": [
+                "vejetaryen"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "salata-sezar-salata",
+            "category": "salata",
+            "name": "Sezar Salata",
+            "price": 385,
+            "description": "",
+            "image": "/img/salata/lovemacunn-restaurant-sezar-salata-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "salata-ton-balikli-salata",
+            "category": "salata",
+            "name": "Ton Balıklı Salata",
+            "price": 385,
+            "description": "",
+            "image": "/img/salata/lovemacunn-restaurant-ton-balikli-salata-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "salata-tebbule-salatasi",
+            "category": "salata",
+            "name": "Tebbule Salatası",
+            "price": 355,
+            "description": "",
+            "image": "/img/salata/lovemacunn-restaurant-tebbule-400x400-sm.webp",
+            "tags": [
+                "vejetaryen"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "salata-fettus-salatasi",
+            "category": "salata",
+            "name": "Fettuş Salatası",
+            "price": 395,
+            "description": "",
+            "image": "",
+            "tags": [
+                "vejetaryen"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "salata-patlican-salatasi",
+            "category": "salata",
+            "name": "Patlıcan Salatası",
+            "price": 285,
+            "description": "",
+            "image": "/img/salata/lovemacunn-restaurant-patlican-salatasi-400x400-sm.webp",
+            "tags": [
+                "vejetaryen"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "salata-havuc-salatasi",
+            "category": "salata",
+            "name": "Havuç Salatası",
+            "price": 275,
+            "description": "",
+            "image": "/img/salata/lovemacunn-restaurant-havuc-salatasi-400x400-sm.webp",
+            "tags": [
+                "vejetaryen"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "salata-sogus-tabagi",
+            "category": "salata",
+            "name": "Söğüş Tabağı",
+            "price": 270,
+            "description": "",
+            "image": "/img/salata/lovemacunn-restaurant-sogus-400x400-sm.webp",
+            "tags": [
+                "vejetaryen"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "salata-karisik-tursu",
+            "category": "salata",
+            "name": "Karışık Turşu",
+            "price": 275,
+            "description": "",
+            "image": "/img/salata/lovemacunn-restaurant-karisik-tursu-400x400-sm.webp",
+            "tags": [
+                "vejetaryen"
+            ],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "tatli-kunefe",
+            "category": "tatli",
+            "name": "Künefe",
+            "price": 395,
+            "description": "Nar gibi kızarmış kadayıf arasında uzayan peynir.",
+            "image": "/img/tatlilar/lovemacunn-restaurant-kunefe-400x400-sm.webp",
+            "tags": [
+                "sef"
+            ],
+            "featuredOrder": 4,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "tatli-fistikli-baklava",
+            "category": "tatli",
+            "name": "Fıstıklı Baklava",
+            "price": 495,
+            "description": "40 kat çıtır yufka, bol Antep fıstığı.",
+            "image": "/img/tatlilar/lovemacunn-restaurant-baklava-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "tatli-firin-sutlac",
+            "category": "tatli",
+            "name": "Fırın Sütlaç",
+            "price": 355,
+            "description": "Toprak güveçte, üzeri fırında kızarmış.",
+            "image": "/img/tatlilar/lovemacunn-restaurant-sutlac-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "icecek-su",
+            "category": "icecek",
+            "name": "Su",
+            "price": 40,
+            "description": "",
+            "image": "/img/icecekler/lovemacunn-restaurant-su-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "icecek-ayran",
+            "category": "icecek",
+            "name": "Ayran",
+            "price": 110,
+            "description": "",
+            "image": "/img/icecekler/lovemacunn-restaurant-ayran-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "icecek-sade-meyveli-soda",
+            "category": "icecek",
+            "name": "Sade / Meyveli Soda",
+            "price": 105,
+            "description": "",
+            "image": "/img/icecekler/lovemacunn-restaurant-sade_meyveli-soda-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "icecek-fanta-sprite-ice-tea",
+            "category": "icecek",
+            "name": "Fanta – Sprite – Ice Tea",
+            "price": 145,
+            "description": "",
+            "image": "/img/icecekler/lovemacunn-restaurant-Fanta_sprite_ice-tea-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "icecek-limonata",
+            "category": "icecek",
+            "name": "Limonata",
+            "price": 245,
+            "description": "",
+            "image": "/img/icecekler/lovemacunn-restaurant-limonata-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "icecek-portakal-suyu",
+            "category": "icecek",
+            "name": "Portakal Suyu",
+            "price": 245,
+            "description": "",
+            "image": "/img/icecekler/lovemacunn-restaurant-portakal-suyu-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "icecek-nar-suyu",
+            "category": "icecek",
+            "name": "Nar Suyu",
+            "price": 265,
+            "description": "",
+            "image": "/img/icecekler/lovemacunn-restaurant-nar-suyu-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "icecek-turk-kahvesi",
+            "category": "icecek",
+            "name": "Türk Kahvesi",
+            "price": 185,
+            "description": "",
+            "image": "/img/icecekler/lovemacunn-restaurant-turk-kahvesi-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        },
+        {
+            "id": "icecek-cappuccino",
+            "category": "icecek",
+            "name": "Cappuccino",
+            "price": 295,
+            "description": "",
+            "image": "/img/icecekler/lovemacunn-restaurant-cappuccino-400x400-sm.webp",
+            "tags": [],
+            "featuredOrder": 0,
+            "isNew": false,
+            "soldOut": false,
+            "hidden": false
+        }
+    ]
+}

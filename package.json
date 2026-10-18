@@ -11,7 +11,10 @@
     "build:staging": "vite build --mode staging",
     "postbuild": "node scripts/copy-to-docs.mjs",
     "preview": "vite preview",
-    "optimize:images": "node scripts/optimize-images.mjs"
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "package": "node scripts/package-deploy.mjs --prod",
+    "package:staging": "node scripts/package-deploy.mjs --staging",
+    "package:prod": "node scripts/package-deploy.mjs --prod"
   },
   "dependencies": {
     "lucide-react": "^1.55.0",
@@ -21,6 +24,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.1",
+    "archiver": "^8.0.0",
     "puppeteer-core": "^24.43.1",
     "qrcode": "^1.5.4",
     "sharp": "^0.35.5",

@@ -2,7 +2,51 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import fs from 'fs'
 import path from 'path'
+import { spawn } from 'child_process'
 import { CONFIG } from './src/config.js'
+
+function phpDevServerPlugin() {
+  let phpProc = null
+  const phpPort = 8099
+
+  function findPhp() {
+    const xampp = 'C:\\xampp\\php\\php.exe'
+    if (fs.existsSync(xampp)) return xampp
+    return 'php'
+  }
+
+  return {
+    name: 'vite-plugin-php-dev-server',
+    apply: 'serve',
+    configureServer(server) {
+      const phpBin = findPhp()
+      try {
+        console.log(`[Vite PHP Dev] Yerel PHP sunucusu başlatılıyor (${phpBin}) port: ${phpPort}...`)
+        phpProc = spawn(phpBin, ['-S', `127.0.0.1:${phpPort}`, '-t', 'public'], {
+          stdio: 'inherit'
+        })
+
+        phpProc.on('error', (err) => {
+          console.warn('[Vite PHP Dev] PHP sunucusu başlatılamadı:', err.message)
+        })
+
+        const cleanup = () => {
+          if (phpProc) {
+            try { phpProc.kill() } catch (e) {}
+            phpProc = null
+          }
+        }
+
+        process.on('exit', cleanup)
+        process.on('SIGINT', cleanup)
+        process.on('SIGTERM', cleanup)
+        server.httpServer?.on('close', cleanup)
+      } catch (err) {
+        console.warn('[Vite PHP Dev] Hata:', err)
+      }
+    }
+  }
+}
 
 export default defineConfig(({ mode }) => {
   const isStaging = mode === 'staging' || process.env.VITE_ENV === 'staging'
@@ -25,9 +69,28 @@ export default defineConfig(({ mode }) => {
       port: 5173,
       hmr: {
         clientPort: 5173
+      },
+      proxy: {
+        '/yonetim': {
+          target: 'http://127.0.0.1:8099',
+          changeOrigin: true
+        },
+        '/api': {
+          target: 'http://127.0.0.1:8099',
+          changeOrigin: true
+        },
+        '/backups': {
+          target: 'http://127.0.0.1:8099',
+          changeOrigin: true
+        },
+        '/logs': {
+          target: 'http://127.0.0.1:8099',
+          changeOrigin: true
+        }
       }
     },
     plugins: [
+      phpDevServerPlugin(),
       react(),
       {
         name: 'vite-plugin-site-config-and-staging',

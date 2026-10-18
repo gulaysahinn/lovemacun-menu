@@ -10,41 +10,33 @@
   "aci-ezme": {
     "sm": "/img/meze/lovemacunn-restaurant-aci-ezme-400x400-sm.webp",
     "lg": "/img/meze/lovemacunn-restaurant-aci-ezme-400x400.webp",
-    "cut": "/img-cut/meze/lovemacunn-restaurant-aci-ezme-400x400.webp",
-    "cutSm": "/img-cut/meze/lovemacunn-restaurant-aci-ezme-400x400-sm.webp"
+    "cut": "/img-cut/meze/lovemacunn-restaurant-aci-ezme-400x400.webp"
   },
   "aci-ezme-cut": "/img-cut/meze/lovemacunn-restaurant-aci-ezme-400x400.webp",
-  "aci-ezme-cut-sm": "/img-cut/meze/lovemacunn-restaurant-aci-ezme-400x400-sm.webp",
   "aci-ezme-lg": "/img/meze/lovemacunn-restaurant-aci-ezme-400x400.webp",
   "aci-ezme-sm": "/img/meze/lovemacunn-restaurant-aci-ezme-400x400-sm.webp",
   "adana-durum": {
     "sm": "/img/sokaklezzetleri/lovemacunn-restaurant-adana-durum-400x400-sm.webp",
     "lg": "/img/sokaklezzetleri/lovemacunn-restaurant-adana-durum-400x400.webp",
-    "cut": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-adana-durum-400x400.webp",
-    "cutSm": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-adana-durum-400x400-sm.webp"
+    "cut": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-adana-durum-400x400.webp"
   },
   "adana-durum-cut": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-adana-durum-400x400.webp",
-  "adana-durum-cut-sm": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-adana-durum-400x400-sm.webp",
   "adana-durum-lg": "/img/sokaklezzetleri/lovemacunn-restaurant-adana-durum-400x400.webp",
   "adana-durum-sm": "/img/sokaklezzetleri/lovemacunn-restaurant-adana-durum-400x400-sm.webp",
   "adana-kebap": {
     "sm": "/img/et/lovemacunn-restaurant-adana-kebap-400x400-sm.webp",
     "lg": "/img/et/lovemacunn-restaurant-adana-kebap-400x400.webp",
-    "cut": "/img-cut/et/lovemacunn-restaurant-adana-kebap-400x400.webp",
-    "cutSm": "/img-cut/et/lovemacunn-restaurant-adana-kebap-400x400-sm.webp"
+    "cut": "/img-cut/et/lovemacunn-restaurant-adana-kebap-400x400.webp"
   },
   "adana-kebap-cut": "/img-cut/et/lovemacunn-restaurant-adana-kebap-400x400.webp",
-  "adana-kebap-cut-sm": "/img-cut/et/lovemacunn-restaurant-adana-kebap-400x400-sm.webp",
   "adana-kebap-lg": "/img/et/lovemacunn-restaurant-adana-kebap-400x400.webp",
   "adana-kebap-sm": "/img/et/lovemacunn-restaurant-adana-kebap-400x400-sm.webp",
   "ayran": {
     "sm": "/img/icecekler/lovemacunn-restaurant-ayran-400x400-sm.webp",
     "lg": "/img/icecekler/lovemacunn-restaurant-ayran-400x400.webp",
-    "cut": "/img-cut/icecekler/lovemacunn-restaurant-ayran-400x400.webp",
-    "cutSm": "/img-cut/icecekler/lovemacunn-restaurant-ayran-400x400-sm.webp"
+    "cut": "/img-cut/icecekler/lovemacunn-restaurant-ayran-400x400.webp"
   },
   "ayran-cut": "/img-cut/icecekler/lovemacunn-restaurant-ayran-400x400.webp",
-  "ayran-cut-sm": "/img-cut/icecekler/lovemacunn-restaurant-ayran-400x400-sm.webp",
   "ayran-lg": "/img/icecekler/lovemacunn-restaurant-ayran-400x400.webp",
   "ayran-sm": "/img/icecekler/lovemacunn-restaurant-ayran-400x400-sm.webp",
   "baklava": {
@@ -58,21 +50,17 @@
   "balik-durum": {
     "sm": "/img/sokaklezzetleri/lovemacunn-restaurant-balik-durum-400x400-sm.webp",
     "lg": "/img/sokaklezzetleri/lovemacunn-restaurant-balik-durum-400x400.webp",
-    "cut": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-balik-durum-400x400.webp",
-    "cutSm": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-balik-durum-400x400-sm.webp"
+    "cut": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-balik-durum-400x400.webp"
   },
   "balik-durum-cut": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-balik-durum-400x400.webp",
-  "balik-durum-cut-sm": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-balik-durum-400x400-sm.webp",
   "balik-durum-lg": "/img/sokaklezzetleri/lovemacunn-restaurant-balik-durum-400x400.webp",
   "balik-durum-sm": "/img/sokaklezzetleri/lovemacunn-restaurant-balik-durum-400x400-sm.webp",
   "balik-ekmek": {
     "sm": "/img/baliklar/lovemacunn-restaurant-balik-ekmek-400x400-sm.webp",
     "lg": "/img/baliklar/lovemacunn-restaurant-balik-ekmek-400x400.webp",
-    "cut": "/img-cut/baliklar/lovemacunn-restaurant-balik-ekmek-400x400.webp",
-    "cutSm": "/img-cut/baliklar/lovemacunn-restaurant-balik-ekmek-400x400-sm.webp"
+    "cut": "/img-cut/baliklar/lovemacunn-restaurant-balik-ekmek-400x400.webp"
   },
   "balik-ekmek-cut": "/img-cut/baliklar/lovemacunn-restaurant-balik-ekmek-400x400.webp",
-  "balik-ekmek-cut-sm": "/img-cut/baliklar/lovemacunn-restaurant-balik-ekmek-400x400-sm.webp",
   "balik-ekmek-lg": "/img/baliklar/lovemacunn-restaurant-balik-ekmek-400x400.webp",
   "balik-ekmek-sm": "/img/baliklar/lovemacunn-restaurant-balik-ekmek-400x400-sm.webp",
   "beyti": {
@@ -83,16 +71,6 @@
   "beyti-cut": "/img-cut/et/lovemacunn-restaurant-beyti-400x400.webp",
   "beyti-lg": "/img/et/lovemacunn-restaurant-beyti-400x400.webp",
   "beyti-sm": "/img/et/lovemacunn-restaurant-beyti-400x400-sm.webp",
-  "bolognese-spaghetti": {
-    "sm": "/img/makarnalar/lovemacunn-restaurant-bolognez-spagetti-400x400-sm.webp",
-    "lg": "/img/makarnalar/lovemacunn-restaurant-bolognez-spagetti-400x400.webp",
-    "cut": "/img-cut/makarnalar/lovemacunn-restaurant-bolognez-spagetti-400x400.webp",
-    "cutSm": "/img-cut/makarnalar/lovemacunn-restaurant-bolognez-spagetti-400x400-sm.webp"
-  },
-  "bolognese-spaghetti-cut": "/img-cut/makarnalar/lovemacunn-restaurant-bolognez-spagetti-400x400.webp",
-  "bolognese-spaghetti-cut-sm": "/img-cut/makarnalar/lovemacunn-restaurant-bolognez-spagetti-400x400-sm.webp",
-  "bolognese-spaghetti-lg": "/img/makarnalar/lovemacunn-restaurant-bolognez-spagetti-400x400.webp",
-  "bolognese-spaghetti-sm": "/img/makarnalar/lovemacunn-restaurant-bolognez-spagetti-400x400-sm.webp",
   "bolognez-spagetti": {
     "sm": "/img/makarnalar/lovemacunn-restaurant-bolognez-spagetti-400x400-sm.webp",
     "lg": "/img/makarnalar/lovemacunn-restaurant-bolognez-spagetti-400x400.webp",
@@ -104,33 +82,19 @@
   "cacik": {
     "sm": "/img/meze/lovemacunn-restaurant-cacik-400x400-sm.webp",
     "lg": "/img/meze/lovemacunn-restaurant-cacik-400x400.webp",
-    "cut": "/img-cut/meze/lovemacunn-restaurant-cacik-400x400.webp",
-    "cutSm": "/img-cut/meze/lovemacunn-restaurant-cacik-400x400-sm.webp"
+    "cut": "/img-cut/meze/lovemacunn-restaurant-cacik-400x400.webp"
   },
   "cacik-cut": "/img-cut/meze/lovemacunn-restaurant-cacik-400x400.webp",
-  "cacik-cut-sm": "/img-cut/meze/lovemacunn-restaurant-cacik-400x400-sm.webp",
   "cacik-lg": "/img/meze/lovemacunn-restaurant-cacik-400x400.webp",
   "cacik-sm": "/img/meze/lovemacunn-restaurant-cacik-400x400-sm.webp",
   "cappuccino": {
     "sm": "/img/icecekler/lovemacunn-restaurant-cappuccino-400x400-sm.webp",
     "lg": "/img/icecekler/lovemacunn-restaurant-cappuccino-400x400.webp",
-    "cut": "/img-cut/icecekler/lovemacunn-restaurant-cappuccino-400x400.webp",
-    "cutSm": "/img-cut/icecekler/lovemacunn-restaurant-cappuccino-400x400-sm.webp"
+    "cut": "/img-cut/icecekler/lovemacunn-restaurant-cappuccino-400x400.webp"
   },
   "cappuccino-cut": "/img-cut/icecekler/lovemacunn-restaurant-cappuccino-400x400.webp",
-  "cappuccino-cut-sm": "/img-cut/icecekler/lovemacunn-restaurant-cappuccino-400x400-sm.webp",
   "cappuccino-lg": "/img/icecekler/lovemacunn-restaurant-cappuccino-400x400.webp",
   "cappuccino-sm": "/img/icecekler/lovemacunn-restaurant-cappuccino-400x400-sm.webp",
-  "cig-kofte": {
-    "sm": "/img/meze/lovemacunn-restaurant-cigkofte-400x400-sm.webp",
-    "lg": "/img/meze/lovemacunn-restaurant-cigkofte-400x400.webp",
-    "cut": "/img-cut/meze/lovemacunn-restaurant-cigkofte-400x400.webp",
-    "cutSm": "/img-cut/meze/lovemacunn-restaurant-cigkofte-400x400-sm.webp"
-  },
-  "cig-kofte-cut": "/img-cut/meze/lovemacunn-restaurant-cigkofte-400x400.webp",
-  "cig-kofte-cut-sm": "/img-cut/meze/lovemacunn-restaurant-cigkofte-400x400-sm.webp",
-  "cig-kofte-lg": "/img/meze/lovemacunn-restaurant-cigkofte-400x400.webp",
-  "cig-kofte-sm": "/img/meze/lovemacunn-restaurant-cigkofte-400x400-sm.webp",
   "cigkofte": {
     "sm": "/img/meze/lovemacunn-restaurant-cigkofte-400x400-sm.webp",
     "lg": "/img/meze/lovemacunn-restaurant-cigkofte-400x400.webp",
@@ -139,16 +103,6 @@
   "cigkofte-cut": "/img-cut/meze/lovemacunn-restaurant-cigkofte-400x400.webp",
   "cigkofte-lg": "/img/meze/lovemacunn-restaurant-cigkofte-400x400.webp",
   "cigkofte-sm": "/img/meze/lovemacunn-restaurant-cigkofte-400x400-sm.webp",
-  "citir-kalamar": {
-    "sm": "/img/baliklar/lovemacunn-restaurant-kalamar-400x400-sm.webp",
-    "lg": "/img/baliklar/lovemacunn-restaurant-kalamar-400x400.webp",
-    "cut": "/img-cut/baliklar/lovemacunn-restaurant-kalamar-400x400.webp",
-    "cutSm": "/img-cut/baliklar/lovemacunn-restaurant-kalamar-400x400-sm.webp"
-  },
-  "citir-kalamar-cut": "/img-cut/baliklar/lovemacunn-restaurant-kalamar-400x400.webp",
-  "citir-kalamar-cut-sm": "/img-cut/baliklar/lovemacunn-restaurant-kalamar-400x400-sm.webp",
-  "citir-kalamar-lg": "/img/baliklar/lovemacunn-restaurant-kalamar-400x400.webp",
-  "citir-kalamar-sm": "/img/baliklar/lovemacunn-restaurant-kalamar-400x400-sm.webp",
   "coban-salata": {
     "sm": "/img/salata/lovemacunn-restaurant-coban-salata-400x400-sm.webp",
     "lg": "/img/salata/lovemacunn-restaurant-coban-salata-400x400.webp",
@@ -157,16 +111,6 @@
   "coban-salata-cut": "/img-cut/salata/lovemacunn-restaurant-coban-salata-400x400.webp",
   "coban-salata-lg": "/img/salata/lovemacunn-restaurant-coban-salata-400x400.webp",
   "coban-salata-sm": "/img/salata/lovemacunn-restaurant-coban-salata-400x400-sm.webp",
-  "coban-salatasi": {
-    "sm": "/img/salata/lovemacunn-restaurant-coban-salata-400x400-sm.webp",
-    "lg": "/img/salata/lovemacunn-restaurant-coban-salata-400x400.webp",
-    "cut": "/img-cut/salata/lovemacunn-restaurant-coban-salata-400x400.webp",
-    "cutSm": "/img-cut/salata/lovemacunn-restaurant-coban-salata-400x400-sm.webp"
-  },
-  "coban-salatasi-cut": "/img-cut/salata/lovemacunn-restaurant-coban-salata-400x400.webp",
-  "coban-salatasi-cut-sm": "/img-cut/salata/lovemacunn-restaurant-coban-salata-400x400-sm.webp",
-  "coban-salatasi-lg": "/img/salata/lovemacunn-restaurant-coban-salata-400x400.webp",
-  "coban-salatasi-sm": "/img/salata/lovemacunn-restaurant-coban-salata-400x400-sm.webp",
   "combo-tabagi": {
     "sm": "/img/ara-sicaklar/lovemacunn-restaurant-combo-tabagi-400x400-sm.webp",
     "lg": "/img/ara-sicaklar/lovemacunn-restaurant-combo-tabagi-400x400.webp",
@@ -175,16 +119,6 @@
   "combo-tabagi-cut": "/img-cut/ara-sicaklar/lovemacunn-restaurant-combo-tabagi-400x400.webp",
   "combo-tabagi-lg": "/img/ara-sicaklar/lovemacunn-restaurant-combo-tabagi-400x400.webp",
   "combo-tabagi-sm": "/img/ara-sicaklar/lovemacunn-restaurant-combo-tabagi-400x400-sm.webp",
-  "combo-tabak": {
-    "sm": "/img/ara-sicaklar/lovemacunn-restaurant-combo-tabagi-400x400-sm.webp",
-    "lg": "/img/ara-sicaklar/lovemacunn-restaurant-combo-tabagi-400x400.webp",
-    "cut": "/img-cut/ara-sicaklar/lovemacunn-restaurant-combo-tabagi-400x400.webp",
-    "cutSm": "/img-cut/ara-sicaklar/lovemacunn-restaurant-combo-tabagi-400x400-sm.webp"
-  },
-  "combo-tabak-cut": "/img-cut/ara-sicaklar/lovemacunn-restaurant-combo-tabagi-400x400.webp",
-  "combo-tabak-cut-sm": "/img-cut/ara-sicaklar/lovemacunn-restaurant-combo-tabagi-400x400-sm.webp",
-  "combo-tabak-lg": "/img/ara-sicaklar/lovemacunn-restaurant-combo-tabagi-400x400.webp",
-  "combo-tabak-sm": "/img/ara-sicaklar/lovemacunn-restaurant-combo-tabagi-400x400-sm.webp",
   "cupra": {
     "sm": "/img/baliklar/lovemacunn-restaurant-cupra-400x400-sm.webp",
     "lg": "/img/baliklar/lovemacunn-restaurant-cupra-400x400.webp",
@@ -204,21 +138,17 @@
   "donerli-lahmacun": {
     "sm": "/img/lahmacun/lovemacunn-restaurant-donerli-lahmacun-400x400-sm.webp",
     "lg": "/img/lahmacun/lovemacunn-restaurant-donerli-lahmacun-400x400.webp",
-    "cut": "/img-cut/lahmacun/lovemacunn-restaurant-donerli-lahmacun-400x400.webp",
-    "cutSm": "/img-cut/lahmacun/lovemacunn-restaurant-donerli-lahmacun-400x400-sm.webp"
+    "cut": "/img-cut/lahmacun/lovemacunn-restaurant-donerli-lahmacun-400x400.webp"
   },
   "donerli-lahmacun-cut": "/img-cut/lahmacun/lovemacunn-restaurant-donerli-lahmacun-400x400.webp",
-  "donerli-lahmacun-cut-sm": "/img-cut/lahmacun/lovemacunn-restaurant-donerli-lahmacun-400x400-sm.webp",
   "donerli-lahmacun-lg": "/img/lahmacun/lovemacunn-restaurant-donerli-lahmacun-400x400.webp",
   "donerli-lahmacun-sm": "/img/lahmacun/lovemacunn-restaurant-donerli-lahmacun-400x400-sm.webp",
   "et-burger-menu": {
     "sm": "/img/sokaklezzetleri/lovemacunn-restaurant-et-burger-menu-400x400-sm.webp",
     "lg": "/img/sokaklezzetleri/lovemacunn-restaurant-et-burger-menu-400x400.webp",
-    "cut": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-et-burger-menu-400x400.webp",
-    "cutSm": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-et-burger-menu-400x400-sm.webp"
+    "cut": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-et-burger-menu-400x400.webp"
   },
   "et-burger-menu-cut": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-et-burger-menu-400x400.webp",
-  "et-burger-menu-cut-sm": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-et-burger-menu-400x400-sm.webp",
   "et-burger-menu-lg": "/img/sokaklezzetleri/lovemacunn-restaurant-et-burger-menu-400x400.webp",
   "et-burger-menu-sm": "/img/sokaklezzetleri/lovemacunn-restaurant-et-burger-menu-400x400-sm.webp",
   "et-doner": {
@@ -235,38 +165,8 @@
   "et-doner-1-lg": "/img/sokaklezzetleri/lovemacunn-restaurant-et-doner-1-400x400.webp",
   "et-doner-1-sm": "/img/sokaklezzetleri/lovemacunn-restaurant-et-doner-1-400x400-sm.webp",
   "et-doner-cut": "/img-cut/pizza/lovemacunn-restaurant-et-doner-400x400.webp",
-  "et-doner-durum": {
-    "sm": "/img/sokaklezzetleri/lovemacunn-restaurant-et-doner-1-400x400-sm.webp",
-    "lg": "/img/sokaklezzetleri/lovemacunn-restaurant-et-doner-1-400x400.webp",
-    "cut": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-et-doner-1-400x400.webp",
-    "cutSm": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-et-doner-1-400x400-sm.webp"
-  },
-  "et-doner-durum-cut": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-et-doner-1-400x400.webp",
-  "et-doner-durum-cut-sm": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-et-doner-1-400x400-sm.webp",
-  "et-doner-durum-lg": "/img/sokaklezzetleri/lovemacunn-restaurant-et-doner-1-400x400.webp",
-  "et-doner-durum-sm": "/img/sokaklezzetleri/lovemacunn-restaurant-et-doner-1-400x400-sm.webp",
   "et-doner-lg": "/img/pizza/lovemacunn-restaurant-et-doner-400x400.webp",
-  "et-doner-porsiyon": {
-    "sm": "/img/et/lovemacunn-restaurant-doner-porsiyon-400x400-sm.webp",
-    "lg": "/img/et/lovemacunn-restaurant-doner-porsiyon-400x400.webp",
-    "cut": "/img-cut/et/lovemacunn-restaurant-doner-porsiyon-400x400.webp",
-    "cutSm": "/img-cut/et/lovemacunn-restaurant-doner-porsiyon-400x400-sm.webp"
-  },
-  "et-doner-porsiyon-cut": "/img-cut/et/lovemacunn-restaurant-doner-porsiyon-400x400.webp",
-  "et-doner-porsiyon-cut-sm": "/img-cut/et/lovemacunn-restaurant-doner-porsiyon-400x400-sm.webp",
-  "et-doner-porsiyon-lg": "/img/et/lovemacunn-restaurant-doner-porsiyon-400x400.webp",
-  "et-doner-porsiyon-sm": "/img/et/lovemacunn-restaurant-doner-porsiyon-400x400-sm.webp",
   "et-doner-sm": "/img/pizza/lovemacunn-restaurant-et-doner-400x400-sm.webp",
-  "et-donerli-pizza": {
-    "sm": "/img/pizza/lovemacunn-restaurant-et-doner-400x400-sm.webp",
-    "lg": "/img/pizza/lovemacunn-restaurant-et-doner-400x400.webp",
-    "cut": "/img-cut/pizza/lovemacunn-restaurant-et-doner-400x400.webp",
-    "cutSm": "/img-cut/pizza/lovemacunn-restaurant-et-doner-400x400-sm.webp"
-  },
-  "et-donerli-pizza-cut": "/img-cut/pizza/lovemacunn-restaurant-et-doner-400x400.webp",
-  "et-donerli-pizza-cut-sm": "/img-cut/pizza/lovemacunn-restaurant-et-doner-400x400-sm.webp",
-  "et-donerli-pizza-lg": "/img/pizza/lovemacunn-restaurant-et-doner-400x400.webp",
-  "et-donerli-pizza-sm": "/img/pizza/lovemacunn-restaurant-et-doner-400x400-sm.webp",
   "et-guvec": {
     "sm": "/img/tavuk/lovemacunn-restaurant-et-guvec-400x400-sm.webp",
     "lg": "/img/tavuk/lovemacunn-restaurant-et-guvec-400x400.webp",
@@ -278,33 +178,19 @@
   "falafel": {
     "sm": "/img/ara-sicaklar/lovemacunn-restaurant-falafel-400x400-sm.webp",
     "lg": "/img/ara-sicaklar/lovemacunn-restaurant-falafel-400x400.webp",
-    "cut": "/img-cut/ara-sicaklar/lovemacunn-restaurant-falafel-400x400.webp",
-    "cutSm": "/img-cut/ara-sicaklar/lovemacunn-restaurant-falafel-400x400-sm.webp"
+    "cut": "/img-cut/ara-sicaklar/lovemacunn-restaurant-falafel-400x400.webp"
   },
   "falafel-cut": "/img-cut/ara-sicaklar/lovemacunn-restaurant-falafel-400x400.webp",
-  "falafel-cut-sm": "/img-cut/ara-sicaklar/lovemacunn-restaurant-falafel-400x400-sm.webp",
   "falafel-lg": "/img/ara-sicaklar/lovemacunn-restaurant-falafel-400x400.webp",
   "falafel-sm": "/img/ara-sicaklar/lovemacunn-restaurant-falafel-400x400-sm.webp",
   "fanta-sprite-ice-tea": {
     "sm": "/img/icecekler/lovemacunn-restaurant-Fanta_sprite_ice-tea-400x400-sm.webp",
     "lg": "/img/icecekler/lovemacunn-restaurant-Fanta_sprite_ice-tea-400x400.webp",
-    "cut": "/img-cut/icecekler/lovemacunn-restaurant-Fanta_sprite_ice-tea-400x400.webp",
-    "cutSm": "/img-cut/icecekler/lovemacunn-restaurant-Fanta_sprite_ice-tea-400x400-sm.webp"
+    "cut": "/img-cut/icecekler/lovemacunn-restaurant-Fanta_sprite_ice-tea-400x400.webp"
   },
   "fanta-sprite-ice-tea-cut": "/img-cut/icecekler/lovemacunn-restaurant-Fanta_sprite_ice-tea-400x400.webp",
-  "fanta-sprite-ice-tea-cut-sm": "/img-cut/icecekler/lovemacunn-restaurant-Fanta_sprite_ice-tea-400x400-sm.webp",
   "fanta-sprite-ice-tea-lg": "/img/icecekler/lovemacunn-restaurant-Fanta_sprite_ice-tea-400x400.webp",
   "fanta-sprite-ice-tea-sm": "/img/icecekler/lovemacunn-restaurant-Fanta_sprite_ice-tea-400x400-sm.webp",
-  "fettuccine-alfredo": {
-    "sm": "/img/makarnalar/lovemacunn-restaurant-fettucine-400x400-sm.webp",
-    "lg": "/img/makarnalar/lovemacunn-restaurant-fettucine-400x400.webp",
-    "cut": "/img-cut/makarnalar/lovemacunn-restaurant-fettucine-400x400.webp",
-    "cutSm": "/img-cut/makarnalar/lovemacunn-restaurant-fettucine-400x400-sm.webp"
-  },
-  "fettuccine-alfredo-cut": "/img-cut/makarnalar/lovemacunn-restaurant-fettucine-400x400.webp",
-  "fettuccine-alfredo-cut-sm": "/img-cut/makarnalar/lovemacunn-restaurant-fettucine-400x400-sm.webp",
-  "fettuccine-alfredo-lg": "/img/makarnalar/lovemacunn-restaurant-fettucine-400x400.webp",
-  "fettuccine-alfredo-sm": "/img/makarnalar/lovemacunn-restaurant-fettucine-400x400-sm.webp",
   "fettucine": {
     "sm": "/img/makarnalar/lovemacunn-restaurant-fettucine-400x400-sm.webp",
     "lg": "/img/makarnalar/lovemacunn-restaurant-fettucine-400x400.webp",
@@ -321,54 +207,20 @@
   "fettus-cut": "/img-cut/meze/lovemacunn-restaurant-fettus-400x400.webp",
   "fettus-lg": "/img/meze/lovemacunn-restaurant-fettus-400x400.webp",
   "fettus-sm": "/img/meze/lovemacunn-restaurant-fettus-400x400-sm.webp",
-  "firin-beyti": {
-    "sm": "/img/et/lovemacunn-restaurant-beyti-400x400-sm.webp",
-    "lg": "/img/et/lovemacunn-restaurant-beyti-400x400.webp",
-    "cut": "/img-cut/et/lovemacunn-restaurant-beyti-400x400.webp",
-    "cutSm": "/img-cut/et/lovemacunn-restaurant-beyti-400x400-sm.webp"
-  },
-  "firin-beyti-cut": "/img-cut/et/lovemacunn-restaurant-beyti-400x400.webp",
-  "firin-beyti-cut-sm": "/img-cut/et/lovemacunn-restaurant-beyti-400x400-sm.webp",
-  "firin-beyti-lg": "/img/et/lovemacunn-restaurant-beyti-400x400.webp",
-  "firin-beyti-sm": "/img/et/lovemacunn-restaurant-beyti-400x400-sm.webp",
-  "firin-sutlac": {
-    "sm": "/img/tatlilar/lovemacunn-restaurant-sutlac-400x400-sm.webp",
-    "lg": "/img/tatlilar/lovemacunn-restaurant-sutlac-400x400.webp",
-    "cut": "/img-cut/tatlilar/lovemacunn-restaurant-sutlac-400x400.webp",
-    "cutSm": "/img-cut/tatlilar/lovemacunn-restaurant-sutlac-400x400-sm.webp"
-  },
-  "firin-sutlac-cut": "/img-cut/tatlilar/lovemacunn-restaurant-sutlac-400x400.webp",
-  "firin-sutlac-cut-sm": "/img-cut/tatlilar/lovemacunn-restaurant-sutlac-400x400-sm.webp",
-  "firin-sutlac-lg": "/img/tatlilar/lovemacunn-restaurant-sutlac-400x400.webp",
-  "firin-sutlac-sm": "/img/tatlilar/lovemacunn-restaurant-sutlac-400x400-sm.webp",
   "firinda-mantar": {
     "sm": "/img/ara-sicaklar/lovemacunn-restaurant-firinda-mantar-400x400-sm.webp",
     "lg": "/img/ara-sicaklar/lovemacunn-restaurant-firinda-mantar-400x400.webp",
-    "cut": "/img-cut/ara-sicaklar/lovemacunn-restaurant-firinda-mantar-400x400.webp",
-    "cutSm": "/img-cut/ara-sicaklar/lovemacunn-restaurant-firinda-mantar-400x400-sm.webp"
+    "cut": "/img-cut/ara-sicaklar/lovemacunn-restaurant-firinda-mantar-400x400.webp"
   },
   "firinda-mantar-cut": "/img-cut/ara-sicaklar/lovemacunn-restaurant-firinda-mantar-400x400.webp",
-  "firinda-mantar-cut-sm": "/img-cut/ara-sicaklar/lovemacunn-restaurant-firinda-mantar-400x400-sm.webp",
   "firinda-mantar-lg": "/img/ara-sicaklar/lovemacunn-restaurant-firinda-mantar-400x400.webp",
   "firinda-mantar-sm": "/img/ara-sicaklar/lovemacunn-restaurant-firinda-mantar-400x400-sm.webp",
-  "fistikli-baklava": {
-    "sm": "/img/tatlilar/lovemacunn-restaurant-baklava-400x400-sm.webp",
-    "lg": "/img/tatlilar/lovemacunn-restaurant-baklava-400x400.webp",
-    "cut": "/img-cut/tatlilar/lovemacunn-restaurant-baklava-400x400.webp",
-    "cutSm": "/img-cut/tatlilar/lovemacunn-restaurant-baklava-400x400-sm.webp"
-  },
-  "fistikli-baklava-cut": "/img-cut/tatlilar/lovemacunn-restaurant-baklava-400x400.webp",
-  "fistikli-baklava-cut-sm": "/img-cut/tatlilar/lovemacunn-restaurant-baklava-400x400-sm.webp",
-  "fistikli-baklava-lg": "/img/tatlilar/lovemacunn-restaurant-baklava-400x400.webp",
-  "fistikli-baklava-sm": "/img/tatlilar/lovemacunn-restaurant-baklava-400x400-sm.webp",
   "gunun-corbasi": {
     "sm": "/img/ara-sicaklar/lovemacunn-restaurant-gunun-corbasi-400x400-sm.webp",
     "lg": "/img/ara-sicaklar/lovemacunn-restaurant-gunun-corbasi-400x400.webp",
-    "cut": "/img-cut/ara-sicaklar/lovemacunn-restaurant-gunun-corbasi-400x400.webp",
-    "cutSm": "/img-cut/ara-sicaklar/lovemacunn-restaurant-gunun-corbasi-400x400-sm.webp"
+    "cut": "/img-cut/ara-sicaklar/lovemacunn-restaurant-gunun-corbasi-400x400.webp"
   },
   "gunun-corbasi-cut": "/img-cut/ara-sicaklar/lovemacunn-restaurant-gunun-corbasi-400x400.webp",
-  "gunun-corbasi-cut-sm": "/img-cut/ara-sicaklar/lovemacunn-restaurant-gunun-corbasi-400x400-sm.webp",
   "gunun-corbasi-lg": "/img/ara-sicaklar/lovemacunn-restaurant-gunun-corbasi-400x400.webp",
   "gunun-corbasi-sm": "/img/ara-sicaklar/lovemacunn-restaurant-gunun-corbasi-400x400-sm.webp",
   "hamsi": {
@@ -382,41 +234,33 @@
   "havuc-salatasi": {
     "sm": "/img/salata/lovemacunn-restaurant-havuc-salatasi-400x400-sm.webp",
     "lg": "/img/salata/lovemacunn-restaurant-havuc-salatasi-400x400.webp",
-    "cut": "/img-cut/salata/lovemacunn-restaurant-havuc-salatasi-400x400.webp",
-    "cutSm": "/img-cut/salata/lovemacunn-restaurant-havuc-salatasi-400x400-sm.webp"
+    "cut": "/img-cut/salata/lovemacunn-restaurant-havuc-salatasi-400x400.webp"
   },
   "havuc-salatasi-cut": "/img-cut/salata/lovemacunn-restaurant-havuc-salatasi-400x400.webp",
-  "havuc-salatasi-cut-sm": "/img-cut/salata/lovemacunn-restaurant-havuc-salatasi-400x400-sm.webp",
   "havuc-salatasi-lg": "/img/salata/lovemacunn-restaurant-havuc-salatasi-400x400.webp",
   "havuc-salatasi-sm": "/img/salata/lovemacunn-restaurant-havuc-salatasi-400x400-sm.webp",
   "haydari": {
     "sm": "/img/meze/lovemacunn-restaurant-haydari-400x400-sm.webp",
     "lg": "/img/meze/lovemacunn-restaurant-haydari-400x400.webp",
-    "cut": "/img-cut/meze/lovemacunn-restaurant-haydari-400x400.webp",
-    "cutSm": "/img-cut/meze/lovemacunn-restaurant-haydari-400x400-sm.webp"
+    "cut": "/img-cut/meze/lovemacunn-restaurant-haydari-400x400.webp"
   },
   "haydari-cut": "/img-cut/meze/lovemacunn-restaurant-haydari-400x400.webp",
-  "haydari-cut-sm": "/img-cut/meze/lovemacunn-restaurant-haydari-400x400-sm.webp",
   "haydari-lg": "/img/meze/lovemacunn-restaurant-haydari-400x400.webp",
   "haydari-sm": "/img/meze/lovemacunn-restaurant-haydari-400x400-sm.webp",
   "humus": {
     "sm": "/img/meze/lovemacunn-restaurant-humus-400x400-sm.webp",
     "lg": "/img/meze/lovemacunn-restaurant-humus-400x400.webp",
-    "cut": "/img-cut/meze/lovemacunn-restaurant-humus-400x400.webp",
-    "cutSm": "/img-cut/meze/lovemacunn-restaurant-humus-400x400-sm.webp"
+    "cut": "/img-cut/meze/lovemacunn-restaurant-humus-400x400.webp"
   },
   "humus-cut": "/img-cut/meze/lovemacunn-restaurant-humus-400x400.webp",
-  "humus-cut-sm": "/img-cut/meze/lovemacunn-restaurant-humus-400x400-sm.webp",
   "humus-lg": "/img/meze/lovemacunn-restaurant-humus-400x400.webp",
   "humus-sm": "/img/meze/lovemacunn-restaurant-humus-400x400-sm.webp",
   "icli-kofte": {
     "sm": "/img/ara-sicaklar/lovemacunn-restaurant-icli-kofte-400x400-sm.webp",
     "lg": "/img/ara-sicaklar/lovemacunn-restaurant-icli-kofte-400x400.webp",
-    "cut": "/img-cut/ara-sicaklar/lovemacunn-restaurant-icli-kofte-400x400.webp",
-    "cutSm": "/img-cut/ara-sicaklar/lovemacunn-restaurant-icli-kofte-400x400-sm.webp"
+    "cut": "/img-cut/ara-sicaklar/lovemacunn-restaurant-icli-kofte-400x400.webp"
   },
   "icli-kofte-cut": "/img-cut/ara-sicaklar/lovemacunn-restaurant-icli-kofte-400x400.webp",
-  "icli-kofte-cut-sm": "/img-cut/ara-sicaklar/lovemacunn-restaurant-icli-kofte-400x400-sm.webp",
   "icli-kofte-lg": "/img/ara-sicaklar/lovemacunn-restaurant-icli-kofte-400x400.webp",
   "icli-kofte-sm": "/img/ara-sicaklar/lovemacunn-restaurant-icli-kofte-400x400-sm.webp",
   "iskender": {
@@ -425,76 +269,14 @@
     "cut": "/img-cut/et/lovemacunn-restaurant-iskender-400x400.webp"
   },
   "iskender-cut": "/img-cut/et/lovemacunn-restaurant-iskender-400x400.webp",
-  "iskender-kebap": {
-    "sm": "/img/et/lovemacunn-restaurant-iskender-400x400-sm.webp",
-    "lg": "/img/et/lovemacunn-restaurant-iskender-400x400.webp",
-    "cut": "/img-cut/et/lovemacunn-restaurant-iskender-400x400.webp",
-    "cutSm": "/img-cut/et/lovemacunn-restaurant-iskender-400x400-sm.webp"
-  },
-  "iskender-kebap-cut": "/img-cut/et/lovemacunn-restaurant-iskender-400x400.webp",
-  "iskender-kebap-cut-sm": "/img-cut/et/lovemacunn-restaurant-iskender-400x400-sm.webp",
-  "iskender-kebap-lg": "/img/et/lovemacunn-restaurant-iskender-400x400.webp",
-  "iskender-kebap-sm": "/img/et/lovemacunn-restaurant-iskender-400x400-sm.webp",
   "iskender-lg": "/img/et/lovemacunn-restaurant-iskender-400x400.webp",
   "iskender-sm": "/img/et/lovemacunn-restaurant-iskender-400x400-sm.webp",
-  "izgara-cupura": {
-    "sm": "/img/baliklar/lovemacunn-restaurant-cupra-400x400-sm.webp",
-    "lg": "/img/baliklar/lovemacunn-restaurant-cupra-400x400.webp",
-    "cut": "/img-cut/baliklar/lovemacunn-restaurant-cupra-400x400.webp",
-    "cutSm": "/img-cut/baliklar/lovemacunn-restaurant-cupra-400x400-sm.webp"
-  },
-  "izgara-cupura-cut": "/img-cut/baliklar/lovemacunn-restaurant-cupra-400x400.webp",
-  "izgara-cupura-cut-sm": "/img-cut/baliklar/lovemacunn-restaurant-cupra-400x400-sm.webp",
-  "izgara-cupura-lg": "/img/baliklar/lovemacunn-restaurant-cupra-400x400.webp",
-  "izgara-cupura-sm": "/img/baliklar/lovemacunn-restaurant-cupra-400x400-sm.webp",
-  "izgara-kofte": {
-    "sm": "/img/et/lovemacunn-restaurant-kofte-400x400-sm.webp",
-    "lg": "/img/et/lovemacunn-restaurant-kofte-400x400.webp",
-    "cut": "/img-cut/et/lovemacunn-restaurant-kofte-400x400.webp",
-    "cutSm": "/img-cut/et/lovemacunn-restaurant-kofte-400x400-sm.webp"
-  },
-  "izgara-kofte-cut": "/img-cut/et/lovemacunn-restaurant-kofte-400x400.webp",
-  "izgara-kofte-cut-sm": "/img-cut/et/lovemacunn-restaurant-kofte-400x400-sm.webp",
-  "izgara-kofte-lg": "/img/et/lovemacunn-restaurant-kofte-400x400.webp",
-  "izgara-kofte-sm": "/img/et/lovemacunn-restaurant-kofte-400x400-sm.webp",
-  "izgara-levrek": {
-    "sm": "/img/baliklar/lovemacunn-restaurant-levrek-400x400-sm.webp",
-    "lg": "/img/baliklar/lovemacunn-restaurant-levrek-400x400.webp",
-    "cut": "/img-cut/baliklar/lovemacunn-restaurant-levrek-400x400.webp",
-    "cutSm": "/img-cut/baliklar/lovemacunn-restaurant-levrek-400x400-sm.webp"
-  },
-  "izgara-levrek-cut": "/img-cut/baliklar/lovemacunn-restaurant-levrek-400x400.webp",
-  "izgara-levrek-cut-sm": "/img-cut/baliklar/lovemacunn-restaurant-levrek-400x400-sm.webp",
-  "izgara-levrek-lg": "/img/baliklar/lovemacunn-restaurant-levrek-400x400.webp",
-  "izgara-levrek-sm": "/img/baliklar/lovemacunn-restaurant-levrek-400x400-sm.webp",
-  "izgara-somon": {
-    "sm": "/img/baliklar/lovemacunn-restaurant-somon-400x400-sm.webp",
-    "lg": "/img/baliklar/lovemacunn-restaurant-somon-400x400.webp",
-    "cut": "/img-cut/baliklar/lovemacunn-restaurant-somon-400x400.webp",
-    "cutSm": "/img-cut/baliklar/lovemacunn-restaurant-somon-400x400-sm.webp"
-  },
-  "izgara-somon-cut": "/img-cut/baliklar/lovemacunn-restaurant-somon-400x400.webp",
-  "izgara-somon-cut-sm": "/img-cut/baliklar/lovemacunn-restaurant-somon-400x400-sm.webp",
-  "izgara-somon-lg": "/img/baliklar/lovemacunn-restaurant-somon-400x400.webp",
-  "izgara-somon-sm": "/img/baliklar/lovemacunn-restaurant-somon-400x400-sm.webp",
-  "izgara-uskumru": {
-    "sm": "/img/baliklar/lovemacunn-restaurant-uskumru-400x400-sm.webp",
-    "lg": "/img/baliklar/lovemacunn-restaurant-uskumru-400x400.webp",
-    "cut": "/img-cut/baliklar/lovemacunn-restaurant-uskumru-400x400.webp",
-    "cutSm": "/img-cut/baliklar/lovemacunn-restaurant-uskumru-400x400-sm.webp"
-  },
-  "izgara-uskumru-cut": "/img-cut/baliklar/lovemacunn-restaurant-uskumru-400x400.webp",
-  "izgara-uskumru-cut-sm": "/img-cut/baliklar/lovemacunn-restaurant-uskumru-400x400-sm.webp",
-  "izgara-uskumru-lg": "/img/baliklar/lovemacunn-restaurant-uskumru-400x400.webp",
-  "izgara-uskumru-sm": "/img/baliklar/lovemacunn-restaurant-uskumru-400x400-sm.webp",
   "kahvalti-tabagi": {
     "sm": "/img/kahvalti/lovemacunn-restaurant-kahvalti-tabagi-400x400-sm.webp",
     "lg": "/img/kahvalti/lovemacunn-restaurant-kahvalti-tabagi-400x400.webp",
-    "cut": "/img-cut/kahvalti/lovemacunn-restaurant-kahvalti-tabagi-400x400.webp",
-    "cutSm": "/img-cut/kahvalti/lovemacunn-restaurant-kahvalti-tabagi-400x400-sm.webp"
+    "cut": "/img-cut/kahvalti/lovemacunn-restaurant-kahvalti-tabagi-400x400.webp"
   },
   "kahvalti-tabagi-cut": "/img-cut/kahvalti/lovemacunn-restaurant-kahvalti-tabagi-400x400.webp",
-  "kahvalti-tabagi-cut-sm": "/img-cut/kahvalti/lovemacunn-restaurant-kahvalti-tabagi-400x400-sm.webp",
   "kahvalti-tabagi-lg": "/img/kahvalti/lovemacunn-restaurant-kahvalti-tabagi-400x400.webp",
   "kahvalti-tabagi-sm": "/img/kahvalti/lovemacunn-restaurant-kahvalti-tabagi-400x400-sm.webp",
   "kalamar": {
@@ -508,11 +290,9 @@
   "karides-guvec": {
     "sm": "/img/baliklar/lovemacunn-restaurant-karides-guvec-400x400-sm.webp",
     "lg": "/img/baliklar/lovemacunn-restaurant-karides-guvec-400x400.webp",
-    "cut": "/img-cut/baliklar/lovemacunn-restaurant-karides-guvec-400x400.webp",
-    "cutSm": "/img-cut/baliklar/lovemacunn-restaurant-karides-guvec-400x400-sm.webp"
+    "cut": "/img-cut/baliklar/lovemacunn-restaurant-karides-guvec-400x400.webp"
   },
   "karides-guvec-cut": "/img-cut/baliklar/lovemacunn-restaurant-karides-guvec-400x400.webp",
-  "karides-guvec-cut-sm": "/img-cut/baliklar/lovemacunn-restaurant-karides-guvec-400x400-sm.webp",
   "karides-guvec-lg": "/img/baliklar/lovemacunn-restaurant-karides-guvec-400x400.webp",
   "karides-guvec-sm": "/img/baliklar/lovemacunn-restaurant-karides-guvec-400x400-sm.webp",
   "karidesli": {
@@ -522,16 +302,6 @@
   },
   "karidesli-cut": "/img-cut/pizza/lovemacunn-restaurant-karidesli-400x400.webp",
   "karidesli-lg": "/img/pizza/lovemacunn-restaurant-karidesli-400x400.webp",
-  "karidesli-pizza": {
-    "sm": "/img/pizza/lovemacunn-restaurant-karidesli-400x400-sm.webp",
-    "lg": "/img/pizza/lovemacunn-restaurant-karidesli-400x400.webp",
-    "cut": "/img-cut/pizza/lovemacunn-restaurant-karidesli-400x400.webp",
-    "cutSm": "/img-cut/pizza/lovemacunn-restaurant-karidesli-400x400-sm.webp"
-  },
-  "karidesli-pizza-cut": "/img-cut/pizza/lovemacunn-restaurant-karidesli-400x400.webp",
-  "karidesli-pizza-cut-sm": "/img-cut/pizza/lovemacunn-restaurant-karidesli-400x400-sm.webp",
-  "karidesli-pizza-lg": "/img/pizza/lovemacunn-restaurant-karidesli-400x400.webp",
-  "karidesli-pizza-sm": "/img/pizza/lovemacunn-restaurant-karidesli-400x400-sm.webp",
   "karidesli-sm": "/img/pizza/lovemacunn-restaurant-karidesli-400x400-sm.webp",
   "karisik": {
     "sm": "/img/pide/lovemacunn-restaurant-karisik-400x400-sm.webp",
@@ -539,56 +309,22 @@
     "cut": "/img-cut/pide/lovemacunn-restaurant-karisik-400x400.webp"
   },
   "karisik-cut": "/img-cut/pide/lovemacunn-restaurant-karisik-400x400.webp",
-  "karisik-et": {
-    "sm": "/img/et/lovemacunn-restaurant-7-400x400-sm.webp",
-    "lg": "/img/et/lovemacunn-restaurant-7-400x400.webp",
-    "cut": "/img-cut/et/lovemacunn-restaurant-7-400x400.webp",
-    "cutSm": "/img-cut/et/lovemacunn-restaurant-7-400x400-sm.webp"
-  },
-  "karisik-et-cut": "/img-cut/et/lovemacunn-restaurant-7-400x400.webp",
-  "karisik-et-cut-sm": "/img-cut/et/lovemacunn-restaurant-7-400x400-sm.webp",
-  "karisik-et-lg": "/img/et/lovemacunn-restaurant-7-400x400.webp",
-  "karisik-et-sm": "/img/et/lovemacunn-restaurant-7-400x400-sm.webp",
   "karisik-lg": "/img/pide/lovemacunn-restaurant-karisik-400x400.webp",
-  "karisik-pide": {
-    "sm": "/img/pide/lovemacunn-restaurant-karisik-400x400-sm.webp",
-    "lg": "/img/pide/lovemacunn-restaurant-karisik-400x400.webp",
-    "cut": "/img-cut/pide/lovemacunn-restaurant-karisik-400x400.webp",
-    "cutSm": "/img-cut/pide/lovemacunn-restaurant-karisik-400x400-sm.webp"
-  },
-  "karisik-pide-cut": "/img-cut/pide/lovemacunn-restaurant-karisik-400x400.webp",
-  "karisik-pide-cut-sm": "/img-cut/pide/lovemacunn-restaurant-karisik-400x400-sm.webp",
-  "karisik-pide-lg": "/img/pide/lovemacunn-restaurant-karisik-400x400.webp",
-  "karisik-pide-sm": "/img/pide/lovemacunn-restaurant-karisik-400x400-sm.webp",
   "karisik-pizza": {
     "sm": "/img/pizza/lovemacunn-restaurant-karisik-pizza-400x400-sm.webp",
     "lg": "/img/pizza/lovemacunn-restaurant-karisik-pizza-400x400.webp",
-    "cut": "/img-cut/pizza/lovemacunn-restaurant-karisik-pizza-400x400.webp",
-    "cutSm": "/img-cut/pizza/lovemacunn-restaurant-karisik-pizza-400x400-sm.webp"
+    "cut": "/img-cut/pizza/lovemacunn-restaurant-karisik-pizza-400x400.webp"
   },
   "karisik-pizza-cut": "/img-cut/pizza/lovemacunn-restaurant-karisik-pizza-400x400.webp",
-  "karisik-pizza-cut-sm": "/img-cut/pizza/lovemacunn-restaurant-karisik-pizza-400x400-sm.webp",
   "karisik-pizza-lg": "/img/pizza/lovemacunn-restaurant-karisik-pizza-400x400.webp",
   "karisik-pizza-sm": "/img/pizza/lovemacunn-restaurant-karisik-pizza-400x400-sm.webp",
   "karisik-sm": "/img/pide/lovemacunn-restaurant-karisik-400x400-sm.webp",
-  "karisik-tavuk-tabagi": {
-    "sm": "/img/tavuk/lovemacunn-restaurant-tavuk-karisik-400x400-sm.webp",
-    "lg": "/img/tavuk/lovemacunn-restaurant-tavuk-karisik-400x400.webp",
-    "cut": "/img-cut/tavuk/lovemacunn-restaurant-tavuk-karisik-400x400.webp",
-    "cutSm": "/img-cut/tavuk/lovemacunn-restaurant-tavuk-karisik-400x400-sm.webp"
-  },
-  "karisik-tavuk-tabagi-cut": "/img-cut/tavuk/lovemacunn-restaurant-tavuk-karisik-400x400.webp",
-  "karisik-tavuk-tabagi-cut-sm": "/img-cut/tavuk/lovemacunn-restaurant-tavuk-karisik-400x400-sm.webp",
-  "karisik-tavuk-tabagi-lg": "/img/tavuk/lovemacunn-restaurant-tavuk-karisik-400x400.webp",
-  "karisik-tavuk-tabagi-sm": "/img/tavuk/lovemacunn-restaurant-tavuk-karisik-400x400-sm.webp",
   "karisik-tursu": {
     "sm": "/img/salata/lovemacunn-restaurant-karisik-tursu-400x400-sm.webp",
     "lg": "/img/salata/lovemacunn-restaurant-karisik-tursu-400x400.webp",
-    "cut": "/img-cut/salata/lovemacunn-restaurant-karisik-tursu-400x400.webp",
-    "cutSm": "/img-cut/salata/lovemacunn-restaurant-karisik-tursu-400x400-sm.webp"
+    "cut": "/img-cut/salata/lovemacunn-restaurant-karisik-tursu-400x400.webp"
   },
   "karisik-tursu-cut": "/img-cut/salata/lovemacunn-restaurant-karisik-tursu-400x400.webp",
-  "karisik-tursu-cut-sm": "/img-cut/salata/lovemacunn-restaurant-karisik-tursu-400x400-sm.webp",
   "karisik-tursu-lg": "/img/salata/lovemacunn-restaurant-karisik-tursu-400x400.webp",
   "karisik-tursu-sm": "/img/salata/lovemacunn-restaurant-karisik-tursu-400x400-sm.webp",
   "kasar-sucuk": {
@@ -602,43 +338,19 @@
   "kasarli-lahmacun": {
     "sm": "/img/lahmacun/lovemacunn-restaurant-kasarli-lahmacun-400x400-sm.webp",
     "lg": "/img/lahmacun/lovemacunn-restaurant-kasarli-lahmacun-400x400.webp",
-    "cut": "/img-cut/lahmacun/lovemacunn-restaurant-kasarli-lahmacun-400x400.webp",
-    "cutSm": "/img-cut/lahmacun/lovemacunn-restaurant-kasarli-lahmacun-400x400-sm.webp"
+    "cut": "/img-cut/lahmacun/lovemacunn-restaurant-kasarli-lahmacun-400x400.webp"
   },
   "kasarli-lahmacun-cut": "/img-cut/lahmacun/lovemacunn-restaurant-kasarli-lahmacun-400x400.webp",
-  "kasarli-lahmacun-cut-sm": "/img-cut/lahmacun/lovemacunn-restaurant-kasarli-lahmacun-400x400-sm.webp",
   "kasarli-lahmacun-lg": "/img/lahmacun/lovemacunn-restaurant-kasarli-lahmacun-400x400.webp",
   "kasarli-lahmacun-sm": "/img/lahmacun/lovemacunn-restaurant-kasarli-lahmacun-400x400-sm.webp",
-  "kasarli-omlet": {
-    "sm": "/img/kahvalti/lovemacunn-restaurant-omlet-400x400-sm.webp",
-    "lg": "/img/kahvalti/lovemacunn-restaurant-omlet-400x400.webp",
-    "cut": "/img-cut/kahvalti/lovemacunn-restaurant-omlet-400x400.webp",
-    "cutSm": "/img-cut/kahvalti/lovemacunn-restaurant-omlet-400x400-sm.webp"
-  },
-  "kasarli-omlet-cut": "/img-cut/kahvalti/lovemacunn-restaurant-omlet-400x400.webp",
-  "kasarli-omlet-cut-sm": "/img-cut/kahvalti/lovemacunn-restaurant-omlet-400x400-sm.webp",
-  "kasarli-omlet-lg": "/img/kahvalti/lovemacunn-restaurant-omlet-400x400.webp",
-  "kasarli-omlet-sm": "/img/kahvalti/lovemacunn-restaurant-omlet-400x400-sm.webp",
   "kasarli-pide": {
     "sm": "/img/pide/lovemacunn-restaurant-kasarli-pide-400x400-sm.webp",
     "lg": "/img/pide/lovemacunn-restaurant-kasarli-pide-400x400.webp",
-    "cut": "/img-cut/pide/lovemacunn-restaurant-kasarli-pide-400x400.webp",
-    "cutSm": "/img-cut/pide/lovemacunn-restaurant-kasarli-pide-400x400-sm.webp"
+    "cut": "/img-cut/pide/lovemacunn-restaurant-kasarli-pide-400x400.webp"
   },
   "kasarli-pide-cut": "/img-cut/pide/lovemacunn-restaurant-kasarli-pide-400x400.webp",
-  "kasarli-pide-cut-sm": "/img-cut/pide/lovemacunn-restaurant-kasarli-pide-400x400-sm.webp",
   "kasarli-pide-lg": "/img/pide/lovemacunn-restaurant-kasarli-pide-400x400.webp",
   "kasarli-pide-sm": "/img/pide/lovemacunn-restaurant-kasarli-pide-400x400-sm.webp",
-  "kasarli-sucuklu-pide": {
-    "sm": "/img/pide/lovemacunn-restaurant-kasar-sucuk-400x400-sm.webp",
-    "lg": "/img/pide/lovemacunn-restaurant-kasar-sucuk-400x400.webp",
-    "cut": "/img-cut/pide/lovemacunn-restaurant-kasar-sucuk-400x400.webp",
-    "cutSm": "/img-cut/pide/lovemacunn-restaurant-kasar-sucuk-400x400-sm.webp"
-  },
-  "kasarli-sucuklu-pide-cut": "/img-cut/pide/lovemacunn-restaurant-kasar-sucuk-400x400.webp",
-  "kasarli-sucuklu-pide-cut-sm": "/img-cut/pide/lovemacunn-restaurant-kasar-sucuk-400x400-sm.webp",
-  "kasarli-sucuklu-pide-lg": "/img/pide/lovemacunn-restaurant-kasar-sucuk-400x400.webp",
-  "kasarli-sucuklu-pide-sm": "/img/pide/lovemacunn-restaurant-kasar-sucuk-400x400-sm.webp",
   "kavurmali-kasarli": {
     "sm": "/img/pide/lovemacunn-restaurant-kavurmali-kasarli-400x400-sm.webp",
     "lg": "/img/pide/lovemacunn-restaurant-kavurmali-kasarli-400x400.webp",
@@ -646,35 +358,13 @@
   },
   "kavurmali-kasarli-cut": "/img-cut/pide/lovemacunn-restaurant-kavurmali-kasarli-400x400.webp",
   "kavurmali-kasarli-lg": "/img/pide/lovemacunn-restaurant-kavurmali-kasarli-400x400.webp",
-  "kavurmali-kasarli-pide": {
-    "sm": "/img/pide/lovemacunn-restaurant-kavurmali-kasarli-400x400-sm.webp",
-    "lg": "/img/pide/lovemacunn-restaurant-kavurmali-kasarli-400x400.webp",
-    "cut": "/img-cut/pide/lovemacunn-restaurant-kavurmali-kasarli-400x400.webp",
-    "cutSm": "/img-cut/pide/lovemacunn-restaurant-kavurmali-kasarli-400x400-sm.webp"
-  },
-  "kavurmali-kasarli-pide-cut": "/img-cut/pide/lovemacunn-restaurant-kavurmali-kasarli-400x400.webp",
-  "kavurmali-kasarli-pide-cut-sm": "/img-cut/pide/lovemacunn-restaurant-kavurmali-kasarli-400x400-sm.webp",
-  "kavurmali-kasarli-pide-lg": "/img/pide/lovemacunn-restaurant-kavurmali-kasarli-400x400.webp",
-  "kavurmali-kasarli-pide-sm": "/img/pide/lovemacunn-restaurant-kavurmali-kasarli-400x400-sm.webp",
   "kavurmali-kasarli-sm": "/img/pide/lovemacunn-restaurant-kavurmali-kasarli-400x400-sm.webp",
-  "kayseri-mantisi": {
-    "sm": "/img/makarnalar/lovemacunn-restaurant-manti-400x400-sm.webp",
-    "lg": "/img/makarnalar/lovemacunn-restaurant-manti-400x400.webp",
-    "cut": "/img-cut/makarnalar/lovemacunn-restaurant-manti-400x400.webp",
-    "cutSm": "/img-cut/makarnalar/lovemacunn-restaurant-manti-400x400-sm.webp"
-  },
-  "kayseri-mantisi-cut": "/img-cut/makarnalar/lovemacunn-restaurant-manti-400x400.webp",
-  "kayseri-mantisi-cut-sm": "/img-cut/makarnalar/lovemacunn-restaurant-manti-400x400-sm.webp",
-  "kayseri-mantisi-lg": "/img/makarnalar/lovemacunn-restaurant-manti-400x400.webp",
-  "kayseri-mantisi-sm": "/img/makarnalar/lovemacunn-restaurant-manti-400x400-sm.webp",
   "kebapli-lahmacun": {
     "sm": "/img/lahmacun/lovemacunn-restaurant-kebapli-lahmacun-400x400-sm.webp",
     "lg": "/img/lahmacun/lovemacunn-restaurant-kebapli-lahmacun-400x400.webp",
-    "cut": "/img-cut/lahmacun/lovemacunn-restaurant-kebapli-lahmacun-400x400.webp",
-    "cutSm": "/img-cut/lahmacun/lovemacunn-restaurant-kebapli-lahmacun-400x400-sm.webp"
+    "cut": "/img-cut/lahmacun/lovemacunn-restaurant-kebapli-lahmacun-400x400.webp"
   },
   "kebapli-lahmacun-cut": "/img-cut/lahmacun/lovemacunn-restaurant-kebapli-lahmacun-400x400.webp",
-  "kebapli-lahmacun-cut-sm": "/img-cut/lahmacun/lovemacunn-restaurant-kebapli-lahmacun-400x400-sm.webp",
   "kebapli-lahmacun-lg": "/img/lahmacun/lovemacunn-restaurant-kebapli-lahmacun-400x400.webp",
   "kebapli-lahmacun-sm": "/img/lahmacun/lovemacunn-restaurant-kebapli-lahmacun-400x400-sm.webp",
   "kiymali": {
@@ -690,28 +380,8 @@
   },
   "kiymali-kasarli-cut": "/img-cut/pide/lovemacunn-restaurant-kiymali-kasarli-400x400.webp",
   "kiymali-kasarli-lg": "/img/pide/lovemacunn-restaurant-kiymali-kasarli-400x400.webp",
-  "kiymali-kasarli-pide": {
-    "sm": "/img/pide/lovemacunn-restaurant-kiymali-kasarli-400x400-sm.webp",
-    "lg": "/img/pide/lovemacunn-restaurant-kiymali-kasarli-400x400.webp",
-    "cut": "/img-cut/pide/lovemacunn-restaurant-kiymali-kasarli-400x400.webp",
-    "cutSm": "/img-cut/pide/lovemacunn-restaurant-kiymali-kasarli-400x400-sm.webp"
-  },
-  "kiymali-kasarli-pide-cut": "/img-cut/pide/lovemacunn-restaurant-kiymali-kasarli-400x400.webp",
-  "kiymali-kasarli-pide-cut-sm": "/img-cut/pide/lovemacunn-restaurant-kiymali-kasarli-400x400-sm.webp",
-  "kiymali-kasarli-pide-lg": "/img/pide/lovemacunn-restaurant-kiymali-kasarli-400x400.webp",
-  "kiymali-kasarli-pide-sm": "/img/pide/lovemacunn-restaurant-kiymali-kasarli-400x400-sm.webp",
   "kiymali-kasarli-sm": "/img/pide/lovemacunn-restaurant-kiymali-kasarli-400x400-sm.webp",
   "kiymali-lg": "/img/pide/lovemacunn-restaurant-kiymali-400x400.webp",
-  "kiymali-pide": {
-    "sm": "/img/pide/lovemacunn-restaurant-kiymali-400x400-sm.webp",
-    "lg": "/img/pide/lovemacunn-restaurant-kiymali-400x400.webp",
-    "cut": "/img-cut/pide/lovemacunn-restaurant-kiymali-400x400.webp",
-    "cutSm": "/img-cut/pide/lovemacunn-restaurant-kiymali-400x400-sm.webp"
-  },
-  "kiymali-pide-cut": "/img-cut/pide/lovemacunn-restaurant-kiymali-400x400.webp",
-  "kiymali-pide-cut-sm": "/img-cut/pide/lovemacunn-restaurant-kiymali-400x400-sm.webp",
-  "kiymali-pide-lg": "/img/pide/lovemacunn-restaurant-kiymali-400x400.webp",
-  "kiymali-pide-sm": "/img/pide/lovemacunn-restaurant-kiymali-400x400-sm.webp",
   "kiymali-sm": "/img/pide/lovemacunn-restaurant-kiymali-400x400-sm.webp",
   "kofte": {
     "sm": "/img/et/lovemacunn-restaurant-kofte-400x400-sm.webp",
@@ -722,11 +392,9 @@
   "kofte-ekmek": {
     "sm": "/img/sokaklezzetleri/lovemacunn-restaurant-kofte-ekmek-400x400-sm.webp",
     "lg": "/img/sokaklezzetleri/lovemacunn-restaurant-kofte-ekmek-400x400.webp",
-    "cut": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-kofte-ekmek-400x400.webp",
-    "cutSm": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-kofte-ekmek-400x400-sm.webp"
+    "cut": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-kofte-ekmek-400x400.webp"
   },
   "kofte-ekmek-cut": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-kofte-ekmek-400x400.webp",
-  "kofte-ekmek-cut-sm": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-kofte-ekmek-400x400-sm.webp",
   "kofte-ekmek-lg": "/img/sokaklezzetleri/lovemacunn-restaurant-kofte-ekmek-400x400.webp",
   "kofte-ekmek-sm": "/img/sokaklezzetleri/lovemacunn-restaurant-kofte-ekmek-400x400-sm.webp",
   "kofte-lg": "/img/et/lovemacunn-restaurant-kofte-400x400.webp",
@@ -734,41 +402,25 @@
   "kori-soslu-tavuk": {
     "sm": "/img/tavuk/lovemacunn-restaurant-kori-soslu-tavuk-400x400-sm.webp",
     "lg": "/img/tavuk/lovemacunn-restaurant-kori-soslu-tavuk-400x400.webp",
-    "cut": "/img-cut/tavuk/lovemacunn-restaurant-kori-soslu-tavuk-400x400.webp",
-    "cutSm": "/img-cut/tavuk/lovemacunn-restaurant-kori-soslu-tavuk-400x400-sm.webp"
+    "cut": "/img-cut/tavuk/lovemacunn-restaurant-kori-soslu-tavuk-400x400.webp"
   },
   "kori-soslu-tavuk-cut": "/img-cut/tavuk/lovemacunn-restaurant-kori-soslu-tavuk-400x400.webp",
-  "kori-soslu-tavuk-cut-sm": "/img-cut/tavuk/lovemacunn-restaurant-kori-soslu-tavuk-400x400-sm.webp",
   "kori-soslu-tavuk-lg": "/img/tavuk/lovemacunn-restaurant-kori-soslu-tavuk-400x400.webp",
   "kori-soslu-tavuk-sm": "/img/tavuk/lovemacunn-restaurant-kori-soslu-tavuk-400x400-sm.webp",
-  "kremali-mantarli-penne": {
-    "sm": "/img/makarnalar/lovemacunn-restaurant-penne-kremali-mantarli-400x400-sm.webp",
-    "lg": "/img/makarnalar/lovemacunn-restaurant-penne-kremali-mantarli-400x400.webp",
-    "cut": "/img-cut/makarnalar/lovemacunn-restaurant-penne-kremali-mantarli-400x400.webp",
-    "cutSm": "/img-cut/makarnalar/lovemacunn-restaurant-penne-kremali-mantarli-400x400-sm.webp"
-  },
-  "kremali-mantarli-penne-cut": "/img-cut/makarnalar/lovemacunn-restaurant-penne-kremali-mantarli-400x400.webp",
-  "kremali-mantarli-penne-cut-sm": "/img-cut/makarnalar/lovemacunn-restaurant-penne-kremali-mantarli-400x400-sm.webp",
-  "kremali-mantarli-penne-lg": "/img/makarnalar/lovemacunn-restaurant-penne-kremali-mantarli-400x400.webp",
-  "kremali-mantarli-penne-sm": "/img/makarnalar/lovemacunn-restaurant-penne-kremali-mantarli-400x400-sm.webp",
   "kunefe": {
     "sm": "/img/tatlilar/lovemacunn-restaurant-kunefe-400x400-sm.webp",
     "lg": "/img/tatlilar/lovemacunn-restaurant-kunefe-400x400.webp",
-    "cut": "/img-cut/tatlilar/lovemacunn-restaurant-kunefe-400x400.webp",
-    "cutSm": "/img-cut/tatlilar/lovemacunn-restaurant-kunefe-400x400-sm.webp"
+    "cut": "/img-cut/tatlilar/lovemacunn-restaurant-kunefe-400x400.webp"
   },
   "kunefe-cut": "/img-cut/tatlilar/lovemacunn-restaurant-kunefe-400x400.webp",
-  "kunefe-cut-sm": "/img-cut/tatlilar/lovemacunn-restaurant-kunefe-400x400-sm.webp",
   "kunefe-lg": "/img/tatlilar/lovemacunn-restaurant-kunefe-400x400.webp",
   "kunefe-sm": "/img/tatlilar/lovemacunn-restaurant-kunefe-400x400-sm.webp",
   "kuru-fasulye": {
     "sm": "/img/ara-sicaklar/lovemacunn-restaurant-kuru-fasulye-400x400-sm.webp",
     "lg": "/img/ara-sicaklar/lovemacunn-restaurant-kuru-fasulye-400x400.webp",
-    "cut": "/img-cut/ara-sicaklar/lovemacunn-restaurant-kuru-fasulye-400x400.webp",
-    "cutSm": "/img-cut/ara-sicaklar/lovemacunn-restaurant-kuru-fasulye-400x400-sm.webp"
+    "cut": "/img-cut/ara-sicaklar/lovemacunn-restaurant-kuru-fasulye-400x400.webp"
   },
   "kuru-fasulye-cut": "/img-cut/ara-sicaklar/lovemacunn-restaurant-kuru-fasulye-400x400.webp",
-  "kuru-fasulye-cut-sm": "/img-cut/ara-sicaklar/lovemacunn-restaurant-kuru-fasulye-400x400-sm.webp",
   "kuru-fasulye-lg": "/img/ara-sicaklar/lovemacunn-restaurant-kuru-fasulye-400x400.webp",
   "kuru-fasulye-sm": "/img/ara-sicaklar/lovemacunn-restaurant-kuru-fasulye-400x400-sm.webp",
   "kusbasi-kasar": {
@@ -779,34 +431,20 @@
   "kusbasi-kasar-cut": "/img-cut/pide/lovemacunn-restaurant-kusbasi-kasar-400x400.webp",
   "kusbasi-kasar-lg": "/img/pide/lovemacunn-restaurant-kusbasi-kasar-400x400.webp",
   "kusbasi-kasar-sm": "/img/pide/lovemacunn-restaurant-kusbasi-kasar-400x400-sm.webp",
-  "kusbasili-kasarli-pide": {
-    "sm": "/img/pide/lovemacunn-restaurant-kusbasi-kasar-400x400-sm.webp",
-    "lg": "/img/pide/lovemacunn-restaurant-kusbasi-kasar-400x400.webp",
-    "cut": "/img-cut/pide/lovemacunn-restaurant-kusbasi-kasar-400x400.webp",
-    "cutSm": "/img-cut/pide/lovemacunn-restaurant-kusbasi-kasar-400x400-sm.webp"
-  },
-  "kusbasili-kasarli-pide-cut": "/img-cut/pide/lovemacunn-restaurant-kusbasi-kasar-400x400.webp",
-  "kusbasili-kasarli-pide-cut-sm": "/img-cut/pide/lovemacunn-restaurant-kusbasi-kasar-400x400-sm.webp",
-  "kusbasili-kasarli-pide-lg": "/img/pide/lovemacunn-restaurant-kusbasi-kasar-400x400.webp",
-  "kusbasili-kasarli-pide-sm": "/img/pide/lovemacunn-restaurant-kusbasi-kasar-400x400-sm.webp",
   "kuzu-pirzola": {
     "sm": "/img/et/lovemacunn-restaurant-kuzu-pirzola-400x400-sm.webp",
     "lg": "/img/et/lovemacunn-restaurant-kuzu-pirzola-400x400.webp",
-    "cut": "/img-cut/et/lovemacunn-restaurant-kuzu-pirzola-400x400.webp",
-    "cutSm": "/img-cut/et/lovemacunn-restaurant-kuzu-pirzola-400x400-sm.webp"
+    "cut": "/img-cut/et/lovemacunn-restaurant-kuzu-pirzola-400x400.webp"
   },
   "kuzu-pirzola-cut": "/img-cut/et/lovemacunn-restaurant-kuzu-pirzola-400x400.webp",
-  "kuzu-pirzola-cut-sm": "/img-cut/et/lovemacunn-restaurant-kuzu-pirzola-400x400-sm.webp",
   "kuzu-pirzola-lg": "/img/et/lovemacunn-restaurant-kuzu-pirzola-400x400.webp",
   "kuzu-pirzola-sm": "/img/et/lovemacunn-restaurant-kuzu-pirzola-400x400-sm.webp",
   "kuzu-sis": {
     "sm": "/img/et/lovemacunn-restaurant-kuzu-sis-400x400-sm.webp",
     "lg": "/img/et/lovemacunn-restaurant-kuzu-sis-400x400.webp",
-    "cut": "/img-cut/et/lovemacunn-restaurant-kuzu-sis-400x400.webp",
-    "cutSm": "/img-cut/et/lovemacunn-restaurant-kuzu-sis-400x400-sm.webp"
+    "cut": "/img-cut/et/lovemacunn-restaurant-kuzu-sis-400x400.webp"
   },
   "kuzu-sis-cut": "/img-cut/et/lovemacunn-restaurant-kuzu-sis-400x400.webp",
-  "kuzu-sis-cut-sm": "/img-cut/et/lovemacunn-restaurant-kuzu-sis-400x400-sm.webp",
   "kuzu-sis-lg": "/img/et/lovemacunn-restaurant-kuzu-sis-400x400.webp",
   "kuzu-sis-sm": "/img/et/lovemacunn-restaurant-kuzu-sis-400x400-sm.webp",
   "lahmacun-hero": {
@@ -827,11 +465,9 @@
   "limonata": {
     "sm": "/img/icecekler/lovemacunn-restaurant-limonata-400x400-sm.webp",
     "lg": "/img/icecekler/lovemacunn-restaurant-limonata-400x400.webp",
-    "cut": "/img-cut/icecekler/lovemacunn-restaurant-limonata-400x400.webp",
-    "cutSm": "/img-cut/icecekler/lovemacunn-restaurant-limonata-400x400-sm.webp"
+    "cut": "/img-cut/icecekler/lovemacunn-restaurant-limonata-400x400.webp"
   },
   "limonata-cut": "/img-cut/icecekler/lovemacunn-restaurant-limonata-400x400.webp",
-  "limonata-cut-sm": "/img-cut/icecekler/lovemacunn-restaurant-limonata-400x400-sm.webp",
   "limonata-lg": "/img/icecekler/lovemacunn-restaurant-limonata-400x400.webp",
   "limonata-sm": "/img/icecekler/lovemacunn-restaurant-limonata-400x400-sm.webp",
   "lovemacunn-restaurant-7-400x400": {
@@ -1714,16 +1350,6 @@
   "lovemacunn-restaurant-yumurtali-lahmacun-400x400-cut": "/img-cut/lahmacun/lovemacunn-restaurant-yumurtali-lahmacun-400x400.webp",
   "lovemacunn-restaurant-yumurtali-lahmacun-400x400-lg": "/img/lahmacun/lovemacunn-restaurant-yumurtali-lahmacun-400x400.webp",
   "lovemacunn-restaurant-yumurtali-lahmacun-400x400-sm": "/img/lahmacun/lovemacunn-restaurant-yumurtali-lahmacun-400x400-sm.webp",
-  "mantarli-fettuccine": {
-    "sm": "/img/makarnalar/lovemacunn-restaurant-mantarli-fettucine-1-400x400-sm.webp",
-    "lg": "/img/makarnalar/lovemacunn-restaurant-mantarli-fettucine-1-400x400.webp",
-    "cut": "/img-cut/makarnalar/lovemacunn-restaurant-mantarli-fettucine-1-400x400.webp",
-    "cutSm": "/img-cut/makarnalar/lovemacunn-restaurant-mantarli-fettucine-1-400x400-sm.webp"
-  },
-  "mantarli-fettuccine-cut": "/img-cut/makarnalar/lovemacunn-restaurant-mantarli-fettucine-1-400x400.webp",
-  "mantarli-fettuccine-cut-sm": "/img-cut/makarnalar/lovemacunn-restaurant-mantarli-fettucine-1-400x400-sm.webp",
-  "mantarli-fettuccine-lg": "/img/makarnalar/lovemacunn-restaurant-mantarli-fettucine-1-400x400.webp",
-  "mantarli-fettuccine-sm": "/img/makarnalar/lovemacunn-restaurant-mantarli-fettucine-1-400x400-sm.webp",
   "mantarli-fettucine-1": {
     "sm": "/img/makarnalar/lovemacunn-restaurant-mantarli-fettucine-1-400x400-sm.webp",
     "lg": "/img/makarnalar/lovemacunn-restaurant-mantarli-fettucine-1-400x400.webp",
@@ -1747,25 +1373,13 @@
   },
   "margarita-cut": "/img-cut/pizza/lovemacunn-restaurant-margarita-400x400.webp",
   "margarita-lg": "/img/pizza/lovemacunn-restaurant-margarita-400x400.webp",
-  "margarita-pizza": {
-    "sm": "/img/pizza/lovemacunn-restaurant-margarita-400x400-sm.webp",
-    "lg": "/img/pizza/lovemacunn-restaurant-margarita-400x400.webp",
-    "cut": "/img-cut/pizza/lovemacunn-restaurant-margarita-400x400.webp",
-    "cutSm": "/img-cut/pizza/lovemacunn-restaurant-margarita-400x400-sm.webp"
-  },
-  "margarita-pizza-cut": "/img-cut/pizza/lovemacunn-restaurant-margarita-400x400.webp",
-  "margarita-pizza-cut-sm": "/img-cut/pizza/lovemacunn-restaurant-margarita-400x400-sm.webp",
-  "margarita-pizza-lg": "/img/pizza/lovemacunn-restaurant-margarita-400x400.webp",
-  "margarita-pizza-sm": "/img/pizza/lovemacunn-restaurant-margarita-400x400-sm.webp",
   "margarita-sm": "/img/pizza/lovemacunn-restaurant-margarita-400x400-sm.webp",
   "menemen": {
     "sm": "/img/kahvalti/lovemacunn-restaurant-menemen-400x400-sm.webp",
     "lg": "/img/kahvalti/lovemacunn-restaurant-menemen-400x400.webp",
-    "cut": "/img-cut/kahvalti/lovemacunn-restaurant-menemen-400x400.webp",
-    "cutSm": "/img-cut/kahvalti/lovemacunn-restaurant-menemen-400x400-sm.webp"
+    "cut": "/img-cut/kahvalti/lovemacunn-restaurant-menemen-400x400.webp"
   },
   "menemen-cut": "/img-cut/kahvalti/lovemacunn-restaurant-menemen-400x400.webp",
-  "menemen-cut-sm": "/img-cut/kahvalti/lovemacunn-restaurant-menemen-400x400-sm.webp",
   "menemen-lg": "/img/kahvalti/lovemacunn-restaurant-menemen-400x400.webp",
   "menemen-sm": "/img/kahvalti/lovemacunn-restaurant-menemen-400x400-sm.webp",
   "mevsim-salata": {
@@ -1776,34 +1390,12 @@
   "mevsim-salata-cut": "/img-cut/salata/lovemacunn-restaurant-mevsim-salata-400x400.webp",
   "mevsim-salata-lg": "/img/salata/lovemacunn-restaurant-mevsim-salata-400x400.webp",
   "mevsim-salata-sm": "/img/salata/lovemacunn-restaurant-mevsim-salata-400x400-sm.webp",
-  "mevsim-salatasi": {
-    "sm": "/img/salata/lovemacunn-restaurant-mevsim-salata-400x400-sm.webp",
-    "lg": "/img/salata/lovemacunn-restaurant-mevsim-salata-400x400.webp",
-    "cut": "/img-cut/salata/lovemacunn-restaurant-mevsim-salata-400x400.webp",
-    "cutSm": "/img-cut/salata/lovemacunn-restaurant-mevsim-salata-400x400-sm.webp"
-  },
-  "mevsim-salatasi-cut": "/img-cut/salata/lovemacunn-restaurant-mevsim-salata-400x400.webp",
-  "mevsim-salatasi-cut-sm": "/img-cut/salata/lovemacunn-restaurant-mevsim-salata-400x400-sm.webp",
-  "mevsim-salatasi-lg": "/img/salata/lovemacunn-restaurant-mevsim-salata-400x400.webp",
-  "mevsim-salatasi-sm": "/img/salata/lovemacunn-restaurant-mevsim-salata-400x400-sm.webp",
-  "napoliten-spaghetti": {
-    "sm": "/img/makarnalar/lovemacunn-restaurant-spagetti-400x400-sm.webp",
-    "lg": "/img/makarnalar/lovemacunn-restaurant-spagetti-400x400.webp",
-    "cut": "/img-cut/makarnalar/lovemacunn-restaurant-spagetti-400x400.webp",
-    "cutSm": "/img-cut/makarnalar/lovemacunn-restaurant-spagetti-400x400-sm.webp"
-  },
-  "napoliten-spaghetti-cut": "/img-cut/makarnalar/lovemacunn-restaurant-spagetti-400x400.webp",
-  "napoliten-spaghetti-cut-sm": "/img-cut/makarnalar/lovemacunn-restaurant-spagetti-400x400-sm.webp",
-  "napoliten-spaghetti-lg": "/img/makarnalar/lovemacunn-restaurant-spagetti-400x400.webp",
-  "napoliten-spaghetti-sm": "/img/makarnalar/lovemacunn-restaurant-spagetti-400x400-sm.webp",
   "nar-suyu": {
     "sm": "/img/icecekler/lovemacunn-restaurant-nar-suyu-400x400-sm.webp",
     "lg": "/img/icecekler/lovemacunn-restaurant-nar-suyu-400x400.webp",
-    "cut": "/img-cut/icecekler/lovemacunn-restaurant-nar-suyu-400x400.webp",
-    "cutSm": "/img-cut/icecekler/lovemacunn-restaurant-nar-suyu-400x400-sm.webp"
+    "cut": "/img-cut/icecekler/lovemacunn-restaurant-nar-suyu-400x400.webp"
   },
   "nar-suyu-cut": "/img-cut/icecekler/lovemacunn-restaurant-nar-suyu-400x400.webp",
-  "nar-suyu-cut-sm": "/img-cut/icecekler/lovemacunn-restaurant-nar-suyu-400x400-sm.webp",
   "nar-suyu-lg": "/img/icecekler/lovemacunn-restaurant-nar-suyu-400x400.webp",
   "nar-suyu-sm": "/img/icecekler/lovemacunn-restaurant-nar-suyu-400x400-sm.webp",
   "omlet": {
@@ -1817,11 +1409,9 @@
   "ordovr-tabagi": {
     "sm": "/img/meze/lovemacunn-restaurant-ordovr-tabagi-400x400-sm.webp",
     "lg": "/img/meze/lovemacunn-restaurant-ordovr-tabagi-400x400.webp",
-    "cut": "/img-cut/meze/lovemacunn-restaurant-ordovr-tabagi-400x400.webp",
-    "cutSm": "/img-cut/meze/lovemacunn-restaurant-ordovr-tabagi-400x400-sm.webp"
+    "cut": "/img-cut/meze/lovemacunn-restaurant-ordovr-tabagi-400x400.webp"
   },
   "ordovr-tabagi-cut": "/img-cut/meze/lovemacunn-restaurant-ordovr-tabagi-400x400.webp",
-  "ordovr-tabagi-cut-sm": "/img-cut/meze/lovemacunn-restaurant-ordovr-tabagi-400x400-sm.webp",
   "ordovr-tabagi-lg": "/img/meze/lovemacunn-restaurant-ordovr-tabagi-400x400.webp",
   "ordovr-tabagi-sm": "/img/meze/lovemacunn-restaurant-ordovr-tabagi-400x400-sm.webp",
   "pastirmali": {
@@ -1831,16 +1421,6 @@
   },
   "pastirmali-cut": "/img-cut/pizza/lovemacunn-restaurant-pastirmali-400x400.webp",
   "pastirmali-lg": "/img/pizza/lovemacunn-restaurant-pastirmali-400x400.webp",
-  "pastirmali-pizza": {
-    "sm": "/img/pizza/lovemacunn-restaurant-pastirmali-400x400-sm.webp",
-    "lg": "/img/pizza/lovemacunn-restaurant-pastirmali-400x400.webp",
-    "cut": "/img-cut/pizza/lovemacunn-restaurant-pastirmali-400x400.webp",
-    "cutSm": "/img-cut/pizza/lovemacunn-restaurant-pastirmali-400x400-sm.webp"
-  },
-  "pastirmali-pizza-cut": "/img-cut/pizza/lovemacunn-restaurant-pastirmali-400x400.webp",
-  "pastirmali-pizza-cut-sm": "/img-cut/pizza/lovemacunn-restaurant-pastirmali-400x400-sm.webp",
-  "pastirmali-pizza-lg": "/img/pizza/lovemacunn-restaurant-pastirmali-400x400.webp",
-  "pastirmali-pizza-sm": "/img/pizza/lovemacunn-restaurant-pastirmali-400x400-sm.webp",
   "pastirmali-sm": "/img/pizza/lovemacunn-restaurant-pastirmali-400x400-sm.webp",
   "patates": {
     "sm": "/img/ara-sicaklar/lovemacunn-restaurant-patates-400x400-sm.webp",
@@ -1848,36 +1428,22 @@
     "cut": "/img-cut/ara-sicaklar/lovemacunn-restaurant-patates-400x400.webp"
   },
   "patates-cut": "/img-cut/ara-sicaklar/lovemacunn-restaurant-patates-400x400.webp",
-  "patates-kizartmasi": {
-    "sm": "/img/ara-sicaklar/lovemacunn-restaurant-patates-400x400-sm.webp",
-    "lg": "/img/ara-sicaklar/lovemacunn-restaurant-patates-400x400.webp",
-    "cut": "/img-cut/ara-sicaklar/lovemacunn-restaurant-patates-400x400.webp",
-    "cutSm": "/img-cut/ara-sicaklar/lovemacunn-restaurant-patates-400x400-sm.webp"
-  },
-  "patates-kizartmasi-cut": "/img-cut/ara-sicaklar/lovemacunn-restaurant-patates-400x400.webp",
-  "patates-kizartmasi-cut-sm": "/img-cut/ara-sicaklar/lovemacunn-restaurant-patates-400x400-sm.webp",
-  "patates-kizartmasi-lg": "/img/ara-sicaklar/lovemacunn-restaurant-patates-400x400.webp",
-  "patates-kizartmasi-sm": "/img/ara-sicaklar/lovemacunn-restaurant-patates-400x400-sm.webp",
   "patates-lg": "/img/ara-sicaklar/lovemacunn-restaurant-patates-400x400.webp",
   "patates-sm": "/img/ara-sicaklar/lovemacunn-restaurant-patates-400x400-sm.webp",
   "patlican-salatasi": {
     "sm": "/img/salata/lovemacunn-restaurant-patlican-salatasi-400x400-sm.webp",
     "lg": "/img/salata/lovemacunn-restaurant-patlican-salatasi-400x400.webp",
-    "cut": "/img-cut/salata/lovemacunn-restaurant-patlican-salatasi-400x400.webp",
-    "cutSm": "/img-cut/salata/lovemacunn-restaurant-patlican-salatasi-400x400-sm.webp"
+    "cut": "/img-cut/salata/lovemacunn-restaurant-patlican-salatasi-400x400.webp"
   },
   "patlican-salatasi-cut": "/img-cut/salata/lovemacunn-restaurant-patlican-salatasi-400x400.webp",
-  "patlican-salatasi-cut-sm": "/img-cut/salata/lovemacunn-restaurant-patlican-salatasi-400x400-sm.webp",
   "patlican-salatasi-lg": "/img/salata/lovemacunn-restaurant-patlican-salatasi-400x400.webp",
   "patlican-salatasi-sm": "/img/salata/lovemacunn-restaurant-patlican-salatasi-400x400-sm.webp",
   "patlicanli-kebap": {
     "sm": "/img/et/lovemacunn-restaurant-patlicanli-kebap-400x400-sm.webp",
     "lg": "/img/et/lovemacunn-restaurant-patlicanli-kebap-400x400.webp",
-    "cut": "/img-cut/et/lovemacunn-restaurant-patlicanli-kebap-400x400.webp",
-    "cutSm": "/img-cut/et/lovemacunn-restaurant-patlicanli-kebap-400x400-sm.webp"
+    "cut": "/img-cut/et/lovemacunn-restaurant-patlicanli-kebap-400x400.webp"
   },
   "patlicanli-kebap-cut": "/img-cut/et/lovemacunn-restaurant-patlicanli-kebap-400x400.webp",
-  "patlicanli-kebap-cut-sm": "/img-cut/et/lovemacunn-restaurant-patlicanli-kebap-400x400-sm.webp",
   "patlicanli-kebap-lg": "/img/et/lovemacunn-restaurant-patlicanli-kebap-400x400.webp",
   "patlicanli-kebap-sm": "/img/et/lovemacunn-restaurant-patlicanli-kebap-400x400-sm.webp",
   "penne-arabita": {
@@ -1888,16 +1454,6 @@
   "penne-arabita-cut": "/img-cut/makarnalar/lovemacunn-restaurant-penne-arabita-400x400.webp",
   "penne-arabita-lg": "/img/makarnalar/lovemacunn-restaurant-penne-arabita-400x400.webp",
   "penne-arabita-sm": "/img/makarnalar/lovemacunn-restaurant-penne-arabita-400x400-sm.webp",
-  "penne-arrabbiata": {
-    "sm": "/img/makarnalar/lovemacunn-restaurant-penne-arabita-400x400-sm.webp",
-    "lg": "/img/makarnalar/lovemacunn-restaurant-penne-arabita-400x400.webp",
-    "cut": "/img-cut/makarnalar/lovemacunn-restaurant-penne-arabita-400x400.webp",
-    "cutSm": "/img-cut/makarnalar/lovemacunn-restaurant-penne-arabita-400x400-sm.webp"
-  },
-  "penne-arrabbiata-cut": "/img-cut/makarnalar/lovemacunn-restaurant-penne-arabita-400x400.webp",
-  "penne-arrabbiata-cut-sm": "/img-cut/makarnalar/lovemacunn-restaurant-penne-arabita-400x400-sm.webp",
-  "penne-arrabbiata-lg": "/img/makarnalar/lovemacunn-restaurant-penne-arabita-400x400.webp",
-  "penne-arrabbiata-sm": "/img/makarnalar/lovemacunn-restaurant-penne-arabita-400x400-sm.webp",
   "penne-kremali-mantarli": {
     "sm": "/img/makarnalar/lovemacunn-restaurant-penne-kremali-mantarli-400x400-sm.webp",
     "lg": "/img/makarnalar/lovemacunn-restaurant-penne-kremali-mantarli-400x400.webp",
@@ -1913,16 +1469,6 @@
   },
   "pepperoni-cut": "/img-cut/pizza/lovemacunn-restaurant-pepperoni-400x400.webp",
   "pepperoni-lg": "/img/pizza/lovemacunn-restaurant-pepperoni-400x400.webp",
-  "pepperoni-pizza": {
-    "sm": "/img/pizza/lovemacunn-restaurant-pepperoni-400x400-sm.webp",
-    "lg": "/img/pizza/lovemacunn-restaurant-pepperoni-400x400.webp",
-    "cut": "/img-cut/pizza/lovemacunn-restaurant-pepperoni-400x400.webp",
-    "cutSm": "/img-cut/pizza/lovemacunn-restaurant-pepperoni-400x400-sm.webp"
-  },
-  "pepperoni-pizza-cut": "/img-cut/pizza/lovemacunn-restaurant-pepperoni-400x400.webp",
-  "pepperoni-pizza-cut-sm": "/img-cut/pizza/lovemacunn-restaurant-pepperoni-400x400-sm.webp",
-  "pepperoni-pizza-lg": "/img/pizza/lovemacunn-restaurant-pepperoni-400x400.webp",
-  "pepperoni-pizza-sm": "/img/pizza/lovemacunn-restaurant-pepperoni-400x400-sm.webp",
   "pepperoni-sm": "/img/pizza/lovemacunn-restaurant-pepperoni-400x400-sm.webp",
   "peynirli-spagetti": {
     "sm": "/img/makarnalar/lovemacunn-restaurant-peynirli-spagetti-400x400-sm.webp",
@@ -1932,54 +1478,36 @@
   "peynirli-spagetti-cut": "/img-cut/makarnalar/lovemacunn-restaurant-peynirli-spagetti-400x400.webp",
   "peynirli-spagetti-lg": "/img/makarnalar/lovemacunn-restaurant-peynirli-spagetti-400x400.webp",
   "peynirli-spagetti-sm": "/img/makarnalar/lovemacunn-restaurant-peynirli-spagetti-400x400-sm.webp",
-  "peynirli-spaghetti": {
-    "sm": "/img/makarnalar/lovemacunn-restaurant-peynirli-spagetti-400x400-sm.webp",
-    "lg": "/img/makarnalar/lovemacunn-restaurant-peynirli-spagetti-400x400.webp",
-    "cut": "/img-cut/makarnalar/lovemacunn-restaurant-peynirli-spagetti-400x400.webp",
-    "cutSm": "/img-cut/makarnalar/lovemacunn-restaurant-peynirli-spagetti-400x400-sm.webp"
-  },
-  "peynirli-spaghetti-cut": "/img-cut/makarnalar/lovemacunn-restaurant-peynirli-spagetti-400x400.webp",
-  "peynirli-spaghetti-cut-sm": "/img-cut/makarnalar/lovemacunn-restaurant-peynirli-spagetti-400x400-sm.webp",
-  "peynirli-spaghetti-lg": "/img/makarnalar/lovemacunn-restaurant-peynirli-spagetti-400x400.webp",
-  "peynirli-spaghetti-sm": "/img/makarnalar/lovemacunn-restaurant-peynirli-spagetti-400x400-sm.webp",
   "pirinc-pilavi": {
     "sm": "/img/ara-sicaklar/lovemacunn-restaurant-pirinc-pilavi-400x400-sm.webp",
     "lg": "/img/ara-sicaklar/lovemacunn-restaurant-pirinc-pilavi-400x400.webp",
-    "cut": "/img-cut/ara-sicaklar/lovemacunn-restaurant-pirinc-pilavi-400x400.webp",
-    "cutSm": "/img-cut/ara-sicaklar/lovemacunn-restaurant-pirinc-pilavi-400x400-sm.webp"
+    "cut": "/img-cut/ara-sicaklar/lovemacunn-restaurant-pirinc-pilavi-400x400.webp"
   },
   "pirinc-pilavi-cut": "/img-cut/ara-sicaklar/lovemacunn-restaurant-pirinc-pilavi-400x400.webp",
-  "pirinc-pilavi-cut-sm": "/img-cut/ara-sicaklar/lovemacunn-restaurant-pirinc-pilavi-400x400-sm.webp",
   "pirinc-pilavi-lg": "/img/ara-sicaklar/lovemacunn-restaurant-pirinc-pilavi-400x400.webp",
   "pirinc-pilavi-sm": "/img/ara-sicaklar/lovemacunn-restaurant-pirinc-pilavi-400x400-sm.webp",
   "portakal-suyu": {
     "sm": "/img/icecekler/lovemacunn-restaurant-portakal-suyu-400x400-sm.webp",
     "lg": "/img/icecekler/lovemacunn-restaurant-portakal-suyu-400x400.webp",
-    "cut": "/img-cut/icecekler/lovemacunn-restaurant-portakal-suyu-400x400.webp",
-    "cutSm": "/img-cut/icecekler/lovemacunn-restaurant-portakal-suyu-400x400-sm.webp"
+    "cut": "/img-cut/icecekler/lovemacunn-restaurant-portakal-suyu-400x400.webp"
   },
   "portakal-suyu-cut": "/img-cut/icecekler/lovemacunn-restaurant-portakal-suyu-400x400.webp",
-  "portakal-suyu-cut-sm": "/img-cut/icecekler/lovemacunn-restaurant-portakal-suyu-400x400-sm.webp",
   "portakal-suyu-lg": "/img/icecekler/lovemacunn-restaurant-portakal-suyu-400x400.webp",
   "portakal-suyu-sm": "/img/icecekler/lovemacunn-restaurant-portakal-suyu-400x400-sm.webp",
   "sade-meyveli-soda": {
     "sm": "/img/icecekler/lovemacunn-restaurant-sade_meyveli-soda-400x400-sm.webp",
     "lg": "/img/icecekler/lovemacunn-restaurant-sade_meyveli-soda-400x400.webp",
-    "cut": "/img-cut/icecekler/lovemacunn-restaurant-sade_meyveli-soda-400x400.webp",
-    "cutSm": "/img-cut/icecekler/lovemacunn-restaurant-sade_meyveli-soda-400x400-sm.webp"
+    "cut": "/img-cut/icecekler/lovemacunn-restaurant-sade_meyveli-soda-400x400.webp"
   },
   "sade-meyveli-soda-cut": "/img-cut/icecekler/lovemacunn-restaurant-sade_meyveli-soda-400x400.webp",
-  "sade-meyveli-soda-cut-sm": "/img-cut/icecekler/lovemacunn-restaurant-sade_meyveli-soda-400x400-sm.webp",
   "sade-meyveli-soda-lg": "/img/icecekler/lovemacunn-restaurant-sade_meyveli-soda-400x400.webp",
   "sade-meyveli-soda-sm": "/img/icecekler/lovemacunn-restaurant-sade_meyveli-soda-400x400-sm.webp",
   "sarimsakli-lahmacun": {
     "sm": "/img/lahmacun/lovemacunn-restaurant-sarimsakli-lahmacun-400x400-sm.webp",
     "lg": "/img/lahmacun/lovemacunn-restaurant-sarimsakli-lahmacun-400x400.webp",
-    "cut": "/img-cut/lahmacun/lovemacunn-restaurant-sarimsakli-lahmacun-400x400.webp",
-    "cutSm": "/img-cut/lahmacun/lovemacunn-restaurant-sarimsakli-lahmacun-400x400-sm.webp"
+    "cut": "/img-cut/lahmacun/lovemacunn-restaurant-sarimsakli-lahmacun-400x400.webp"
   },
   "sarimsakli-lahmacun-cut": "/img-cut/lahmacun/lovemacunn-restaurant-sarimsakli-lahmacun-400x400.webp",
-  "sarimsakli-lahmacun-cut-sm": "/img-cut/lahmacun/lovemacunn-restaurant-sarimsakli-lahmacun-400x400-sm.webp",
   "sarimsakli-lahmacun-lg": "/img/lahmacun/lovemacunn-restaurant-sarimsakli-lahmacun-400x400.webp",
   "sarimsakli-lahmacun-sm": "/img/lahmacun/lovemacunn-restaurant-sarimsakli-lahmacun-400x400-sm.webp",
   "serpme-kahvalti": {
@@ -1987,37 +1515,23 @@
     "lg": "/img/kahvalti/lovemacunn-restaurant-serpme-kahvalti-400x400.webp",
     "cut": "/img-cut/kahvalti/lovemacunn-restaurant-serpme-kahvalti-400x400.webp"
   },
-  "serpme-kahvalti-2-kisilik": {
-    "sm": "/img/kahvalti/lovemacunn-restaurant-serpme-kahvalti-400x400-sm.webp",
-    "lg": "/img/kahvalti/lovemacunn-restaurant-serpme-kahvalti-400x400.webp",
-    "cut": "/img-cut/kahvalti/lovemacunn-restaurant-serpme-kahvalti-400x400.webp",
-    "cutSm": "/img-cut/kahvalti/lovemacunn-restaurant-serpme-kahvalti-400x400-sm.webp"
-  },
-  "serpme-kahvalti-2-kisilik-cut": "/img-cut/kahvalti/lovemacunn-restaurant-serpme-kahvalti-400x400.webp",
-  "serpme-kahvalti-2-kisilik-cut-sm": "/img-cut/kahvalti/lovemacunn-restaurant-serpme-kahvalti-400x400-sm.webp",
-  "serpme-kahvalti-2-kisilik-lg": "/img/kahvalti/lovemacunn-restaurant-serpme-kahvalti-400x400.webp",
-  "serpme-kahvalti-2-kisilik-sm": "/img/kahvalti/lovemacunn-restaurant-serpme-kahvalti-400x400-sm.webp",
   "serpme-kahvalti-cut": "/img-cut/kahvalti/lovemacunn-restaurant-serpme-kahvalti-400x400.webp",
   "serpme-kahvalti-lg": "/img/kahvalti/lovemacunn-restaurant-serpme-kahvalti-400x400.webp",
   "serpme-kahvalti-sm": "/img/kahvalti/lovemacunn-restaurant-serpme-kahvalti-400x400-sm.webp",
   "sezar-salata": {
     "sm": "/img/salata/lovemacunn-restaurant-sezar-salata-400x400-sm.webp",
     "lg": "/img/salata/lovemacunn-restaurant-sezar-salata-400x400.webp",
-    "cut": "/img-cut/salata/lovemacunn-restaurant-sezar-salata-400x400.webp",
-    "cutSm": "/img-cut/salata/lovemacunn-restaurant-sezar-salata-400x400-sm.webp"
+    "cut": "/img-cut/salata/lovemacunn-restaurant-sezar-salata-400x400.webp"
   },
   "sezar-salata-cut": "/img-cut/salata/lovemacunn-restaurant-sezar-salata-400x400.webp",
-  "sezar-salata-cut-sm": "/img-cut/salata/lovemacunn-restaurant-sezar-salata-400x400-sm.webp",
   "sezar-salata-lg": "/img/salata/lovemacunn-restaurant-sezar-salata-400x400.webp",
   "sezar-salata-sm": "/img/salata/lovemacunn-restaurant-sezar-salata-400x400-sm.webp",
   "sigara-boregi": {
     "sm": "/img/kahvalti/lovemacunn-restaurant-sigara-boregi-400x400-sm.webp",
     "lg": "/img/kahvalti/lovemacunn-restaurant-sigara-boregi-400x400.webp",
-    "cut": "/img-cut/kahvalti/lovemacunn-restaurant-sigara-boregi-400x400.webp",
-    "cutSm": "/img-cut/kahvalti/lovemacunn-restaurant-sigara-boregi-400x400-sm.webp"
+    "cut": "/img-cut/kahvalti/lovemacunn-restaurant-sigara-boregi-400x400.webp"
   },
   "sigara-boregi-cut": "/img-cut/kahvalti/lovemacunn-restaurant-sigara-boregi-400x400.webp",
-  "sigara-boregi-cut-sm": "/img-cut/kahvalti/lovemacunn-restaurant-sigara-boregi-400x400-sm.webp",
   "sigara-boregi-lg": "/img/kahvalti/lovemacunn-restaurant-sigara-boregi-400x400.webp",
   "sigara-boregi-sm": "/img/kahvalti/lovemacunn-restaurant-sigara-boregi-400x400-sm.webp",
   "sinitzel": {
@@ -2031,11 +1545,9 @@
   "soganli-lahmacun": {
     "sm": "/img/lahmacun/lovemacunn-restaurant-soganli-lahmacun-400x400-sm.webp",
     "lg": "/img/lahmacun/lovemacunn-restaurant-soganli-lahmacun-400x400.webp",
-    "cut": "/img-cut/lahmacun/lovemacunn-restaurant-soganli-lahmacun-400x400.webp",
-    "cutSm": "/img-cut/lahmacun/lovemacunn-restaurant-soganli-lahmacun-400x400-sm.webp"
+    "cut": "/img-cut/lahmacun/lovemacunn-restaurant-soganli-lahmacun-400x400.webp"
   },
   "soganli-lahmacun-cut": "/img-cut/lahmacun/lovemacunn-restaurant-soganli-lahmacun-400x400.webp",
-  "soganli-lahmacun-cut-sm": "/img-cut/lahmacun/lovemacunn-restaurant-soganli-lahmacun-400x400-sm.webp",
   "soganli-lahmacun-lg": "/img/lahmacun/lovemacunn-restaurant-soganli-lahmacun-400x400.webp",
   "soganli-lahmacun-sm": "/img/lahmacun/lovemacunn-restaurant-soganli-lahmacun-400x400-sm.webp",
   "sogus": {
@@ -2046,16 +1558,6 @@
   "sogus-cut": "/img-cut/salata/lovemacunn-restaurant-sogus-400x400.webp",
   "sogus-lg": "/img/salata/lovemacunn-restaurant-sogus-400x400.webp",
   "sogus-sm": "/img/salata/lovemacunn-restaurant-sogus-400x400-sm.webp",
-  "sogus-tabagi": {
-    "sm": "/img/salata/lovemacunn-restaurant-sogus-400x400-sm.webp",
-    "lg": "/img/salata/lovemacunn-restaurant-sogus-400x400.webp",
-    "cut": "/img-cut/salata/lovemacunn-restaurant-sogus-400x400.webp",
-    "cutSm": "/img-cut/salata/lovemacunn-restaurant-sogus-400x400-sm.webp"
-  },
-  "sogus-tabagi-cut": "/img-cut/salata/lovemacunn-restaurant-sogus-400x400.webp",
-  "sogus-tabagi-cut-sm": "/img-cut/salata/lovemacunn-restaurant-sogus-400x400-sm.webp",
-  "sogus-tabagi-lg": "/img/salata/lovemacunn-restaurant-sogus-400x400.webp",
-  "sogus-tabagi-sm": "/img/salata/lovemacunn-restaurant-sogus-400x400-sm.webp",
   "somon": {
     "sm": "/img/baliklar/lovemacunn-restaurant-somon-400x400-sm.webp",
     "lg": "/img/baliklar/lovemacunn-restaurant-somon-400x400.webp",
@@ -2067,11 +1569,9 @@
   "sosis-tabagi": {
     "sm": "/img/kahvalti/lovemacunn-restaurant-sosis-tabagi-400x400-sm.webp",
     "lg": "/img/kahvalti/lovemacunn-restaurant-sosis-tabagi-400x400.webp",
-    "cut": "/img-cut/kahvalti/lovemacunn-restaurant-sosis-tabagi-400x400.webp",
-    "cutSm": "/img-cut/kahvalti/lovemacunn-restaurant-sosis-tabagi-400x400-sm.webp"
+    "cut": "/img-cut/kahvalti/lovemacunn-restaurant-sosis-tabagi-400x400.webp"
   },
   "sosis-tabagi-cut": "/img-cut/kahvalti/lovemacunn-restaurant-sosis-tabagi-400x400.webp",
-  "sosis-tabagi-cut-sm": "/img-cut/kahvalti/lovemacunn-restaurant-sosis-tabagi-400x400-sm.webp",
   "sosis-tabagi-lg": "/img/kahvalti/lovemacunn-restaurant-sosis-tabagi-400x400.webp",
   "sosis-tabagi-sm": "/img/kahvalti/lovemacunn-restaurant-sosis-tabagi-400x400-sm.webp",
   "sosisli-spagetti": {
@@ -2082,16 +1582,6 @@
   "sosisli-spagetti-cut": "/img-cut/makarnalar/lovemacunn-restaurant-sosisli-spagetti-400x400.webp",
   "sosisli-spagetti-lg": "/img/makarnalar/lovemacunn-restaurant-sosisli-spagetti-400x400.webp",
   "sosisli-spagetti-sm": "/img/makarnalar/lovemacunn-restaurant-sosisli-spagetti-400x400-sm.webp",
-  "sosisli-spaghetti": {
-    "sm": "/img/makarnalar/lovemacunn-restaurant-sosisli-spagetti-400x400-sm.webp",
-    "lg": "/img/makarnalar/lovemacunn-restaurant-sosisli-spagetti-400x400.webp",
-    "cut": "/img-cut/makarnalar/lovemacunn-restaurant-sosisli-spagetti-400x400.webp",
-    "cutSm": "/img-cut/makarnalar/lovemacunn-restaurant-sosisli-spagetti-400x400-sm.webp"
-  },
-  "sosisli-spaghetti-cut": "/img-cut/makarnalar/lovemacunn-restaurant-sosisli-spagetti-400x400.webp",
-  "sosisli-spaghetti-cut-sm": "/img-cut/makarnalar/lovemacunn-restaurant-sosisli-spagetti-400x400-sm.webp",
-  "sosisli-spaghetti-lg": "/img/makarnalar/lovemacunn-restaurant-sosisli-spagetti-400x400.webp",
-  "sosisli-spaghetti-sm": "/img/makarnalar/lovemacunn-restaurant-sosisli-spagetti-400x400-sm.webp",
   "spagetti": {
     "sm": "/img/makarnalar/lovemacunn-restaurant-spagetti-400x400-sm.webp",
     "lg": "/img/makarnalar/lovemacunn-restaurant-spagetti-400x400.webp",
@@ -2103,21 +1593,17 @@
   "su": {
     "sm": "/img/icecekler/lovemacunn-restaurant-su-400x400-sm.webp",
     "lg": "/img/icecekler/lovemacunn-restaurant-su-400x400.webp",
-    "cut": "/img-cut/icecekler/lovemacunn-restaurant-su-400x400.webp",
-    "cutSm": "/img-cut/icecekler/lovemacunn-restaurant-su-400x400-sm.webp"
+    "cut": "/img-cut/icecekler/lovemacunn-restaurant-su-400x400.webp"
   },
   "su-cut": "/img-cut/icecekler/lovemacunn-restaurant-su-400x400.webp",
-  "su-cut-sm": "/img-cut/icecekler/lovemacunn-restaurant-su-400x400-sm.webp",
   "su-lg": "/img/icecekler/lovemacunn-restaurant-su-400x400.webp",
   "su-sm": "/img/icecekler/lovemacunn-restaurant-su-400x400-sm.webp",
   "sucuklu-yumurta": {
     "sm": "/img/kahvalti/lovemacunn-restaurant-sucuklu-yumurta-400x400-sm.webp",
     "lg": "/img/kahvalti/lovemacunn-restaurant-sucuklu-yumurta-400x400.webp",
-    "cut": "/img-cut/kahvalti/lovemacunn-restaurant-sucuklu-yumurta-400x400.webp",
-    "cutSm": "/img-cut/kahvalti/lovemacunn-restaurant-sucuklu-yumurta-400x400-sm.webp"
+    "cut": "/img-cut/kahvalti/lovemacunn-restaurant-sucuklu-yumurta-400x400.webp"
   },
   "sucuklu-yumurta-cut": "/img-cut/kahvalti/lovemacunn-restaurant-sucuklu-yumurta-400x400.webp",
-  "sucuklu-yumurta-cut-sm": "/img-cut/kahvalti/lovemacunn-restaurant-sucuklu-yumurta-400x400-sm.webp",
   "sucuklu-yumurta-lg": "/img/kahvalti/lovemacunn-restaurant-sucuklu-yumurta-400x400.webp",
   "sucuklu-yumurta-sm": "/img/kahvalti/lovemacunn-restaurant-sucuklu-yumurta-400x400-sm.webp",
   "sutlac": {
@@ -2128,64 +1614,44 @@
   "sutlac-cut": "/img-cut/tatlilar/lovemacunn-restaurant-sutlac-400x400.webp",
   "sutlac-lg": "/img/tatlilar/lovemacunn-restaurant-sutlac-400x400.webp",
   "sutlac-sm": "/img/tatlilar/lovemacunn-restaurant-sutlac-400x400-sm.webp",
-  "tava-hamsi": {
-    "sm": "/img/baliklar/lovemacunn-restaurant-hamsi-400x400-sm.webp",
-    "lg": "/img/baliklar/lovemacunn-restaurant-hamsi-400x400.webp",
-    "cut": "/img-cut/baliklar/lovemacunn-restaurant-hamsi-400x400.webp",
-    "cutSm": "/img-cut/baliklar/lovemacunn-restaurant-hamsi-400x400-sm.webp"
-  },
-  "tava-hamsi-cut": "/img-cut/baliklar/lovemacunn-restaurant-hamsi-400x400.webp",
-  "tava-hamsi-cut-sm": "/img-cut/baliklar/lovemacunn-restaurant-hamsi-400x400-sm.webp",
-  "tava-hamsi-lg": "/img/baliklar/lovemacunn-restaurant-hamsi-400x400.webp",
-  "tava-hamsi-sm": "/img/baliklar/lovemacunn-restaurant-hamsi-400x400-sm.webp",
   "tavuk-burger-menu": {
     "sm": "/img/sokaklezzetleri/lovemacunn-restaurant-tavuk-burger-menu-400x400-sm.webp",
     "lg": "/img/sokaklezzetleri/lovemacunn-restaurant-tavuk-burger-menu-400x400.webp",
-    "cut": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-tavuk-burger-menu-400x400.webp",
-    "cutSm": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-tavuk-burger-menu-400x400-sm.webp"
+    "cut": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-tavuk-burger-menu-400x400.webp"
   },
   "tavuk-burger-menu-cut": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-tavuk-burger-menu-400x400.webp",
-  "tavuk-burger-menu-cut-sm": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-tavuk-burger-menu-400x400-sm.webp",
   "tavuk-burger-menu-lg": "/img/sokaklezzetleri/lovemacunn-restaurant-tavuk-burger-menu-400x400.webp",
   "tavuk-burger-menu-sm": "/img/sokaklezzetleri/lovemacunn-restaurant-tavuk-burger-menu-400x400-sm.webp",
   "tavuk-doner": {
     "sm": "/img/tavuk/lovemacunn-restaurant-tavuk-doner-400x400-sm.webp",
     "lg": "/img/tavuk/lovemacunn-restaurant-tavuk-doner-400x400.webp",
-    "cut": "/img-cut/tavuk/lovemacunn-restaurant-tavuk-doner-400x400.webp",
-    "cutSm": "/img-cut/tavuk/lovemacunn-restaurant-tavuk-doner-400x400-sm.webp"
+    "cut": "/img-cut/tavuk/lovemacunn-restaurant-tavuk-doner-400x400.webp"
   },
   "tavuk-doner-cut": "/img-cut/tavuk/lovemacunn-restaurant-tavuk-doner-400x400.webp",
-  "tavuk-doner-cut-sm": "/img-cut/tavuk/lovemacunn-restaurant-tavuk-doner-400x400-sm.webp",
   "tavuk-doner-lg": "/img/tavuk/lovemacunn-restaurant-tavuk-doner-400x400.webp",
   "tavuk-doner-sm": "/img/tavuk/lovemacunn-restaurant-tavuk-doner-400x400-sm.webp",
   "tavuk-durum": {
     "sm": "/img/sokaklezzetleri/lovemacunn-restaurant-tavuk-durum-400x400-sm.webp",
     "lg": "/img/sokaklezzetleri/lovemacunn-restaurant-tavuk-durum-400x400.webp",
-    "cut": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-tavuk-durum-400x400.webp",
-    "cutSm": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-tavuk-durum-400x400-sm.webp"
+    "cut": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-tavuk-durum-400x400.webp"
   },
   "tavuk-durum-cut": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-tavuk-durum-400x400.webp",
-  "tavuk-durum-cut-sm": "/img-cut/sokaklezzetleri/lovemacunn-restaurant-tavuk-durum-400x400-sm.webp",
   "tavuk-durum-lg": "/img/sokaklezzetleri/lovemacunn-restaurant-tavuk-durum-400x400.webp",
   "tavuk-durum-sm": "/img/sokaklezzetleri/lovemacunn-restaurant-tavuk-durum-400x400-sm.webp",
   "tavuk-guvec": {
     "sm": "/img/tavuk/lovemacunn-restaurant-tavuk-guvec-400x400-sm.webp",
     "lg": "/img/tavuk/lovemacunn-restaurant-tavuk-guvec-400x400.webp",
-    "cut": "/img-cut/tavuk/lovemacunn-restaurant-tavuk-guvec-400x400.webp",
-    "cutSm": "/img-cut/tavuk/lovemacunn-restaurant-tavuk-guvec-400x400-sm.webp"
+    "cut": "/img-cut/tavuk/lovemacunn-restaurant-tavuk-guvec-400x400.webp"
   },
   "tavuk-guvec-cut": "/img-cut/tavuk/lovemacunn-restaurant-tavuk-guvec-400x400.webp",
-  "tavuk-guvec-cut-sm": "/img-cut/tavuk/lovemacunn-restaurant-tavuk-guvec-400x400-sm.webp",
   "tavuk-guvec-lg": "/img/tavuk/lovemacunn-restaurant-tavuk-guvec-400x400.webp",
   "tavuk-guvec-sm": "/img/tavuk/lovemacunn-restaurant-tavuk-guvec-400x400-sm.webp",
   "tavuk-kanat": {
     "sm": "/img/tavuk/lovemacunn-restaurant-tavuk-kanat-400x400-sm.webp",
     "lg": "/img/tavuk/lovemacunn-restaurant-tavuk-kanat-400x400.webp",
-    "cut": "/img-cut/tavuk/lovemacunn-restaurant-tavuk-kanat-400x400.webp",
-    "cutSm": "/img-cut/tavuk/lovemacunn-restaurant-tavuk-kanat-400x400-sm.webp"
+    "cut": "/img-cut/tavuk/lovemacunn-restaurant-tavuk-kanat-400x400.webp"
   },
   "tavuk-kanat-cut": "/img-cut/tavuk/lovemacunn-restaurant-tavuk-kanat-400x400.webp",
-  "tavuk-kanat-cut-sm": "/img-cut/tavuk/lovemacunn-restaurant-tavuk-kanat-400x400-sm.webp",
   "tavuk-kanat-lg": "/img/tavuk/lovemacunn-restaurant-tavuk-kanat-400x400.webp",
   "tavuk-kanat-sm": "/img/tavuk/lovemacunn-restaurant-tavuk-kanat-400x400-sm.webp",
   "tavuk-karisik": {
@@ -2199,31 +1665,17 @@
   "tavuk-pirzola": {
     "sm": "/img/tavuk/lovemacunn-restaurant-tavuk-pirzola-400x400-sm.webp",
     "lg": "/img/tavuk/lovemacunn-restaurant-tavuk-pirzola-400x400.webp",
-    "cut": "/img-cut/tavuk/lovemacunn-restaurant-tavuk-pirzola-400x400.webp",
-    "cutSm": "/img-cut/tavuk/lovemacunn-restaurant-tavuk-pirzola-400x400-sm.webp"
+    "cut": "/img-cut/tavuk/lovemacunn-restaurant-tavuk-pirzola-400x400.webp"
   },
   "tavuk-pirzola-cut": "/img-cut/tavuk/lovemacunn-restaurant-tavuk-pirzola-400x400.webp",
-  "tavuk-pirzola-cut-sm": "/img-cut/tavuk/lovemacunn-restaurant-tavuk-pirzola-400x400-sm.webp",
   "tavuk-pirzola-lg": "/img/tavuk/lovemacunn-restaurant-tavuk-pirzola-400x400.webp",
   "tavuk-pirzola-sm": "/img/tavuk/lovemacunn-restaurant-tavuk-pirzola-400x400-sm.webp",
-  "tavuk-sinitzel": {
-    "sm": "/img/tavuk/lovemacunn-restaurant-sinitzel-400x400-sm.webp",
-    "lg": "/img/tavuk/lovemacunn-restaurant-sinitzel-400x400.webp",
-    "cut": "/img-cut/tavuk/lovemacunn-restaurant-sinitzel-400x400.webp",
-    "cutSm": "/img-cut/tavuk/lovemacunn-restaurant-sinitzel-400x400-sm.webp"
-  },
-  "tavuk-sinitzel-cut": "/img-cut/tavuk/lovemacunn-restaurant-sinitzel-400x400.webp",
-  "tavuk-sinitzel-cut-sm": "/img-cut/tavuk/lovemacunn-restaurant-sinitzel-400x400-sm.webp",
-  "tavuk-sinitzel-lg": "/img/tavuk/lovemacunn-restaurant-sinitzel-400x400.webp",
-  "tavuk-sinitzel-sm": "/img/tavuk/lovemacunn-restaurant-sinitzel-400x400-sm.webp",
   "tavuk-sis": {
     "sm": "/img/tavuk/lovemacunn-restaurant-tavuk-sis-400x400-sm.webp",
     "lg": "/img/tavuk/lovemacunn-restaurant-tavuk-sis-400x400.webp",
-    "cut": "/img-cut/tavuk/lovemacunn-restaurant-tavuk-sis-400x400.webp",
-    "cutSm": "/img-cut/tavuk/lovemacunn-restaurant-tavuk-sis-400x400-sm.webp"
+    "cut": "/img-cut/tavuk/lovemacunn-restaurant-tavuk-sis-400x400.webp"
   },
   "tavuk-sis-cut": "/img-cut/tavuk/lovemacunn-restaurant-tavuk-sis-400x400.webp",
-  "tavuk-sis-cut-sm": "/img-cut/tavuk/lovemacunn-restaurant-tavuk-sis-400x400-sm.webp",
   "tavuk-sis-lg": "/img/tavuk/lovemacunn-restaurant-tavuk-sis-400x400.webp",
   "tavuk-sis-sm": "/img/tavuk/lovemacunn-restaurant-tavuk-sis-400x400-sm.webp",
   "tavuklu": {
@@ -2233,24 +1685,12 @@
   },
   "tavuklu-cut": "/img-cut/pide/lovemacunn-restaurant-tavuklu-400x400.webp",
   "tavuklu-lg": "/img/pide/lovemacunn-restaurant-tavuklu-400x400.webp",
-  "tavuklu-pide": {
-    "sm": "/img/pide/lovemacunn-restaurant-tavuklu-400x400-sm.webp",
-    "lg": "/img/pide/lovemacunn-restaurant-tavuklu-400x400.webp",
-    "cut": "/img-cut/pide/lovemacunn-restaurant-tavuklu-400x400.webp",
-    "cutSm": "/img-cut/pide/lovemacunn-restaurant-tavuklu-400x400-sm.webp"
-  },
-  "tavuklu-pide-cut": "/img-cut/pide/lovemacunn-restaurant-tavuklu-400x400.webp",
-  "tavuklu-pide-cut-sm": "/img-cut/pide/lovemacunn-restaurant-tavuklu-400x400-sm.webp",
-  "tavuklu-pide-lg": "/img/pide/lovemacunn-restaurant-tavuklu-400x400.webp",
-  "tavuklu-pide-sm": "/img/pide/lovemacunn-restaurant-tavuklu-400x400-sm.webp",
   "tavuklu-pizza": {
     "sm": "/img/pizza/lovemacunn-restaurant-tavuklu-pizza-400x400-sm.webp",
     "lg": "/img/pizza/lovemacunn-restaurant-tavuklu-pizza-400x400.webp",
-    "cut": "/img-cut/pizza/lovemacunn-restaurant-tavuklu-pizza-400x400.webp",
-    "cutSm": "/img-cut/pizza/lovemacunn-restaurant-tavuklu-pizza-400x400-sm.webp"
+    "cut": "/img-cut/pizza/lovemacunn-restaurant-tavuklu-pizza-400x400.webp"
   },
   "tavuklu-pizza-cut": "/img-cut/pizza/lovemacunn-restaurant-tavuklu-pizza-400x400.webp",
-  "tavuklu-pizza-cut-sm": "/img-cut/pizza/lovemacunn-restaurant-tavuklu-pizza-400x400-sm.webp",
   "tavuklu-pizza-lg": "/img/pizza/lovemacunn-restaurant-tavuklu-pizza-400x400.webp",
   "tavuklu-pizza-sm": "/img/pizza/lovemacunn-restaurant-tavuklu-pizza-400x400-sm.webp",
   "tavuklu-sm": "/img/pide/lovemacunn-restaurant-tavuklu-400x400-sm.webp",
@@ -2261,16 +1701,6 @@
   },
   "tebbule-cut": "/img-cut/salata/lovemacunn-restaurant-tebbule-400x400.webp",
   "tebbule-lg": "/img/salata/lovemacunn-restaurant-tebbule-400x400.webp",
-  "tebbule-salatasi": {
-    "sm": "/img/salata/lovemacunn-restaurant-tebbule-400x400-sm.webp",
-    "lg": "/img/salata/lovemacunn-restaurant-tebbule-400x400.webp",
-    "cut": "/img-cut/salata/lovemacunn-restaurant-tebbule-400x400.webp",
-    "cutSm": "/img-cut/salata/lovemacunn-restaurant-tebbule-400x400-sm.webp"
-  },
-  "tebbule-salatasi-cut": "/img-cut/salata/lovemacunn-restaurant-tebbule-400x400.webp",
-  "tebbule-salatasi-cut-sm": "/img-cut/salata/lovemacunn-restaurant-tebbule-400x400-sm.webp",
-  "tebbule-salatasi-lg": "/img/salata/lovemacunn-restaurant-tebbule-400x400.webp",
-  "tebbule-salatasi-sm": "/img/salata/lovemacunn-restaurant-tebbule-400x400-sm.webp",
   "tebbule-sm": "/img/salata/lovemacunn-restaurant-tebbule-400x400-sm.webp",
   "ton-balikli": {
     "sm": "/img/pizza/lovemacunn-restaurant-ton-balikli-400x400-sm.webp",
@@ -2279,35 +1709,21 @@
   },
   "ton-balikli-cut": "/img-cut/pizza/lovemacunn-restaurant-ton-balikli-400x400.webp",
   "ton-balikli-lg": "/img/pizza/lovemacunn-restaurant-ton-balikli-400x400.webp",
-  "ton-balikli-pizza": {
-    "sm": "/img/pizza/lovemacunn-restaurant-ton-balikli-400x400-sm.webp",
-    "lg": "/img/pizza/lovemacunn-restaurant-ton-balikli-400x400.webp",
-    "cut": "/img-cut/pizza/lovemacunn-restaurant-ton-balikli-400x400.webp",
-    "cutSm": "/img-cut/pizza/lovemacunn-restaurant-ton-balikli-400x400-sm.webp"
-  },
-  "ton-balikli-pizza-cut": "/img-cut/pizza/lovemacunn-restaurant-ton-balikli-400x400.webp",
-  "ton-balikli-pizza-cut-sm": "/img-cut/pizza/lovemacunn-restaurant-ton-balikli-400x400-sm.webp",
-  "ton-balikli-pizza-lg": "/img/pizza/lovemacunn-restaurant-ton-balikli-400x400.webp",
-  "ton-balikli-pizza-sm": "/img/pizza/lovemacunn-restaurant-ton-balikli-400x400-sm.webp",
   "ton-balikli-salata": {
     "sm": "/img/salata/lovemacunn-restaurant-ton-balikli-salata-400x400-sm.webp",
     "lg": "/img/salata/lovemacunn-restaurant-ton-balikli-salata-400x400.webp",
-    "cut": "/img-cut/salata/lovemacunn-restaurant-ton-balikli-salata-400x400.webp",
-    "cutSm": "/img-cut/salata/lovemacunn-restaurant-ton-balikli-salata-400x400-sm.webp"
+    "cut": "/img-cut/salata/lovemacunn-restaurant-ton-balikli-salata-400x400.webp"
   },
   "ton-balikli-salata-cut": "/img-cut/salata/lovemacunn-restaurant-ton-balikli-salata-400x400.webp",
-  "ton-balikli-salata-cut-sm": "/img-cut/salata/lovemacunn-restaurant-ton-balikli-salata-400x400-sm.webp",
   "ton-balikli-salata-lg": "/img/salata/lovemacunn-restaurant-ton-balikli-salata-400x400.webp",
   "ton-balikli-salata-sm": "/img/salata/lovemacunn-restaurant-ton-balikli-salata-400x400-sm.webp",
   "ton-balikli-sm": "/img/pizza/lovemacunn-restaurant-ton-balikli-400x400-sm.webp",
   "turk-kahvesi": {
     "sm": "/img/icecekler/lovemacunn-restaurant-turk-kahvesi-400x400-sm.webp",
     "lg": "/img/icecekler/lovemacunn-restaurant-turk-kahvesi-400x400.webp",
-    "cut": "/img-cut/icecekler/lovemacunn-restaurant-turk-kahvesi-400x400.webp",
-    "cutSm": "/img-cut/icecekler/lovemacunn-restaurant-turk-kahvesi-400x400-sm.webp"
+    "cut": "/img-cut/icecekler/lovemacunn-restaurant-turk-kahvesi-400x400.webp"
   },
   "turk-kahvesi-cut": "/img-cut/icecekler/lovemacunn-restaurant-turk-kahvesi-400x400.webp",
-  "turk-kahvesi-cut-sm": "/img-cut/icecekler/lovemacunn-restaurant-turk-kahvesi-400x400-sm.webp",
   "turk-kahvesi-lg": "/img/icecekler/lovemacunn-restaurant-turk-kahvesi-400x400.webp",
   "turk-kahvesi-sm": "/img/icecekler/lovemacunn-restaurant-turk-kahvesi-400x400-sm.webp",
   "uskumru": {
@@ -2318,26 +1734,6 @@
   "uskumru-cut": "/img-cut/baliklar/lovemacunn-restaurant-uskumru-400x400.webp",
   "uskumru-lg": "/img/baliklar/lovemacunn-restaurant-uskumru-400x400.webp",
   "uskumru-sm": "/img/baliklar/lovemacunn-restaurant-uskumru-400x400-sm.webp",
-  "vejetaryen-pide": {
-    "sm": "/img/pide/lovemacunn-restaurant-vejeteryan-1-400x400-sm.webp",
-    "lg": "/img/pide/lovemacunn-restaurant-vejeteryan-1-400x400.webp",
-    "cut": "/img-cut/pide/lovemacunn-restaurant-vejeteryan-1-400x400.webp",
-    "cutSm": "/img-cut/pide/lovemacunn-restaurant-vejeteryan-1-400x400-sm.webp"
-  },
-  "vejetaryen-pide-cut": "/img-cut/pide/lovemacunn-restaurant-vejeteryan-1-400x400.webp",
-  "vejetaryen-pide-cut-sm": "/img-cut/pide/lovemacunn-restaurant-vejeteryan-1-400x400-sm.webp",
-  "vejetaryen-pide-lg": "/img/pide/lovemacunn-restaurant-vejeteryan-1-400x400.webp",
-  "vejetaryen-pide-sm": "/img/pide/lovemacunn-restaurant-vejeteryan-1-400x400-sm.webp",
-  "vejetaryen-pizza": {
-    "sm": "/img/pizza/lovemacunn-restaurant-vejeteryan-400x400-sm.webp",
-    "lg": "/img/pizza/lovemacunn-restaurant-vejeteryan-400x400.webp",
-    "cut": "/img-cut/pizza/lovemacunn-restaurant-vejeteryan-400x400.webp",
-    "cutSm": "/img-cut/pizza/lovemacunn-restaurant-vejeteryan-400x400-sm.webp"
-  },
-  "vejetaryen-pizza-cut": "/img-cut/pizza/lovemacunn-restaurant-vejeteryan-400x400.webp",
-  "vejetaryen-pizza-cut-sm": "/img-cut/pizza/lovemacunn-restaurant-vejeteryan-400x400-sm.webp",
-  "vejetaryen-pizza-lg": "/img/pizza/lovemacunn-restaurant-vejeteryan-400x400.webp",
-  "vejetaryen-pizza-sm": "/img/pizza/lovemacunn-restaurant-vejeteryan-400x400-sm.webp",
   "vejeteryan": {
     "sm": "/img/pizza/lovemacunn-restaurant-vejeteryan-400x400-sm.webp",
     "lg": "/img/pizza/lovemacunn-restaurant-vejeteryan-400x400.webp",
@@ -2357,21 +1753,17 @@
   "yaprak-sarma": {
     "sm": "/img/meze/lovemacunn-restaurant-yaprak-sarma-400x400-sm.webp",
     "lg": "/img/meze/lovemacunn-restaurant-yaprak-sarma-400x400.webp",
-    "cut": "/img-cut/meze/lovemacunn-restaurant-yaprak-sarma-400x400.webp",
-    "cutSm": "/img-cut/meze/lovemacunn-restaurant-yaprak-sarma-400x400-sm.webp"
+    "cut": "/img-cut/meze/lovemacunn-restaurant-yaprak-sarma-400x400.webp"
   },
   "yaprak-sarma-cut": "/img-cut/meze/lovemacunn-restaurant-yaprak-sarma-400x400.webp",
-  "yaprak-sarma-cut-sm": "/img-cut/meze/lovemacunn-restaurant-yaprak-sarma-400x400-sm.webp",
   "yaprak-sarma-lg": "/img/meze/lovemacunn-restaurant-yaprak-sarma-400x400.webp",
   "yaprak-sarma-sm": "/img/meze/lovemacunn-restaurant-yaprak-sarma-400x400-sm.webp",
   "yumurtali-lahmacun": {
     "sm": "/img/lahmacun/lovemacunn-restaurant-yumurtali-lahmacun-400x400-sm.webp",
     "lg": "/img/lahmacun/lovemacunn-restaurant-yumurtali-lahmacun-400x400.webp",
-    "cut": "/img-cut/lahmacun/lovemacunn-restaurant-yumurtali-lahmacun-400x400.webp",
-    "cutSm": "/img-cut/lahmacun/lovemacunn-restaurant-yumurtali-lahmacun-400x400-sm.webp"
+    "cut": "/img-cut/lahmacun/lovemacunn-restaurant-yumurtali-lahmacun-400x400.webp"
   },
   "yumurtali-lahmacun-cut": "/img-cut/lahmacun/lovemacunn-restaurant-yumurtali-lahmacun-400x400.webp",
-  "yumurtali-lahmacun-cut-sm": "/img-cut/lahmacun/lovemacunn-restaurant-yumurtali-lahmacun-400x400-sm.webp",
   "yumurtali-lahmacun-lg": "/img/lahmacun/lovemacunn-restaurant-yumurtali-lahmacun-400x400.webp",
   "yumurtali-lahmacun-sm": "/img/lahmacun/lovemacunn-restaurant-yumurtali-lahmacun-400x400-sm.webp",
   "_gallery": [

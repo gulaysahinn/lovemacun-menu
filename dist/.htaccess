@@ -1,3 +1,13 @@
+Options -Indexes
+
+<IfModule mod_headers.c>
+  # menu.json ve seed için no-cache ve ETag
+  <FilesMatch "menu(\.seed)?\.json$">
+    Header set Cache-Control "no-cache, must-revalidate"
+    FileETag MTime Size
+  </FilesMatch>
+</IfModule>
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
@@ -11,7 +21,8 @@
   RewriteRule ^category/tasfirinlovemacun/?$ /blog [R=301,L,NE]
   RewriteRule ^author/tasfirin/?$ /blog [R=301,L,NE]
 
-  # SPA Rewrite: Gerçek dosya veya dizin yoksa index.html'e yönlendir
+  # SPA Rewrite: Gerçek dosya veya dizin yoksa index.html'e yönlendir (Yönetim ve API yollarını hariç tut)
+  RewriteCond %{REQUEST_URI} !^/(yonetim|api|backups|logs) [NC]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . /index.html [L]

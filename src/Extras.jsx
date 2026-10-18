@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
+import { CONFIG } from './config.js'
 
 export const TAG_META = {
   sef: { label: 'Şefin Seçimi', icon: '★' },
@@ -8,8 +9,13 @@ export const TAG_META = {
   glutensiz: { label: 'Glutensiz', icon: 'GF' },
 }
 
+const DIET_TAGS = ['vejetaryen', 'vegan', 'glutensiz']
+
 export function TagBadges({ name, tags, compact = false }) {
-  const on = Object.keys(TAG_META).filter((k) => (tags[k] || []).includes(name))
+  const on = Object.keys(TAG_META).filter((k) => {
+    if (!CONFIG.SHOW_DIET_TAGS && DIET_TAGS.includes(k)) return false
+    return (tags[k] || []).includes(name)
+  })
   if (!on.length) return null
   return (
     <div className={`tagrow ${compact ? 'compact' : ''}`}>
@@ -22,6 +28,7 @@ export function TagBadges({ name, tags, compact = false }) {
     </div>
   )
 }
+
 
 const checkIsMobileDevice = () => {
   if (typeof window === 'undefined') return false
@@ -145,6 +152,12 @@ export function SignatureLoop({ catId, fallbackCutout }) {
           loop
           playsInline
           preload="none"
+          disablePictureInPicture
+          disableRemotePlayback
+          controlsList="nodownload nofullscreen noremoteplayback"
+          style={{ pointerEvents: 'none' }}
+          tabIndex={-1}
+          aria-hidden="true"
           onError={() => setFailed(true)}
         />
       )}

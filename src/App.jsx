@@ -11,6 +11,7 @@ import { SearchModal } from './components/SearchModal.jsx'
 import { BottomSheet } from './components/BottomSheet.jsx'
 import { HamburgerDrawer } from './components/HamburgerDrawer.jsx'
 import { MenuPage } from './pages/MenuPage.jsx'
+import { HeroVideo } from './components/HeroVideo.jsx'
 
 // Route bazlı dinamik kod bölme (Code-splitting) - İlk yükleme JS boyutunu hafifletir
 const StoryPage = lazy(() => import('./pages/StoryPage.jsx').then((m) => ({ default: m.StoryPage })))
@@ -19,6 +20,49 @@ const BlogListPage = lazy(() => import('./pages/BlogListPage.jsx').then((m) => (
 const BlogPostPage = lazy(() => import('./pages/BlogPostPage.jsx').then((m) => ({ default: m.BlogPostPage })))
 const ReservationPage = lazy(() => import('./pages/ReservationPage.jsx').then((m) => ({ default: m.ReservationPage })))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx').then((m) => ({ default: m.NotFoundPage })))
+
+// Hero bileşeni – max-width container'ından bağımsız, tam ekran genişliğinde
+function MenuHeroSection() {
+  const location = useLocation()
+  if (location.pathname !== '/') return null
+  const masa = typeof window !== 'undefined'
+    ? new URLSearchParams(window.location.search).get('masa')
+    : null
+  return (
+    <section className="menu-hero-video-section" aria-label="Ana Sayfa Hero">
+      <HeroVideo
+        baseName="lahmacun"
+        poster="/video/lahmacun-poster.webp"
+        alt="Taş Fırın Lahmacun"
+      />
+      <div className="hero-video-shade" aria-hidden="true" />
+      <div className="hero-embers" aria-hidden="true"><i /><i /><i /><i /><i /><i /></div>
+      <div className="hero-video-content">
+        {masa && <span className="masa-badge">Masa {masa}</span>}
+        <span className="hero-video-kicker">BÜYÜKADA · TAŞ FIRIN USTALIĞI</span>
+        <h1 className="hero-video-h1">
+          Aşkla yoğrulan hamur,<br />
+          <em>çıtır lezzet.</em>
+        </h1>
+        <p className="hero-video-sub">
+          Geleneksel taş fırında pişen çıtır lahmacun ve pideler, kömür ateşinde kebaplar.
+        </p>
+        <div className="hero-video-actions">
+          <button
+            type="button"
+            className="btn btn-hero-menu"
+            onClick={() => {
+              const el = document.getElementById('kategoriler')
+              if (el) el.scrollIntoView({ behavior: 'smooth' })
+            }}
+          >
+            Menüyü Gör ↓
+          </button>
+        </div>
+      </div>
+    </section>
+  )
+}
 
 function AppContent() {
   const [selected, setSelected] = useState(null)
@@ -133,6 +177,17 @@ function AppContent() {
       />
 
       {/* 3. SAYFA ROTALARI (Sayfa geçiş animasyonu ve iskelet yükleyici) */}
+
+      {/* ANA SAYFA HERO – menu-page'in DIŞINDA, max-width container'ından bağımsız (tam genişlik) */}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <MenuHeroSection />
+          }
+        />
+      </Routes>
+
       <main className="app-main-content">
         <Suspense fallback={<div className="page-skeleton-loader" aria-label="Yükleniyor…" />}>
           <Routes>

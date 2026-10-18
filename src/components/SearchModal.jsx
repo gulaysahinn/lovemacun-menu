@@ -1,7 +1,7 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useMemo } from 'react'
 import { createPortal } from 'react-dom'
 import { Search, X } from 'lucide-react'
-import { CATS } from '../menu.js'
+import { useMenuData } from '../menu.js'
 import images from '../images.json'
 
 const fmt = (n) => n.toLocaleString('tr-TR') + ' ₺'
@@ -62,38 +62,47 @@ const getImg = (name, manualImg) => {
   return { sm: asset(entry.sm), lg: asset(entry.lg), cut: asset(entry.cut || entry.lg) }
 }
 
-const allProducts = CATS.flatMap((c) =>
-  c.items.map((i) => {
-    const isArr = Array.isArray(i)
-    const name = isArr ? i[0] : i.name
-    const price = isArr ? i[1] : i.price
-    const desc = isArr ? i[2] : i.desc
-    const manualImg = isArr ? i[3] : i.manualImg
-    const g = isArr ? i[4] : i.g
-    return {
-      name,
-      price,
-      desc,
-      emoji: c.emoji,
-      img: getImg(name, manualImg),
-      catName: c.name,
-      catId: c.id,
-      g,
-      // Hızlı arama için önceden normalize edilmiş metinler
-      normName: normalizeText(name),
-      normDesc: normalizeText(desc),
-      normCat: normalizeText(c.name)
-    }
-  })
-)
-
 // Gerçek menü ürünlerine dayalı popüler aramalar (her çip sonuç döndürür)
 const POPULAR_SEARCHES = ['Lahmacun', 'Kaşarlı Pide', 'İskender', 'Künefe', 'Ayran']
 
 export function SearchModal({ isOpen, onClose, onSelectProduct }) {
+  const { cats } = useMenuData()
   const [query, setQuery] = useState('')
   const [panelHeight, setPanelHeight] = useState('100dvh')
   const inputRef = useRef(null)
+
+  const allProducts = useMemo(() => {
+    return (cats || []).flatMap((c) =>
+      (c.items || [])
+        .filter((i) => (Array.isArray(i) ? true : !i.hidden))
+        .map((i) => {
+          const isArr = Array.isArray(i)
+          const name = isArr ? i[0] : i.name
+          const price = isArr ? i[1] : i.price
+          const desc = isArr ? i[2] : (i.description || i.desc)
+          const manualImg = isArr ? i[3] : (i.image || i.manualImg)
+          const g = isArr ? i[4] : i.g
+          const soldOut = !isArr && Boolean(i.soldOut)
+          const isNew = !isArr && Boolean(i.isNew)
+          return {
+            id: !isArr ? i.id : name,
+            name,
+            price,
+            desc,
+            emoji: c.emoji,
+            img: getImg(name, manualImg),
+            catName: c.name,
+            catId: c.id,
+            g,
+            soldOut,
+            isNew,
+            normName: normalizeText(name),
+            normDesc: normalizeText(desc),
+            normCat: normalizeText(c.name),
+          }
+        })
+    )
+  }, [cats])
 
   // 1. Android Geri Tuşu (popstate) & ESC desteği
   useEffect(() => {

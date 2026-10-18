@@ -35,4 +35,9 @@ export const CONFIG = {
 
   // QR Menü Linki (Doğrudan kök adres)
   qrMenuUrl: 'https://tasfirinlovemacun.com',
+
+  // Beslenme etiketleri gösterim bayrağı
+  // false = Vejetaryen / Vegan / Glutensiz etiketleri gizlenir (kod silinmez, mutfakla onaylanana kadar kapalı)
+  // Şefin Seçimi (sef) ve Acılı (aci) her zaman görünür
+  SHOW_DIET_TAGS: false,
 }

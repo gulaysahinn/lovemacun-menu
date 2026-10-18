@@ -125,6 +125,12 @@ export function HeroVideo({
           playsInline
           preload="metadata"
           poster={resolvedPoster}
+          disablePictureInPicture
+          disableRemotePlayback
+          controlsList="nodownload nofullscreen noremoteplayback"
+          style={{ pointerEvents: 'none' }}
+          tabIndex={-1}
+          aria-hidden="true"
           onPlaying={() => setVideoReady(true)}
           onError={() => setVideoReady(false)}
         >

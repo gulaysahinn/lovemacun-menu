@@ -1,12 +1,12 @@
 import { useState, useRef, useEffect, useMemo } from 'react'
 import { Search, Sparkles } from 'lucide-react'
 import { PageMeta } from '../components/PageMeta.jsx'
-import { CATS, FEATURED, TAGS } from '../menu.js'
+import { CATS, FEATURED, TAGS, useMenuData } from '../menu.js'
 import { CONFIG } from '../config.js'
 import { TagBadges, SignatureLoop } from '../Extras.jsx'
+import { useLang, t } from '../utils/i18n.js'
 import images from '../images.json'
 
-import { HeroVideo } from '../components/HeroVideo.jsx'
 
 const fmt = (n) => n.toLocaleString('tr-TR') + ' ₺'
 const lower = (s) => s.toLocaleLowerCase('tr')
@@ -60,7 +60,7 @@ const getCategoryCutout = (cat) => {
   for (const item of cat.items) {
     const isArr = Array.isArray(item)
     const name = isArr ? item[0] : item.name
-    const manualImg = isArr ? item[3] : item.manualImg
+    const manualImg = isArr ? item[3] : (item.image || item.manualImg)
     const entry = getImg(name, manualImg)
     if (entry?.cut) return entry.cut
     if (entry?.cutSm) return entry.cutSm
@@ -68,36 +68,62 @@ const getCategoryCutout = (cat) => {
   return null
 }
 
-const CAT_CUTOUTS = Object.fromEntries(CATS.map((c) => [c.id, getCategoryCutout(c)]))
-const NON_EMPTY_CATS = CATS.filter((c) => c.items && c.items.length > 0)
-
-const allItems = CATS.flatMap((c) =>
-  c.items.map((i) => {
-    const isArr = Array.isArray(i)
-    const name = isArr ? i[0] : i.name
-    const price = isArr ? i[1] : i.price
-    const desc = isArr ? i[2] : i.desc
-    const manualImg = isArr ? i[3] : i.manualImg
-    const g = isArr ? i[4] : i.g
-    return {
-      name,
-      price,
-      desc,
-      emoji: c.emoji,
-      img: getImg(name, manualImg),
-      catName: c.name,
-      catId: c.id,
-      g,
-    }
-  })
-)
-
 export function MenuPage({ onSelectProduct, onOpenSearch }) {
-  const featuredList = useMemo(
-    () => FEATURED.map((n) => allItems.find((a) => a.name === n)).filter(Boolean),
-    []
-  )
+  const { cats, featured, tags, loading } = useMenuData()
+  const lang = useLang()
+
+  const CAT_CUTOUTS = useMemo(() => {
+    return Object.fromEntries((cats || []).map((c) => [c.id, getCategoryCutout(c)]))
+  }, [cats])
+
+  const NON_EMPTY_CATS = useMemo(() => {
+    return (cats || []).filter((c) => c.items && c.items.length > 0)
+  }, [cats])
+
+  const allItems = useMemo(() => {
+    return (cats || []).flatMap((c) =>
+      (c.items || []).map((i) => {
+        const isArr = Array.isArray(i)
+        const name = isArr ? i[0] : i.name
+        const price = isArr ? i[1] : i.price
+        const desc = isArr ? i[2] : (i.description || i.desc)
+        const manualImg = isArr ? i[3] : (i.image || i.manualImg)
+        const g = isArr ? i[4] : i.g
+        const soldOut = !isArr && Boolean(i.soldOut)
+        const isNew = !isArr && Boolean(i.isNew)
+        const hidden = !isArr && Boolean(i.hidden)
+        return {
+          id: !isArr ? i.id : name,
+          name,
+          price,
+          desc,
+          emoji: c.emoji,
+          img: getImg(name, manualImg),
+          catName: c.name,
+          catId: c.id,
+          g,
+          soldOut,
+          isNew,
+          hidden,
+        }
+      })
+    )
+  }, [cats])
+
+  const featuredList = useMemo(() => {
+    return (featured || [])
+      .map((n) => allItems.find((a) => a.name === n && !a.hidden))
+      .filter(Boolean)
+  }, [featured, allItems])
+
   const [activeCat, setActiveCat] = useState(() => NON_EMPTY_CATS[0]?.id || 'lahmacun')
+
+  // Keep active category valid when cats update
+  useEffect(() => {
+    if (NON_EMPTY_CATS.length > 0 && !NON_EMPTY_CATS.some((c) => c.id === activeCat)) {
+      setActiveCat(NON_EMPTY_CATS[0].id)
+    }
+  }, [NON_EMPTY_CATS, activeCat])
   const [tagSel, setTagSel] = useState([])
   const tabsContainerRef = useRef(null)
   const tabRefs = useRef({})
@@ -255,7 +281,7 @@ export function MenuPage({ onSelectProduct, onOpenSearch }) {
     }, 850)
   }
 
-  const passTag = (name) => tagSel.every((t) => (TAGS[t] || []).includes(name))
+  const passTag = (name) => tagSel.every((t) => (tags[t] || []).includes(name))
 
   const currentCat = NON_EMPTY_CATS.find((c) => c.id === activeCat) || NON_EMPTY_CATS[0]
   const currentCatIdx = NON_EMPTY_CATS.findIndex((c) => c.id === currentCat.id)
@@ -295,43 +321,6 @@ export function MenuPage({ onSelectProduct, onOpenSearch }) {
           "sameAs": [CONFIG.instagram]
         }}
       />
-
-      {/* Hero Video Section (Mobilde ~40vh, Masaüstünde ~50vh max 480px, tek h1) */}
-      <section className="menu-hero-video-section">
-        <HeroVideo
-          baseName="lahmacun"
-          poster="/video/lahmacun-poster.webp"
-          alt="Taş Fırın Lahmacun"
-        />
-        <div className="hero-video-shade" aria-hidden="true" />
-        <div className="hero-embers" aria-hidden="true"><i /><i /><i /><i /><i /><i /></div>
-
-        <div className="container hero-video-content">
-          {masa && <span className="masa-badge">Masa {masa}</span>}
-          <span className="hero-video-kicker">BÜYÜKADA · TAŞ FIRIN USTALIĞI</span>
-          <h1 className="hero-video-h1">
-            Aşkla yoğrulan hamur,<br />
-            <em>çıtır lezzet.</em>
-          </h1>
-          <p className="hero-video-sub">
-            Geleneksel taş fırında pişen çıtır lahmacun ve pideler, kömür ateşinde kebaplar.
-          </p>
-          <div className="hero-video-actions">
-            <button
-              type="button"
-              className="btn btn-hero-menu"
-              onClick={() => {
-                const el = document.getElementById('kategoriler')
-                if (el) {
-                  el.scrollIntoView({ behavior: 'smooth' })
-                }
-              }}
-            >
-              Menüyü Gör ↓
-            </button>
-          </div>
-        </div>
-      </section>
 
       {/* Kompakt Öne Çıkan Lezzetler Şeridi (en fazla ~180-200px) */}
       {featuredList.length > 0 && (
@@ -408,11 +397,14 @@ export function MenuPage({ onSelectProduct, onOpenSearch }) {
       </section>
 
       {/* Menü Ürünleri Listesi (Mobilde 2 Kolonlu Grid, Tablet/Desktop 3 Kolon, Geniş 4 Kolon) */}
-      <main className="menu-products-main container">
+      <div className="menu-products-main container">
         {/* Tag Filtreleri (Şefin Seçimi, Acılı, Vejetaryen vb.) */}
         <div className="tag-filter-bar" role="toolbar" aria-label="Filtreler">
-          {Object.entries(TAGS).map(([tagKey, list]) => {
+          {Object.entries(tags || {}).map(([tagKey, list]) => {
             if (!list || list.length === 0) return null
+            // SHOW_DIET_TAGS=false → vejetaryen/vegan/glutensiz gizle
+            const dietTags = ['vejetaryen', 'vegan', 'glutensiz']
+            if (!CONFIG.SHOW_DIET_TAGS && dietTags.includes(tagKey)) return null
             const isSelected = tagSel.includes(tagKey)
             const labels = {
               sef: '★ Şefin Seçimi',
@@ -453,41 +445,58 @@ export function MenuPage({ onSelectProduct, onOpenSearch }) {
               <SignatureLoop catId={catItem.id} fallbackCutout={CAT_CUTOUTS[catItem.id]} />
 
               <div className="grid">
-                {items.map((rawItem, idx) => {
-                  const isArr = Array.isArray(rawItem)
-                  const name = isArr ? rawItem[0] : rawItem.name
-                  const price = isArr ? rawItem[1] : rawItem.price
-                  const desc = isArr ? rawItem[2] : rawItem.desc
-                  const manualImg = isArr ? rawItem[3] : rawItem.manualImg
-                  const g = isArr ? rawItem[4] : rawItem.g
-                  const img = getImg(name, manualImg)
-                  const imgSrc = img?.lg || img?.sm || img?.cut || img?.cutSm
+                {loading && items.length === 0
+                  ? Array.from({ length: 6 }).map((_, sIdx) => (
+                      <div key={`skel-${sIdx}`} className="skeleton-card" />
+                    ))
+                  : items.map((rawItem, idx) => {
+                    const isArr = Array.isArray(rawItem)
+                    const name = isArr ? rawItem[0] : rawItem.name
+                    const price = isArr ? rawItem[1] : rawItem.price
+                    const desc = isArr ? rawItem[2] : (rawItem.description || rawItem.desc)
+                    const manualImg = isArr ? rawItem[3] : (rawItem.image || rawItem.manualImg)
+                    const g = isArr ? rawItem[4] : rawItem.g
+                    const soldOut = !isArr && Boolean(rawItem.soldOut)
+                    const isNew = !isArr && Boolean(rawItem.isNew)
+                    const img = getImg(name, manualImg)
+                    const imgSrc = img?.lg || img?.sm || img?.cut || img?.cutSm
 
-                  return (
-                    <article
-                      key={name}
-                      className="menu-card"
-                      style={{ transitionDelay: `${(idx % 6) * 35}ms` }}
-                      onClick={() => onSelectProduct({ name, price, desc, img, catName: catItem.name, g })}
-                    >
-                      {/* Görsel: Üstte 4/3 oran, cover, tam dolu */}
-                      <div className="card-media">
-                        <TagBadges name={name} tags={TAGS} compact />
+                    return (
+                      <article
+                        key={name}
+                        className={`menu-card ${soldOut ? 'is-sold-out' : ''}`}
+                        style={{ transitionDelay: `${(idx % 6) * 35}ms` }}
+                        onClick={() => onSelectProduct({ name, price, desc, img, catName: catItem.name, g, soldOut, isNew })}
+                      >
+                        {/* Görsel: Üstte 4/3 oran, cover, tam dolu */}
+                        <div className="card-media">
+                          <TagBadges name={name} tags={tags} compact />
 
-                        {imgSrc ? (
-                          <img
-                            src={imgSrc}
-                            alt={name}
-                            loading="lazy"
-                            decoding="async"
-                            className="card-media-img"
-                          />
-                        ) : (
-                          <div className="card-no-img" aria-label="Fotoğraf hazırlanıyor">
-                            <div className="placeholder-monogram">TF</div>
-                          </div>
-                        )}
-                      </div>
+                          {soldOut && (
+                            <span className="card-badge-soldout notranslate" translate="no">
+                              {t('soldOut', lang)}
+                            </span>
+                          )}
+                          {!soldOut && isNew && (
+                            <span className="card-badge-new notranslate" translate="no">
+                              {t('newBadge', lang)}
+                            </span>
+                          )}
+
+                          {imgSrc ? (
+                            <img
+                              src={imgSrc}
+                              alt={name}
+                              loading="lazy"
+                              decoding="async"
+                              className="card-media-img"
+                            />
+                          ) : (
+                            <div className="card-no-img" aria-label="Fotoğraf hazırlanıyor">
+                              <div className="placeholder-monogram">TF</div>
+                            </div>
+                          )}
+                        </div>
 
                       {/* Kart Gövdesi: Başlık, Açıklama, Fiyat */}
                       <div className="card-body">
@@ -534,7 +543,7 @@ export function MenuPage({ onSelectProduct, onOpenSearch }) {
             </section>
           )
         })}
-      </main>
+      </div>
     </div>
   )
 }
