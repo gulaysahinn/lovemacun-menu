@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useMemo } from 'react'
-import { Search, Sparkles } from 'lucide-react'
+import { Sparkles } from 'lucide-react'
 import { PageMeta } from '../components/PageMeta.jsx'
 import { CATS, FEATURED, TAGS, useMenuData } from '../menu.js'
 import { CONFIG } from '../config.js'
@@ -68,7 +68,7 @@ const getCategoryCutout = (cat) => {
   return null
 }
 
-export function MenuPage({ onSelectProduct, onOpenSearch }) {
+export function MenuPage({ onSelectProduct }) {
   const { cats, featured, tags, loading } = useMenuData()
   const lang = useLang()
 
@@ -382,16 +382,6 @@ export function MenuPage({ onSelectProduct, onOpenSearch }) {
                 )
               })}
             </div>
-            {/* Sağda sticky arama butonu */}
-            <button
-              type="button"
-              className="tab-sticky-search"
-              onClick={onOpenSearch}
-              aria-label="Menüde Ara"
-              title="Menüde Ara"
-            >
-              <Search size={17} />
-            </button>
           </div>
         </div>
       </section>

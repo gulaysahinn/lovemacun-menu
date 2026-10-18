@@ -103,7 +103,7 @@ function AppContent() {
     }
   }, [location.pathname])
 
-  // ESC tuşuyla açık çekmeceleri kapatma
+  // Klavye kısayolları: ESC kapatma, '/' ve Ctrl/Cmd+K ile arama açma
   useEffect(() => {
     const onKey = (e) => {
       if (e.key === 'Escape') {
@@ -111,6 +111,22 @@ function AppContent() {
         setSearchOpen(false)
         setInfoDrawerOpen(false)
         setHamburgerOpen(false)
+        return
+      }
+
+      // Ctrl+K veya Cmd+K ile aramayı aç/kapat
+      if ((e.key === 'k' || e.key === 'K') && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault()
+        setSearchOpen((prev) => !prev)
+        return
+      }
+
+      // '/' tuşu (herhangi bir input/textarea odaklı değilken) aramayı açar
+      const activeTag = document.activeElement?.tagName?.toLowerCase()
+      const isInput = activeTag === 'input' || activeTag === 'textarea' || document.activeElement?.isContentEditable
+      if (e.key === '/' && !isInput && !e.ctrlKey && !e.metaKey && !e.altKey) {
+        e.preventDefault()
+        setSearchOpen(true)
       }
     }
     window.addEventListener('keydown', onKey)
@@ -171,7 +187,6 @@ function AppContent() {
 
       {/* 2. MOBİL UYGULAMA ÇUBUĞU (56px sticky, masaüstünde gizlenir) */}
       <MobileAppHeader
-        onOpenSearch={() => setSearchOpen(true)}
         onOpenHamburger={() => setHamburgerOpen(true)}
         isHamburgerOpen={hamburgerOpen}
       />
@@ -196,7 +211,6 @@ function AppContent() {
               element={
                 <MenuPage
                   onSelectProduct={setSelected}
-                  onOpenSearch={() => setSearchOpen(true)}
                 />
               }
             />

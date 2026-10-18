@@ -195,6 +195,11 @@ export function SearchModal({ isOpen, onClose, onSelectProduct }) {
       role="dialog"
       aria-modal="true"
       aria-label="Menüde Arama"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) {
+          onClose()
+        }
+      }}
     >
       <div className="search-portal-inner">
         {/* Üst Arama Çubuğu */}

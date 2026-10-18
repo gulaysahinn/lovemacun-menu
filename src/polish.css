@@ -2593,11 +2593,11 @@ footer {
 
 .container {
   width: 100% !important;
-  max-width: 1100px !important;
+  max-width: 1200px !important;
   margin-left: auto !important;
   margin-right: auto !important;
-  padding-left: clamp(16px, 4vw, 32px) !important;
-  padding-right: clamp(16px, 4vw, 32px) !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
   box-sizing: border-box !important;
 }
 
@@ -5042,14 +5042,14 @@ footer {
   pointer-events: none !important;
 }
 
-/* Sağ fade efekti (arama ikonu altındaki son chip'lerin kesilmesini ve üst üste binmesini önler) */
+/* Sağ fade efekti (yumuşak kenar geçişi) */
 .bar-fade-right {
   position: absolute !important;
   top: 0 !important;
   bottom: 0 !important;
   right: 0 !important;
-  width: 76px !important;
-  background: linear-gradient(270deg, #120804 55%, transparent 100%) !important;
+  width: 28px !important;
+  background: linear-gradient(270deg, rgba(18, 8, 4, 0.95), transparent) !important;
   z-index: 5 !important;
   pointer-events: none !important;
 }
@@ -5401,6 +5401,35 @@ footer {
   height: 100% !important;
   max-width: 640px !important;
   margin: 0 auto !important;
+}
+
+@media (min-width: 768px) {
+  .search-portal-root {
+    background: rgba(0, 0, 0, 0.75) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 24px !important;
+  }
+
+  .search-portal-inner {
+    max-width: 640px !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: 82vh !important;
+    background: #140a06 !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.85) !important;
+    overflow: hidden !important;
+  }
+
+  .search-portal-header {
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+    padding-top: 16px !important;
+  }
 }
 
 /* Üst Arama Çubuğu */
@@ -8021,20 +8050,8 @@ input, textarea, select {
   }
 
   .tabs {
-    padding: 1px 40px 1px 4px !important;
+    padding: 1px 12px 1px 4px !important;
     height: 38px !important;
-  }
-
-  .tab-chip {
-    height: 36px !important;
-    padding: 0 10px !important;
-    font-size: 0.78rem !important;
-  }
-
-  .tab-sticky-search {
-    width: 36px !important;
-    height: 36px !important;
-    right: 4px !important;
   }
 
   /* Ürün listesi ve ilk kategori üst boşlukları */
@@ -8353,7 +8370,10 @@ input, textarea, select {
 /* -------------------------------------------------------------------------- */
 /* 2. TABLET (768-1279px) & MASAÜSTÜ (≥1280px) HEADER DÜZENİ                  */
 /* -------------------------------------------------------------------------- */
-@media (min-width: 768px) and (max-width: 1279px) {
+/* -------------------------------------------------------------------------- */
+/* 2. TABLET (768-1023px) & MASAÜSTÜ (≥1024px) HEADER DÜZENİ                   */
+/* -------------------------------------------------------------------------- */
+@media (min-width: 768px) and (max-width: 1023px) {
   .top-bar-links.desktop-only,
   .top-bar-actions.desktop-only {
     display: none !important;
@@ -8381,28 +8401,60 @@ input, textarea, select {
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
   .top-bar-tablet-hamburger {
     display: none !important;
-  }
-
-  .top-bar-links.desktop-only {
-    display: flex !important;
-    align-items: center !important;
-    gap: 16px !important;
-  }
-
-  .top-bar-actions.desktop-only {
-    display: flex !important;
-    align-items: center !important;
-    gap: 16px !important;
   }
 
   .top-bar-inner {
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    gap: 16px !important;
+    max-width: 1200px !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .top-bar-links.desktop-only {
+    display: flex !important;
+    align-items: center !important;
+    gap: 32px !important;
+  }
+
+  .top-bar-links.desktop-only a {
+    position: relative !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: #dfd7cc !important;
+    text-decoration: none !important;
+    padding: 8px 0 !important;
+    transition: color 0.2s ease !important;
+    white-space: nowrap !important;
+  }
+
+  .top-bar-links.desktop-only a:hover,
+  .top-bar-links.desktop-only a.active {
+    color: #ff6b00 !important;
+  }
+
+  .top-bar-links.desktop-only a.active::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -2px !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 2px !important;
+    background: #ff6b00 !important;
+    border-radius: 2px !important;
+  }
+
+  .top-bar-actions.desktop-only {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
   }
 }
 
@@ -8412,29 +8464,87 @@ input, textarea, select {
   }
 }
 
-/* Header öğelerinin satır atlamaması */
+/* Header öğelerinin taşmaması ve buton stilleri */
 .top-bar-brand .brand-name {
   white-space: nowrap !important;
 }
 
-.btn-top-route {
+.top-bar-hours {
+  display: none !important;
+}
+
+.btn-top-search-icon {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+  border-radius: 12px !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  color: #dfd7cc !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-top-search-icon:hover {
+  background: rgba(255, 107, 0, 0.18) !important;
+  border-color: #ff6b00 !important;
+  color: #ff8800 !important;
+  transform: translateY(-1px) !important;
+}
+
+.btn-top-reservation {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  padding: 0 18px !important;
+  background: linear-gradient(135deg, #ff6b00 0%, #e05500 100%) !important;
+  border: 1px solid rgba(255, 140, 0, 0.5) !important;
+  border-radius: 12px !important;
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
   white-space: nowrap !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 2px 10px rgba(230, 81, 0, 0.35) !important;
 }
 
-/* Saat bilgisi: yalnızca ≥ 1440px ekranda görünür */
-@media (max-width: 1439px) {
-  .top-bar-hours {
-    display: none !important;
-  }
+.btn-top-reservation:hover {
+  background: linear-gradient(135deg, #f57c00 0%, #ff6b00 100%) !important;
+  box-shadow: 0 4px 16px rgba(230, 81, 0, 0.55) !important;
+  transform: translateY(-1px) !important;
+  color: #ffffff !important;
 }
 
-@media (min-width: 1440px) {
-  .top-bar-hours {
-    display: inline-flex !important;
-    white-space: nowrap !important;
-    font-size: 13px !important;
-    color: #a89a8e !important;
-  }
+.lang-switcher .lang-trigger-btn {
+  height: 44px !important;
+  min-height: 44px !important;
+  border-radius: 12px !important;
+  padding: 0 10px !important;
+  gap: 6px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  color: #faf5ee !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+}
+
+.lang-switcher .lang-chevron {
+  width: 11px !important;
+  height: 11px !important;
 }
 
 /* -------------------------------------------------------------------------- */
