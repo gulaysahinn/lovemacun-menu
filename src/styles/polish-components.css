@@ -524,12 +524,12 @@
 /* Masaüstünde kompakt yatay kartlar (toplam şerit yüksekliği <= ~180px, menü grid'iyle tam hizalı) */
 @media (min-width: 1024px) {
   .feat-strip-section {
-    padding-top: 10px !important;
-    padding-bottom: 8px !important;
+    padding-top: 32px !important;
+    padding-bottom: 24px !important;
   }
   .feat-strip-head {
-    margin-bottom: 8px !important;
-    gap: 2px !important;
+    margin-bottom: 12px !important;
+    gap: 4px !important;
   }
   .feat-strip-scroll {
     display: grid !important;
@@ -703,6 +703,13 @@
   width: 100% !important;
 }
 
+@media (min-width: 1024px) {
+  .tabs {
+    padding-left: 0 !important;
+    padding-right: 80px !important;
+  }
+}
+
 .tabs::-webkit-scrollbar {
   display: none !important;
 }
@@ -719,14 +726,14 @@
   pointer-events: none !important;
 }
 
-/* Sağ fade efekti (yumuşak kenar geçişi) */
+/* Sağ fade efekti (yumuşak kenar geçişi - 72px geniş, çipin kesilmesini önler) */
 .bar-fade-right {
   position: absolute !important;
   top: 0 !important;
   bottom: 0 !important;
   right: 0 !important;
-  width: 28px !important;
-  background: linear-gradient(270deg, rgba(18, 8, 4, 0.95), transparent) !important;
+  width: 72px !important;
+  background: linear-gradient(270deg, rgba(14, 8, 4, 0.98) 0%, rgba(14, 8, 4, 0.75) 45%, transparent 100%) !important;
   z-index: 5 !important;
   pointer-events: none !important;
 }

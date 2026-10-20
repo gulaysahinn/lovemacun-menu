@@ -14,7 +14,8 @@
     "optimize:images": "node scripts/optimize-images.mjs",
     "package": "node scripts/package-deploy.mjs --prod",
     "package:staging": "node scripts/package-deploy.mjs --staging",
-    "package:prod": "node scripts/package-deploy.mjs --prod"
+    "package:prod": "node scripts/package-deploy.mjs --prod",
+    "test:release": "node scripts/run-release-checks.mjs"
   },
   "dependencies": {
     "lucide-react": "^1.55.0",

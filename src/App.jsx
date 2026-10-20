@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, Suspense, lazy } from 'react'
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation, Navigate, useParams } from 'react-router-dom'
 import { ArrowUp } from 'lucide-react'
 import { TopBar } from './components/Navigation.jsx'
 import { MobileAppHeader } from './components/MobileAppHeader.jsx'
@@ -12,6 +12,7 @@ import { BottomSheet } from './components/BottomSheet.jsx'
 import { HamburgerDrawer } from './components/HamburgerDrawer.jsx'
 import { MenuPage } from './pages/MenuPage.jsx'
 import { HeroVideo } from './components/HeroVideo.jsx'
+import { BLOG_POSTS } from './data/blog.js'
 
 // Route bazlı dinamik kod bölme (Code-splitting) - İlk yükleme JS boyutunu hafifletir
 const StoryPage = lazy(() => import('./pages/StoryPage.jsx').then((m) => ({ default: m.StoryPage })))
@@ -20,6 +21,15 @@ const BlogListPage = lazy(() => import('./pages/BlogListPage.jsx').then((m) => (
 const BlogPostPage = lazy(() => import('./pages/BlogPostPage.jsx').then((m) => ({ default: m.BlogPostPage })))
 const ReservationPage = lazy(() => import('./pages/ReservationPage.jsx').then((m) => ({ default: m.ReservationPage })))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx').then((m) => ({ default: m.NotFoundPage })))
+
+function BlogRedirectOrNotFound() {
+  const { slug } = useParams()
+  const post = BLOG_POSTS.find((p) => p.slug === slug)
+  if (post) {
+    return <Navigate to={`/${slug}`} replace />
+  }
+  return <NotFoundPage />
+}
 
 // Hero bileşeni – max-width container'ından bağımsız, tam ekran genişliğinde
 function MenuHeroSection() {
@@ -218,7 +228,7 @@ function AppContent() {
             <Route path="/hakkimizda" element={<StoryPage />} />
             <Route path="/iletisim" element={<ContactPage />} />
             <Route path="/blog" element={<BlogListPage />} />
-            <Route path="/blog/:slug" element={<BlogPostPage />} />
+            <Route path="/blog/:slug" element={<BlogRedirectOrNotFound />} />
             <Route path="/rezervasyon" element={<ReservationPage />} />
             <Route path="/buyukadada-ezber-bozan-bir-lezzet-tasfirinlovemacun" element={<BlogPostPage />} />
             <Route path="*" element={<NotFoundPage />} />

@@ -1077,17 +1077,23 @@
   .menu-section .grid,
   .menu-products-main .grid {
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 18px !important;
+    gap: 16px !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    width: 100% !important;
   }
 }
 
-/* 1200px ve üzeri: GENİŞ EKRAN 4 KOLONLU GRID */
+/* 1200px ve üzeri: GENİŞ EKRAN 4 KOLONLU GRID (Öne Çıkanlar ile Birebir Eşit Genişlik ve Hizalama) */
 @media (min-width: 1200px) {
   .cat .grid,
   .menu-section .grid,
   .menu-products-main .grid {
     grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-    gap: 20px !important;
+    gap: 16px !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    width: 100% !important;
   }
 }
 

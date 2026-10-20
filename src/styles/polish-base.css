@@ -1650,13 +1650,13 @@ main.app-main-content {
    3) RESPONSİV MEDYA KURALLARI (DESKTOP 3, TABLET 2, MOBİL 2 VEYA 1)
    ========================================================================== */
 
-/* MASAÜSTÜNDE 3 SÜTUN, MAX-WIDTH 1100PX */
+/* MASAÜSTÜNDE GENEL GRID TABANI (Container ile tam hizalı) */
 @media (min-width: 1025px) {
   .grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    max-width: 1100px !important;
-    margin: 0 auto !important;
-    gap: 20px !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    width: 100% !important;
+    gap: 16px !important;
   }
   .card-compact-badge {
     display: none !important;

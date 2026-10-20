@@ -17,6 +17,7 @@ Options -Indexes
   RewriteRule ^hakkimizda/?$ /hikayemiz [R=301,L,NE]
   RewriteRule ^rezervasyon/$ /rezervasyon [R=301,L,NE]
   RewriteRule ^galeri/?$ /hikayemiz [R=301,L,NE]
+  RewriteRule ^blog/buyukadada-ezber-bozan-bir-lezzet-tasfirinlovemacun/?$ /buyukadada-ezber-bozan-bir-lezzet-tasfirinlovemacun [R=301,L,NE]
   RewriteRule ^blog/?$ /blog [R=301,L,NE]
   RewriteRule ^category/tasfirinlovemacun/?$ /blog [R=301,L,NE]
   RewriteRule ^author/tasfirin/?$ /blog [R=301,L,NE]

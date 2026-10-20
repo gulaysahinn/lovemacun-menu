@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-export function PageMeta({ title, description, canonical, jsonLd }) {
+export function PageMeta({ title, description, canonical, jsonLd, noindex }) {
   useEffect(() => {
     if (typeof document === 'undefined') return
     try {
@@ -30,6 +30,18 @@ export function PageMeta({ title, description, canonical, jsonLd }) {
 
         let ogUrl = document.querySelector('meta[property="og:url"]')
         if (ogUrl) ogUrl.content = canonical
+      }
+
+      let metaRobots = document.querySelector('meta[name="robots"]')
+      if (noindex) {
+        if (!metaRobots) {
+          metaRobots = document.createElement('meta')
+          metaRobots.name = 'robots'
+          document.head.appendChild(metaRobots)
+        }
+        metaRobots.content = 'noindex, nofollow'
+      } else if (metaRobots && metaRobots.content.includes('noindex')) {
+        metaRobots.remove()
       }
 
       // Dynamic JSON-LD update if provided
