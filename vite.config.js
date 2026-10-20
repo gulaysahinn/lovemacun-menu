@@ -54,7 +54,7 @@ export default defineConfig(({ mode }) => {
   const siteUrl = (process.env.VITE_SITE_URL || CONFIG.siteUrl || 'https://tasfirinlovemacun.com').replace(/\/+$/, '')
 
   return {
-    base: './',
+    base: '/',
     resolve: {
       dedupe: ['react', 'react-dom', 'react-router-dom']
     },

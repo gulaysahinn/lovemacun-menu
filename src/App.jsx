@@ -218,6 +218,7 @@ function AppContent() {
             <Route path="/hakkimizda" element={<StoryPage />} />
             <Route path="/iletisim" element={<ContactPage />} />
             <Route path="/blog" element={<BlogListPage />} />
+            <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/rezervasyon" element={<ReservationPage />} />
             <Route path="/buyukadada-ezber-bozan-bir-lezzet-tasfirinlovemacun" element={<BlogPostPage />} />
             <Route path="*" element={<NotFoundPage />} />
