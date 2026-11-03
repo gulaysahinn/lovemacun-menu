@@ -7,7 +7,7 @@ export const BLOG_POSTS = [
     formattedDate: '8 Haziran 2026',
     author: 'tasfirin',
     category: 'taşfırınlovemacun',
-    image: '/blog/WhatsApp-Image-2026-06-08-at-16.16.22.jpeg',
+    image: '/blog/WhatsApp-Image-2026-06-08-at-16.16.22.webp',
     summary:
       'Büyükada’nın o nostaljik, sakin atmosferinde yürürken burnunuza aniden mis gibi odun ateşi ve baharat kokuları gelirse, şaşırmayın. Taşfırınlovemacun’un gizli favori mekan olma hikayesi...',
     // Metin kullanıcının verdiği haliyle birebir, değiştirilmeden:

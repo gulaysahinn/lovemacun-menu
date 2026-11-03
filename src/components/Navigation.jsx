@@ -43,40 +43,36 @@ export function TopBar({ onOpenSearch, onOpenHamburger, isHamburgerOpen }) {
             <span className="brand-name">{CONFIG.name}</span>
           </Link>
 
-          {/* Desktop Navigation Links (≥ 1280px) */}
+          {/* Desktop Navigation Links (≥ 1024px) */}
           <nav className="top-bar-links desktop-only" aria-label="Ana Gezinti">
             <Link to="/" className={`notranslate ${isMenu ? 'active' : ''}`} translate="no">{t('menu', lang)}</Link>
-            <span className="top-bar-sep">·</span>
             <Link to="/hikayemiz" className={`notranslate ${isStory ? 'active' : ''}`} translate="no">{t('story', lang)}</Link>
-            <span className="top-bar-sep">·</span>
             <Link to="/blog" className={`notranslate ${isBlog ? 'active' : ''}`} translate="no">{t('blog', lang)}</Link>
-            <span className="top-bar-sep">·</span>
             <Link to="/iletisim" className={`notranslate ${isContact ? 'active' : ''}`} translate="no">{t('contact', lang)}</Link>
           </nav>
 
-          {/* Desktop Quick Info & Action Buttons (≥ 1280px) */}
+          {/* Desktop Action Buttons (≥ 1024px) */}
           <div className="top-bar-actions desktop-only">
-            <span className="top-bar-hours notranslate" translate="no">{t('hoursEveryday', lang)}</span>
             <button
               type="button"
-              className="btn btn-top-search notranslate"
+              className="btn btn-top-search-icon"
               onClick={onOpenSearch}
-              aria-label={t('search', lang)}
-              translate="no"
+              aria-label="Ara"
+              title="Menüde Ara (/ veya Ctrl+K)"
             >
-              <Search size={15} /> {t('search', lang)}
+              <Search size={19} />
             </button>
             <Link
               to="/rezervasyon"
               className={`btn btn-top-reservation notranslate ${isReservation ? 'active' : ''}`}
               translate="no"
             >
-              <Calendar size={15} /> {t('reservation', lang)}
+              <Calendar size={16} /> {t('reservation', lang)}
             </Link>
             <LanguageSwitcher align="right" />
           </div>
 
-          {/* Tablet (768px - 1279px) Hamburger Button */}
+          {/* Tablet (768px - 1023px) Hamburger Button */}
           <button
             type="button"
             className="top-bar-tablet-hamburger"

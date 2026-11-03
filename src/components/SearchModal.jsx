@@ -50,8 +50,7 @@ const getImg = (name, manualImg) => {
   if (manualImg) {
     const sm = asset(manualImg)
     const lg = asset(manualImg.replace(/-sm\.webp$/, '.webp'))
-    const cut = asset(manualImg.replace(/\/img\//, '/img-cut/').replace(/-sm\.webp$/, '.webp'))
-    return { sm, lg, cut: cut || lg }
+    return { sm, lg, cut: lg }
   }
   const entry = images[slug(name)]
   if (!entry) return null
@@ -59,7 +58,8 @@ const getImg = (name, manualImg) => {
     const lg = asset(entry.replace(/-sm\.webp$/, '.webp'))
     return { sm: asset(entry), lg, cut: lg }
   }
-  return { sm: asset(entry.sm), lg: asset(entry.lg), cut: asset(entry.cut || entry.lg) }
+  const rawCut = entry.cut && !entry.cut.includes('/img-cut/') ? entry.cut : entry.lg
+  return { sm: asset(entry.sm), lg: asset(entry.lg), cut: asset(rawCut || entry.lg) }
 }
 
 // Gerçek menü ürünlerine dayalı popüler aramalar (her çip sonuç döndürür)
@@ -84,6 +84,13 @@ export function SearchModal({ isOpen, onClose, onSelectProduct }) {
           const g = isArr ? i[4] : i.g
           const soldOut = !isArr && Boolean(i.soldOut)
           const isNew = !isArr && Boolean(i.isNew)
+          const itemTags = !isArr && Array.isArray(i.tags) ? i.tags : []
+          const tagKeywords = [
+            ...itemTags,
+            itemTags.includes('vejetaryen') ? 'vejeteryan sebzeli etsiz' : '',
+            itemTags.includes('aci') ? 'acili baharatli' : '',
+            itemTags.includes('sef') ? 'sefin secimi ozel' : '',
+          ].join(' ')
           return {
             id: !isArr ? i.id : name,
             name,
@@ -99,6 +106,7 @@ export function SearchModal({ isOpen, onClose, onSelectProduct }) {
             normName: normalizeText(name),
             normDesc: normalizeText(desc),
             normCat: normalizeText(c.name),
+            normTags: normalizeText(tagKeywords),
           }
         })
     )
@@ -168,13 +176,14 @@ export function SearchModal({ isOpen, onClose, onSelectProduct }) {
   const trimmed = query.trim()
   const normQuery = normalizeText(trimmed)
 
-  // Filtreleme: İsim, açıklama veya kategori adında Türkçe/aksan duyarsız arama
+  // Filtreleme: İsim, açıklama, kategori veya etiketlerde Türkçe/aksan duyarsız arama
   const results = trimmed
     ? allProducts.filter(
         (p) =>
           p.normName.includes(normQuery) ||
           p.normDesc.includes(normQuery) ||
-          p.normCat.includes(normQuery)
+          p.normCat.includes(normQuery) ||
+          p.normTags.includes(normQuery)
       )
     : []
 
@@ -195,6 +204,11 @@ export function SearchModal({ isOpen, onClose, onSelectProduct }) {
       role="dialog"
       aria-modal="true"
       aria-label="Menüde Arama"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) {
+          onClose()
+        }
+      }}
     >
       <div className="search-portal-inner">
         {/* Üst Arama Çubuğu */}

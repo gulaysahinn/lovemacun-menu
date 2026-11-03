@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import {
   Calendar,
@@ -186,6 +186,10 @@ export function BlogPostPage() {
       '@type': 'Restaurant',
       name: CONFIG.name,
       logo: 'https://tasfirinlovemacun.com/logo-badge.png'
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://tasfirinlovemacun.com/${post.slug}`
     },
     image: `https://tasfirinlovemacun.com${coverSrc}`,
     description: post.summary

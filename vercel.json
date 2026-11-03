@@ -11,7 +11,9 @@
     { "source": "/category/tasfirinlovemacun", "destination": "/blog", "permanent": true },
     { "source": "/category/tasfirinlovemacun/", "destination": "/blog", "permanent": true },
     { "source": "/author/tasfirin", "destination": "/blog", "permanent": true },
-    { "source": "/author/tasfirin/", "destination": "/blog", "permanent": true }
+    { "source": "/author/tasfirin/", "destination": "/blog", "permanent": true },
+    { "source": "/blog/buyukadada-ezber-bozan-bir-lezzet-tasfirinlovemacun", "destination": "/buyukadada-ezber-bozan-bir-lezzet-tasfirinlovemacun", "permanent": true },
+    { "source": "/blog/buyukadada-ezber-bozan-bir-lezzet-tasfirinlovemacun/", "destination": "/buyukadada-ezber-bozan-bir-lezzet-tasfirinlovemacun", "permanent": true }
   ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }

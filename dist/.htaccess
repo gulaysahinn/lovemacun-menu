@@ -1,6 +1,23 @@
 Options -Indexes
 
+# Gizli dosyalara (.env, .git vb.) ve kilit/log/yedek dosyalarina erisimi engelle
+<FilesMatch "(^\.(?!htaccess$|nojekyll$)|\.(lock|log|bak|tmp|sql|sh)$)">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order deny,allow
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
 <IfModule mod_headers.c>
+  # Temel HTTP Guvenlik Basliklari
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header unset X-Powered-By
+
   # menu.json ve seed için no-cache ve ETag
   <FilesMatch "menu(\.seed)?\.json$">
     Header set Cache-Control "no-cache, must-revalidate"
@@ -17,6 +34,7 @@ Options -Indexes
   RewriteRule ^hakkimizda/?$ /hikayemiz [R=301,L,NE]
   RewriteRule ^rezervasyon/$ /rezervasyon [R=301,L,NE]
   RewriteRule ^galeri/?$ /hikayemiz [R=301,L,NE]
+  RewriteRule ^blog/buyukadada-ezber-bozan-bir-lezzet-tasfirinlovemacun/?$ /buyukadada-ezber-bozan-bir-lezzet-tasfirinlovemacun [R=301,L,NE]
   RewriteRule ^blog/?$ /blog [R=301,L,NE]
   RewriteRule ^category/tasfirinlovemacun/?$ /blog [R=301,L,NE]
   RewriteRule ^author/tasfirin/?$ /blog [R=301,L,NE]

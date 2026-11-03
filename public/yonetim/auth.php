@@ -3,29 +3,36 @@
  * Taş Fırın Lovemacun - Kimlik Doğrulama ve Güvenlik Çekirdeği (auth.php)
  */
 
+if (php_sapi_name() !== 'cli' && isset($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME']) === __FILE__) {
+    http_response_code(403);
+    exit('Dogrudan erisim engellendi.');
+}
+
 define('AUTH_INCLUDED', true);
 require_once __DIR__ . '/paths.php';
 
-// Güvenlik Başlıkları
-header('X-Frame-Options: DENY');
-header('X-Content-Type-Options: nosniff');
-header('Referrer-Policy: same-origin');
-header("Content-Security-Policy: default-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self';");
-header('X-Robots-Tag: noindex, nofollow');
-header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+if (php_sapi_name() !== 'cli') {
+    // Güvenlik Başlıkları
+    header('X-Frame-Options: DENY');
+    header('X-Content-Type-Options: nosniff');
+    header('Referrer-Policy: same-origin');
+    header("Content-Security-Policy: default-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self';");
+    header('X-Robots-Tag: noindex, nofollow');
+    header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
 
-// Session Güvenlik Yapılandırması
-if (session_status() === PHP_SESSION_NONE) {
-    $isSecure = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443);
-    session_set_cookie_params([
-        'lifetime' => 0,
-        'path' => '/',
-        'domain' => '',
-        'secure' => $isSecure,
-        'httponly' => true,
-        'samesite' => 'Strict'
-    ]);
-    session_start();
+    // Session Güvenlik Yapılandırması
+    if (session_status() === PHP_SESSION_NONE) {
+        $isSecure = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443);
+        session_set_cookie_params([
+            'lifetime' => 0,
+            'path' => '/',
+            'domain' => '',
+            'secure' => $isSecure,
+            'httponly' => true,
+            'samesite' => 'Strict'
+        ]);
+        session_start();
+    }
 }
 
 // 30 Dakikalık Hareketsizlik Zaman Aşımı
@@ -181,11 +188,28 @@ function record_login_failure($username = null) {
     $ip = get_client_ip();
     $rateLimitFile = LOGS_DIR . '/rate_limits.json';
     $now = time();
+    $window = 15 * 60;
 
     $data = ['ips' => [], 'users' => []];
     if (file_exists($rateLimitFile)) {
         $json = @file_get_contents($rateLimitFile);
         $data = json_decode($json, true) ?: ['ips' => [], 'users' => []];
+    }
+
+    // Süresi dolmuş eski kayıtları temizle (dosya şişmesini önler)
+    foreach (['ips', 'users'] as $bucket) {
+        if (!empty($data[$bucket]) && is_array($data[$bucket])) {
+            foreach ($data[$bucket] as $k => $timestamps) {
+                $valid = array_values(array_filter((array)$timestamps, function($ts) use ($now, $window) {
+                    return ($now - $ts) < $window;
+                }));
+                if (empty($valid)) {
+                    unset($data[$bucket][$k]);
+                } else {
+                    $data[$bucket][$k] = $valid;
+                }
+            }
+        }
     }
 
     if (!isset($data['ips'][$ip])) $data['ips'][$ip] = [];

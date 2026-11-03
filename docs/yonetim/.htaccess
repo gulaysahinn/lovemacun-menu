@@ -1,7 +1,7 @@
-# Hassas dosyalari ve gizli dosyalari web erisiminden koru
+# Hassas dosyalari, kutuphane betiklerini ve kilit/veri dosyalarini web erisiminden koru
 Options -Indexes
 
-<FilesMatch "^(paths\.php|config\.php|users\.json|setup_key\.php|kurulum\.lock|\..*)">
+<FilesMatch "^(auth\.php|paths\.php|config\.php|install_hash\.php|setup_key\.php|.*\.(json|lock|log|bak|tmp|md|txt)|\..*)">
   <IfModule mod_authz_core.c>
     Require all denied
   </IfModule>

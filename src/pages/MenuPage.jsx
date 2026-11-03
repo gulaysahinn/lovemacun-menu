@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect, useMemo } from 'react'
-import { Search, Sparkles } from 'lucide-react'
+import { Sparkles } from 'lucide-react'
 import { PageMeta } from '../components/PageMeta.jsx'
 import { CATS, FEATURED, TAGS, useMenuData } from '../menu.js'
 import { CONFIG } from '../config.js'
-import { TagBadges, SignatureLoop } from '../Extras.jsx'
+import { TagBadges } from '../Extras.jsx'
 import { useLang, t } from '../utils/i18n.js'
 import images from '../images.json'
 
@@ -37,9 +37,7 @@ const getImg = (name, manualImg) => {
   if (manualImg) {
     const sm = asset(manualImg)
     const lg = asset(manualImg.replace(/-sm\.webp$/, '.webp'))
-    const cut = asset(manualImg.replace(/\/img\//, '/img-cut/').replace(/-sm\.webp$/, '.webp'))
-    const cutSm = asset(manualImg.replace(/\/img\//, '/img-cut/').replace(/\.webp$/, '-sm.webp'))
-    return { sm, lg, cut: cut || lg, cutSm: cutSm || sm }
+    return { sm, lg, cut: lg, cutSm: sm }
   }
   const entry = images[slug(name)]
   if (!entry) return null
@@ -47,34 +45,19 @@ const getImg = (name, manualImg) => {
     const lg = asset(entry.replace(/-sm\.webp$/, '.webp'))
     return { sm: asset(entry), lg, cut: lg, cutSm: asset(entry) }
   }
+  const rawCut = entry.cut && !entry.cut.includes('/img-cut/') ? entry.cut : entry.lg
+  const rawCutSm = entry.cutSm && !entry.cutSm.includes('/img-cut/') ? entry.cutSm : entry.sm
   return {
     sm: asset(entry.sm),
     lg: asset(entry.lg),
-    cut: asset(entry.cut || entry.lg || entry.sm),
-    cutSm: asset(entry.cutSm || entry.cut || entry.sm),
+    cut: asset(rawCut || entry.lg || entry.sm),
+    cutSm: asset(rawCutSm || rawCut || entry.sm),
   }
 }
 
-const getCategoryCutout = (cat) => {
-  if (!cat?.items) return null
-  for (const item of cat.items) {
-    const isArr = Array.isArray(item)
-    const name = isArr ? item[0] : item.name
-    const manualImg = isArr ? item[3] : (item.image || item.manualImg)
-    const entry = getImg(name, manualImg)
-    if (entry?.cut) return entry.cut
-    if (entry?.cutSm) return entry.cutSm
-  }
-  return null
-}
-
-export function MenuPage({ onSelectProduct, onOpenSearch }) {
+export function MenuPage({ onSelectProduct }) {
   const { cats, featured, tags, loading } = useMenuData()
   const lang = useLang()
-
-  const CAT_CUTOUTS = useMemo(() => {
-    return Object.fromEntries((cats || []).map((c) => [c.id, getCategoryCutout(c)]))
-  }, [cats])
 
   const NON_EMPTY_CATS = useMemo(() => {
     return (cats || []).filter((c) => c.items && c.items.length > 0)
@@ -137,14 +120,6 @@ export function MenuPage({ onSelectProduct, onOpenSearch }) {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  const isClickScrollingRef = useRef(false)
-  const clickScrollTimeoutRef = useRef(null)
-  const activeCatRef = useRef(activeCat)
-
-  useEffect(() => {
-    activeCatRef.current = activeCat
-  }, [activeCat])
-
   // Center active category chip smoothly in the horizontal tabs bar
   const scrollToTab = (catId) => {
     const btn = tabRefs.current[catId]
@@ -167,130 +142,37 @@ export function MenuPage({ onSelectProduct, onOpenSearch }) {
     }
   }, [])
 
-  // User manual touch or wheel gesture interrupts programmatic smooth-scroll lock
-  useEffect(() => {
-    const unlock = () => {
-      isClickScrollingRef.current = false
-      if (clickScrollTimeoutRef.current) {
-        clearTimeout(clickScrollTimeoutRef.current)
-      }
-    }
-    window.addEventListener('scrollend', unlock, { passive: true })
-    window.addEventListener('touchstart', unlock, { passive: true })
-    window.addEventListener('wheel', unlock, { passive: true })
-    return () => {
-      window.removeEventListener('scrollend', unlock)
-      window.removeEventListener('touchstart', unlock)
-      window.removeEventListener('wheel', unlock)
-    }
-  }, [])
-
-  // Mobil cihazlarda dikey kaydırmaya göre aktif kategoriyi titreşimsiz güncelleyen Scroll-Spy
-  useEffect(() => {
-    if (!isMobile) return
-
-    let ticking = false
-
-    const updateActiveCategoryOnScroll = () => {
-      if (isClickScrollingRef.current) {
-        ticking = false
-        return
-      }
-
-      // 1. Sayfa en altındaysa son kategoriyi aktif yap
-      const scrollHeight = document.documentElement.scrollHeight
-      const scrollTop = window.scrollY
-      const clientHeight = window.innerHeight
-      if (scrollTop + clientHeight >= scrollHeight - 50) {
-        const lastCat = NON_EMPTY_CATS[NON_EMPTY_CATS.length - 1]
-        if (lastCat && lastCat.id !== activeCatRef.current) {
-          setActiveCat(lastCat.id)
-          activeCatRef.current = lastCat.id
-          scrollToTab(lastCat.id)
-        }
-        ticking = false
-        return
-      }
-
-      // 2. Sticky header (56px) + sticky kategori çubuğu (~50px) = ~106px.
-      // Tetikleyici algılama çizgisi 130px olarak belirlenir.
-      const triggerY = 130
-      let matchedCatId = null
-
-      for (const c of NON_EMPTY_CATS) {
-        const el = document.getElementById(c.id)
-        if (!el) continue
-        const rect = el.getBoundingClientRect()
-        // Üstü tetikleyicinin üstünde ve altı tetikleyicinin altındaysa tam bu kategori okunuyor
-        if (rect.top <= triggerY && rect.bottom > triggerY) {
-          matchedCatId = c.id
-          break
-        }
-      }
-
-      // 3. İlk kategorinin üstündeyse (hero video veya öne çıkanlar), ilk kategori aktif kalır
-      if (!matchedCatId && NON_EMPTY_CATS.length > 0) {
-        const firstEl = document.getElementById(NON_EMPTY_CATS[0].id)
-        if (firstEl && firstEl.getBoundingClientRect().top > triggerY) {
-          matchedCatId = NON_EMPTY_CATS[0].id
-        }
-      }
-
-      if (matchedCatId && matchedCatId !== activeCatRef.current) {
-        setActiveCat(matchedCatId)
-        activeCatRef.current = matchedCatId
-        scrollToTab(matchedCatId)
-      }
-
-      ticking = false
-    }
-
-    const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updateActiveCategoryOnScroll)
-        ticking = true
-      }
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [isMobile])
-
   const handleSelectCat = (catId) => {
-    if (clickScrollTimeoutRef.current) {
-      clearTimeout(clickScrollTimeoutRef.current)
-    }
-    // Tıklamayla kaydırma süresince scroll-spy'ı kilitleyerek yanıp sönmeyi ve çakışmayı engelle
-    isClickScrollingRef.current = true
-
     setActiveCat(catId)
-    activeCatRef.current = catId
+    if (tagSel.length > 0) {
+      setTagSel([])
+    }
     scrollToTab(catId)
 
-    if (isMobile) {
-      const targetEl = document.getElementById(catId)
-      if (targetEl) {
-        // Sticky başlık ve kategori çubuğunun altında 116px boşluk bırak
-        const topOffset = targetEl.getBoundingClientRect().top + window.scrollY - 116
-        window.scrollTo({ top: Math.max(0, topOffset), behavior: 'smooth' })
+    const productsEl = document.querySelector('.menu-products-main')
+    if (productsEl) {
+      const stickyOffset = isMobile ? 106 : 124
+      const rect = productsEl.getBoundingClientRect()
+      if (rect.top < stickyOffset - 16) {
+        const targetTop = rect.top + window.scrollY - stickyOffset
+        window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' })
       }
     }
-
-    clickScrollTimeoutRef.current = setTimeout(() => {
-      isClickScrollingRef.current = false
-    }, 850)
   }
 
   const passTag = (name) => tagSel.every((t) => (tags[t] || []).includes(name))
 
   const currentCat = NON_EMPTY_CATS.find((c) => c.id === activeCat) || NON_EMPTY_CATS[0]
-  const currentCatIdx = NON_EMPTY_CATS.findIndex((c) => c.id === currentCat.id)
+  const currentCatIdx = NON_EMPTY_CATS.findIndex((c) => c.id === currentCat?.id)
   const nextCat = currentCatIdx >= 0 && currentCatIdx < NON_EMPTY_CATS.length - 1
     ? NON_EMPTY_CATS[currentCatIdx + 1]
     : NON_EMPTY_CATS[0]
 
-  // Mobilde tüm kategorileri sırayla gösterip scroll-spy çalıştırır; masaüstünde seçili kategoriyi korur
-  const renderedCategories = isMobile ? NON_EMPTY_CATS : (currentCat ? [currentCat] : [])
+  // Etiket filtresi (Şefin Seçimi / Acılı / Vejetaryen) aktifken eşleşen ürünü olan kategorileri göster;
+  // normal gezinmede hem mobil hem masaüstünde yalnızca seçili kategoriyi göster
+  const renderedCategories = tagSel.length > 0
+    ? NON_EMPTY_CATS.filter((c) => (c.items || []).some((i) => passTag(Array.isArray(i) ? i[0] : i.name)))
+    : (currentCat ? [currentCat] : [])
 
   return (
     <div className="menu-page">
@@ -382,16 +264,6 @@ export function MenuPage({ onSelectProduct, onOpenSearch }) {
                 )
               })}
             </div>
-            {/* Sağda sticky arama butonu */}
-            <button
-              type="button"
-              className="tab-sticky-search"
-              onClick={onOpenSearch}
-              aria-label="Menüde Ara"
-              title="Menüde Ara"
-            >
-              <Search size={17} />
-            </button>
           </div>
         </div>
       </section>
@@ -402,8 +274,8 @@ export function MenuPage({ onSelectProduct, onOpenSearch }) {
         <div className="tag-filter-bar" role="toolbar" aria-label="Filtreler">
           {Object.entries(tags || {}).map(([tagKey, list]) => {
             if (!list || list.length === 0) return null
-            // SHOW_DIET_TAGS=false → vejetaryen/vegan/glutensiz gizle
-            const dietTags = ['vejetaryen', 'vegan', 'glutensiz']
+            // SHOW_DIET_TAGS=false → yalnızca vegan/glutensiz gizle (Şefin Seçimi, Acılı ve Vejetaryen görünür)
+            const dietTags = ['vegan', 'glutensiz']
             if (!CONFIG.SHOW_DIET_TAGS && dietTags.includes(tagKey)) return null
             const isSelected = tagSel.includes(tagKey)
             const labels = {
@@ -430,9 +302,33 @@ export function MenuPage({ onSelectProduct, onOpenSearch }) {
           })}
         </div>
 
+        {loading && renderedCategories.length === 0 && (
+          <section className="cat">
+            <div className="grid">
+              {Array.from({ length: 6 }).map((_, sIdx) => (
+                <div key={`init-skel-${sIdx}`} className="skeleton-card" />
+              ))}
+            </div>
+          </section>
+        )}
+
+        {!loading && renderedCategories.length === 0 && tagSel.length > 0 && (
+          <section className="cat">
+            <div style={{ padding: '28px 16px', textAlign: 'center', color: '#cbbbae' }}>
+              <p style={{ margin: '0 0 12px' }}>Seçili filtreye uygun ürün bulunamadı.</p>
+              <button
+                type="button"
+                className="btn btn-next-category"
+                onClick={() => setTagSel([])}
+              >
+                Filtreleri Temizle
+              </button>
+            </div>
+          </section>
+        )}
+
         {renderedCategories.map((catItem) => {
           const items = (catItem?.items || []).filter((i) => passTag(Array.isArray(i) ? i[0] : i.name))
-          if (items.length === 0 && isMobile) return null
 
           return (
             <section key={catItem.id} id={catItem.id} className="cat">
@@ -441,8 +337,6 @@ export function MenuPage({ onSelectProduct, onOpenSearch }) {
                   {catItem.name} · {items.length} ürün
                 </span>
               </div>
-
-              <SignatureLoop catId={catItem.id} fallbackCutout={CAT_CUTOUTS[catItem.id]} />
 
               <div className="grid">
                 {loading && items.length === 0
@@ -522,19 +416,13 @@ export function MenuPage({ onSelectProduct, onOpenSearch }) {
                 })}
               </div>
 
-              {/* Sonraki Kategori Butonu (Masaüstünde tek kategori modunda) */}
-              {!isMobile && nextCat && nextCat.id !== catItem.id && (
+              {/* Sonraki Kategori Butonu */}
+              {tagSel.length === 0 && nextCat && nextCat.id !== catItem.id && (
                 <div className="next-category-wrap">
                   <button
                     type="button"
                     className="btn btn-next-category"
-                    onClick={() => {
-                      handleSelectCat(nextCat.id)
-                      const el = document.getElementById('kategoriler')
-                      if (el) {
-                        el.scrollIntoView({ behavior: 'smooth' })
-                      }
-                    }}
+                    onClick={() => handleSelectCat(nextCat.id)}
                   >
                     Sonraki kategori: {nextCat.name} →
                   </button>

@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
-import { Search, Menu } from 'lucide-react'
+import { Menu } from 'lucide-react'
 import { CONFIG } from '../config.js'
 import { asset } from '../utils/asset.js'
 
-export function MobileAppHeader({ onOpenSearch, onOpenHamburger, isHamburgerOpen }) {
+export function MobileAppHeader({ onOpenHamburger, isHamburgerOpen }) {
   return (
     <header className="mobile-app-header mobile-only" aria-label="Taş Fırın Lovemacun Mobil Başlık">
       <div className="mobile-app-header-inner">
@@ -19,16 +19,8 @@ export function MobileAppHeader({ onOpenSearch, onOpenHamburger, isHamburgerOpen
           <span className="mobile-app-title">{CONFIG.name}</span>
         </Link>
 
-        {/* Sağ: Arama ve Hamburger Düğmesi (Dil çekmeceye taşındı) */}
+        {/* Sağ: Hamburger Düğmesi */}
         <div className="mobile-app-actions">
-          <button
-            type="button"
-            className="mobile-app-icon-btn mobile-app-search-btn"
-            onClick={onOpenSearch}
-            aria-label="Menüde Ara"
-          >
-            <Search size={19} />
-          </button>
           <button
             type="button"
             className="mobile-app-icon-btn mobile-app-hamburger-btn"

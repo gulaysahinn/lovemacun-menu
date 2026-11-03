@@ -5,12 +5,12 @@ import {
   Sparkles,
   MapPin,
   UtensilsCrossed,
-  ShieldCheck,
   Award,
-  Users,
   Compass,
-  Clock,
-  ArrowRight
+  Volume2,
+  VolumeX,
+  Play,
+  Pause
 } from 'lucide-react'
 import { PageMeta } from '../components/PageMeta.jsx'
 import { HeroVideo } from '../components/HeroVideo.jsx'
@@ -19,11 +19,230 @@ import { CONFIG } from '../config.js'
 import { asset } from '../utils/asset.js'
 
 const VALUES_LIST = [
-  { icon: '🌿', title: 'Taze Malzeme', desc: 'Günlük yeşillikler ve taze malzemeler' },
-  { icon: '🔥', title: 'Taş Fırın Lezzeti', desc: 'Geleneksel taş fırında nar gibi kızaran hamur' },
-  { icon: '⭐', title: 'Kaliteli Hizmet', desc: 'Güler yüzlü ada esnafı samimiyeti' },
-  { icon: '🏡', title: 'Sıcak Ortam', desc: 'Kendinizi rahat hissedeceğiniz samimi sofra' },
+  { icon: '🌿', title: 'Günlük Taze Malzeme', desc: 'Her sabah seçilen taze yeşillikler, etler ve baharatlar' },
+  { icon: '🔥', title: 'Odun Ateşi & Taş Fırın', desc: 'Geleneksel taş fırında nar gibi kızaran çıtır hamur' },
+  { icon: '👨‍🍳', title: 'Usta Ellerden', desc: 'Nesiller boyu aktarılan reçeteler ve el açması özen' },
+  { icon: '🏡', title: 'Sıcak Ada Sofrası', desc: 'Büyükada’da kendinizi evinizde hissedeceğiniz samimi ortam' },
 ]
+
+const PROMO_VIDEOS = [
+  {
+    id: 'tanitim-2',
+    src: '/video/tanitimvideosu2.mp4',
+    poster: '/video/tanitimvideosu2-poster.webp',
+    badge: '🎙️ SESLİ TANITIM FİLMİ',
+    title: 'Büyükada’da Lezzet Aşkla Başlar',
+    desc: 'Vapur yolculuğundan taş fırın ateşine; çıtır lahmacun, uzayan kaşarlı pide, kömür ateşinde İskender ve sıcacık ada soframız.',
+    quote: '“Her tabakta emek, her lokmada sıcacık bir lezzet var.”',
+  },
+  {
+    id: 'tanitim-1',
+    src: '/video/tanitimvideosu.mp4',
+    poster: '/video/tanitimvideosu-poster.webp',
+    badge: '🔥 TAŞ FIRIN & USTALIK',
+    title: 'Taş Fırından Çıtır Lezzetler',
+    desc: 'Ustalarımızın ellerinde açılan incecik hamurlar, taş fırın ateşinde nar gibi kızaran lahmacunlar ve misafirlerimizin keyifli sofrası.',
+    quote: '“Taş fırının sıcaklığı, ada esnafının samimiyetiyle buluşuyor.”',
+  },
+]
+
+const SIGNATURE_HIGHLIGHTS = [
+  {
+    name: 'Taş Fırın Lahmacun',
+    tag: 'İncecik & Çıtır',
+    desc: 'Zırh kıyması, taze baharatlar ve taş fırın ateşinde çıtırdayan el açması hamur.',
+    img: '/img/lahmacun/lovemacunn-restaurant-kebapli-lahmacun-400x400.webp',
+  },
+  {
+    name: 'Kaşarlı & Kuşbaşılı Pide',
+    tag: 'Fırından Sıcak',
+    desc: 'Altın sarısı kızarmış kenarlar, yumuşacık dinlendirilmiş et ve uzayan sıcak kaşar.',
+    img: '/img/pide/lovemacunn-restaurant-kusbasi-kasar-400x400.webp',
+  },
+  {
+    name: 'Tereyağlı İskender Kebap',
+    tag: 'Kömür Ateşinde',
+    desc: 'Tırnak pidesi üzerinde yaprak döner, özel domates sosu ve cızırdayan köpüklü tereyağı.',
+    img: '/img/et/lovemacunn-restaurant-iskender-400x400.webp',
+  },
+  {
+    name: 'Sıcak Fırın Künefe',
+    tag: 'Tatlı Final',
+    desc: 'Şerbeti tam kıvamında, içi bol peynirli ve üzeri Antep fıstıklı çıtır kadayıf lezzeti.',
+    img: '/img/tatlilar/lovemacunn-restaurant-kunefe-400x400.webp',
+  },
+]
+
+function PromoVideoCard({ video, isAudioActive, onToggleAudio }) {
+  const videoRef = useRef(null)
+  const cardRef = useRef(null)
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false)
+  const [videoReady, setVideoReady] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [isNearViewport, setIsNearViewport] = useState(false)
+  const [pageIdleReady, setPageIdleReady] = useState(false)
+
+  // 1) Sayfa ilk açılışını ve Hero videosunu asla yavaşlatmamak için ilk yükleme tamamlanana kadar bekle
+  useEffect(() => {
+    let timerId = null
+    const markReady = () => {
+      timerId = setTimeout(() => {
+        setPageIdleReady(true)
+      }, 450)
+    }
+
+    if (typeof document !== 'undefined' && document.readyState === 'complete') {
+      markReady()
+    } else if (typeof window !== 'undefined') {
+      window.addEventListener('load', markReady, { once: true })
+    }
+
+    return () => {
+      if (timerId) clearTimeout(timerId)
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('load', markReady)
+      }
+    }
+  }, [])
+
+  // 2) Yalnızca kullanıcı Tanıtım Filmleri bölümüne yaklaştığında (IntersectionObserver) videoyu yükle
+  useEffect(() => {
+    const node = cardRef.current
+    if (!node || typeof IntersectionObserver === 'undefined') return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsNearViewport(entry.isIntersecting)
+      },
+      { rootMargin: '120px 0px', threshold: 0.15 }
+    )
+
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [])
+
+  // 3) Hem sayfa açılışı tamamlandığında hem de kart ekrana yaklaştığında (ve veri tasarrufu kapalıysa) videoyu DOM'a ekle
+  useEffect(() => {
+    if (shouldLoadVideo) return
+    const saveData = typeof navigator !== 'undefined' && navigator.connection?.saveData === true
+    if (pageIdleReady && isNearViewport && !saveData) {
+      setShouldLoadVideo(true)
+    }
+  }, [pageIdleReady, isNearViewport, shouldLoadVideo])
+
+  // 4) Ekranda görünürken oynat, ekrandan çıkınca duraklat
+  useEffect(() => {
+    const el = videoRef.current
+    if (!el || !shouldLoadVideo) return
+
+    if (isNearViewport) {
+      el.play().then(() => setIsPlaying(true)).catch(() => {})
+    } else {
+      el.pause()
+      setIsPlaying(false)
+    }
+  }, [isNearViewport, shouldLoadVideo])
+
+  useEffect(() => {
+    const el = videoRef.current
+    if (!el) return
+    el.muted = !isAudioActive
+  }, [isAudioActive, shouldLoadVideo])
+
+  const handleTogglePlay = (e) => {
+    e.stopPropagation()
+    if (!shouldLoadVideo) {
+      setShouldLoadVideo(true)
+      return
+    }
+    const el = videoRef.current
+    if (!el) return
+    if (el.paused) {
+      el.play().then(() => setIsPlaying(true)).catch(() => {})
+    } else {
+      el.pause()
+      setIsPlaying(false)
+    }
+  }
+
+  const handleCardClick = () => {
+    if (!shouldLoadVideo) {
+      setShouldLoadVideo(true)
+    }
+    onToggleAudio(video.id)
+  }
+
+  const posterUrl = asset(video.poster)
+
+  return (
+    <article ref={cardRef} className={`story-reel-card ${isAudioActive ? 'audio-on' : ''}`}>
+      <div className="story-reel-media" onClick={handleCardClick}>
+        {/* Hafif WebP poster görseli: Sayfa açılışında yalnızca bu yüklenir (~25KB) */}
+        <img
+          src={posterUrl}
+          alt={video.title}
+          loading="lazy"
+          decoding="async"
+          className={`story-reel-poster ${videoReady ? 'is-hidden' : ''}`}
+        />
+
+        {shouldLoadVideo && (
+          <video
+            ref={videoRef}
+            className={`story-reel-video ${videoReady ? 'is-ready' : ''}`}
+            src={asset(video.src)}
+            poster={posterUrl}
+            muted={!isAudioActive}
+            loop
+            playsInline
+            preload="metadata"
+            onPlaying={() => {
+              setVideoReady(true)
+              setIsPlaying(true)
+            }}
+            onPlay={() => setIsPlaying(true)}
+            onPause={() => setIsPlaying(false)}
+          />
+        )}
+        <div className="story-reel-gradient" aria-hidden="true" />
+
+        <span className="story-reel-badge">{video.badge}</span>
+
+        <button
+          type="button"
+          className={`story-reel-sound-btn ${isAudioActive ? 'active' : ''}`}
+          onClick={(e) => {
+            e.stopPropagation()
+            if (!shouldLoadVideo) setShouldLoadVideo(true)
+            onToggleAudio(video.id)
+          }}
+          aria-label={isAudioActive ? 'Sesi Kapat' : 'Sesi Aç'}
+        >
+          {isAudioActive ? <Volume2 size={16} /> : <VolumeX size={16} />}
+          <span>{isAudioActive ? 'Ses Açık' : 'Sesi Aç'}</span>
+        </button>
+
+        <button
+          type="button"
+          className="story-reel-play-btn"
+          onClick={handleTogglePlay}
+          aria-label={isPlaying ? 'Duraklat' : 'Oynat'}
+        >
+          {isPlaying ? <Pause size={15} /> : <Play size={15} />}
+        </button>
+
+        <div className="story-reel-overlay-info">
+          <h3 className="story-reel-title">{video.title}</h3>
+          <p className="story-reel-quote">{video.quote}</p>
+        </div>
+      </div>
+
+      <div className="story-reel-body">
+        <p className="story-reel-desc">{video.desc}</p>
+      </div>
+    </article>
+  )
+}
 
 export function StoryPage() {
   const { cats } = useMenuData()
@@ -87,15 +306,21 @@ export function StoryPage() {
     targetTilt.current = { x: 0, y: 0 }
   }
 
-  const platePide = asset('/img-cut/pide/lovemacunn-restaurant-kiymali-kasarli-400x400.webp')
-  const plateIskender = asset('/img-cut/et/lovemacunn-restaurant-iskender-400x400.webp')
-  const plateKunefe = asset('/img-cut/tatlilar/lovemacunn-restaurant-kunefe-400x400.webp')
+  const imgMainIskender = asset('/img/et/lovemacunn-restaurant-iskender-400x400.webp')
+  const imgSubLahmacun = asset('/img/lahmacun/lovemacunn-restaurant-kebapli-lahmacun-400x400.webp')
+  const imgSubPide = asset('/img/pide/lovemacunn-restaurant-kusbasi-kasar-400x400.webp')
+
+  const [activeAudioId, setActiveAudioId] = useState(null)
+
+  const handleToggleAudio = (videoId) => {
+    setActiveAudioId((prev) => (prev === videoId ? null : videoId))
+  }
 
   return (
     <div className="story-page">
       <PageMeta
         title="Hakkımızda & Hikayemiz | Taş Fırın Lovemacun Büyükada"
-        description="Büyükada'nın kalbinde, taş fırın ustalığı ve nesiller boyu aktarılan tarifler: Taş Fırın Lovemacun'un hikayesi ve geleneksel lezzet aşkı."
+        description="Büyükada'nın kalbinde ateşin, ustalığın ve lezzetin buluştuğu sıcacık adres: Taş Fırın Lovemacun'un hikayesi, tanıtım filmleri ve geleneksel lezzet aşkı."
         canonical="https://tasfirinlovemacun.com/hikayemiz"
       />
 
@@ -111,18 +336,29 @@ export function StoryPage() {
         <div className="steam" aria-hidden="true"><i /><i /><i /></div>
 
         <div className="container story-hero-content">
-          <span className="kicker">BÜYÜKADA · TAŞ FIRIN USTALIĞI</span>
-          <h1 className="story-hero-h1">Aşkla yoğrulan hamur,<br /><em>çıtır lezzet.</em></h1>
+          <span className="kicker">HİKAYEMİZ · BÜYÜKADA’NIN LEZZET DURAĞI</span>
+          <h1 className="story-hero-h1">
+            Ateşin, ustalığın ve<br />
+            <em>lezzetin buluştuğu sofra.</em>
+          </h1>
           <p className="story-hero-sub">
-            Büyükada’nın kalbinde, taş fırın ustalığı ve nesiller boyu aktarılan tariflerle hazırlanan lezzet durağı.
+            Her sabah harlanan taş fırınımız, günlük açılan taze hamurumuz ve nesiller boyu aktarılan tariflerimizle Büyükada’da sıcacık bir lezzet hikayesi yazıyoruz.
           </p>
           <div className="story-hero-actions">
-            <Link to="/" className="btn btn-story-menu-top">
-              Menüyü Keşfet
-            </Link>
-            <a href={CONFIG.mapsDirectionsUrl} target="_blank" rel="noreferrer" className="btn ghost">
-              <MapPin size={15} /> Bizi Ziyaret Edin
+            <a
+              href="#tanitim-filmleri"
+              className="btn btn-story-menu-top"
+              onClick={(e) => {
+                e.preventDefault()
+                const el = document.getElementById('tanitim-filmleri')
+                if (el) el.scrollIntoView({ behavior: 'smooth' })
+              }}
+            >
+              <Play size={15} /> Tanıtım Filmlerimiz
             </a>
+            <Link to="/" className="btn ghost story-hero-secondary-btn">
+              <UtensilsCrossed size={15} /> Menüyü Keşfet
+            </Link>
           </div>
         </div>
       </section>
@@ -130,52 +366,74 @@ export function StoryPage() {
       {/* 1) BİZ KİMİZ? GİRİŞ BÖLÜMÜ */}
       <section className="about container">
         <div className="about-grid">
-          {/* Görsel Alanı (Pide, İskender, Künefe 3D Tilt) */}
+          {/* Görsel Alanı: Profesyonel Restoran Lezzet Kolajı (Editorial Bento) */}
           <div
-            className="about-visual"
+            className="story-editorial-collage"
             ref={visualRef}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
           >
-            <div className="about-halo-wrap" aria-hidden="true">
-              <div className="about-halo-ring" />
-              <div className="about-halo-core" />
+            {/* Ana Büyük Lezzet Kartı */}
+            <div className="editorial-main-card">
+              <img
+                src={imgMainIskender}
+                alt="Kömür Ateşinde Tereyağlı İskender"
+                className="editorial-main-img"
+                loading="lazy"
+              />
+              <div className="editorial-main-overlay" />
+              <span className="editorial-top-pill">🔥 TAŞ FIRIN &amp; KÖMÜR ATEŞİ</span>
+              <div className="editorial-main-caption">
+                <strong>Usta Eliyle Hazırlanan İmza Tatlar</strong>
+                <span>Kömür ateşinde yaprak döner, halis tereyağı ve günlük taş fırın lezzetleri</span>
+              </div>
             </div>
 
-            <div className="about-steam" aria-hidden="true">
-              <i className="wisp wisp-1" />
-              <i className="wisp wisp-2" />
-              <i className="wisp wisp-3" />
-            </div>
-
-            <div className="about-parallax-layer">
-              <div className="about-dish-wrap dish-pide">
-                <img src={platePide} alt="Taş Fırın Pide" className="about-dish-img" loading="lazy" />
-              </div>
-
-              <div className="about-dish-wrap dish-iskender">
-                <img src={plateIskender} alt="Kömür Ateşinde İskender" className="about-dish-img" loading="lazy" />
-              </div>
-
-              <div className="about-dish-wrap dish-kunefe">
-                <img src={plateKunefe} alt="Sıcak Künefe" className="about-dish-img" loading="lazy" />
-              </div>
-
-              <div className="about-badges-row">
-                <div className="about-badge-item badge-left">
-                  <span className="about-badge-icon">🔥</span>
-                  <div className="about-badge-text">
-                    <strong>Taş Fırın</strong>
-                    <small>Usta Dokunuşu</small>
-                  </div>
+            {/* Alt İkili Vitrin Kartları */}
+            <div className="editorial-sub-grid">
+              <div className="editorial-sub-card">
+                <img
+                  src={imgSubLahmacun}
+                  alt="Taş Fırın Kebaplı Lahmacun"
+                  className="editorial-sub-img"
+                  loading="lazy"
+                />
+                <div className="editorial-sub-overlay" />
+                <div className="editorial-sub-caption">
+                  <strong>Taş Fırın Lahmacun</strong>
+                  <small>İncecik çıtır hamur</small>
                 </div>
+              </div>
 
-                <div className="about-badge-item badge-right">
-                  <span className="about-badge-icon">✨</span>
-                  <div className="about-badge-text">
-                    <strong>Özel Tarif</strong>
-                    <small>Günlük Hamur</small>
-                  </div>
+              <div className="editorial-sub-card">
+                <img
+                  src={imgSubPide}
+                  alt="Odun Ateşinde Kuşbaşılı Kaşarlı Pide"
+                  className="editorial-sub-img"
+                  loading="lazy"
+                />
+                <div className="editorial-sub-overlay" />
+                <div className="editorial-sub-caption">
+                  <strong>Odun Ateşinde Pide</strong>
+                  <small>Kuşbaşı &amp; taze kaşar</small>
+                </div>
+              </div>
+            </div>
+
+            {/* Entegre Ustalık & Kalite Rozet Bandı */}
+            <div className="editorial-badges-bar">
+              <div className="editorial-badge-pill">
+                <span className="editorial-badge-ico">🔥</span>
+                <div className="editorial-badge-info">
+                  <strong>Taş Fırın Ustalığı</strong>
+                  <small>Geleneksel odun ateşi</small>
+                </div>
+              </div>
+              <div className="editorial-badge-pill">
+                <span className="editorial-badge-ico">✨</span>
+                <div className="editorial-badge-info">
+                  <strong>Günlük Taze Hamur</strong>
+                  <small>Özel zırh ve el yapımı tarif</small>
                 </div>
               </div>
             </div>
@@ -185,36 +443,49 @@ export function StoryPage() {
           <div className="about-content">
             <span className="kicker">BİZ KİMİZ?</span>
             <h2 className="about-title">
-              Büyükada'nın Kalbinde <br />
-              <span className="txt-gradient">Taş Fırın Ustalığı</span>
+              Büyükada’da Lezzet <br />
+              <span className="txt-gradient">Aşkla Başlar</span>
             </h2>
             <p className="about-lead">
-              Büyükada’nın kalbinde, taş fırın lezzetleri tutkunları için çok özel bir durak var: <strong>Taş Fırın Lovemacun</strong>.
+              Büyükada’nın kalbinde, taş fırın ateşinin sıcaklığını ve ustalığın en doğal halini buluşturduğumuz samimi bir adres var: <strong>Taş Fırın Lovemacun</strong>.
             </p>
             <p className="about-desc">
-              Biz, geleneksel Türk mutfağının en sevilen lezzetlerini, adanın o kendine has büyüleyici ve samimi atmosferiyle harmanlayan bir taş fırın mutfağıyız. Çıktığımız bu lezzet yolculuğunda amacımız; misafirlerimize nesiller boyu aktarılan tariflerle taze, özenli ve keyifli bir lezzet deneyimi sunmak.
+              Geleneksel Türk mutfağının vazgeçilmez tatlarını; çıtır çıtır lahmacunlarımızı, taş fırından yeni çıkmış kaşarlı ve kuşbaşılı pidelerimizi, kömür ateşinde pişen kebaplarımızı ve tereyağlı İskenderimizi her gün ilk günkü heyecanla hazırlıyoruz.
             </p>
           </div>
         </div>
 
-        {/* 2) GERÇEK FOTOĞRAF VİTRİNİ & RESTORAN POSTERİ */}
-        <div className="story-photo-showcase">
-          <div className="story-photo-frame">
-            <img
-              src={asset('/about/lovemacun-story-banner.jpg')}
-              alt="Taş Fırın Lovemacun Büyükada Restoranı ve Ustalarımız"
-              className="story-banner-img"
-              loading="lazy"
-            />
-          </div>
-          {/* Fotoğrafın altındaki başlık alanı görsel dışına alındı (üst üste binmeyi önler) */}
-          <div className="story-photo-caption-card">
-            <span className="caption-tag">BÜYÜKADA · NİZAM MAHALLESİ</span>
-            <h3 className="caption-title">Taş Fırında Gerçek Lezzet · 2 Dk Mesafede</h3>
-            <p className="caption-sub">Aşkımızı kattık, lezzet oldu!</p>
+        {/* 2) TANITIM FİLMLERİMİZ & TAŞ FIRIN VİTRİNİ */}
+        <div id="tanitim-filmleri" className="story-photo-showcase">
+          <div className="story-reels-header">
+            <span className="kicker">🎬 TANITIM FİLMLERİMİZ</span>
+            <h2 className="story-reels-heading">
+              Taş Fırından Sofranıza <span className="txt-gradient">Canlı Lezzet Hikayemiz</span>
+            </h2>
+            <p className="story-reels-sub">
+              Fırınımızın ateşini, ustalarımızın el emeğini ve Büyükada’daki sıcacık atmosferimizi yakından izleyin. Videoların üzerindeki <strong>Sesi Aç</strong> butonuna dokunarak sesli izleyebilirsiniz.
+            </p>
           </div>
 
-          {/* Poster Altı Değer Rozetleri */}
+          <div className="story-reels-grid">
+            {PROMO_VIDEOS.map((vid) => (
+              <PromoVideoCard
+                key={vid.id}
+                video={vid}
+                isAudioActive={activeAudioId === vid.id}
+                onToggleAudio={handleToggleAudio}
+              />
+            ))}
+          </div>
+
+          {/* Konum & Slogan Şeridi */}
+          <div className="story-photo-caption-card">
+            <span className="caption-tag">BÜYÜKADA · NİZAM MAHALLESİ · İSKELEYE 2 DK</span>
+            <h3 className="caption-title">Taş Fırında Gerçek Lezzet · Dumanı Üstünde Sofranızda</h3>
+            <p className="caption-sub">“Her tabakta emek, her lokmada sıcacık bir lezzet var.”</p>
+          </div>
+
+          {/* Değer Rozetleri */}
           <div className="story-values-grid">
             {VALUES_LIST.map((val, idx) => (
               <div key={idx} className="story-val-card">
@@ -224,6 +495,39 @@ export function StoryPage() {
                   <span>{val.desc}</span>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 2.5) İŞTAH AÇICI İMZA LEZZETLER VİTRİNİ */}
+        <div className="story-signature-showcase">
+          <div className="story-reels-header">
+            <span className="kicker">🍽️ SOFRAMIZIN YILDIZLARI</span>
+            <h2 className="story-reels-heading">
+              Fırından ve Izgaradan <span className="txt-gradient">İmza Lezzetlerimiz</span>
+            </h2>
+            <p className="story-reels-sub">
+              Misafirlerimizin Büyükada’ya her gelişinde tekrar tekrar tattığı, dumanı üstünde favori lezzetlerimiz.
+            </p>
+          </div>
+
+          <div className="story-sig-grid">
+            {SIGNATURE_HIGHLIGHTS.map((item) => (
+              <Link to="/" key={item.name} className="story-sig-card">
+                <div className="story-sig-img-wrap">
+                  <img
+                    src={asset(item.img)}
+                    alt={item.name}
+                    className="story-sig-img"
+                    loading="lazy"
+                  />
+                  <span className="story-sig-tag">{item.tag}</span>
+                </div>
+                <div className="story-sig-body">
+                  <h3 className="story-sig-title">{item.name}</h3>
+                  <p className="story-sig-desc">{item.desc}</p>
+                </div>
+              </Link>
             ))}
           </div>
         </div>

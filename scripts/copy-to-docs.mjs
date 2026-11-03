@@ -10,7 +10,7 @@ if (!fs.existsSync(srcDir)) {
 }
 
 if (fs.existsSync(destDir)) {
-  fs.rmSync(destDir, { recursive: true, force: true })
+  fs.rmSync(destDir, { recursive: true, force: true, maxRetries: 5, retryDelay: 250 })
 }
 
 fs.cpSync(srcDir, destDir, { recursive: true })

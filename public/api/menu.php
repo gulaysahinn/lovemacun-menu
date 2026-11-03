@@ -140,14 +140,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         $seenIds[$id] = true;
 
+        $rawImg = isset($item['image']) ? trim((string)$item['image']) : '';
+        if ($rawImg !== '' && !preg_match('#^(/img/|/img-cut/|https?://)#i', $rawImg)) {
+            $rawImg = '';
+        }
+
+        $allowedTags = ['sef', 'aci', 'vejetaryen', 'vegan', 'glutensiz'];
+        $cleanTags = [];
+        if (isset($item['tags']) && is_array($item['tags'])) {
+            foreach (array_unique($item['tags']) as $tg) {
+                if (is_string($tg) && in_array($tg, $allowedTags, true)) {
+                    $cleanTags[] = $tg;
+                }
+            }
+        }
+
         $vItem = [
             'id' => $id,
             'category' => $cat,
             'name' => $name,
             'price' => $price,
             'description' => isset($item['description']) ? trim($item['description']) : '',
-            'image' => isset($item['image']) ? trim($item['image']) : '',
-            'tags' => isset($item['tags']) && is_array($item['tags']) ? array_values(array_unique($item['tags'])) : [],
+            'image' => $rawImg,
+            'tags' => $cleanTags,
             'featuredOrder' => isset($item['featuredOrder']) ? (int)$item['featuredOrder'] : 0,
             'isNew' => !empty($item['isNew']),
             'soldOut' => !empty($item['soldOut']),

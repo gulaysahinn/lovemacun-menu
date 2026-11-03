@@ -5,6 +5,10 @@
  */
 
 if (!defined('AUTH_INCLUDED') && !defined('PATHS_INCLUDED')) {
+    if (php_sapi_name() !== 'cli' && isset($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME']) === __FILE__) {
+        http_response_code(403);
+        exit('Dogrudan erisim engellendi.');
+    }
     define('PATHS_INCLUDED', true);
 }
 
@@ -17,6 +21,8 @@ if (!defined('BRAND_LOGO')) define('BRAND_LOGO', '/logo-badge.png');
 ini_set('display_errors', '0');
 ini_set('log_errors', '1');
 ini_set('session.use_strict_mode', '1');
+ini_set('session.use_only_cookies', '1');
+ini_set('session.cookie_httponly', '1');
 if (function_exists('header_remove')) {
     @header_remove('X-Powered-By');
 }

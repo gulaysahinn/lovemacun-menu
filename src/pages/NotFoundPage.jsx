@@ -9,6 +9,7 @@ export function NotFoundPage() {
         title="404 - Sayfa Bulunamadı | Taş Fırın Lovemacun"
         description="Aradığınız lezzet veya sayfa bulunamadı. Taş Fırın Lovemacun Büyükada menüsüne geri dönebilirsiniz."
         canonical="https://tasfirinlovemacun.com/404"
+        noindex={true}
       />
       <div className="notfound-card">
         <div className="notfound-icon-wrap" aria-hidden="true">

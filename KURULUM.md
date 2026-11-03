@@ -135,11 +135,7 @@ Sistem verileri otomatik olarak hiyerarşik iki konumdan birinde saklar:
 3. Lokal bilgisayarınızda tekrar `npm run package:prod` çalıştırın veya `node scripts/generate-setup-key.mjs` ile yeni anahtar üretip sunucuya `yonetim/install_hash.php` dosyasını yükleyin.
 
 ### Senaryo B — Yönetici Şifresini Unuttum
-Sunucuya SSH erişiminiz varsa:
-```bash
-php scripts/reset-admin.php
-```
-Veya cPanel Dosya Yöneticisi üzerinden `tasfirin-data/users.json` dosyasını geçici olarak silip/yeniden adlandırıp `yonetim/setup.lock` dosyasını kaldırırsanız kurulum sihirbazı yeniden yeni bir yönetici oluşturmanıza olanak tanır.
+cPanel Dosya Yöneticisi üzerinden `tasfirin-data/users.json` dosyasını geçici olarak silip/yeniden adlandırıp `yonetim/setup.lock` dosyasını kaldırırsanız kurulum sihirbazı yeniden yeni bir yönetici oluşturmanıza olanak tanır.
 
 ### Senaryo C — Menüde Yanlış Değişiklik Yapıldı (Geri Yükleme - Rollback)
 1. **Panelden:** Yönetim Paneli → **Yedekler** sekmesine gidin. İstediğiniz tarihli yedeğin yanındaki **"Geri Yükle"** düğmesine tıklayın.
@@ -156,3 +152,43 @@ Veya cPanel Dosya Yöneticisi üzerinden `tasfirin-data/users.json` dosyasını 
 | `tasfirin-data/` | `700` veya `750` | Web dışı veri alanı |
 | `tasfirin-data/users.json` | `600` | Kullanıcı kimlik bilgileri |
 | `.htaccess` dosyaları | `644` | Güvenlik yönergeleri |
+
+---
+
+## 8. Önemli Mimari Varsayım: Kök Dizin Kurulumu (`base: '/'`)
+
+> ⚠️ **KRİTİK MİMARİ KURAL:**  
+> Bu proje, alan adının doğrudan kök dizininde (`https://tasfirinlovemacun.com/` veya `https://staging.tasfirinlovemacun.com/`) çalışacak şekilde SPA (`base: '/'`) olarak yapılandırılmıştır.  
+> **Alt klasöre kurulum (örn: `https://domain.com/menu/` veya `https://domain.com/test/`) DESTEKLENMEMEKTEDİR.**  
+> Testler ve yayına alma mutlaka bir alt alan adı (subdomain örn: `staging.domain.com`) veya ana alan adı kökünde yapılmalıdır.
+
+---
+
+## 9. Hosting'de İlk Test Listesi (Staging / Canlı Kontrolü)
+
+Sunucuya yükleme ve kurulum yapıldıktan sonra SSH veya terminalden şu `curl -I` komutlarıyla durum kodlarını ve yönlendirmeleri doğrulayın:
+
+```bash
+# 1. Ana Sayfa (HTTP 200)
+curl -I -s -o /dev/null -w "%{http_code}\n" https://tasfirinlovemacun.com/
+
+# 2. SPA Alt Rotaları (Apache rewrite ile HTTP 200 index.html dönmeli)
+curl -I -s -o /dev/null -w "%{http_code}\n" https://tasfirinlovemacun.com/hikayemiz
+curl -I -s -o /dev/null -w "%{http_code}\n" https://tasfirinlovemacun.com/rezervasyon
+curl -I -s -o /dev/null -w "%{http_code}\n" https://tasfirinlovemacun.com/iletisim
+curl -I -s -o /dev/null -w "%{http_code}\n" https://tasfirinlovemacun.com/blog
+
+# 3. Blog Yazısı (Kök adreste HTTP 200)
+curl -I -s -o /dev/null -w "%{http_code}\n" https://tasfirinlovemacun.com/buyukadada-ezber-bozan-bir-lezzet-tasfirinlovemacun
+
+# 4. Eski Blog URL'si 301 Yönlendirmesi (HTTP 301 dönmeli ve Location /buyukadada... olmalı)
+curl -I https://tasfirinlovemacun.com/blog/buyukadada-ezber-bozan-bir-lezzet-tasfirinlovemacun
+
+# 5. Olmayan Sayfa (SPA fallback HTTP 200 ile index.html döner, React içinde 404 sayfası noindex ile basılır)
+curl -I -s -o /dev/null -w "%{http_code}\n" https://tasfirinlovemacun.com/olmayan-sayfa
+
+# 6. Backend API ve Panel Dosyaları (HTTP 200)
+curl -I -s -o /dev/null -w "%{http_code}\n" https://tasfirinlovemacun.com/yonetim/login.php
+curl -I -s -o /dev/null -w "%{http_code}\n" https://tasfirinlovemacun.com/api/menu.php
+curl -I -s -o /dev/null -w "%{http_code}\n" https://tasfirinlovemacun.com/data/menu.json
+```

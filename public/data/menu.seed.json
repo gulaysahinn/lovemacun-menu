@@ -1,6 +1,6 @@
 {
-    "version": 1792259769000,
-    "revision": 1,
+    "version": 1793710223000,
+    "revision": 7,
     "categories": [
         {
             "id": "lahmacun",
@@ -393,7 +393,7 @@
             "name": "Et Güveç",
             "price": 720,
             "description": "Toprak kapta ağır ateşte pişmiş dana.",
-            "image": "/img/tavuk/lovemacunn-restaurant-et-guvec-400x400-sm.webp",
+            "image": "/img/et/lovemacunn-restaurant-et-guvec-400x400-sm.webp",
             "tags": [],
             "featuredOrder": 0,
             "isNew": false,
@@ -611,9 +611,7 @@
             "price": 545,
             "description": "Özel krema sosu ve taze parmesan ile",
             "image": "/img/makarnalar/lovemacunn-restaurant-fettucine-400x400-sm.webp",
-            "tags": [
-                "vejetaryen"
-            ],
+            "tags": [],
             "featuredOrder": 0,
             "isNew": false,
             "soldOut": false,
@@ -1127,9 +1125,7 @@
             "price": 350,
             "description": "",
             "image": "/img/ara-sicaklar/lovemacunn-restaurant-patates-400x400-sm.webp",
-            "tags": [
-                "vejetaryen"
-            ],
+            "tags": [],
             "featuredOrder": 0,
             "isNew": false,
             "soldOut": false,
@@ -1194,7 +1190,9 @@
             "price": 310,
             "description": "",
             "image": "/img/meze/lovemacunn-restaurant-yaprak-sarma-400x400-sm.webp",
-            "tags": [],
+            "tags": [
+                "vejetaryen"
+            ],
             "featuredOrder": 0,
             "isNew": false,
             "soldOut": false,
@@ -1223,8 +1221,7 @@
             "description": "",
             "image": "/img/meze/lovemacunn-restaurant-aci-ezme-400x400-sm.webp",
             "tags": [
-                "aci",
-                "vejetaryen"
+                "aci"
             ],
             "featuredOrder": 0,
             "isNew": false,
@@ -1239,6 +1236,7 @@
             "description": "",
             "image": "/img/meze/lovemacunn-restaurant-cigkofte-400x400-sm.webp",
             "tags": [
+                "aci",
                 "vejetaryen"
             ],
             "featuredOrder": 0,
@@ -1268,9 +1266,7 @@
             "price": 245,
             "description": "Salatalık, sarımsaklı yoğurt ve sızma zeytinyağı.",
             "image": "/img/meze/lovemacunn-restaurant-cacik-400x400-sm.webp",
-            "tags": [
-                "vejetaryen"
-            ],
+            "tags": [],
             "featuredOrder": 0,
             "isNew": false,
             "soldOut": false,
@@ -1353,7 +1349,7 @@
             "name": "Fettuş Salatası",
             "price": 395,
             "description": "",
-            "image": "",
+            "image": "/img/salata/lovemacunn-restaurant-fettus-400x400-sm.webp",
             "tags": [
                 "vejetaryen"
             ],
@@ -1369,9 +1365,7 @@
             "price": 285,
             "description": "",
             "image": "/img/salata/lovemacunn-restaurant-patlican-salatasi-400x400-sm.webp",
-            "tags": [
-                "vejetaryen"
-            ],
+            "tags": [],
             "featuredOrder": 0,
             "isNew": false,
             "soldOut": false,
@@ -1384,9 +1378,7 @@
             "price": 275,
             "description": "",
             "image": "/img/salata/lovemacunn-restaurant-havuc-salatasi-400x400-sm.webp",
-            "tags": [
-                "vejetaryen"
-            ],
+            "tags": [],
             "featuredOrder": 0,
             "isNew": false,
             "soldOut": false,
@@ -1399,9 +1391,7 @@
             "price": 270,
             "description": "",
             "image": "/img/salata/lovemacunn-restaurant-sogus-400x400-sm.webp",
-            "tags": [
-                "vejetaryen"
-            ],
+            "tags": [],
             "featuredOrder": 0,
             "isNew": false,
             "soldOut": false,
@@ -1414,9 +1404,7 @@
             "price": 275,
             "description": "",
             "image": "/img/salata/lovemacunn-restaurant-karisik-tursu-400x400-sm.webp",
-            "tags": [
-                "vejetaryen"
-            ],
+            "tags": [],
             "featuredOrder": 0,
             "isNew": false,
             "soldOut": false,

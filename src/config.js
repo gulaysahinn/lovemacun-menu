@@ -37,7 +37,7 @@ export const CONFIG = {
   qrMenuUrl: 'https://tasfirinlovemacun.com',
 
   // Beslenme etiketleri gösterim bayrağı
-  // false = Vejetaryen / Vegan / Glutensiz etiketleri gizlenir (kod silinmez, mutfakla onaylanana kadar kapalı)
-  // Şefin Seçimi (sef) ve Acılı (aci) her zaman görünür
+  // Şefin Seçimi (sef), Acılı (aci) ve Vejetaryen (vejetaryen) her zaman görünür
+  // false = yalnızca Vegan / Glutensiz etiketleri gizlenir
   SHOW_DIET_TAGS: false,
 }

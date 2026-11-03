@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, Suspense, lazy } from 'react'
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation, Navigate, useParams } from 'react-router-dom'
 import { ArrowUp } from 'lucide-react'
 import { TopBar } from './components/Navigation.jsx'
 import { MobileAppHeader } from './components/MobileAppHeader.jsx'
@@ -12,6 +12,7 @@ import { BottomSheet } from './components/BottomSheet.jsx'
 import { HamburgerDrawer } from './components/HamburgerDrawer.jsx'
 import { MenuPage } from './pages/MenuPage.jsx'
 import { HeroVideo } from './components/HeroVideo.jsx'
+import { BLOG_POSTS } from './data/blog.js'
 
 // Route bazlı dinamik kod bölme (Code-splitting) - İlk yükleme JS boyutunu hafifletir
 const StoryPage = lazy(() => import('./pages/StoryPage.jsx').then((m) => ({ default: m.StoryPage })))
@@ -20,6 +21,15 @@ const BlogListPage = lazy(() => import('./pages/BlogListPage.jsx').then((m) => (
 const BlogPostPage = lazy(() => import('./pages/BlogPostPage.jsx').then((m) => ({ default: m.BlogPostPage })))
 const ReservationPage = lazy(() => import('./pages/ReservationPage.jsx').then((m) => ({ default: m.ReservationPage })))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx').then((m) => ({ default: m.NotFoundPage })))
+
+function BlogRedirectOrNotFound() {
+  const { slug } = useParams()
+  const post = BLOG_POSTS.find((p) => p.slug === slug)
+  if (post) {
+    return <Navigate to={`/${slug}`} replace />
+  }
+  return <NotFoundPage />
+}
 
 // Hero bileşeni – max-width container'ından bağımsız, tam ekran genişliğinde
 function MenuHeroSection() {
@@ -103,7 +113,7 @@ function AppContent() {
     }
   }, [location.pathname])
 
-  // ESC tuşuyla açık çekmeceleri kapatma
+  // Klavye kısayolları: ESC kapatma, '/' ve Ctrl/Cmd+K ile arama açma
   useEffect(() => {
     const onKey = (e) => {
       if (e.key === 'Escape') {
@@ -111,6 +121,22 @@ function AppContent() {
         setSearchOpen(false)
         setInfoDrawerOpen(false)
         setHamburgerOpen(false)
+        return
+      }
+
+      // Ctrl+K veya Cmd+K ile aramayı aç/kapat
+      if ((e.key === 'k' || e.key === 'K') && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault()
+        setSearchOpen((prev) => !prev)
+        return
+      }
+
+      // '/' tuşu (herhangi bir input/textarea odaklı değilken) aramayı açar
+      const activeTag = document.activeElement?.tagName?.toLowerCase()
+      const isInput = activeTag === 'input' || activeTag === 'textarea' || document.activeElement?.isContentEditable
+      if (e.key === '/' && !isInput && !e.ctrlKey && !e.metaKey && !e.altKey) {
+        e.preventDefault()
+        setSearchOpen(true)
       }
     }
     window.addEventListener('keydown', onKey)
@@ -171,7 +197,6 @@ function AppContent() {
 
       {/* 2. MOBİL UYGULAMA ÇUBUĞU (56px sticky, masaüstünde gizlenir) */}
       <MobileAppHeader
-        onOpenSearch={() => setSearchOpen(true)}
         onOpenHamburger={() => setHamburgerOpen(true)}
         isHamburgerOpen={hamburgerOpen}
       />
@@ -196,7 +221,6 @@ function AppContent() {
               element={
                 <MenuPage
                   onSelectProduct={setSelected}
-                  onOpenSearch={() => setSearchOpen(true)}
                 />
               }
             />
@@ -204,6 +228,7 @@ function AppContent() {
             <Route path="/hakkimizda" element={<StoryPage />} />
             <Route path="/iletisim" element={<ContactPage />} />
             <Route path="/blog" element={<BlogListPage />} />
+            <Route path="/blog/:slug" element={<BlogRedirectOrNotFound />} />
             <Route path="/rezervasyon" element={<ReservationPage />} />
             <Route path="/buyukadada-ezber-bozan-bir-lezzet-tasfirinlovemacun" element={<BlogPostPage />} />
             <Route path="*" element={<NotFoundPage />} />

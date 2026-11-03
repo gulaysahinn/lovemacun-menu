@@ -35,3 +35,10 @@ KURULUM-ANAHTARI*.txt
 tasfirin-data/
 release/
 
+# Gelistirme ekran goruntuleri ve ham varlıklar
+screenshots/
+raw-assets/
+
+# Dev artifact kalıntıları
+scripts/__pycache__/
+
