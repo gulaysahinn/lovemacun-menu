@@ -65,20 +65,6 @@ if (!file_exists(LOCK_FILE)) {
 // Başarısız giriş kilidini (rate limit) temizle
 clear_login_failures($username);
 
-// config.php içindeki yedek sabiti de güncelle
-$configPath = __DIR__ . '/../public/yonetim/config.php';
-if (is_file($configPath) && is_writable($configPath)) {
-    $cfg = file_get_contents($configPath);
-    $escapedHash = addslashes($hash);
-    $cfg = preg_replace(
-        "/define\('ADMIN_PASSWORD_HASH',\s*'[^']*'\);/",
-        "define('ADMIN_PASSWORD_HASH', '{$escapedHash}');",
-        $cfg
-    );
-    @file_put_contents($configPath, $cfg);
-}
-
 echo "✓ '{$username}' kullanıcısının şifresi başarıyla güncellendi!\n";
 echo "  Kullanıcı dosyası : " . USERS_FILE . "\n";
 echo "  Giriş kilidi      : Temizlendi\n";
-
