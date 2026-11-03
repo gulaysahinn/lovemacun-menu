@@ -349,20 +349,25 @@
 .hero-video-poster,
 .hero-video-element {
   position: absolute !important;
-  inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
+  top: -20px !important;
+  bottom: -20px !important;
+  left: -20px !important;
+  right: -20px !important;
+  width: calc(100% + 40px) !important;
+  height: calc(100% + 40px) !important;
   object-fit: cover !important;
-  object-position: center !important;
+  object-position: center center !important;
+  transform: scale(1.04) !important;
   display: block !important;
   transition: opacity 0.6s ease !important;
   pointer-events: none !important;
 }
 
-/* İskender videosunun üstteki tereyağı dökme alanını kırpmamak için tepe odağı */
+/* İskender videosunun üst/alt kenar taşmalarını tamamen gizleyip merkezi odakla */
 .story-hero-section .hero-video-poster,
 .story-hero-section .hero-video-element {
-  object-position: center 10% !important;
+  object-position: center center !important;
+  transform: scale(1.06) !important;
 }
 
 .hero-video-poster {
@@ -389,8 +394,9 @@
   z-index: 3 !important;
   background: linear-gradient(
     180deg,
-    rgba(10, 5, 2, 0.72) 0%,
-    rgba(10, 5, 2, 0.45) 40%,
+    #120b07 0%,
+    rgba(18, 11, 7, 0.92) 14px,
+    rgba(10, 5, 2, 0.48) 40%,
     rgba(10, 5, 2, 0.85) 85%,
     #0d0704 100%
   ) !important;

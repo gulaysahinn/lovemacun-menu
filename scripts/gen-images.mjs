@@ -107,6 +107,7 @@ const KNOWN_MAPS = {
     'patlicanli-kebap': 'patlicanli-kebap',
     'kofte': 'izgara-kofte',
     'doner-porsiyon': 'et-doner-porsiyon',
+    'et-guvec': 'et-guvec',
     '7': 'karisik-et',
   },
   tavuk: {
@@ -155,6 +156,7 @@ const KNOWN_MAPS = {
     'sezar-salata': 'sezar-salata',
     'ton-balikli-salata': 'ton-balikli-salata',
     'tebbule': 'tebbule-salatasi',
+    'fettus': 'fettus-salatasi',
     'patlican-salatasi': 'patlican-salatasi',
     'havuc-salatasi': 'havuc-salatasi',
     'sogus': 'sogus-tabagi',
@@ -196,25 +198,23 @@ const KNOWN_MAPS = {
 };
 
 // Bulanık / emin olunmayan eşleşmeler (kullanıcı isteği: uygulanmayıp konsola listelenecek)
-const UNCERTAIN_MATCHES = [
-  {
-    product: 'Et Güveç (et)',
-    file: '/img/tavuk/lovemacunn-restaurant-et-guvec-400x400.png',
-    reason: "Görsel 'et' klasörü yerine 'tavuk' klasöründe yer alıyor (klasör uyuşmazlığı, uygulanmadı)",
-  },
-  {
-    product: 'Fettuş Salatası (salata)',
-    file: '/img/meze/lovemacunn-restaurant-fettus-400x400.png',
-    reason: "Görsel 'salata' klasörü yerine 'meze' klasöründe yer alıyor (klasör uyuşmazlığı, uygulanmadı)",
-  },
-];
+const UNCERTAIN_MATCHES = [];
 
 async function main() {
   const publicImgDir = path.join(rootDir, 'public', 'img');
   const menuPath = path.join(rootDir, 'src', 'menu.js');
   const outputPath = path.join(rootDir, 'src', 'images.json');
 
-  const { CATS, GALLERY, HERO } = await import(pathToFileURL(menuPath).href + '?t=' + Date.now());
+  const { CATS, GALLERY, HERO, transformMenuData } = await import(pathToFileURL(menuPath).href + '?t=' + Date.now());
+
+  let menuCats = CATS;
+  if (!menuCats || menuCats.length === 0) {
+    const menuJsonPath = path.join(rootDir, 'public', 'data', 'menu.json');
+    if (fs.existsSync(menuJsonPath)) {
+      const rawMenu = JSON.parse(fs.readFileSync(menuJsonPath, 'utf-8'));
+      menuCats = transformMenuData(rawMenu).cats;
+    }
+  }
 
   // Galeri doğrulaması: Var olmayan görsel dosyalarını otomatik filtrele
   const validGallery = (GALLERY || []).filter((g) => {
@@ -228,14 +228,17 @@ async function main() {
 
   // Menüdeki tüm ürünler
   const allMenuItems = [];
-  for (const cat of CATS) {
+  for (const cat of menuCats) {
     for (const item of cat.items) {
+      const isArr = Array.isArray(item);
+      const itemName = isArr ? item[0] : item.name;
+      const itemImg = isArr ? item[3] : (item.image || null);
       allMenuItems.push({
         catId: cat.id,
         catName: cat.name,
-        name: item[0],
-        slug: slugify(item[0]),
-        manualImg: item[3] || null,
+        name: itemName,
+        slug: slugify(itemName),
+        manualImg: itemImg || null,
       });
     }
   }

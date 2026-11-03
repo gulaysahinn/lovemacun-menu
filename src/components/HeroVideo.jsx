@@ -134,8 +134,8 @@ export function HeroVideo({
           onPlaying={() => setVideoReady(true)}
           onError={() => setVideoReady(false)}
         >
-          <source src={webmSrc} type="video/webm" />
           <source src={mp4Src} type="video/mp4" />
+          <source src={webmSrc} type="video/webm" />
         </video>
       )}
     </div>

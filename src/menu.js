@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { CONFIG } from './config.js'
+import { asset } from './utils/asset.js'
 
 export { CONFIG }
 
@@ -38,7 +39,7 @@ export const HERO = [
   '/img/et/lovemacunn-restaurant-iskender-400x400.webp',
 ]
 
-const MENU_CACHE_KEY = 'lovemacun_menu_cache_v2'
+const MENU_CACHE_KEY = 'lovemacun_menu_cache_v4'
 
 export function transformMenuData(data) {
   if (!data || !data.items || !data.categories) {
@@ -81,7 +82,7 @@ function getInitialStore() {
       const cached = localStorage.getItem(MENU_CACHE_KEY)
       if (cached) {
         const parsed = JSON.parse(cached)
-        return transformMenuData(parsed)
+        return transformMenuData(parsed.raw || parsed)
       }
     } catch {}
   }
@@ -139,7 +140,7 @@ export async function loadMenuFromNetwork() {
 
   const fetchPromise = (async () => {
     try {
-      const res = await fetch('/data/menu.json', {
+      const res = await fetch(asset('/data/menu.json'), {
         cache: 'no-cache',
         headers: {
           'Accept': 'application/json',

@@ -4106,11 +4106,15 @@ html, body {
 .menu-hero-video-section .hero-video-poster,
 .menu-hero-video-section .hero-video-element {
   position: absolute !important;
-  inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
+  top: -20px !important;
+  bottom: -20px !important;
+  left: -20px !important;
+  right: -20px !important;
+  width: calc(100% + 40px) !important;
+  height: calc(100% + 40px) !important;
   object-fit: cover !important;
   object-position: center 40% !important;
+  transform: scale(1.04) !important;
 }
 
 .menu-hero-video-section .hero-video-shade {
@@ -4118,9 +4122,11 @@ html, body {
   inset: 0 !important;
   background: linear-gradient(
     to bottom,
-    rgba(10, 6, 4, 0.25) 0%,
-    rgba(10, 6, 4, 0.35) 60%,
-    rgba(18, 8, 4, 0.7) 100%
+    #120b07 0%,
+    rgba(18, 11, 7, 0.85) 10px,
+    rgba(10, 6, 4, 0.3) 35%,
+    rgba(10, 6, 4, 0.38) 65%,
+    rgba(18, 8, 4, 0.75) 100%
   ) !important;
   z-index: 2 !important;
 }
@@ -4279,5 +4285,605 @@ html, body {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
 }
+
+/* ==========================================================================
+   HİKAYEMİZ SAYFASI: TANITIM FİLMLERİ (REELS) VE İMZA LEZZET VİTRİNİ
+   ========================================================================== */
+.story-hero-actions {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  flex-wrap: wrap !important;
+  width: 100% !important;
+}
+
+.story-hero-actions .btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  white-space: nowrap !important;
+  padding: 11px 22px !important;
+  font-size: 0.92rem !important;
+  font-weight: 700 !important;
+  border-radius: 99px !important;
+  min-height: 44px !important;
+}
+
+.story-hero-secondary-btn {
+  background: rgba(20, 11, 6, 0.78) !important;
+  border: 1px solid rgba(255, 255, 255, 0.24) !important;
+  color: #faf5ee !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+.story-hero-secondary-btn:hover {
+  background: rgba(255, 120, 40, 0.22) !important;
+  border-color: #f5a623 !important;
+  color: #fff !important;
+}
+
+@media (max-width: 420px) {
+  .story-hero-actions {
+    gap: 8px !important;
+  }
+  .story-hero-actions .btn {
+    padding: 10px 16px !important;
+    font-size: 0.84rem !important;
+  }
+}
+
+.story-reels-header {
+  text-align: center !important;
+  max-width: 720px !important;
+  margin: 0 auto 1.25rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.story-reels-heading {
+  font-family: Fraunces, Georgia, serif !important;
+  font-size: clamp(1.75rem, 4.4vw, 2.55rem) !important;
+  line-height: 1.18 !important;
+  color: #faf5ee !important;
+  margin: 0 !important;
+}
+
+.story-reels-sub {
+  font-size: 0.98rem !important;
+  line-height: 1.6 !important;
+  color: #d1c1b2 !important;
+  margin: 0 !important;
+}
+
+.story-reels-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 24px !important;
+  max-width: 860px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+}
+
+@media (max-width: 720px) {
+  .story-reels-grid {
+    grid-template-columns: 1fr !important;
+    max-width: 400px !important;
+    gap: 20px !important;
+  }
+}
+
+.story-reel-card {
+  background: linear-gradient(155deg, #1b100a 0%, #110805 100%) !important;
+  border: 1px solid rgba(255, 130, 40, 0.26) !important;
+  border-radius: 22px !important;
+  overflow: hidden !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 0 24px rgba(230, 74, 25, 0.12) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.story-reel-card:hover,
+.story-reel-card.audio-on {
+  border-color: rgba(245, 166, 35, 0.65) !important;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.75), 0 0 32px rgba(245, 166, 35, 0.24) !important;
+}
+
+.story-reel-media {
+  position: relative !important;
+  width: 100% !important;
+  aspect-ratio: 9 / 15 !important;
+  max-height: 540px !important;
+  background: #0d0603 !important;
+  overflow: hidden !important;
+  cursor: pointer !important;
+}
+
+.story-reel-poster {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+  z-index: 1 !important;
+  transition: opacity 0.4s ease !important;
+}
+
+.story-reel-poster.is-hidden {
+  opacity: 0 !important;
+}
+
+.story-reel-video {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+  z-index: 1 !important;
+  opacity: 0 !important;
+  transition: opacity 0.4s ease !important;
+}
+
+.story-reel-video.is-ready {
+  opacity: 1 !important;
+}
+
+.story-reel-gradient {
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 5, 2, 0.55) 0%,
+    transparent 26%,
+    transparent 58%,
+    rgba(10, 5, 2, 0.92) 100%
+  ) !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+}
+
+.story-reel-badge {
+  position: absolute !important;
+  top: 14px !important;
+  left: 14px !important;
+  z-index: 4 !important;
+  background: rgba(16, 8, 4, 0.85) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(245, 166, 35, 0.45) !important;
+  color: #ffb347 !important;
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  padding: 6px 12px !important;
+  border-radius: 99px !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5) !important;
+}
+
+.story-reel-sound-btn {
+  position: absolute !important;
+  top: 14px !important;
+  right: 14px !important;
+  z-index: 5 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: rgba(18, 9, 5, 0.88) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  color: #faf5ee !important;
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+  padding: 7px 13px !important;
+  border-radius: 99px !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6) !important;
+  transition: all 0.2s ease !important;
+}
+
+.story-reel-sound-btn:hover,
+.story-reel-sound-btn.active {
+  background: linear-gradient(135deg, #e64a19, #f5a623) !important;
+  border-color: #ffd166 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 18px rgba(230, 74, 25, 0.6) !important;
+}
+
+.story-reel-play-btn {
+  position: absolute !important;
+  bottom: 16px !important;
+  right: 14px !important;
+  z-index: 5 !important;
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 50% !important;
+  background: rgba(18, 9, 5, 0.85) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  color: #faf5ee !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.story-reel-play-btn:hover {
+  background: #e64a19 !important;
+  border-color: #f5a623 !important;
+  color: #fff !important;
+}
+
+.story-reel-overlay-info {
+  position: absolute !important;
+  bottom: 14px !important;
+  left: 16px !important;
+  right: 60px !important;
+  z-index: 4 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+  pointer-events: none !important;
+}
+
+.story-reel-title {
+  font-family: Fraunces, Georgia, serif !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  color: #faf5ee !important;
+  margin: 0 !important;
+  line-height: 1.22 !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9) !important;
+}
+
+.story-reel-quote {
+  font-size: 0.82rem !important;
+  font-style: italic !important;
+  color: #ffb347 !important;
+  margin: 0 !important;
+  line-height: 1.35 !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.95) !important;
+}
+
+.story-reel-body {
+  padding: 14px 18px 18px !important;
+  background: #140b07 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+  flex: 1 !important;
+}
+
+.story-reel-desc {
+  font-size: 0.9rem !important;
+  line-height: 1.55 !important;
+  color: #d1c1b2 !important;
+  margin: 0 !important;
+}
+
+/* İmza Lezzetler Vitrini (4'lü İştah Açıcı Kartlar) */
+.story-signature-showcase {
+  margin: 3.5rem 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.25rem !important;
+}
+
+.story-sig-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+}
+
+@media (max-width: 960px) {
+  .story-sig-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .story-sig-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+}
+
+.story-sig-card {
+  display: flex !important;
+  flex-direction: column !important;
+  background: linear-gradient(155deg, #1b100a 0%, #120905 100%) !important;
+  border: 1px solid rgba(255, 120, 40, 0.18) !important;
+  border-radius: 18px !important;
+  overflow: hidden !important;
+  text-decoration: none !important;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.5) !important;
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease !important;
+}
+
+.story-sig-card:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(245, 166, 35, 0.5) !important;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.7), 0 0 20px rgba(230, 74, 25, 0.2) !important;
+}
+
+.story-sig-img-wrap {
+  position: relative !important;
+  width: 100% !important;
+  aspect-ratio: 4 / 3 !important;
+  overflow: hidden !important;
+  background: #170d08 !important;
+}
+
+.story-sig-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  transition: transform 0.35s ease !important;
+}
+
+.story-sig-card:hover .story-sig-img {
+  transform: scale(1.06) !important;
+}
+
+.story-sig-tag {
+  position: absolute !important;
+  top: 10px !important;
+  left: 10px !important;
+  background: rgba(16, 8, 4, 0.86) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(245, 166, 35, 0.4) !important;
+  color: #ffb347 !important;
+  font-size: 0.7rem !important;
+  font-weight: 700 !important;
+  padding: 4px 10px !important;
+  border-radius: 99px !important;
+}
+
+.story-sig-body {
+  padding: 12px 14px 14px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 5px !important;
+  flex: 1 !important;
+}
+
+.story-sig-title {
+  font-family: Fraunces, Georgia, serif !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  color: #faf5ee !important;
+  margin: 0 !important;
+  line-height: 1.25 !important;
+}
+
+.story-sig-desc {
+  font-size: 0.82rem !important;
+  line-height: 1.45 !important;
+  color: #c9b8a8 !important;
+  margin: 0 !important;
+}
+
+/* ==========================================================================
+   BİZ KİMİZ: PROFESYONEL RESTORAN LEZZET KOLAJI (EDITORIAL BENTO SHOWCASE)
+   ========================================================================== */
+.story-editorial-collage {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  width: 100% !important;
+  background: linear-gradient(155deg, rgba(28, 16, 10, 0.92) 0%, rgba(16, 9, 5, 0.96) 100%) !important;
+  border: 1px solid rgba(255, 130, 40, 0.24) !important;
+  border-radius: 24px !important;
+  padding: 14px !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 32px rgba(230, 74, 25, 0.1) !important;
+  box-sizing: border-box !important;
+}
+
+.editorial-main-card {
+  position: relative !important;
+  width: 100% !important;
+  aspect-ratio: 16 / 10 !important;
+  min-height: 220px !important;
+  border-radius: 18px !important;
+  overflow: hidden !important;
+  background: #140a05 !important;
+  border: 1px solid rgba(255, 160, 60, 0.22) !important;
+}
+
+.editorial-main-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center 45% !important;
+  display: block !important;
+  transition: transform 0.45s ease !important;
+}
+
+.editorial-main-card:hover .editorial-main-img {
+  transform: scale(1.04) !important;
+}
+
+.editorial-main-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 5, 2, 0.35) 0%,
+    rgba(10, 5, 2, 0.08) 40%,
+    rgba(10, 5, 2, 0.88) 100%
+  ) !important;
+  pointer-events: none !important;
+}
+
+.editorial-top-pill {
+  position: absolute !important;
+  top: 12px !important;
+  left: 12px !important;
+  z-index: 2 !important;
+  background: rgba(16, 8, 4, 0.86) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(245, 166, 35, 0.48) !important;
+  color: #ffb347 !important;
+  font-size: 0.7rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  padding: 5px 12px !important;
+  border-radius: 99px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45) !important;
+}
+
+.editorial-main-caption {
+  position: absolute !important;
+  bottom: 14px !important;
+  left: 16px !important;
+  right: 16px !important;
+  z-index: 2 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3px !important;
+}
+
+.editorial-main-caption strong {
+  font-family: Fraunces, Georgia, serif !important;
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+  color: #faf5ee !important;
+  line-height: 1.2 !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9) !important;
+}
+
+.editorial-main-caption span {
+  font-size: 0.8rem !important;
+  color: #e4d5c7 !important;
+  line-height: 1.35 !important;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9) !important;
+}
+
+.editorial-sub-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+}
+
+.editorial-sub-card {
+  position: relative !important;
+  width: 100% !important;
+  aspect-ratio: 4 / 3 !important;
+  border-radius: 15px !important;
+  overflow: hidden !important;
+  background: #140a05 !important;
+  border: 1px solid rgba(255, 140, 50, 0.18) !important;
+}
+
+.editorial-sub-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  transition: transform 0.4s ease !important;
+}
+
+.editorial-sub-card:hover .editorial-sub-img {
+  transform: scale(1.06) !important;
+}
+
+.editorial-sub-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(
+    180deg,
+    transparent 30%,
+    rgba(10, 5, 2, 0.9) 100%
+  ) !important;
+  pointer-events: none !important;
+}
+
+.editorial-sub-caption {
+  position: absolute !important;
+  bottom: 10px !important;
+  left: 12px !important;
+  right: 12px !important;
+  z-index: 2 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1px !important;
+}
+
+.editorial-sub-caption strong {
+  font-family: Fraunces, Georgia, serif !important;
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  color: #faf5ee !important;
+  line-height: 1.2 !important;
+}
+
+.editorial-sub-caption small {
+  font-size: 0.74rem !important;
+  color: #ffb347 !important;
+  font-weight: 600 !important;
+}
+
+.editorial-badges-bar {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+}
+
+.editorial-badge-pill {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  background: rgba(255, 115, 25, 0.08) !important;
+  border: 1px solid rgba(245, 166, 35, 0.25) !important;
+  border-radius: 14px !important;
+  padding: 10px 12px !important;
+}
+
+.editorial-badge-ico {
+  font-size: 1.25rem !important;
+  line-height: 1 !important;
+  flex-shrink: 0 !important;
+}
+
+.editorial-badge-info {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1px !important;
+  min-width: 0 !important;
+}
+
+.editorial-badge-info strong {
+  font-size: 0.84rem !important;
+  font-weight: 700 !important;
+  color: #faf5ee !important;
+  line-height: 1.2 !important;
+}
+
+.editorial-badge-info small {
+  font-size: 0.73rem !important;
+  color: #c9b8a8 !important;
+  line-height: 1.2 !important;
+}
+
+@media (max-width: 420px) {
+  .editorial-badges-bar {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+}
+
+
 
 
