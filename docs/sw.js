@@ -1,6 +1,21 @@
-const CACHE_NAME = 'lovemacun-shell-v4'
-const DATA_CACHE_NAME = 'lovemacun-data-v4'
-const IMAGE_CACHE_NAME = 'lovemacun-images-v4'
+const CACHE_NAME = 'lovemacun-shell-v5'
+const DATA_CACHE_NAME = 'lovemacun-data-v5'
+const IMAGE_CACHE_NAME = 'lovemacun-images-v5'
+
+function getBasePath() {
+  try {
+    const scopeUrl = new URL(self.registration.scope)
+    return scopeUrl.pathname.replace(/\/$/, '')
+  } catch {
+    return ''
+  }
+}
+
+function withBase(p) {
+  const base = getBasePath()
+  if (!base) return p
+  return p === '/' ? `${base}/` : `${base}${p}`
+}
 
 // Uygulama kabuğu varlıkları
 const APP_SHELL = [
@@ -13,15 +28,15 @@ const APP_SHELL = [
   '/favicon.svg'
 ]
 
-// İlk 20 popüler ürün görseli (önbelleğe alınır)
+// İlk popüler ürün görselleri (önbelleğe alınır)
 const INITIAL_IMAGES = [
-  '/img-cut/lahmacun/lovemacunn-restaurant-lahmacun-400x400.webp',
+  '/img-cut/lahmacun/lovemacunn-restaurant-kebapli-lahmacun-400x400.webp',
   '/img-cut/pide/lovemacunn-restaurant-kiymali-kasarli-400x400.webp',
   '/img-cut/pide/lovemacunn-restaurant-kasarli-pide-400x400.webp',
   '/img-cut/pide/lovemacunn-restaurant-kusbasi-kasar-400x400.webp',
   '/img-cut/et/lovemacunn-restaurant-iskender-400x400.webp',
   '/img-cut/et/lovemacunn-restaurant-adana-kebap-400x400.webp',
-  '/img-cut/et/lovemacunn-restaurant-urfa-kebap-400x400.webp',
+  '/img-cut/et/lovemacunn-restaurant-kuzu-sis-400x400.webp',
   '/img-cut/et/lovemacunn-restaurant-beyti-400x400.webp',
   '/img-cut/tatlilar/lovemacunn-restaurant-kunefe-400x400.webp',
   '/img-cut/tatlilar/lovemacunn-restaurant-baklava-400x400.webp'
@@ -31,11 +46,12 @@ const INITIAL_IMAGES = [
 self.addEventListener('install', (event) => {
   event.waitUntil(
     Promise.all([
-      caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL)),
-      caches.open(IMAGE_CACHE_NAME).then((cache) => {
-        // Hata durumunda devam et
-        return Promise.allSettled(INITIAL_IMAGES.map((url) => cache.add(url)))
-      })
+      caches.open(CACHE_NAME).then((cache) =>
+        Promise.allSettled(APP_SHELL.map((url) => cache.add(withBase(url))))
+      ),
+      caches.open(IMAGE_CACHE_NAME).then((cache) =>
+        Promise.allSettled(INITIAL_IMAGES.map((url) => cache.add(withBase(url))))
+      )
     ]).then(() => self.skipWaiting())
   )
 })
@@ -62,10 +78,10 @@ self.addEventListener('fetch', (event) => {
 
   // 0. YÖNETİM VE API İSTEKLERİNİ ASLA ÖNBELLEĞE ALMA (Doğrudan sunucuya bırak)
   if (
-    url.pathname.startsWith('/yonetim') ||
-    url.pathname.startsWith('/api') ||
-    url.pathname.startsWith('/backups') ||
-    url.pathname.startsWith('/logs')
+    url.pathname.includes('/yonetim') ||
+    url.pathname.includes('/api') ||
+    url.pathname.includes('/backups') ||
+    url.pathname.includes('/logs')
   ) {
     return
   }
@@ -77,7 +93,7 @@ self.addEventListener('fetch', (event) => {
     url.pathname.includes('/video/') ||
     req.headers.get('range')
   ) {
-    return // Doğrudan ağa bırak
+    return
   }
 
   // 2. Google Translate isteklerini atla
@@ -88,9 +104,9 @@ self.addEventListener('fetch', (event) => {
   // 3. Görseller: Stale-While-Revalidate (önce önbellekten ver, arka planda güncelle)
   if (
     req.destination === 'image' ||
-    url.pathname.startsWith('/img/') ||
-    url.pathname.startsWith('/img-cut/') ||
-    url.pathname.startsWith('/hero/')
+    url.pathname.includes('/img/') ||
+    url.pathname.includes('/img-cut/') ||
+    url.pathname.includes('/hero/')
   ) {
     event.respondWith(
       caches.open(IMAGE_CACHE_NAME).then((cache) => {
@@ -112,7 +128,7 @@ self.addEventListener('fetch', (event) => {
   }
 
   // 4. HTML ve Menü Verisi: Network-First (önce ağ, çevrimdışıysa önbellek - güncel fiyat garantisi)
-  if (req.mode === 'navigate' || url.pathname === '/' || url.pathname.endsWith('.json')) {
+  if (req.mode === 'navigate' || url.pathname.endsWith('/') || url.pathname.endsWith('.json')) {
     event.respondWith(
       fetch(req)
         .then((networkResponse) => {
@@ -124,7 +140,7 @@ self.addEventListener('fetch', (event) => {
         })
         .catch(() => {
           return caches.match(req).then((cached) => {
-            return cached || caches.match('/index.html') || caches.match('/')
+            return cached || caches.match(withBase('/index.html')) || caches.match(withBase('/'))
           })
         })
     )

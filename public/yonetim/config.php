@@ -1,3 +1,6 @@
 <?php
-if (!defined('AUTH_INCLUDED')) { exit('Dogrudan erisim engellendi.'); }
-define('ADMIN_PASSWORD_HASH', '$argon2id$v=19$m=65536,t=4,p=1$T3hqZXFlWmZuRGttajZjSA$qHZWlUy3iKZwUySTTrn4uYvyXL0kp/LcnuzNhB67gfA');
+if (!defined('AUTH_INCLUDED')) {
+    http_response_code(403);
+    exit('Dogrudan erisim engellendi.');
+}
+// Kullanıcı kimlik bilgileri güvenli şekilde users.json (tasfirin-data/users.json) içinde tutulmaktadır.
